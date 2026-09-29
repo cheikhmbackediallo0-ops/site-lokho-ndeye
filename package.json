@@ -1,0 +1,20 @@
+{
+  "name": "site-lokho-ndeye",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build_site_local.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "generate": "tsx index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@higgsfield/client": "^0.2.6",
+    "dotenv": "^18.0.4",
+    "tsx": "^4.23.15"
+  }
+}
