@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScrollProgress();
 
   // ==========================================================================
-  // 4. MOTEUR DE CAROUSEL AUTOMATIQUE HERO CINÉMATIQUE (DÉFILEMENT AUTO)
+  // 4. PRÉSENTATION FIXE DU HERO (ACTE 1 UNIQUE SANS DÉFILEMENT)
   // ==========================================================================
   const heroSection = document.querySelector('.hero-carousel-section');
   const heroSlideTexts = document.querySelectorAll('.hero-slide-text');
@@ -324,32 +324,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroCurrentSlideNum = document.getElementById('heroCurrentSlideNum');
 
   let currentSlideIndex = 0;
-  const totalSlides = heroVisualSlides.length || 3;
-  const SLIDE_DURATION = 5500; // 5.5 secondes par diapositive
+  const totalSlides = heroVisualSlides.length || 1;
+  const SLIDE_DURATION = 5500;
   let slideInterval = null;
-  let isAutoPlayActive = true;
+  let isAutoPlayActive = false;
   let isHovered = false;
 
   function goToHeroSlide(index) {
-    // Normalisation de l'index cyclique (0, 1, 2)
+    if (totalSlides <= 1) {
+      currentSlideIndex = 0;
+      heroSlideTexts.forEach(slide => slide.classList.add('active'));
+      heroVisualSlides.forEach(slide => slide.classList.add('active'));
+      return;
+    }
+
+    // Normalisation de l'index cyclique si multi-slides
     currentSlideIndex = (index + totalSlides) % totalSlides;
 
     // 1. Textes narratifs
     heroSlideTexts.forEach((slide, i) => {
-      if (i === currentSlideIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
+      slide.classList.toggle('active', i === currentSlideIndex);
     });
 
     // 2. Diapositives visuelles au premier plan
     heroVisualSlides.forEach((slide, i) => {
-      if (i === currentSlideIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
+      slide.classList.toggle('active', i === currentSlideIndex);
     });
 
     // 3. Puces de progression
@@ -357,14 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCurrent = (i === currentSlideIndex);
       btn.classList.toggle('active', isCurrent);
       btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
-      
-      // Réinitialisation de la barre de progression pour relancer l'animation
-      const progressBar = btn.querySelector('.hero-dot-progress');
-      if (progressBar && isCurrent) {
-        progressBar.style.animation = 'none';
-        void progressBar.offsetWidth; // Déclenche le reflow
-        progressBar.style.animation = '';
-      }
     });
 
     // 4. Miniatures interactives (Thumbnails)
@@ -379,6 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startHeroAutoPlay() {
+    if (totalSlides <= 1) return;
     if (slideInterval) clearInterval(slideInterval);
     slideInterval = setInterval(() => {
       if (isAutoPlayActive && !isHovered) {
@@ -395,19 +387,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function resetAutoPlayTimer() {
+    if (totalSlides <= 1) return;
     stopHeroAutoPlay();
     startHeroAutoPlay();
   }
 
   // Écouteurs pour les boutons Précédent & Suivant
-  if (heroPrevBtn) {
+  if (heroPrevBtn && totalSlides > 1) {
     heroPrevBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex - 1);
       resetAutoPlayTimer();
     });
   }
 
-  if (heroNextBtn) {
+  if (heroNextBtn && totalSlides > 1) {
     heroNextBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex + 1);
       resetAutoPlayTimer();
@@ -415,115 +408,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Écouteurs pour les puces de pagination
-  heroDotBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
-      if (!isNaN(targetIndex)) {
-        goToHeroSlide(targetIndex);
-        resetAutoPlayTimer();
-      }
-    });
-  });
-
-  // Écouteurs pour les miniatures (Thumbnails)
-  heroThumbCards.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
-      if (!isNaN(targetIndex)) {
-        goToHeroSlide(targetIndex);
-        resetAutoPlayTimer();
-      }
-    });
-  });
-
-  // Bouton Lecture / Pause
-  if (heroPlayPauseBtn) {
-    const iconPause = heroPlayPauseBtn.querySelector('.icon-pause');
-    const iconPlay = heroPlayPauseBtn.querySelector('.icon-play');
-
-    heroPlayPauseBtn.addEventListener('click', () => {
-      isAutoPlayActive = !isAutoPlayActive;
-      
-      if (iconPause && iconPlay) {
-        iconPause.style.display = isAutoPlayActive ? 'block' : 'none';
-        iconPlay.style.display = isAutoPlayActive ? 'none' : 'block';
-      }
-
-      heroPlayPauseBtn.setAttribute(
-        'aria-label',
-        isAutoPlayActive ? 'Mettre en pause le défilement automatique' : 'Activer le défilement automatique'
-      );
-
-      heroDotBtns.forEach(btn => {
-        btn.classList.toggle('paused', !isAutoPlayActive);
+  if (totalSlides > 1) {
+    heroDotBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
       });
+    });
 
-      if (isAutoPlayActive) {
-        startHeroAutoPlay();
-      } else {
-        stopHeroAutoPlay();
-      }
+    heroThumbCards.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
+      });
     });
   }
 
-  // Pause automatique au survol de la souris
-  if (heroSection) {
-    heroSection.addEventListener('mouseenter', () => {
-      isHovered = true;
-      heroDotBtns.forEach(btn => btn.classList.add('paused'));
-    });
-
-    heroSection.addEventListener('mouseleave', () => {
-      isHovered = false;
-      heroDotBtns.forEach(btn => btn.classList.remove('paused'));
-    });
-
-    // Support des gestes tactiles Swipe sur mobile / tablette
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    heroSection.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    heroSection.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleHeroSwipe();
-    }, { passive: true });
-
-    function handleHeroSwipe() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 45) {
-        if (swipeDistance < 0) {
-          goToHeroSlide(currentSlideIndex + 1); // Swipe gauche -> slide suivant
-        } else {
-          goToHeroSlide(currentSlideIndex - 1); // Swipe droite -> slide précédent
-        }
-        resetAutoPlayTimer();
-      }
-    }
-  }
-
-  // Navigation au clavier lorsque le Hero est dans le viewport
-  window.addEventListener('keydown', (e) => {
-    if (heroSection) {
-      const rect = heroSection.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView && !['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) {
-        if (e.key === 'ArrowLeft') {
-          goToHeroSlide(currentSlideIndex - 1);
-          resetAutoPlayTimer();
-        } else if (e.key === 'ArrowRight') {
-          goToHeroSlide(currentSlideIndex + 1);
-          resetAutoPlayTimer();
-        }
-      }
-    }
-  });
-
-  // Initialisation du premier slide et lancement du défilement automatique
+  // Initialisation de l'affichage unique (Acte 1)
   goToHeroSlide(0);
-  startHeroAutoPlay();
 
   // ==========================================================================
   // 5. CANEVAS DE POUSSIÈRE D'OR & LUMIÈRE INTERACTIVE (HTML5 Canvas)

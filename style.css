@@ -841,19 +841,16 @@ section[id] {
 
 .hero-narrative-track {
   position: relative;
-  min-height: 390px;
+  min-height: auto;
 }
 
 .hero-slide-text {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(18px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .hero-slide-text.active {
@@ -1008,12 +1005,7 @@ section[id] {
    BARRE DE CONTRÔLE DU DÉFILEMENT AUTOMATIQUE (SLIDER CONTROLS)
    ========================================================================== */
 .hero-slider-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: none !important;
 }
 
 .hero-nav-arrow {
@@ -1308,10 +1300,7 @@ section[id] {
 
 /* Miniatures Interactives (Thumbnails Row) */
 .hero-thumbs-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  width: 100%;
+  display: none !important;
 }
 
 .hero-thumb-card {

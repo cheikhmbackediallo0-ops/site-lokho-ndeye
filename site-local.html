@@ -878,19 +878,16 @@ section[id] {
 
 .hero-narrative-track {
   position: relative;
-  min-height: 390px;
+  min-height: auto;
 }
 
 .hero-slide-text {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(18px);
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .hero-slide-text.active {
@@ -1045,12 +1042,7 @@ section[id] {
    BARRE DE CONTRÔLE DU DÉFILEMENT AUTOMATIQUE (SLIDER CONTROLS)
    ========================================================================== */
 .hero-slider-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: none !important;
 }
 
 .hero-nav-arrow {
@@ -1345,10 +1337,7 @@ section[id] {
 
 /* Miniatures Interactives (Thumbnails Row) */
 .hero-thumbs-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  width: 100%;
+  display: none !important;
 }
 
 .hero-thumb-card {
@@ -4627,128 +4616,12 @@ html, body {
                 </div>
               </article>
 
-              <!-- ACTE 2 : La Main tendue d'une mère & Les Engagements -->
-              <article class="hero-slide-text" data-slide="1" id="heroSlideText1">
-                <div class="hero-act-badge">
-                  <span class="badge-tag" data-i18n="hero_act2_tag">ACTE II</span>
-                  <span class="badge-sep">•</span>
-                  <span class="badge-label" data-i18n="hero_act2_badge">Une Réponse Concrète & Structurée</span>
-                </div>
-                <h2 class="hero-main-title" data-i18n-html="hero_act2_title">
-                  « Lokho Ndéye » : <span class="hero-title-highlight">La tendresse et la rigueur</span> au service de la dignité
-                </h2>
-                <p class="hero-main-desc" data-i18n="hero_act2_desc">
-                  Reconnue par le Code des Obligations Civiles et Commerciales de la République du Sénégal, notre structure déploie ses actions d'urgence sur tout le Sénégal avec une gestion bénévole irréprochable.
-                </p>
-                <div class="hero-stats-mini-grid" style="grid-template-columns: repeat(2, 1fr);">
-                  <div class="hero-stat-box">
-                    <span class="hero-stat-num">100%</span>
-                    <span class="hero-stat-lbl" data-i18n="hero_stat_volunteer_lbl">Bénévolat Intégral</span>
-                  </div>
-                  <div class="hero-stat-box">
-                    <span class="hero-stat-num" data-i18n="hero_stat_territory_num">Sénégal</span>
-                    <span class="hero-stat-lbl" data-i18n="hero_stat_territory_lbl">Action sur Tout le Territoire</span>
-                  </div>
-                </div>
-                <div class="hero-cta-group">
-                  <a href="#actions" class="btn btn-secondary" data-i18n="hero_btn_see_actions">
-                    Voir nos actions en cours
-                  </a>
-                  <a href="#faire-un-don" class="btn btn-outline hero-btn-light" data-i18n="hero_btn_support_mothers">
-                    Soutenir les mères
-                  </a>
-                </div>
-              </article>
-
-              <!-- ACTE 3 : Bâtir un Futur Durable -->
-              <article class="hero-slide-text" data-slide="2" id="heroSlideText2">
-                <div class="hero-act-badge">
-                  <span class="badge-tag" data-i18n="hero_act3_tag">ACTE III</span>
-                  <span class="badge-sep">•</span>
-                  <span class="badge-label" data-i18n="hero_act3_badge">Bâtir un Futur Durable</span>
-                </div>
-                <h2 class="hero-main-title" data-i18n-html="hero_act3_title">
-                  Partager • Nourrir • Soutenir • <span class="hero-title-highlight">Construire demain</span>
-                </h2>
-                <p class="hero-main-desc" data-i18n="hero_act3_desc">
-                  Chaque donateur devient un maillon essentiel de cette chaîne humaine. En unissant nos forces, nous offrons à chaque enfant et à chaque mère vulnérable la certitude qu'ils ne sont plus seuls.
-                </p>
-                <div class="hero-tags-row">
-                  <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <span data-i18n="hero_tag_transparency">Transparence Totale</span></span>
-                  <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg> <span data-i18n="hero_tag_security">Dons Sécurisés</span></span>
-                  <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg> <span data-i18n="hero_tag_solidarity">Solidarité Active</span></span>
-                </div>
-                <div class="hero-cta-group">
-                  <a href="#faire-un-don" class="btn btn-primary btn-pulse">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                    </svg>
-                    <span data-i18n="hero_btn_join_donors">Rejoindre les donateurs</span>
-                  </a>
-                  <a href="#transparence" class="btn btn-outline hero-btn-light" data-i18n="hero_btn_transparency_guarantees">
-                    Garanties de transparence
-                  </a>
-                </div>
-              </article>
-
             </div>
-
-            <!-- ==============================================================
-                 BARRE DE CONTRÔLE DU DÉFILEMENT AUTOMATIQUE (SLIDER CONTROLS)
-                 ============================================================== -->
-            <div class="hero-slider-controls">
-              <!-- Bouton Précédent -->
-              <button class="hero-nav-arrow" id="heroPrevBtn" aria-label="Diapositive précédente" title="Précédent" data-i18n-aria="hero_prev_aria" data-i18n-title="hero_prev_aria">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-              </button>
-
-              <!-- Puces & Barres de Progression Auto-play -->
-              <div class="hero-dots-container" role="tablist" aria-label="Sélection des diapositives">
-                <button class="hero-dot-btn active" data-slide="0" role="tab" aria-selected="true" aria-label="Acte 1 : Réalité & Urgence">
-                  <span class="hero-dot-progress"></span>
-                  <span class="hero-dot-title" data-i18n="hero_dot_1">01. Enfance & Urgence</span>
-                </button>
-                <button class="hero-dot-btn" data-slide="1" role="tab" aria-selected="false" aria-label="Acte 2 : Maternité & Action">
-                  <span class="hero-dot-progress"></span>
-                  <span class="hero-dot-title" data-i18n="hero_dot_2">02. Maternité & Action</span>
-                </button>
-                <button class="hero-dot-btn" data-slide="2" role="tab" aria-selected="false" aria-label="Acte 3 : Avenir & Solidarité">
-                  <span class="hero-dot-progress"></span>
-                  <span class="hero-dot-title" data-i18n="hero_dot_3">03. Avenir & Solidarité</span>
-                </button>
-              </div>
-
-              <!-- Bouton Lecture / Pause -->
-              <button class="hero-play-pause-btn" id="heroPlayPauseBtn" aria-label="Mettre en pause le défilement automatique" title="Lecture / Pause" data-i18n-aria="hero_play_pause_aria">
-                <svg class="icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="6" y="4" width="4" height="16"></rect>
-                  <rect x="14" y="4" width="4" height="16"></rect>
-                </svg>
-                <svg class="icon-play" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-              </button>
-
-              <!-- Bouton Suivant -->
-              <button class="hero-nav-arrow" id="heroNextBtn" aria-label="Diapositive suivante" title="Suivant" data-i18n-aria="hero_next_aria" data-i18n-title="hero_next_aria">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-              </button>
-
-              <!-- Compteur de slide -->
-              <div class="hero-slide-counter">
-                <span id="heroCurrentSlideNum">01</span><span class="counter-sep">/</span><span>03</span>
-              </div>
-            </div>
-
           </div>
 
           <!-- ==================================================================
                COLONNE 2 : VITRINE VISUELLE AU PREMIER PLAN (PROMINENT FOREGROUND)
-               Mise en scène haute-visibilité des images avec cartes flottantes & miniatures
+               Mise en scène haute-visibilité de l'image principale
                ================================================================== -->
           <div class="hero-visual-col">
             <div class="hero-foreground-stage">
@@ -4758,51 +4631,7 @@ html, body {
                 <div class="hero-visual-slide active" data-slide="0" id="heroVisualSlide0">
                   <img src="assets/enfants-talibes-saly.jpg" alt="Enfants talibés marchant dans les rues au Sénégal" class="hero-stage-img">
                 </div>
-
-                <!-- Slide Image 2 : Maternité & Enfance -->
-                <div class="hero-visual-slide" data-slide="1" id="heroVisualSlide1">
-                  <img src="assets/maternite-enfance.jpg" alt="Protection des mères et des nourrissons au Sénégal" class="hero-stage-img">
-                </div>
-
-                <!-- Slide Image 3 : Mains solidaires -->
-                <div class="hero-visual-slide" data-slide="2" id="heroVisualSlide2">
-                  <img src="assets/mains-solidaires.jpg" alt="Mains solidaires et entraide communautaire au Sénégal" class="hero-stage-img">
-                </div>
               </div>
-
-              <!-- Miniatures Interactives de Changement Rapide (Thumbnails) -->
-              <div class="hero-thumbs-row" aria-label="Aperçu rapide des actes">
-                <button class="hero-thumb-card active" data-slide="0" aria-label="Afficher Acte 1 : Enfance & Urgence">
-                  <div class="thumb-img-wrap">
-                    <img src="assets/enfants-talibes-saly.jpg" alt="Miniature Enfants Talibés">
-                  </div>
-                  <div class="thumb-info">
-                    <span class="thumb-act" data-i18n="thumb_act_1">Acte 01</span>
-                    <span class="thumb-title" data-i18n="thumb_1_title">Enfance & Urgence</span>
-                  </div>
-                </button>
-
-                <button class="hero-thumb-card" data-slide="1" aria-label="Afficher Acte 2 : Maternité & Action">
-                  <div class="thumb-img-wrap">
-                    <img src="assets/maternite-enfance.jpg" alt="Miniature Maternité">
-                  </div>
-                  <div class="thumb-info">
-                    <span class="thumb-act" data-i18n="thumb_act_2">Acte 02</span>
-                    <span class="thumb-title" data-i18n="thumb_2_title">Mères & Soins</span>
-                  </div>
-                </button>
-
-                <button class="hero-thumb-card" data-slide="2" aria-label="Afficher Acte 3 : Avenir & Solidarité">
-                  <div class="thumb-img-wrap">
-                    <img src="assets/mains-solidaires.jpg" alt="Miniature Solidarité">
-                  </div>
-                  <div class="thumb-info">
-                    <span class="thumb-act" data-i18n="thumb_act_3">Acte 03</span>
-                    <span class="thumb-title" data-i18n="thumb_3_title">Union & Avenir</span>
-                  </div>
-                </button>
-              </div>
-
             </div>
           </div>
 
@@ -7199,7 +7028,7 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScrollProgress();
 
   // ==========================================================================
-  // 4. MOTEUR DE CAROUSEL AUTOMATIQUE HERO CINÉMATIQUE (DÉFILEMENT AUTO)
+  // 4. PRÉSENTATION FIXE DU HERO (ACTE 1 UNIQUE SANS DÉFILEMENT)
   // ==========================================================================
   const heroSection = document.querySelector('.hero-carousel-section');
   const heroSlideTexts = document.querySelectorAll('.hero-slide-text');
@@ -7212,32 +7041,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroCurrentSlideNum = document.getElementById('heroCurrentSlideNum');
 
   let currentSlideIndex = 0;
-  const totalSlides = heroVisualSlides.length || 3;
-  const SLIDE_DURATION = 5500; // 5.5 secondes par diapositive
+  const totalSlides = heroVisualSlides.length || 1;
+  const SLIDE_DURATION = 5500;
   let slideInterval = null;
-  let isAutoPlayActive = true;
+  let isAutoPlayActive = false;
   let isHovered = false;
 
   function goToHeroSlide(index) {
-    // Normalisation de l'index cyclique (0, 1, 2)
+    if (totalSlides <= 1) {
+      currentSlideIndex = 0;
+      heroSlideTexts.forEach(slide => slide.classList.add('active'));
+      heroVisualSlides.forEach(slide => slide.classList.add('active'));
+      return;
+    }
+
+    // Normalisation de l'index cyclique si multi-slides
     currentSlideIndex = (index + totalSlides) % totalSlides;
 
     // 1. Textes narratifs
     heroSlideTexts.forEach((slide, i) => {
-      if (i === currentSlideIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
+      slide.classList.toggle('active', i === currentSlideIndex);
     });
 
     // 2. Diapositives visuelles au premier plan
     heroVisualSlides.forEach((slide, i) => {
-      if (i === currentSlideIndex) {
-        slide.classList.add('active');
-      } else {
-        slide.classList.remove('active');
-      }
+      slide.classList.toggle('active', i === currentSlideIndex);
     });
 
     // 3. Puces de progression
@@ -7245,14 +7073,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isCurrent = (i === currentSlideIndex);
       btn.classList.toggle('active', isCurrent);
       btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
-      
-      // Réinitialisation de la barre de progression pour relancer l'animation
-      const progressBar = btn.querySelector('.hero-dot-progress');
-      if (progressBar && isCurrent) {
-        progressBar.style.animation = 'none';
-        void progressBar.offsetWidth; // Déclenche le reflow
-        progressBar.style.animation = '';
-      }
     });
 
     // 4. Miniatures interactives (Thumbnails)
@@ -7267,6 +7087,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function startHeroAutoPlay() {
+    if (totalSlides <= 1) return;
     if (slideInterval) clearInterval(slideInterval);
     slideInterval = setInterval(() => {
       if (isAutoPlayActive && !isHovered) {
@@ -7283,19 +7104,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function resetAutoPlayTimer() {
+    if (totalSlides <= 1) return;
     stopHeroAutoPlay();
     startHeroAutoPlay();
   }
 
   // Écouteurs pour les boutons Précédent & Suivant
-  if (heroPrevBtn) {
+  if (heroPrevBtn && totalSlides > 1) {
     heroPrevBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex - 1);
       resetAutoPlayTimer();
     });
   }
 
-  if (heroNextBtn) {
+  if (heroNextBtn && totalSlides > 1) {
     heroNextBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex + 1);
       resetAutoPlayTimer();
@@ -7303,115 +7125,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Écouteurs pour les puces de pagination
-  heroDotBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
-      if (!isNaN(targetIndex)) {
-        goToHeroSlide(targetIndex);
-        resetAutoPlayTimer();
-      }
-    });
-  });
-
-  // Écouteurs pour les miniatures (Thumbnails)
-  heroThumbCards.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
-      if (!isNaN(targetIndex)) {
-        goToHeroSlide(targetIndex);
-        resetAutoPlayTimer();
-      }
-    });
-  });
-
-  // Bouton Lecture / Pause
-  if (heroPlayPauseBtn) {
-    const iconPause = heroPlayPauseBtn.querySelector('.icon-pause');
-    const iconPlay = heroPlayPauseBtn.querySelector('.icon-play');
-
-    heroPlayPauseBtn.addEventListener('click', () => {
-      isAutoPlayActive = !isAutoPlayActive;
-      
-      if (iconPause && iconPlay) {
-        iconPause.style.display = isAutoPlayActive ? 'block' : 'none';
-        iconPlay.style.display = isAutoPlayActive ? 'none' : 'block';
-      }
-
-      heroPlayPauseBtn.setAttribute(
-        'aria-label',
-        isAutoPlayActive ? 'Mettre en pause le défilement automatique' : 'Activer le défilement automatique'
-      );
-
-      heroDotBtns.forEach(btn => {
-        btn.classList.toggle('paused', !isAutoPlayActive);
+  if (totalSlides > 1) {
+    heroDotBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
       });
+    });
 
-      if (isAutoPlayActive) {
-        startHeroAutoPlay();
-      } else {
-        stopHeroAutoPlay();
-      }
+    heroThumbCards.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
+      });
     });
   }
 
-  // Pause automatique au survol de la souris
-  if (heroSection) {
-    heroSection.addEventListener('mouseenter', () => {
-      isHovered = true;
-      heroDotBtns.forEach(btn => btn.classList.add('paused'));
-    });
-
-    heroSection.addEventListener('mouseleave', () => {
-      isHovered = false;
-      heroDotBtns.forEach(btn => btn.classList.remove('paused'));
-    });
-
-    // Support des gestes tactiles Swipe sur mobile / tablette
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    heroSection.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    heroSection.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleHeroSwipe();
-    }, { passive: true });
-
-    function handleHeroSwipe() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 45) {
-        if (swipeDistance < 0) {
-          goToHeroSlide(currentSlideIndex + 1); // Swipe gauche -> slide suivant
-        } else {
-          goToHeroSlide(currentSlideIndex - 1); // Swipe droite -> slide précédent
-        }
-        resetAutoPlayTimer();
-      }
-    }
-  }
-
-  // Navigation au clavier lorsque le Hero est dans le viewport
-  window.addEventListener('keydown', (e) => {
-    if (heroSection) {
-      const rect = heroSection.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (inView && !['input', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) {
-        if (e.key === 'ArrowLeft') {
-          goToHeroSlide(currentSlideIndex - 1);
-          resetAutoPlayTimer();
-        } else if (e.key === 'ArrowRight') {
-          goToHeroSlide(currentSlideIndex + 1);
-          resetAutoPlayTimer();
-        }
-      }
-    }
-  });
-
-  // Initialisation du premier slide et lancement du défilement automatique
+  // Initialisation de l'affichage unique (Acte 1)
   goToHeroSlide(0);
-  startHeroAutoPlay();
 
   // ==========================================================================
   // 5. CANEVAS DE POUSSIÈRE D'OR & LUMIÈRE INTERACTIVE (HTML5 Canvas)
