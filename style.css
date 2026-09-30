@@ -372,15 +372,15 @@ p:last-child {
 .brand-title {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.95rem;
-  letter-spacing: 0.03em;
+  font-size: clamp(1.2rem, 1.6vw, 1.75rem);
+  letter-spacing: 0.02em;
   color: #140804;
-  line-height: 1.1;
+  line-height: 1.15;
   text-transform: uppercase;
 }
 
 .site-header.scrolled .brand-title {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
 }
 
 .brand-tagline {
