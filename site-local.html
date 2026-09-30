@@ -3476,22 +3476,9 @@ html, body {
     display: none !important;
   }
 
-  /* 1. Barre supérieure institutionnelle sur mobile */
+  /* 1. Barre supérieure institutionnelle masquée sur mobile pour pureté visuelle et 0 débordement */
   .top-bar {
-    padding: 5px 0 !important;
-    font-size: 0.72rem !important;
-  }
-
-  .top-bar-left span.top-bar-separator,
-  .top-bar-left span:nth-child(3),
-  .top-bar-right {
     display: none !important;
-  }
-
-  .top-bar-left {
-    width: 100% !important;
-    justify-content: center !important;
-    text-align: center !important;
   }
 
   /* 2. En-tête mobile ultra-compact et fluide */
@@ -3677,20 +3664,50 @@ html, body {
     border-radius: var(--radius-full) !important;
   }
 
-  /* 3. Hero Section sur mobile */
+  /* ==========================================================================
+     3. PAGE D'ACCUEIL (SECTION HÉRO CINÉMATIQUE) — ADAPTATION MOBILE STRICTE
+     Reproduction responsive fidèle et sans débordement de la capture d'écran
+     ========================================================================== */
   .hero-carousel-section {
-    padding: 24px 0 36px !important;
+    padding: 16px 0 28px !important;
     min-height: auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   .hero-showcase-grid {
-    grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-narrative-col {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-narrative-track {
     min-height: auto !important;
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-slide-text {
@@ -3699,115 +3716,464 @@ html, body {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-slide-text.active {
     display: block !important;
   }
 
+  /* Badge d'Acte : "ACTE I • Réalité & Urgence Terrain" */
   .hero-act-badge {
-    margin-bottom: 10px !important;
-  }
-
-  .hero-main-title {
-    font-size: 1.55rem !important;
-    line-height: 1.25 !important;
-    word-break: break-word !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 14px !important;
     margin-bottom: 12px !important;
+    background: rgba(212, 132, 39, 0.18) !important;
+    border: 1px solid rgba(212, 132, 39, 0.45) !important;
+    border-radius: var(--radius-full) !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
+  .hero-act-badge .badge-tag {
+    font-size: 0.76rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    color: #F9D08B !important;
+  }
+
+  .hero-act-badge .badge-sep {
+    font-size: 0.72rem !important;
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .hero-act-badge .badge-label {
+    font-size: 0.78rem !important;
+    font-weight: 600 !important;
+    color: #F8ECE1 !important;
+  }
+
+  /* Grand Titre : lisible, percutant, retour à la ligne naturel, jamais tronqué */
+  .hero-main-title {
+    font-size: clamp(1.42rem, 5.5vw, 1.78rem) !important;
+    line-height: 1.24 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.015em !important;
+    color: #FFFFFF !important;
+    margin-bottom: 12px !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-title-highlight {
+    background: linear-gradient(135deg, #FCE0A6 0%, #F0A343 50%, #D48427 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline !important;
+  }
+
+  /* Description textuelle */
   .hero-main-desc {
     font-size: 0.92rem !important;
     line-height: 1.55 !important;
+    color: #F1E5DA !important;
     margin-bottom: 16px !important;
+    max-width: 100% !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    box-sizing: border-box !important;
   }
 
+  /* Tags de localisation & mission */
   .hero-tags-row {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 6px !important;
-    margin-bottom: 20px !important;
+    gap: 7px !important;
+    margin-bottom: 18px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-mini-tag {
-    font-size: 0.72rem !important;
-    padding: 4px 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    padding: 5px 11px !important;
+    font-size: 0.74rem !important;
+    font-weight: 600 !important;
+    color: #F8EFE6 !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    box-sizing: border-box !important;
   }
 
+  .hero-mini-tag svg {
+    width: 13px !important;
+    height: 13px !important;
+    color: var(--color-secondary) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Stats compactes Acte 2 sur mobile */
+  .hero-stats-mini-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 18px !important;
+    width: 100% !important;
+  }
+
+  .hero-stat-box {
+    padding: 10px 8px !important;
+  }
+
+  .hero-stat-num {
+    font-size: 1.25rem !important;
+  }
+
+  .hero-stat-lbl {
+    font-size: 0.68rem !important;
+  }
+
+  /* Boutons d'Appel à l'Action : pleine largeur, ergonomiques et empilés */
   .hero-cta-group {
     display: flex !important;
     flex-direction: column !important;
     gap: 10px !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    margin-bottom: 8px !important;
   }
 
   .hero-cta-group .btn {
     width: 100% !important;
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
-    min-height: 48px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    border-radius: var(--radius-full) !important;
     padding: 12px 18px !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
   }
 
-  /* Scène visuelle héros sur mobile */
+  .hero-cta-group .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 50%, var(--color-primary-dark) 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(166, 72, 35, 0.4) !important;
+    border: none !important;
+  }
+
+  .hero-cta-group .hero-btn-light {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Commandes de défilement du Carousel (Tabs Actes + Contrôles) */
+  .hero-slider-controls {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px 8px !important;
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Piste des 3 Actes : 3 colonnes égales fluides et tactiles */
+  .hero-dots-container {
+    display: flex !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    order: 1 !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-dot-btn {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    padding: 7px 5px !important;
+    border-radius: var(--radius-sm) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+  }
+
+  .hero-dot-btn.active {
+    background: rgba(212, 132, 39, 0.22) !important;
+    border-color: var(--color-secondary) !important;
+  }
+
+  .hero-dot-progress {
+    width: 100% !important;
+    height: 3px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-radius: 2px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-dot-title {
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    color: #EBDCCB !important;
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .hero-dot-btn.active .hero-dot-title {
+    color: #FFFFFF !important;
+  }
+
+  /* Barre d'outils inférieure : Flèches + Pause + Compteur */
+  .hero-nav-arrow {
+    order: 2 !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  .hero-play-pause-btn {
+    order: 3 !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+  }
+
+  #heroNextBtn {
+    order: 4 !important;
+  }
+
+  .hero-slide-counter {
+    order: 5 !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    color: var(--color-secondary-light) !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+  }
+
+  /* Scène Visuelle Héro : Cadre d'image principal */
   .hero-visual-col {
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-foreground-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
   }
 
   .hero-main-stage-frame {
     width: 100% !important;
     max-width: 100% !important;
-    height: 250px !important;
-    border-radius: var(--radius-md) !important;
+    height: 240px !important;
+    border-radius: 18px !important;
+    border: 1.5px solid rgba(212, 132, 39, 0.5) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(212, 132, 39, 0.2) !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
   }
 
+  .hero-stage-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* Badges flottants dans l'image sur mobile */
   .hero-float-badge {
-    padding: 5px 8px !important;
+    position: absolute !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 6px 10px !important;
+    background: rgba(18, 8, 4, 0.88) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(212, 132, 39, 0.4) !important;
+    border-radius: var(--radius-sm) !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+  }
+
+  .hero-float-badge.badge-tl {
+    top: 10px !important;
+    left: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+
+  .hero-float-badge.badge-br {
+    bottom: 44px !important;
+    right: 10px !important;
+    max-width: calc(100% - 20px) !important;
   }
 
   .float-badge-icon {
     width: 26px !important;
     height: 26px !important;
+    border-radius: 6px !important;
     font-size: 0.85rem !important;
+    flex-shrink: 0 !important;
   }
 
   .float-badge-content strong {
     font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
   }
 
   .float-badge-content span {
     font-size: 0.62rem !important;
+    line-height: 1.2 !important;
+    display: block !important;
   }
 
-  /* Commandes de défilement */
-  .hero-controls-bar {
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    margin-top: 14px !important;
-  }
-
-  .hero-slide-nav-pills {
+  /* Barre de légende inférieure du cadre d'image */
+  .hero-slide-caption-bar {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    padding: 7px 12px !important;
+    background: rgba(14, 5, 2, 0.92) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
     display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    z-index: 4 !important;
+    box-sizing: border-box !important;
+  }
+
+  .caption-tag {
+    background: var(--color-primary) !important;
+    color: #FFFFFF !important;
+    font-size: 0.62rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 2px 6px !important;
+    border-radius: var(--radius-xs) !important;
+    flex-shrink: 0 !important;
+  }
+
+  .caption-text {
+    font-size: 0.72rem !important;
+    color: #EBDCCB !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Miniatures inférieures sous l'image */
+  .hero-thumbs-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 6px !important;
     width: 100% !important;
-    overflow-x: auto !important;
-    padding-bottom: 4px !important;
-    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
   }
 
   .hero-thumb-card {
-    min-width: 130px !important;
-    padding: 6px !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 5px 6px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
   }
 
-  .hero-thumb-thumb {
-    width: 28px !important;
-    height: 28px !important;
+  .hero-thumb-card.active {
+    background: rgba(212, 132, 39, 0.2) !important;
+    border-color: var(--color-secondary) !important;
   }
 
-  .hero-thumb-title {
-    font-size: 0.72rem !important;
+  .thumb-img-wrap {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+  }
+
+  .thumb-img-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .thumb-info {
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .thumb-act {
+    font-size: 0.58rem !important;
+    color: var(--color-secondary-light) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+  }
+
+  .thumb-title {
+    font-size: 0.64rem !important;
+    font-weight: 600 !important;
+    color: #F8ECE1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   /* 4. Ruban kinétique défilant */
@@ -4047,7 +4413,16 @@ html, body {
   }
 
   .hero-main-title {
-    font-size: 1.4rem !important;
+    font-size: 1.42rem !important;
+    line-height: 1.22 !important;
+  }
+
+  .hero-main-stage-frame {
+    height: 215px !important;
+  }
+
+  .hero-float-badge.badge-br .float-badge-content span {
+    display: none !important;
   }
 }
 
