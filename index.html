@@ -101,7 +101,7 @@
     <div class="header-main-brand-bar">
       <div class="container header-brand-container">
         <!-- Logo en TRÈS GRAND FORMAT (155px) et dénomination officielle -->
-        <a href="#accueil" class="brand-link" aria-label="Retour à l'accueil de l'Association Caritative LOKHO NDEYE" title="Cliquer pour afficher l'emblème officiel en plein écran" onclick="if(event.target.closest('.brand-logo-wrap')){event.preventDefault();openModal('logoGrandFormatModal');}">
+        <a href="#accueil" class="brand-link" aria-label="Retour à l'accueil de l'Association Caritative LOKHO NDEYE" data-i18n-aria="brand_aria" title="Cliquer pour afficher l'emblème officiel en plein écran" onclick="if(event.target.closest('.brand-logo-wrap')){event.preventDefault();openModal('logoGrandFormatModal');}">
           <div class="brand-logo-wrap">
             <img src="assets/logo-grand-format.jpg" alt="Logo officiel de l'Association Caritative LOKHO NDEYE - La Main tendue d'une mère" width="155" height="155">
           </div>
@@ -206,7 +206,7 @@
          HERO SECTION DYNAMIQUE & CINÉMATIQUE (DÉFILEMENT AUTOMATIQUE & IMAGES AU PREMIER PLAN)
          Showcase interactif à défilement automatique avec mise en avant visuelle d'impact
          ========================================================================== -->
-    <section class="hero-carousel-section" id="accueil" aria-label="Présentation et missions de l'Association Caritative LOKHO NDEYE">
+    <section class="hero-carousel-section" id="accueil" aria-label="Présentation et missions de l'Association Caritative LOKHO NDEYE" data-i18n-aria="hero_section_aria">
       <!-- Arrière-plan atmosphérique & gradient d'ambiance chaude -->
       <div class="hero-cinematic-backdrop" aria-hidden="true">
         <div class="hero-cinematic-overlay"></div>
@@ -815,7 +815,7 @@
 
                 <div class="summary-row">
                   <span data-i18n="sum_beneficiary_lbl">Bénéficiaire officiel :</span>
-                  <span style="font-weight: 700; color: var(--color-dark);">Association Caritative LOKHO NDEYE</span>
+                  <span style="font-weight: 700; color: var(--color-dark);" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</span>
                 </div>
 
                 <div class="summary-row">
@@ -875,7 +875,7 @@
                   <tbody>
                     <tr>
                       <td data-i18n="lbl_account_name">Intitulé du compte :</td>
-                      <td id="bankAccountName">Association Caritative LOKHO NDEYE</td>
+                      <td id="bankAccountName" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
                     </tr>
                     <tr>
                       <td data-i18n="lbl_account_hq">Siège / Domiciliation :</td>
@@ -935,7 +935,7 @@
                     </tr>
                     <tr>
                       <td data-i18n="lbl_wave_recipient">Destinataire :</td>
-                      <td>Association Caritative LOKHO NDEYE</td>
+                      <td data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
                     </tr>
                     <tr>
                       <td data-i18n="lbl_wave_num">Numéro officiel :</td>
@@ -1441,7 +1441,7 @@
       <div class="modal-body" id="printablePledgeArea">
         <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px dashed var(--color-border); margin-bottom: 20px;">
           <img src="assets/logo.jpg" alt="Logo Lokho Ndeye" width="60" height="60" style="margin: 0 auto 10px; border-radius: 50%; border: 2px solid var(--color-secondary);">
-          <h4 style="font-size: 1.25rem; color: var(--color-primary); text-transform: uppercase; margin-bottom: 2px;">Association Caritative LOKHO NDEYE</h4>
+          <h4 style="font-size: 1.25rem; color: var(--color-primary); text-transform: uppercase; margin-bottom: 2px;" data-i18n="brand_title">ASSOCIATION CARITATIVE LOKHO NDEYE</h4>
           <span style="font-size: 0.8rem; font-style: italic; color: var(--color-secondary-dark);" data-i18n="modal_pledge_motto">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</span>
           <div style="font-size: 0.75rem; color: var(--color-text-light); margin-top: 4px;" data-i18n="modal_pledge_hq">Siège : Saly Station [Mbour] • Action Nationale sur tout le Sénégal</div>
         </div>

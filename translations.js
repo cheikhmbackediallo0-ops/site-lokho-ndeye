@@ -17,6 +17,9 @@ const translations = {
 
     // Brand & Header
     brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
+    official_beneficiary_name: "Association Caritative LOKHO NDEYE",
+    brand_aria: "Retour à l'accueil de l'Association Caritative LOKHO NDEYE",
+    hero_section_aria: "Présentation et missions de l'Association Caritative LOKHO NDEYE",
     brand_tagline: "« La Main tendue d'une mère »",
     brand_subtext: "Intervention sur tout le Sénégal • Siège social à Saly [Mbour] • Association Déclarée",
     header_trust_title: "Siège à Saly [Mbour]",
@@ -384,7 +387,7 @@ const translations = {
 
     modal_rib_title: "Demande du RIB / IBAN officiel complet",
     modal_rib_alert: "Afin de sécuriser les flux de virement bancaire et de prévenir toute tentative de fraude, le relevé d'identité bancaire complet (IBAN, Code Banque, Code Guichet, Clé RIB) est transmis sur demande officielle par le secrétariat administratif.",
-    modal_rib_recipient: "Association Caritative LOKHO NDEYE",
+    modal_rib_recipient: "Lokho Ndéye Charitable Association",
     modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Sénégal) — <em>Action sur tout le Sénégal</em>",
     modal_rib_instruction: "Pour recevoir instantanément l'attestation de domiciliation bancaire officielle par email, veuillez envoyer un message à :",
     modal_rib_note: "Indiquez simplement en objet : « Demande RIB officiel pour don ».",
@@ -421,8 +424,8 @@ const translations = {
 
   en: {
     // Page Title & Meta
-    page_title: "Association Caritative LOKHO NDEYE | A Mother's Outstretched Hand — Solidarity in Senegal",
-    meta_description: "Official website of Association Caritative LOKHO NDEYE (A Mother's Outstretched Hand), a non-profit registered charity operating across all of Senegal. Headquarters: Saly [Mbour], Senegal. Relief for vulnerable groups, food security, protection of mothers and children.",
+    page_title: "Lokho Ndéye Charitable Association | A Mother's Outstretched Hand — Solidarity in Senegal",
+    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), a non-profit registered charity operating across all of Senegal. Headquarters: Saly [Mbour], Senegal. Relief for vulnerable groups, food security, protection of mothers and children.",
 
     // Top Bar
     topbar_hq: "Headquarters: Saly [Mbour] — Operating throughout Senegal",
@@ -431,7 +434,10 @@ const translations = {
     mobile_lang_label: "Site Language:",
 
     // Brand & Header
-    brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
+    brand_title: "CHARITABLE ASSOCIATION LOKHO NDEYE",
+    official_beneficiary_name: "Lokho Ndéye Charitable Association",
+    brand_aria: "Back to home - Lokho Ndéye Charitable Association",
+    hero_section_aria: "Presentation and missions of the Lokho Ndéye Charitable Association",
     brand_tagline: "“A Mother's Outstretched Hand”",
     brand_subtext: "Operating across all of Senegal • Headquarters in Saly [Mbour] • Registered Charity",
     header_trust_title: "Headquarters in Saly [Mbour]",
@@ -454,7 +460,7 @@ const translations = {
     hero_act1_tag: "ACT I",
     hero_act1_badge: "On-the-ground Reality & Urgency",
     hero_act1_title: "Across Senegal, children and mothers reach out their hands. <span class=\"hero-title-highlight\">We welcome them with open arms.</span>",
-    hero_act1_desc: "Confronting the hardship of talibé children and the distress of vulnerable single mothers throughout Senegal, Association Caritative LOKHO NDEYE transforms every gesture into a nutritious meal, vital healthcare, and compassionate support.",
+    hero_act1_desc: "Confronting the hardship of talibé children and the distress of vulnerable single mothers throughout Senegal, the Lokho Ndéye Charitable Association transforms every gesture into a nutritious meal, vital healthcare, and compassionate support.",
     hero_tag_senegal: "All of Senegal",
     hero_tag_childhood: "Child Protection",
     hero_tag_hq: "HQ in Saly [Mbour]",
@@ -617,7 +623,7 @@ const translations = {
     // Section Pourquoi nous soutenir
     why_tag: "Alliance of Solidarity",
     why_title: "Why Your Support Changes Everything",
-    why_sub: "Giving to Association Caritative LOKHO NDEYE ensures authentic, direct, and fully accountable solidarity.",
+    why_sub: "Giving to the Lokho Ndéye Charitable Association ensures authentic, direct, and fully accountable solidarity.",
     why_item1_title: "Immediate grassroots action",
     why_item1_desc: "Your contribution is not absorbed by bureaucratic overhead: it materializes directly as food supplies and hands-on help for vulnerable families across Senegal.",
     why_item2_title: "Transparency and statutory integrity",
@@ -671,7 +677,7 @@ const translations = {
     card_wave_badge: "Wave Senegal",
     card_wave_title: "Donate with Wave",
     card_wave_sub: "Fast Mobile Money & 0% fees",
-    wave_info_box: "Send your donation directly by opening the <strong>Wave Senegal</strong> app.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Official Beneficiary: Association Caritative LOKHO NDEYE</span>",
+    wave_info_box: "Send your donation directly by opening the <strong>Wave Senegal</strong> app.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Official Beneficiary: Lokho Ndéye Charitable Association</span>",
     lbl_wave_app: "Application:",
     lbl_wave_recipient: "Recipient:",
     lbl_wave_num: "Official Number:",
@@ -688,7 +694,7 @@ const translations = {
     // Transparence
     transp_tag: "Rigor & Transparency",
     transp_title: "Collective Governance & Official Documents",
-    transp_sub: "Association Caritative LOKHO NDEYE grounds its actions in democratic, selfless, and transparent governance guaranteed by its official bylaws.",
+    transp_sub: "The Lokho Ndéye Charitable Association grounds its actions in democratic, selfless, and transparent governance guaranteed by its official bylaws.",
     chart_title: "Rigorous Resource Allocation",
     chart_sub: "Every CFA franc collected is audited and directed to fieldwork",
     chart_center_lbl: "Direct field relief",
@@ -710,7 +716,7 @@ const translations = {
     rule_3: "<strong>Exclusive devolution to secular charity (Article XVII):</strong> In case of dissolution, all remaining assets are legally devolved to a secular charitable body.",
 
     card_docs_title: "Institutional Documents",
-    card_docs_sub: "Access administrative documentation and legal texts governing Association Caritative LOKHO NDEYE:",
+    card_docs_sub: "Access administrative documentation and legal texts governing the Lokho Ndéye Charitable Association:",
     doc_1_title: "Constitutive Bylaws of the Association",
     doc_1_sub: "Registered with the Ministry of the Interior • Republic of Senegal",
     doc_2_title: "Ethics & Volunteer Confidentiality Charter",
@@ -722,7 +728,7 @@ const translations = {
 
     // Contact
     contact_tag: "Administrative Secretariat",
-    contact_title: "Contact Association Caritative LOKHO NDEYE",
+    contact_title: "Contact the Lokho Ndéye Charitable Association",
     contact_sub: "For any inquiries, humanitarian partnership proposals, in-kind donations, or questions, write to our collective team.",
     contact_hq_title: "Official Headquarters",
     contact_hq_address: "Saly Station, Commune of Saly Portudal<br>Mbour Department, Thiès Region<br><strong>Republic of Senegal</strong>",
@@ -749,7 +755,7 @@ const translations = {
     lbl_message: "Your Message *",
     placeholder_message: "Write your message here...",
     btn_submit_msg: "Send My Message",
-    msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of Association Caritative LOKHO NDEYE thanks you and will get back to you as soon as possible.",
+    msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of the Lokho Ndéye Charitable Association thanks you and will get back to you as soon as possible.",
     form_privacy_footer: "🔒 Your contact details will never be sold, shared, or used for commercial purposes.",
 
     // Footer
@@ -764,14 +770,14 @@ const translations = {
     footer_link_contact: "Contact us",
     footer_legal_title: "Legal Status",
     footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Scope:</strong> All of Senegal.<br><strong>Duration:</strong> Unlimited.",
-    footer_copyright: "© 2026 Association Caritative LOKHO NDEYE (“A Mother's Outstretched Hand”). All rights reserved.",
+    footer_copyright: "© 2026 Lokho Ndéye Charitable Association (“A Mother's Outstretched Hand”). All rights reserved.",
     footer_legal_notices: "Legal Notices",
     footer_privacy_policy: "Privacy Policy",
     footer_back_top: "Back to top ↑",
 
     // Modals
     modal_statuts_title: "Excerpts from the Official Bylaws",
-    modal_statuts_denom: "“Association Caritative LOKHO NDEYE (A Mother's Outstretched Hand)”",
+    modal_statuts_denom: "“Lokho Ndéye Charitable Association (A Mother's Outstretched Hand)”",
     modal_statuts_form: "Nonprofit association governed by the amended Code of Civil and Commercial Obligations of the Republic of Senegal.",
     modal_statuts_hq: "Saly Station, Commune of Saly Portudal [Mbour], Senegal. <strong>Scope:</strong> Entire Republic of Senegal. <strong>Duration:</strong> Unlimited.",
     modal_statuts_art2: "Article II: Objectives of the Association",
@@ -790,7 +796,7 @@ const translations = {
 
     modal_privacy_title: "Privacy & Anonymity Charter",
     modal_privacy_p1_title: "1. Anonymity of members and volunteers:",
-    modal_privacy_p1_text: "In keeping with the founding principle of selfless charitable giving, all founders, trustees, and volunteers of Association Caritative LOKHO NDEYE have chosen to act under the seal of anonymity. No personal identifying information is publicized, preserving the collective, dedicated spirit of our mission.",
+    modal_privacy_p1_text: "In keeping with the founding principle of selfless charitable giving, all founders, trustees, and volunteers of the Lokho Ndéye Charitable Association have chosen to act under the seal of anonymity. No personal identifying information is publicized, preserving the collective, dedicated spirit of our mission.",
     modal_privacy_p2_title: "2. Respect for the dignity of beneficiaries:",
     modal_privacy_p2_text: "All assisted persons and families across Senegal are shielded from exposure. No humiliating photos or sensitive personal data are ever shared.",
     modal_privacy_p3_title: "3. Donor information:",
