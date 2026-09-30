@@ -200,11 +200,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  function closeMobileMenu() {
+    if (navMenu && navMenu.classList.contains('open')) {
+      navMenu.classList.remove('open');
+      if (mobileToggle) {
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+      if (navBackdrop) {
+        navBackdrop.classList.remove('active');
+      }
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openMobileMenu() {
+    if (navMenu) {
+      navMenu.classList.add('open');
+      if (mobileToggle) {
+        mobileToggle.classList.add('active');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+      }
+      if (navBackdrop) {
+        navBackdrop.classList.add('active');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      mobileToggle.classList.toggle('active');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
     });
 
     navLinks.forEach(link => {
@@ -218,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
 
-            const headerOffset = header ? header.offsetHeight : 100;
+            const headerOffset = header ? header.offsetHeight : 80;
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerOffset - 10);
 
             window.scrollTo({
@@ -228,11 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        if (navMenu && mobileToggle && navMenu.classList.contains('open')) {
-          navMenu.classList.remove('open');
-          mobileToggle.classList.remove('active');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-        }
+        closeMobileMenu();
       });
     });
   }
