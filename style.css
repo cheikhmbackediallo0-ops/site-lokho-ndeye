@@ -812,7 +812,6 @@ section[id] {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 132, 39, 0.18) 0%, transparent 70%);
   pointer-events: none;
-  filter: blur(50px);
   z-index: 1;
 }
 
@@ -878,15 +877,14 @@ section[id] {
 /* Badges d'Actes */
 .hero-act-badge {
   display: inline-flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 6px 16px;
-  background: rgba(212, 132, 39, 0.16);
+  background: rgba(26, 12, 6, 0.88);
   border: 1.5px solid rgba(212, 132, 39, 0.45);
   border-radius: var(--radius-full);
   margin-bottom: 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -950,13 +948,12 @@ section[id] {
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(30, 14, 8, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-full);
   font-size: 0.82rem;
   font-weight: 600;
   color: #F8EFE6;
-  backdrop-filter: blur(6px);
 }
 
 .hero-mini-tag svg {
@@ -972,12 +969,11 @@ section[id] {
 }
 
 .hero-stat-box {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(212, 132, 39, 0.3);
+  background: rgba(30, 14, 8, 0.85);
+  border: 1px solid rgba(212, 132, 39, 0.35);
   border-radius: var(--radius-md);
   padding: 12px 10px;
   text-align: center;
-  backdrop-filter: blur(8px);
 }
 
 .hero-stat-num {
@@ -1246,9 +1242,7 @@ section[id] {
   align-items: center;
   gap: 12px;
   padding: 11px 16px;
-  background: rgba(18, 8, 4, 0.82);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(18, 8, 4, 0.94);
   border: 1px solid rgba(212, 132, 39, 0.45);
   border-radius: var(--radius-md);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), 0 0 18px rgba(212, 132, 39, 0.15);
@@ -1313,8 +1307,7 @@ section[id] {
   left: 0;
   width: 100%;
   padding: 10px 18px;
-  background: rgba(14, 5, 2, 0.88);
-  backdrop-filter: blur(10px);
+  background: rgba(14, 5, 2, 0.95);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
@@ -1795,14 +1788,13 @@ section[id] {
   top: 16px;
   left: 16px;
   padding: 6px 14px;
-  background: rgba(31, 14, 8, 0.88);
+  background: rgba(31, 14, 8, 0.95);
   color: #F0A343;
   font-size: 0.76rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   border-radius: var(--radius-full);
-  backdrop-filter: blur(8px);
   border: 1px solid rgba(240, 163, 67, 0.45);
 }
 
@@ -1994,9 +1986,8 @@ section[id] {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  background: rgba(39, 20, 14, 0.85);
+  background: rgba(39, 20, 14, 0.94);
   color: #FFFFFF;
-  backdrop-filter: blur(8px);
 }
 
 .project-body {
@@ -3237,8 +3228,7 @@ textarea.form-control {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(39, 20, 14, 0.7);
-  backdrop-filter: blur(6px);
+  background: rgba(20, 9, 4, 0.78);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3410,23 +3400,26 @@ html, body {
 
 *, *::before, *::after {
   box-sizing: border-box;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
-/* Toile de fond assombrie au déploiement du menu mobile */
+/* Toile de fond assombrie au déploiement du menu mobile (100% nette, sans aucun flou) */
 .nav-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(18, 7, 3, 0.65);
-  backdrop-filter: blur(4px);
+  background: rgba(12, 5, 2, 0.55);
   z-index: 1050;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-backdrop.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 @media (max-width: 900px) {
@@ -3546,8 +3539,15 @@ html, body {
     background: var(--color-primary-soft) !important;
     border: 1.5px solid var(--color-secondary) !important;
     cursor: pointer !important;
+    position: relative !important;
     z-index: 1100 !important;
     gap: 4.5px !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .site-header.mobile-menu-active {
+    z-index: 1200 !important;
   }
 
   /* Bande de navigation : transformée en tiroir latéral moderne */
@@ -3583,6 +3583,15 @@ html, body {
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     border-left: 2.5px solid var(--color-secondary) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+  }
+
+  .nav-menu,
+  .nav-menu * {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 
   .nav-menu.open {
@@ -3772,11 +3781,9 @@ html, body {
     font-size: 0.74rem !important;
     font-weight: 600 !important;
     color: #F8EFE6 !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    background: rgba(28, 12, 6, 0.85) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: var(--radius-full) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
     box-sizing: border-box !important;
   }
 
@@ -3999,10 +4006,8 @@ html, body {
     align-items: center !important;
     gap: 8px !important;
     padding: 6px 10px !important;
-    background: rgba(18, 8, 4, 0.88) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(212, 132, 39, 0.4) !important;
+    background: rgba(18, 8, 4, 0.94) !important;
+    border: 1px solid rgba(212, 132, 39, 0.45) !important;
     border-radius: var(--radius-sm) !important;
     box-sizing: border-box !important;
     z-index: 5 !important;

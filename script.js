@@ -200,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const siteHeader = document.getElementById('siteHeader') || document.querySelector('.site-header');
   const navBackdrop = document.getElementById('navBackdrop');
 
   function closeMobileMenu() {
@@ -211,6 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (navBackdrop) {
         navBackdrop.classList.remove('active');
+      }
+      if (siteHeader) {
+        siteHeader.classList.remove('mobile-menu-active');
       }
       document.body.style.overflow = '';
     }
@@ -225,6 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (navBackdrop) {
         navBackdrop.classList.add('active');
+      }
+      if (siteHeader) {
+        siteHeader.classList.add('mobile-menu-active');
       }
       document.body.style.overflow = 'hidden';
     }
@@ -580,10 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.beginPath();
         ctx.arc(p.x + mouseParallaxX, p.y + mouseParallaxY, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(240, 163, 67, ${currentAlpha})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = 'rgba(212, 132, 39, 0.6)';
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
 
       requestAnimationFrame(renderParticles);
