@@ -167,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'mission': 'mission',
     'domaines': 'domaines',
     'actions': 'actions',
-    'impact': 'impact',
     'pourquoi-nous-soutenir': 'pourquoi-nous-soutenir',
     'faire-un-don': 'pourquoi-nous-soutenir',
     'contact': 'contact'
@@ -178,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'mission',
     'domaines',
     'actions',
-    'impact',
     'pourquoi-nous-soutenir',
     'faire-un-don',
     'contact'
