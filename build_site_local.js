@@ -15,13 +15,7 @@ html = html.replace(
 
 // Replace scripts with inline script containing translations and script
 html = html.replace(
-  '<script src="translations.js"></script>\n  <script src="script.js"></script>',
-  `<script>\n${translations}\n\n${script}\n</script>`
-);
-
-// If CRLF variation
-html = html.replace(
-  '<script src="translations.js"></script>\r\n  <script src="script.js"></script>',
+  /<script src="translations\.js[^"]*"><\/script>\s*<script src="script\.js[^"]*"><\/script>/,
   `<script>\n${translations}\n\n${script}\n</script>`
 );
 

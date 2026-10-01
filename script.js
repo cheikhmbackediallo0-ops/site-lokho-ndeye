@@ -151,46 +151,105 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. NAVIGATION MOBILE & SURLIGNAGE DU LIEN ACTIF
+  // 2. NAVIGATION STICKY PERMANENTE & SURLIGNAGE SYNCHRONE DU LIEN ACTIF
   // ==========================================================================
+  const header = document.querySelector('.site-header');
+  const siteHeader = header;
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
+  const navBackdrop = document.getElementById('navBackdrop');
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+  // Mapping des sections du site vers la rubrique correspondante dans le menu
+  const SECTION_TO_NAV = {
+    'accueil': 'accueil',
+    'mission': 'mission',
+    'domaines': 'domaines',
+    'actions': 'actions',
+    'impact': 'impact',
+    'pourquoi-nous-soutenir': 'pourquoi-nous-soutenir',
+    'faire-un-don': 'pourquoi-nous-soutenir',
+    'transparence': 'transparence',
+    'contact': 'contact'
+  };
+
+  const TRACKED_SECTIONS = [
+    'accueil',
+    'mission',
+    'domaines',
+    'actions',
+    'impact',
+    'pourquoi-nous-soutenir',
+    'faire-un-don',
+    'transparence',
+    'contact'
+  ];
+
+  let isClickScrolling = false;
+  let clickScrollTimer = null;
 
   function highlightActiveNavLink() {
+    if (isClickScrolling) return;
+
     const navItemLinks = Array.from(document.querySelectorAll('.nav-menu .nav-link'));
     if (!navItemLinks.length) return;
 
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
     const headerHeight = header ? header.offsetHeight : 110;
-    const viewportCheckPoint = scrollY + headerHeight + 70;
+    const scrollBottom = window.innerHeight + scrollY;
+    const docHeight = document.documentElement.scrollHeight;
 
-    let currentActiveId = 'accueil';
+    let targetNavId = 'accueil';
 
-    // 1. Si l'utilisateur est tout en haut de la page
-    if (scrollY < 140) {
-      currentActiveId = 'accueil';
+    // 1. Tout en haut du site
+    if (scrollY < 120) {
+      targetNavId = 'accueil';
     } 
-    // 2. Si l'utilisateur atteint le bas de la page
-    else if ((window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 70)) {
-      currentActiveId = 'contact';
+    // 2. Tout en bas du site (Contact)
+    else if (scrollBottom >= docHeight - 80) {
+      targetNavId = 'contact';
     } 
-    // 3. Détection par section selon la position de défilement
+    // 3. Détection par position relative au viewport (getBoundingClientRect)
     else {
-      const sectionElements = Array.from(document.querySelectorAll('section[id]'));
-      sectionElements.forEach(sec => {
-        const secTop = sec.offsetTop;
-        const secHeight = sec.offsetHeight;
-        if (viewportCheckPoint >= secTop && viewportCheckPoint < (secTop + secHeight + 40)) {
-          currentActiveId = sec.getAttribute('id');
+      const focalLine = headerHeight + 60; // Ligne d'observation sous le ruban d'en-tête
+      let bestSectionId = null;
+
+      for (const id of TRACKED_SECTIONS) {
+        const sec = document.getElementById(id);
+        if (!sec) continue;
+        const rect = sec.getBoundingClientRect();
+        
+        // La section couvre la ligne d'observation
+        if (rect.top <= focalLine && rect.bottom > focalLine) {
+          bestSectionId = id;
+          break;
         }
-      });
+      }
+
+      // Si le curseur est dans une transition, prendre la section la plus proche au-dessus
+      if (!bestSectionId) {
+        let maxTop = -Infinity;
+        for (const id of TRACKED_SECTIONS) {
+          const sec = document.getElementById(id);
+          if (!sec) continue;
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= focalLine && rect.top > maxTop) {
+            maxTop = rect.top;
+            bestSectionId = id;
+          }
+        }
+      }
+
+      if (bestSectionId && SECTION_TO_NAV[bestSectionId]) {
+        targetNavId = SECTION_TO_NAV[bestSectionId];
+      }
     }
 
-    // Mise à jour de la sélection active sur les liens du menu
+    // Mise à jour de la classe active sur toutes les rubriques
     navItemLinks.forEach(link => {
       const linkTarget = link.getAttribute('href');
-      if (linkTarget === `#${currentActiveId}`) {
+      if (linkTarget === `#${targetNavId}`) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
       } else {
@@ -199,9 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  const siteHeader = document.getElementById('siteHeader') || document.querySelector('.site-header');
-  const navBackdrop = document.getElementById('navBackdrop');
 
   function closeMobileMenu() {
     if (navMenu && navMenu.classList.contains('open')) {
@@ -254,39 +310,52 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMobileMenu();
     });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        const targetHref = link.getAttribute('href');
-        if (targetHref && targetHref.startsWith('#')) {
-          const targetId = targetHref.substring(1);
-          const targetElement = document.getElementById(targetId);
-          if (targetElement) {
-            e.preventDefault();
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-
-            const headerOffset = header ? header.offsetHeight : 80;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerOffset - 10);
-
-            window.scrollTo({
-              top: Math.max(0, targetPosition),
-              behavior: 'smooth'
-            });
-          }
-        }
-
-        closeMobileMenu();
-      });
-    });
   }
 
-  // ==========================================================================
-  // 3. BARRE DE PROGRESSION GLOBALE AU DÉFILEMENT & HEADER COMPACT
-  // ==========================================================================
-  const scrollProgressBar = document.getElementById('scrollProgressBar');
-  const header = document.querySelector('.site-header');
+  // Clic sur les liens du menu : sélection immédiate et défilement synchronisé
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetHref = link.getAttribute('href');
+      if (targetHref && targetHref.startsWith('#')) {
+        const targetId = targetHref.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
 
+          // Surlignage visuel immédiat et synchrone de la rubrique sélectionnée
+          navLinks.forEach(l => {
+            l.classList.remove('active');
+            l.removeAttribute('aria-current');
+          });
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+
+          isClickScrolling = true;
+          clearTimeout(clickScrollTimer);
+          clickScrollTimer = setTimeout(() => {
+            isClickScrolling = false;
+            highlightActiveNavLink();
+          }, 850);
+
+          // Calcul d'offset précis avec l'en-tête compact
+          const currentHeader = document.querySelector('.site-header');
+          const headerOffset = currentHeader ? (currentHeader.classList.contains('scrolled') ? currentHeader.offsetHeight : 105) : 80;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerOffset - 5);
+
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      closeMobileMenu();
+    });
+  });
+
+  // ==========================================================================
+  // 3. BARRE DE PROGRESSION AU DÉFILEMENT & HEADER COMPACT SYNCHRONISÉ
+  // ==========================================================================
   function handleScrollProgress() {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -297,7 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (header) {
-      if (scrollY > 40) {
+      if (scrollY > 30) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
@@ -307,7 +376,17 @@ document.addEventListener('DOMContentLoaded', () => {
     highlightActiveNavLink();
   }
 
-  window.addEventListener('scroll', handleScrollProgress, { passive: true });
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        handleScrollProgress();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
   handleScrollProgress();
 
   // ==========================================================================

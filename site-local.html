@@ -118,6 +118,7 @@ html {
   scroll-padding-top: calc(var(--header-height) + 20px);
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -125,7 +126,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-main);
   line-height: 1.65;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -3390,7 +3391,7 @@ textarea.form-control {
 
 /* Prévention stricte de tout débordement horizontal */
 html, body {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100vw !important;
   width: 100% !important;
 }
@@ -5322,7 +5323,21 @@ html, body {
                 <strong style="color: var(--color-dark); font-size: 0.9rem;" data-i18n="upcoming_title">Moyens de paiement additionnels (Architecture évolutive) :</strong>
                 <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 2px 0 0;" data-i18n="upcoming_sub">
                   Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :
-                    <!-- ==========================================================================
+                </p>
+              </div>
+              <div class="upcoming-badges">
+                <span class="method-tag" data-i18n="upcoming_orange">⏳ Orange Money (Bientôt)</span>
+                <span class="method-tag" data-i18n="upcoming_free">⏳ Free Money (Bientôt)</span>
+                <span class="method-tag" data-i18n="upcoming_card">💳 Carte Bancaire Visa / Mastercard (En cours)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          TRANSPARENCE & DOCUMENTS OFFICIELS
          ========================================================================== -->
     <section class="section" id="transparence">
@@ -5871,7 +5886,1855 @@ html, body {
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=2.5"></script>
-  <script src="script.js?v=2.5"></script>
+  <script>
+/**
+ * ASSOCIATION CARITATIVE LOKHO NDEYE - DICTIONNAIRE OFFICIEL BILINGUE (FRANÇAIS / ANGLAIS)
+ * Système d'Internationalisation (i18n)
+ */
+
+const translations = {
+  fr: {
+    // Page Title & Meta
+    page_title: "Association Caritative LOKHO NDEYE | La Main tendue d'une mère — Solidarité au Sénégal",
+    meta_description: "Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais. Siège social : Saly [Mbour], Sénégal. Aide aux couches vulnérables, sécurité alimentaire, protection des mères et enfants.",
+
+    // Top Bar
+    topbar_hq: "Siège Social : Saly [Mbour] — Action sur tout le Sénégal",
+    topbar_status: "Association Déclarée (Code des Obligations Civiles et Commerciales)",
+    topbar_scope: "🌍 Action sur tout le Sénégal",
+    mobile_lang_label: "Langue du site :",
+
+    // Brand & Header
+    brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
+    official_beneficiary_name: "Association Caritative LOKHO NDEYE",
+    brand_aria: "Retour à l'accueil de l'Association Caritative LOKHO NDEYE",
+    hero_section_aria: "Présentation et missions de l'Association Caritative LOKHO NDEYE",
+    brand_tagline: "« La Main tendue d'une mère »",
+    brand_subtext: "Intervention sur tout le Sénégal • Siège social à Saly [Mbour] • Association Déclarée",
+    header_trust_title: "Siège à Saly [Mbour]",
+    header_trust_sub: "Action sur l'ensemble du Sénégal",
+    btn_donate: "Faire un don",
+    sound_toggle_aria: "Activer l'ambiance sonore kora",
+    sound_toggle_title: "Ambiance sonore acoustique",
+
+    // Navigation Menu
+    nav_home: "Accueil",
+    nav_mission: "Notre Mission",
+    nav_domains: "Domaines d'action",
+    nav_actions: "Nos Actions & Projets",
+    nav_impact: "Notre Impact",
+    nav_why: "Pourquoi nous soutenir",
+    nav_transparency: "Transparence",
+    nav_contact: "Contact",
+
+    // Hero Section - Act 1
+    hero_act1_tag: "ACTE I",
+    hero_act1_badge: "Réalité & Urgence Terrain",
+    hero_act1_title: "À travers le Sénégal, des enfants et des mères tendent la main. <span class=\"hero-title-highlight\">Nous leur ouvrons les bras.</span>",
+    hero_act1_desc: "Face à la précarité des enfants talibés et à la détresse des mères isolées sur l'ensemble du territoire sénégalais, l'Association Caritative LOKHO NDEYE transforme chaque geste en un repas digne, un soin vital et une écoute bienveillante.",
+    hero_tag_senegal: "Tout le Sénégal",
+    hero_tag_childhood: "Protection de l'Enfance",
+    hero_tag_hq: "Siège à Saly [Mbour]",
+    hero_btn_donate_hope: "Faire un don d'espoir",
+    hero_btn_explore_mission: "Explorer notre mission",
+
+    // Hero Section - Act 2
+    hero_act2_tag: "ACTE II",
+    hero_act2_badge: "Une Réponse Concrète & Structurée",
+    hero_act2_title: "« Lokho Ndéye » : <span class=\"hero-title-highlight\">La tendresse et la rigueur</span> au service de la dignité",
+    hero_act2_desc: "Reconnue par le Code des Obligations Civiles et Commerciales de la République du Sénégal, notre structure déploie ses actions d'urgence sur tout le Sénégal avec une gestion bénévole irréprochable.",
+    hero_stat_volunteer_lbl: "Bénévolat Intégral",
+    hero_stat_territory_num: "Sénégal",
+    hero_stat_territory_lbl: "Action sur Tout le Territoire",
+    hero_btn_see_actions: "Voir nos actions en cours",
+    hero_btn_support_mothers: "Soutenir les mères",
+
+    // Hero Section - Act 3
+    hero_act3_tag: "ACTE III",
+    hero_act3_badge: "Bâtir un Futur Durable",
+    hero_act3_title: "Partager • Nourrir • Soutenir • <span class=\"hero-title-highlight\">Construire demain</span>",
+    hero_act3_desc: "Chaque donateur devient un maillon essentiel de cette chaîne humaine. En unissant nos forces, nous offrons à chaque enfant et à chaque mère vulnérable la certitude qu'ils ne sont plus seuls.",
+    hero_tag_transparency: "Transparence Totale",
+    hero_tag_security: "Dons Sécurisés",
+    hero_tag_solidarity: "Solidarité Active",
+    hero_btn_join_donors: "Rejoindre les donateurs",
+    hero_btn_transparency_guarantees: "Garanties de transparence",
+
+    // Hero Slider Controls
+    hero_dot_1: "01. Enfance & Urgence",
+    hero_dot_2: "02. Maternité & Action",
+    hero_dot_3: "03. Avenir & Solidarité",
+    hero_prev_aria: "Diapositive précédente",
+    hero_next_aria: "Diapositive suivante",
+    hero_play_pause_aria: "Mettre en pause ou relancer le défilement automatique",
+
+    // Hero Foreground Stage & Badges
+    float_badge_meal_title: "Repas & Nutrition",
+    float_badge_meal_sub: "Distribution quotidienne",
+    float_badge_action_title: "Action Nationale",
+    float_badge_action_sub: "Siège social à Saly [Mbour]",
+    float_caption_1_tag: "Terrain",
+    float_caption_1_text: "Secours immédiat aux enfants talibés et jeunes en rupture",
+
+    float_badge_mothers_title: "Mères & Nourrissons",
+    float_badge_mothers_sub: "Soins d'urgence & kits d'hygiène",
+    float_badge_vol_title: "100% Bénévolat",
+    float_badge_vol_sub: "Dévouement total au service du terrain",
+    float_caption_2_tag: "Santé & Protection",
+    float_caption_2_text: "Accompagnement médical et bienveillance pour les mères isolées",
+
+    float_badge_chain_title: "Chaîne Solidaire",
+    float_badge_chain_sub: "Partage & Fraternité active",
+    float_badge_transp_title: "Transparence Totale",
+    float_badge_transp_sub: "Chaque franc investi sur le terrain",
+    float_caption_3_tag: "Avenir",
+    float_caption_3_text: "Construire ensemble une communauté solidaire et pérenne",
+
+    // Thumbnails
+    thumb_act_1: "Acte 01",
+    thumb_1_title: "Enfance & Urgence",
+    thumb_act_2: "Acte 02",
+    thumb_2_title: "Mères & Soins",
+    thumb_act_3: "Acte 03",
+    thumb_3_title: "Union & Avenir",
+
+    // Kinetic Marquee
+    marquee_share: "Partager",
+    marquee_nourish: "Nourrir la dignité",
+    marquee_support: "Soutenir les mères",
+    marquee_protect: "Protéger l'enfance",
+    marquee_dignity: "Solidarité & Dignité",
+    marquee_national: "Action Nationale • Tout le Sénégal",
+    marquee_hq: "Siège à Saly [Mbour]",
+    marquee_build: "Construire un avenir solidaire",
+
+    // Section Notre Mission
+    mission_tag: "Notre Mission Fondatrice",
+    mission_title: "NOTRE MISSION",
+    mission_spirit_title: "L'esprit de « Lokho Ndéye »",
+    mission_spirit_p1: "En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em> — le geste universel de la protection maternelle : nourrir avec amour, guider les premiers pas et offrir un abri face à l'adversité.",
+    mission_spirit_p2: "<strong>Qui nous accompagnons :</strong> Enfants en détresse nutritionnelle, mères vulnérables et foyers confrontés à l'exclusion sociale, sans aucune distinction d'origine.",
+    pillar_1_title: "Partager",
+    pillar_1_desc: "Nos ressources et notre affection avec ceux qui manquent du nécessaire.",
+    pillar_2_title: "Nourrir",
+    pillar_2_desc: "Un repas chaud et nutritif pour les enfants et les foyers fragiles.",
+    pillar_3_title: "Soutenir",
+    pillar_3_desc: "Une écoute fraternelle et un secours social dans les moments critiques.",
+    pillar_4_title: "Construire",
+    pillar_4_desc: "Un avenir meilleur par la solidarité communautaire et l'entraide.",
+    emblem_badge: "✨ Emblème Officiel",
+    emblem_zoom: "Agrandir",
+    emblem_caption_title: "La Main Protectrice et Nourricière",
+    emblem_caption_text: "La mère bienveillante nourrissant les enfants depuis la calebasse solidaire, enveloppée par l'arche protectrice et surmontée de la devise : <em>« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>.",
+    legal_box_title: "Cadre éthique & légal",
+    legal_box_text: "<em>« L'Association est ouverte à tous, dans le respect des convictions individuelles, dans l'indépendance à l'égard des partis politiques. »</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III des Statuts officiels</strong>",
+
+    // Section Domaines d'Intervention
+    domains_tag: "Objectifs Statutaires",
+    domains_title: "Nos Domaines d'Intervention",
+    domains_sub: "Chacun de nos champs d'action est strictement fondé sur les buts officiels définis à l'Article II de nos statuts enregistrés en République du Sénégal.",
+    domain_1_ref: "Statuts • Article II - Alinéa 2",
+    domain_1_title: "Aide aux Couches Vulnérables",
+    domain_1_desc: "Accompagnement ciblé des enfants en difficulté, des femmes enceintes ou isolées, des personnes âgées et de toute personne en situation d'extrême précarité sur l'ensemble du territoire sénégalais.",
+    domain_2_ref: "Devise • « Nourrir & Partager »",
+    domain_2_title: "Nutrition & Sécurité Alimentaire",
+    domain_2_desc: "Distribution de repas équilibrés et approvisionnement en denrées de base (riz, huile, céréales locales) pour combattre la sous-nutrition infantile et le dénuement.",
+    domain_3_ref: "Statuts • Article II - Alinéa 3",
+    domain_3_title: "Développement Communautaire",
+    domain_3_desc: "Soutien actif aux initiatives collectives locales pour consolider le vivre-ensemble, renforcer les liens d'entraide de quartier et améliorer le cadre de vie.",
+    domain_4_ref: "Statuts • Article II - Alinéa 4",
+    domain_4_title: "Lutte Contre la Pauvreté",
+    domain_4_desc: "Contribution concrète à la réduction des inégalités sociales et des situations d'exclusion en offrant une aide matérielle et morale aux foyers marginalisés.",
+    domain_5_ref: "Statuts • Article II - Alinéa 5",
+    domain_5_title: "Œuvre dans le Domaine Social",
+    domain_5_desc: "Médiation bienveillante, secours d'urgence aux familles en détresse passagère, distribution de vêtements et facilitation de l'accès aux soins de santé primaires.",
+    domain_6_ref: "Statuts • Article II - Alinéa 1",
+    domain_6_title: "Union & Solidarité Citoyenne",
+    domain_6_desc: "Rassembler les citoyens et donateurs animés d'un même idéal d'amour fraternel et de cohésion humaine, pour agir ensemble d'une seule voix généreuse.",
+
+    // Section Actions & Projets
+    actions_tag: "Terrain & Proximité",
+    actions_title: "Nos Actions & Projets Solidaires",
+    actions_sub: "Des initiatives tangibles et directes menées sur l'ensemble du territoire sénégalais, au plus près des besoins vitaux des enfants et des familles.",
+    proj_status_ongoing: "Action Continue",
+    proj1_cat: "Nutrition & Enfance",
+    proj1_title: "Projet « Le Bol Partagé »",
+    proj1_desc: "Inspiré directement par le cœur de notre emblème représentant le don nourricier d'une mère, ce projet assure la préparation et la distribution de repas chauds nutritifs aux enfants et familles vulnérables.",
+    proj_obj_label: "Objectif prioritaire :",
+    proj1_obj: "Assurer qu'aucun enfant ne s'endorme le ventre vide et lutter contre la malnutrition au Sénégal.",
+    proj_support_btn: "Soutenir cette action",
+
+    proj2_status: "Santé & Prévention",
+    proj2_cat: "Protection Maternelle",
+    proj2_title: "Projet « Main Forte aux Mamans »",
+    proj2_desc: "Accompagnement des mères isolées et en grande précarité dès la naissance de leur nourrisson à travers l'octroi de kits de puériculture essentiels, de produits d'hygiène et de conseils bienveillants.",
+    proj2_obj: "Préserver la santé néonatale, soulager la charge mentale des mamans et redonner confiance.",
+
+    proj3_status: "Secours d'Urgence",
+    proj3_cat: "Cohésion Sociale",
+    proj3_title: "Projet « Solidarité & Entraide »",
+    proj3_desc: "Dispositif de secours immédiat coordonné depuis notre siège à Saly Station pour répondre aux accidents de la vie : kits d'urgence lors des saisons difficiles, vivres et orientation humaine pour les foyers marginalisés.",
+    proj3_obj: "Faire barrage à l'extrême précarité et préserver la dignité des foyers familiaux vulnérables.",
+
+    // Section Notre Impact
+    impact_tag: "Éthique & Réalité de Terrain",
+    impact_title: "Notre Impact auprès des Communautés",
+    impact_sub: "Fidèle à notre charte de transparence absolue, nous ne fabriquons aucun chiffre artificiel. Notre impact se mesure d'abord à la réalité des vies touchées et à l'intégrité sans compromis de notre gouvernance.",
+    impact_card1_title: "Dédié au Terrain",
+    impact_card1_desc: "Chaque franc collecté est affecté directement aux denrées alimentaires, aux kits de santé et à l'aide matérielle des familles vulnérables au Sénégal.",
+    impact_card2_title: "Rémunération Dirigeants",
+    impact_card2_desc: "L'Article IX des Statuts stipule expressément : <em>« Les fonctions de membres du bureau sont gratuites »</em>. Aucun salaire, que du don de soi.",
+    impact_card3_num: "Régulier",
+    impact_card3_title: "Contrôle des Comptes",
+    impact_card3_desc: "Vérification comptable indépendante et rapport moral et financier annuel présenté en Assemblée Générale (Article VI).",
+    impact_card4_num: "Sénégal",
+    impact_card4_title: "Rayonnement National",
+    impact_card4_desc: "Une capacité d'intervention sur l'ensemble du territoire sénégalais, avec un siège social établi à Saly [Mbour] pour une coordination directe.",
+
+    // Section Pourquoi nous soutenir
+    why_tag: "Alliance Solidaire",
+    why_title: "Pourquoi votre soutien change tout",
+    why_sub: "Donner à l'Association Caritative LOKHO NDEYE, c'est choisir l'assurance d'une solidarité authentique, directe et vérifiable.",
+    why_item1_title: "Une action de proximité immédiate",
+    why_item1_desc: "Votre contribution ne se perd pas dans des structures bureaucratiques : elle se matérialise sous forme de vivres et d'aide directe aux familles les plus vulnérables sur l'ensemble du territoire sénégalais.",
+    why_item2_title: "Transparence et intégrité statutaire",
+    why_item2_desc: "Notre bureau œuvre bénévolement. Chaque ressource issue des dons, cotisations et libéralités est scrupuleusement enregistrée et contrôlée (Articles VI & XII).",
+    why_item3_title: "Le respect inconditionnel de la dignité",
+    why_item3_desc: "Nous protégeons l'anonymat et la dignité de chaque famille aidée. L'aide est apportée comme le ferait une mère bienveillante : avec discrétion et respect.",
+    why_box_title: "Chaque geste compte",
+    why_box_desc: "Même le plus modeste des dons permet d'offrir un repas chaud à un enfant affamé ou un panier de vivres à une maman isolée. Rejoignez notre chaîne d'amour fraternel.",
+    why_box_btn: "Accéder à l'espace de don",
+
+    // Section Faire un don
+    don_tag: "Espace Prioritaire Donateurs",
+    don_title: "Tendez la main : Faites un don à Lokho Ndéye",
+    don_sub: "Choisissez votre mode de contribution solidaire. L'intégralité de vos dons est consacrée à nos actions auprès des enfants et des mères sur l'ensemble du territoire sénégalais.",
+    tab_pledge: "Promesse & Formulaire de don",
+    tab_methods: "Coordonnées de virement & Wave",
+    freq_label: "1. Fréquence de votre soutien solidaire :",
+    freq_ponctuel: "Don ponctuel",
+    freq_occasionnel: "Don occasionnel",
+    amount_label: "2. Montant de votre don (Montant libre) :",
+    custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
+    preview_default: "<strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles et enfants accompagnés par l'association.",
+    preview_custom: "<strong>Votre soutien solidaire :</strong> Votre don de <strong>{amount} FCFA</strong> sera intégralement alloué aux actions prioritaires (aide alimentaire, soins de santé et protection des enfants et mères sur l'ensemble du territoire sénégalais).",
+    volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté exclusivement au soutien des bénéficiaires et aux distributions de vivres à travers le Sénégal.",
+
+    sum_title: "Récapitulatif de votre don",
+    sum_beneficiary_lbl: "Bénéficiaire officiel :",
+    sum_freq_lbl: "Type de don :",
+    sum_amount_lbl: "Montant indiqué :",
+    sum_amount_free: "Montant libre de votre choix",
+    sum_alloc_lbl: "Affectation :",
+    sum_alloc_val: "100% Actions sociales & alimentaires",
+    btn_pledge: "Générer mon engagement de don",
+    btn_see_coords: "Voir les coordonnées officielles ci-dessous",
+    don_security_note: "🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.",
+
+    // Cartes de paiement
+    card_virement_badge: "Virement Bancaire",
+    card_virement_title: "Virement Bancaire Officiel",
+    card_virement_sub: "Compte institutionnel au Sénégal",
+    lbl_account_name: "Intitulé du compte :",
+    lbl_account_hq: "Siège / Domiciliation :",
+    val_account_hq: "Saly Station, Saly Portudal [Mbour], Sénégal",
+    lbl_account_legal: "Cadre juridique :",
+    val_account_legal: "Code des Obligations Civiles et Commerciales (Sénégal)",
+    lbl_account_ref: "Motif / Référence :",
+    val_account_ref: "DON SOLIDAIRE - LOKHO NDEYE",
+    btn_copy_coords: "Copier les informations",
+    btn_request_rib: "Demander le RIB complet",
+
+    card_wave_badge: "Wave Sénégal",
+    card_wave_title: "Faire un don avec Wave",
+    card_wave_sub: "Mobile Money rapide & 0% frais",
+    wave_info_box: "Envoyez directement votre don en ouvrant l'application <strong>Wave Sénégal</strong>.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Bénéficiaire officiel : Association Caritative LOKHO NDEYE</span>",
+    lbl_wave_app: "Application :",
+    lbl_wave_recipient: "Destinataire :",
+    lbl_wave_num: "Numéro officiel :",
+    lbl_wave_account: "Compte officiel de l'Association",
+    btn_copy_wave: "Copier les identifiants Wave",
+    btn_open_wave: "Ouvrir Wave",
+
+    upcoming_title: "Moyens de paiement additionnels (Architecture évolutive) :",
+    upcoming_sub: "Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :",
+    upcoming_orange: "● Orange Money (Bientôt)",
+    upcoming_free: "● Free Money (Bientôt)",
+    upcoming_card: "● Carte Bancaire Visa / Mastercard (En cours)",
+
+    // Transparence
+    transp_tag: "Rigueur & Transparence",
+    transp_title: "Gouvernance Collective & Documents Officiels",
+    transp_sub: "L'Association Caritative LOKHO NDEYE fonde son action sur une gestion démocratique, désintéressée et transparente, garantie par ses statuts officiels.",
+    chart_title: "Allocation Rigoureuse des Ressources",
+    chart_sub: "Chaque franc CFA collecté est audité et orienté vers le terrain",
+    chart_center_lbl: "Secours direct terrain",
+    legend_1: "Aide alimentaire & kits d'urgence",
+    legend_2: "Logistique & distributions d'urgence au Sénégal",
+    legend_3: "Frais légaux & audit obligatoire (Art. VI)",
+
+    stat_pill_1_tag: "Certification de Gestion",
+    stat_pill_1_title: "0 FCFA de Rémunération",
+    stat_pill_1_desc: "En vertu de l'Article IX des statuts, les fonctions de tous les membres des organes dirigeants sont gratuites. Aucun jeton de présence, honoraire ou avantage en nature n'est alloué.",
+    stat_pill_2_tag: "Traçabilité Bancaire",
+    stat_pill_2_title: "Compte Institutionnel Déclaré",
+    stat_pill_2_desc: "Tous les flux financiers transitent exclusivement par les canaux bancaires et Mobile Money institutionnels déclarés de l'association, soumis au contrôle annuel des commissaires aux comptes.",
+
+    card_commitments_title: "Nos engagements statutaires",
+    card_commitments_sub: "Chaque règle de fonctionnement de l'association vise à garantir l'intégrité absolue des fonds confiés par les donateurs :",
+    rule_1: "<strong>Gratuité totale des mandats (Article IX) :</strong> Aucun membre du Bureau ou du Comité Directeur ne perçoit de salaire ou d'avantage. Le bénévolat est complet.",
+    rule_2: "<strong>Commission de contrôle des comptes (Article VI) :</strong> Trois membres extérieurs au bureau sont désignés pour vérifier la conformité des comptes de chaque exercice.",
+    rule_3: "<strong>Dévolution exclusive à une œuvre laïque (Article XVII) :</strong> En cas de dissolution, l'intégralité du reliquat de l'actif est légalement dévolue à une œuvre caritative laïque.",
+
+    card_docs_title: "Documents institutionnels",
+    card_docs_sub: "Consultez les informations administratives et les textes régissant l'Association Caritative LOKHO NDEYE :",
+    doc_1_title: "Statuts Constitutifs de l'Association",
+    doc_1_sub: "Enregistrés auprès du Ministère de l'Intérieur • République du Sénégal",
+    doc_2_title: "Charte d'Éthique & Anonymat des Bénévoles",
+    doc_2_sub: "Engagement solidaire, protection de la vie privée et neutralité",
+    doc_3_title: "Rapports d'activités & Transparence",
+    doc_3_sub: "Présentés annuellement à l'Assemblée Générale ordinaire",
+    btn_consult: "Consulter",
+    badge_annual: "Session annuelle",
+
+    // Contact
+    contact_tag: "Secrétariat Administratif",
+    contact_title: "Contactez l'Association Caritative LOKHO NDEYE",
+    contact_sub: "Pour toute demande d'information, proposition de partenariat humanitaire, don en nature ou questionnement, écrivez à notre équipe collective.",
+    contact_hq_title: "Siège Social Officiel",
+    contact_hq_address: "Saly Station, Commune de Saly Portudal<br>Département de Mbour, Région de Thiès<br><strong>République du Sénégal</strong>",
+    contact_hq_reach: "Rayonnement d'action : Ensemble du Sénégal",
+    contact_email_title: "Courrier Électronique Institutionnel",
+    contact_email_sub: "Réponse assurée par le Secrétariat Général",
+    contact_hours_title: "Permanence & Réception",
+    contact_hours_text: "Du Lundi au Samedi : 08h30 - 18h00 GMT<br>Permanence solidaire pour les urgences",
+    contact_privacy_note_title: "Protection de la vie privée :",
+    contact_privacy_note_text: "Conformément à la volonté de nos membres et bénévoles, l'organisation fonctionne de manière collégiale et anonyme. Aucune coordonnée personnelle n'est diffusée afin de préserver la pureté de notre engagement désintéressé.",
+
+    form_title: "Envoyer un message au secrétariat",
+    form_sub: "Remplissez le formulaire ci-dessous. Vos informations sont strictement confidentielles.",
+    lbl_nom: "Votre Nom ou Organisation *",
+    placeholder_nom: "Ex: Awa Diop ou Fondation...",
+    lbl_email: "Votre Adresse Email *",
+    placeholder_email: "votre.email@exemple.com",
+    lbl_objet: "Objet de votre démarche *",
+    opt_select: "Sélectionnez un motif...",
+    opt_don: "Renseignements sur les dons et virement bancaire",
+    opt_partenariat: "Proposition de partenariat institutionnel / mécénat",
+    opt_benevolat: "Proposition d'aide bénévole ou compétences",
+    opt_autre: "Autre demande d'information générale",
+    lbl_message: "Votre Message *",
+    placeholder_message: "Écrivez votre message ici...",
+    btn_submit_msg: "Transmettre mon message",
+    msg_success: "✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie et vous répondra dans les meilleurs délais.",
+    form_privacy_footer: "🔒 Vos coordonnées ne seront jamais cédées, vendues ou utilisées à des fins commerciales.",
+
+    // Footer
+    footer_tagline: "La Main tendue d'une mère",
+    footer_desc: "Association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais, créée conformément au Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
+    footer_nav_title: "Navigation",
+    footer_ethics_title: "Solidarité & Éthique",
+    footer_link_virement: "Faire un don par virement",
+    footer_link_wave: "Faire un don via Wave",
+    footer_link_statuts: "Statuts constitutifs",
+    footer_link_privacy: "Charte d'anonymat & déontologie",
+    footer_link_contact: "Nous contacter",
+    footer_legal_title: "Statut Juridique",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">République du Sénégal</strong>Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br><strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Rayonnement :</strong> Ensemble du Sénégal.<br><strong>Durée :</strong> Illimitée.",
+    footer_copyright: "© 2026 Association Caritative LOKHO NDEYE (« La Main tendue d'une mère »). Tous droits réservés.",
+    footer_legal_notices: "Mentions Légales",
+    footer_privacy_policy: "Politique de Confidentialité",
+    footer_back_top: "Haut de page ↑",
+
+    // Modals
+    modal_statuts_title: "Extraits des Statuts Officiels",
+    modal_statuts_denom: "« Association Caritative LOKHO NDEYE (la Main tendue d'une mère) »",
+    modal_statuts_form: "Association à but non lucratif régie par les dispositions du Code des Obligations Civiles et Commerciales modifié de la République du Sénégal.",
+    modal_statuts_hq: "Saly Station, Commune de Saly Portudal [Mbour], Sénégal. <strong>Rayonnement :</strong> Ensemble du territoire sénégalais. <strong>Durée :</strong> Illimitée.",
+    modal_statuts_art2: "Article II : Buts de l'Association",
+    modal_statuts_art2_1: "1. Unir les membres animés d'un même idéal et créer entre eux des liens d'entente et de solidarité.",
+    modal_statuts_art2_2: "2. Venir en aide aux couches vulnérables sur tout le territoire sénégalais.",
+    modal_statuts_art2_3: "3. Soutenir les initiatives de développement communautaire.",
+    modal_statuts_art2_4: "4. Contribuer à la lutte contre la pauvreté, l'exclusion sociale et les inégalités.",
+    modal_statuts_art2_5: "5. Œuvrer dans le domaine social.",
+    modal_statuts_art3: "Article III : Neutralité & Indépendance",
+    modal_statuts_art3_text: "L'Association est ouverte à tous, dans le respect des convictions individuelles, dans l'indépendance à l'égard des partis politiques. Toute discussion politique, religieuse ou syndicale est interdite au sein de l'association.",
+    modal_statuts_art9: "Article IX : Bénévolat des Fonctions",
+    modal_statuts_art9_text: "« Les fonctions de membres du bureau sont gratuites. »",
+    modal_statuts_art17: "Article XVII : Dissolution",
+    modal_statuts_art17_text: "En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque.",
+    btn_close: "Fermer",
+
+    modal_privacy_title: "Charte de Confidentialité & d'Anonymat",
+    modal_privacy_p1_title: "1. Anonymat des membres et bénévoles :",
+    modal_privacy_p1_text: "Conformément au principe fondateur de pureté du geste caritatif, l'ensemble des fondateurs, administrateurs et bénévoles de l'Association Caritative LOKHO NDEYE ont choisi d'agir sous le sceau de l'anonymat. Aucune information nominative personnelle n'est publiée, préservant ainsi l'esprit collectif et désintéressé de notre mission.",
+    modal_privacy_p2_title: "2. Respect de la dignité des bénéficiaires :",
+    modal_privacy_p2_text: "Les personnes et familles accompagnées à travers le Sénégal sont protégées. Aucune photo dégradante ou donnée nominative sensible n'est divulguée.",
+    modal_privacy_p3_title: "3. Données des donateurs :",
+    modal_privacy_p3_text: "Les informations transmises lors de vos dons ou prises de contact sont strictement confidentielles. Aucune donnée bancaire sensible n'est enregistrée sur notre plateforme.",
+    btn_understood: "J'ai compris",
+
+    modal_rib_title: "Demande du RIB / IBAN officiel complet",
+    modal_rib_alert: "Afin de sécuriser les flux de virement bancaire et de prévenir toute tentative de fraude, le relevé d'identité bancaire complet (IBAN, Code Banque, Code Guichet, Clé RIB) est transmis sur demande officielle par le secrétariat administratif.",
+    modal_rib_recipient: "Lokho Ndéye Charitable Association",
+    modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Sénégal) — <em>Action sur tout le Sénégal</em>",
+    modal_rib_instruction: "Pour recevoir instantanément l'attestation de domiciliation bancaire officielle par email, veuillez envoyer un message à :",
+    modal_rib_note: "Indiquez simplement en objet : « Demande RIB officiel pour don ».",
+    btn_send_email: "Envoyer un email",
+
+    modal_pledge_title: "Engagement de Don Solidaire",
+    modal_pledge_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
+    modal_pledge_hq: "Siège : Saly Station [Mbour] • Action Nationale sur tout le Sénégal",
+    modal_pledge_ref_lbl: "Référence d'engagement :",
+    modal_pledge_date_lbl: "Date :",
+    modal_pledge_amount_lbl: "Montant du soutien :",
+    modal_pledge_freq_lbl: "Fréquence :",
+    modal_pledge_alloc_lbl: "Affectation sociale :",
+    modal_pledge_alloc_val: "Actions solidaires & aide alimentaire au Sénégal",
+    modal_pledge_instructions: "<strong>Instructions de transmission :</strong><br>Pour concrétiser cet engagement, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.",
+    btn_print: "Imprimer ce récapitulatif",
+
+    modal_logo_title: "Emblème Officiel de l'Association — Grand Format",
+    modal_logo_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
+    modal_logo_legal: "Association caritative déclarée • Code des Obligations Civiles et Commerciales • Siège : Saly Station [Mbour] — Action sur tout le Sénégal",
+
+    // Dynamic Toasts & Alerts
+    toast_copied_suffix: "copié dans le presse-papiers !",
+    toast_copy_error: "Impossible de copier automatiquement",
+    toast_message_sent: "Votre message solidaire a été transmis avec succès !",
+    toast_copied_default: "Copié dans le presse-papiers avec succès !",
+    toast_sound_on: "Ambiance sonore kora activée",
+    toast_sound_off: "Ambiance sonore coupée",
+    copy_label_bank: "Coordonnées du compte",
+    copy_label_wave: "Informations Wave",
+    btn_transmitting: "Transmission en cours...",
+    receipt_free_amount: "Montant libre (selon vos capacités)"
+  },
+
+  en: {
+    // Page Title & Meta
+    page_title: "Lokho Ndéye Charitable Association | A Mother's Outstretched Hand — Solidarity in Senegal",
+    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), a non-profit registered charity operating across all of Senegal. Headquarters: Saly [Mbour], Senegal. Relief for vulnerable groups, food security, protection of mothers and children.",
+
+    // Top Bar
+    topbar_hq: "Headquarters: Saly [Mbour] — Operating throughout Senegal",
+    topbar_status: "Registered Charity (Code of Civil and Commercial Obligations)",
+    topbar_scope: "🌍 Operating across all of Senegal",
+    mobile_lang_label: "Site Language:",
+
+    // Brand & Header
+    brand_title: "CHARITABLE ASSOCIATION LOKHO NDEYE",
+    official_beneficiary_name: "Lokho Ndéye Charitable Association",
+    brand_aria: "Back to home - Lokho Ndéye Charitable Association",
+    hero_section_aria: "Presentation and missions of the Lokho Ndéye Charitable Association",
+    brand_tagline: "“A Mother's Outstretched Hand”",
+    brand_subtext: "Operating across all of Senegal • Headquarters in Saly [Mbour] • Registered Charity",
+    header_trust_title: "Headquarters in Saly [Mbour]",
+    header_trust_sub: "Nationwide action across Senegal",
+    btn_donate: "Donate Now",
+    sound_toggle_aria: "Toggle kora acoustic soundscape",
+    sound_toggle_title: "Acoustic soundscape",
+
+    // Navigation Menu
+    nav_home: "Home",
+    nav_mission: "Our Mission",
+    nav_domains: "Fields of Action",
+    nav_actions: "Actions & Projects",
+    nav_impact: "Our Impact",
+    nav_why: "Why Support Us",
+    nav_transparency: "Transparency",
+    nav_contact: "Contact",
+
+    // Hero Section - Act 1
+    hero_act1_tag: "ACT I",
+    hero_act1_badge: "On-the-ground Reality & Urgency",
+    hero_act1_title: "Across Senegal, children and mothers reach out their hands. <span class=\"hero-title-highlight\">We welcome them with open arms.</span>",
+    hero_act1_desc: "Confronting the hardship of talibé children and the distress of vulnerable single mothers throughout Senegal, the Lokho Ndéye Charitable Association transforms every gesture into a nutritious meal, vital healthcare, and compassionate support.",
+    hero_tag_senegal: "All of Senegal",
+    hero_tag_childhood: "Child Protection",
+    hero_tag_hq: "HQ in Saly [Mbour]",
+    hero_btn_donate_hope: "Make a Gift of Hope",
+    hero_btn_explore_mission: "Explore Our Mission",
+
+    // Hero Section - Act 2
+    hero_act2_tag: "ACT II",
+    hero_act2_badge: "A Concrete & Structured Response",
+    hero_act2_title: "“Lokho Ndéye”: <span class=\"hero-title-highlight\">Tenderness and rigor</span> in the service of human dignity",
+    hero_act2_desc: "Officially registered under the Code of Civil and Commercial Obligations of the Republic of Senegal, our charity deploys relief across the nation with impeccable 100% volunteer management.",
+    hero_stat_volunteer_lbl: "100% Volunteer-Led",
+    hero_stat_territory_num: "Senegal",
+    hero_stat_territory_lbl: "Nationwide Operations",
+    hero_btn_see_actions: "See Our Current Actions",
+    hero_btn_support_mothers: "Support Mothers",
+
+    // Hero Section - Act 3
+    hero_act3_tag: "ACT III",
+    hero_act3_badge: "Building a Sustainable Future",
+    hero_act3_title: "Share • Nourish • Support • <span class=\"hero-title-highlight\">Build Tomorrow</span>",
+    hero_act3_desc: "Every donor is an essential link in this human chain. By uniting our strength, we give every vulnerable child and mother the certainty that they are never alone.",
+    hero_tag_transparency: "Total Transparency",
+    hero_tag_security: "Secure Donations",
+    hero_tag_solidarity: "Active Solidarity",
+    hero_btn_join_donors: "Join Our Donors",
+    hero_btn_transparency_guarantees: "Transparency Guarantees",
+
+    // Hero Slider Controls
+    hero_dot_1: "01. Children & Relief",
+    hero_dot_2: "02. Maternity & Care",
+    hero_dot_3: "03. Future & Unity",
+    hero_prev_aria: "Previous slide",
+    hero_next_aria: "Next slide",
+    hero_play_pause_aria: "Pause or resume automatic scrolling",
+
+    // Hero Foreground Stage & Badges
+    float_badge_meal_title: "Meals & Nutrition",
+    float_badge_meal_sub: "Daily food distribution",
+    float_badge_action_title: "Nationwide Scope",
+    float_badge_action_sub: "Headquarters in Saly [Mbour]",
+    float_caption_1_tag: "Fieldwork",
+    float_caption_1_text: "Direct relief for talibé children and vulnerable youth",
+
+    float_badge_mothers_title: "Mothers & Infants",
+    float_badge_mothers_sub: "Emergency care & hygiene kits",
+    float_badge_vol_title: "100% Volunteer",
+    float_badge_vol_sub: "Complete devotion to grassroots action",
+    float_caption_2_tag: "Health & Protection",
+    float_caption_2_text: "Medical support and kindness for single mothers",
+
+    float_badge_chain_title: "Solidarity Chain",
+    float_badge_chain_sub: "Sharing & active brotherhood",
+    float_badge_transp_title: "Total Transparency",
+    float_badge_transp_sub: "Every franc invested on the ground",
+    float_caption_3_tag: "Future",
+    float_caption_3_text: "Building together a caring, sustainable community",
+
+    // Thumbnails
+    thumb_act_1: "Act 01",
+    thumb_1_title: "Children & Relief",
+    thumb_act_2: "Act 02",
+    thumb_2_title: "Mothers & Care",
+    thumb_act_3: "Act 03",
+    thumb_3_title: "Unity & Future",
+
+    // Kinetic Marquee
+    marquee_share: "Share",
+    marquee_nourish: "Nourish Dignity",
+    marquee_support: "Support Mothers",
+    marquee_protect: "Protect Children",
+    marquee_dignity: "Solidarity & Dignity",
+    marquee_national: "Nationwide Scope • All of Senegal",
+    marquee_hq: "Headquarters in Saly [Mbour]",
+    marquee_build: "Build a Caring Future",
+
+    // Section Notre Mission
+    mission_tag: "Our Founding Mission",
+    mission_title: "OUR MISSION",
+    mission_spirit_title: "The Spirit of “Lokho Ndéye”",
+    mission_spirit_p1: "In Wolof, <strong>“Lokho Ndéye”</strong> means <em>“A mother's outstretched hand”</em> — the universal gesture of maternal protection: feeding with love, guiding first steps, and providing shelter in adversity.",
+    mission_spirit_p2: "<strong>Whom we support:</strong> Malnourished children, vulnerable mothers, and families facing severe social exclusion, without any discrimination.",
+    pillar_1_title: "Share",
+    pillar_1_desc: "Our resources and affection with those deprived of essentials.",
+    pillar_2_title: "Nourish",
+    pillar_2_desc: "A warm and nutritious meal for vulnerable children and families.",
+    pillar_3_title: "Support",
+    pillar_3_desc: "Compassionate listening and social relief during critical times.",
+    pillar_4_title: "Build",
+    pillar_4_desc: "A brighter future through community solidarity and mutual aid.",
+    emblem_badge: "✨ Official Emblem",
+    emblem_zoom: "Enlarge",
+    emblem_caption_title: "The Protective & Nourishing Hand",
+    emblem_caption_text: "The caring mother feeding children from the communal calabash, sheltered beneath the protective arch and crowned by our motto: <em>“Share • Nourish • Support • Build a better future”</em>.",
+    legal_box_title: "Ethical & Legal Framework",
+    legal_box_text: "<em>“The Association is open to all, respecting individual convictions, and remains strictly independent of political parties.”</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III of Official Bylaws</strong>",
+
+    // Section Domaines d'Intervention
+    domains_tag: "Statutory Objectives",
+    domains_title: "Our Areas of Action",
+    domains_sub: "Each of our areas of intervention is strictly founded on the official objectives defined in Article II of our bylaws registered in the Republic of Senegal.",
+    domain_1_ref: "Bylaws • Article II - Paragraph 2",
+    domain_1_title: "Aid to Vulnerable Groups",
+    domain_1_desc: "Targeted support for children in hardship, pregnant or single mothers, the elderly, and anyone facing extreme poverty across Senegal.",
+    domain_2_ref: "Motto • “Nourish & Share”",
+    domain_2_title: "Nutrition & Food Security",
+    domain_2_desc: "Distribution of balanced meals and staple supplies (rice, cooking oil, local grains) to fight child malnutrition and hunger.",
+    domain_3_ref: "Bylaws • Article II - Paragraph 3",
+    domain_3_title: "Community Development",
+    domain_3_desc: "Active support for grassroots collective initiatives to foster social harmony, strengthen mutual aid bonds, and improve living conditions.",
+    domain_4_ref: "Bylaws • Article II - Paragraph 4",
+    domain_4_title: "Poverty Alleviation",
+    domain_4_desc: "Concrete contribution to reducing social inequality and exclusion by providing essential material and moral aid to marginalized households.",
+    domain_5_ref: "Bylaws • Article II - Paragraph 5",
+    domain_5_title: "Social Care & Support",
+    domain_5_desc: "Compassionate social mediation, emergency relief for families in sudden crisis, clothing distributions, and facilitating primary healthcare access.",
+    domain_6_ref: "Bylaws • Article II - Paragraph 1",
+    domain_6_title: "Citizen Unity & Solidarity",
+    domain_6_desc: "Bringing together citizens and donors sharing the same ideal of fraternal love and human cohesion to act with one generous voice.",
+
+    // Section Actions & Projets
+    actions_tag: "Grassroots & Fieldwork",
+    actions_title: "Our Solidarity Actions & Projects",
+    actions_sub: "Tangible and direct initiatives conducted across Senegal, addressing the most vital needs of vulnerable children and families.",
+    proj_status_ongoing: "Continuous Action",
+    proj1_cat: "Nutrition & Childhood",
+    proj1_title: "Project “The Shared Bowl”",
+    proj1_desc: "Directly inspired by our emblem representing a mother's nourishing gift, this project provides hot, nutritious meals to children and vulnerable families.",
+    proj_obj_label: "Priority objective:",
+    proj1_obj: "Ensure no child goes to sleep hungry and combat malnutrition across Senegal.",
+    proj_support_btn: "Support this project",
+
+    proj2_status: "Health & Prevention",
+    proj2_cat: "Maternal Protection",
+    proj2_title: "Project “Helping Hand to Mothers”",
+    proj2_desc: "Care for single and impoverished mothers right from the birth of their baby through newborn care essentials, hygiene kits, and gentle guidance.",
+    proj2_obj: "Safeguard newborn health, alleviate emotional burdens, and restore confidence and peace of mind.",
+
+    proj3_status: "Emergency Relief",
+    proj3_cat: "Social Cohesion",
+    proj3_title: "Project “Solidarity & Mutual Aid”",
+    proj3_desc: "Immediate response system coordinated from our headquarters in Saly Station for unforeseen hardships: seasonal emergency packs, food, and human support.",
+    proj3_obj: "Stop extreme poverty in its tracks and preserve the dignity of vulnerable families.",
+
+    // Section Notre Impact
+    impact_tag: "Ethics & Field Reality",
+    impact_title: "Our Impact in Communities",
+    impact_sub: "True to our charter of absolute transparency, we do not fabricate figures. Our impact is measured first by real lives touched and uncompromised governance.",
+    impact_card1_title: "Dedicated to the Field",
+    impact_card1_desc: "Every franc collected is directly spent on food supplies, health kits, and direct relief for vulnerable families across Senegal.",
+    impact_card2_title: "Executive Compensation",
+    impact_card2_desc: "Article IX of our Bylaws explicitly states: <em>“Board member roles are completely unremunerated.”</em> Zero salary, only pure service.",
+    impact_card3_num: "Regular",
+    impact_card3_title: "Financial Audits",
+    impact_card3_desc: "Independent accounting audits and annual moral and financial reporting presented at the General Assembly (Article VI).",
+    impact_card4_num: "Senegal",
+    impact_card4_title: "Nationwide Scope",
+    impact_card4_desc: "Operational capacity across the entire territory of Senegal, with a registered headquarters in Saly [Mbour] for direct coordination.",
+
+    // Section Pourquoi nous soutenir
+    why_tag: "Alliance of Solidarity",
+    why_title: "Why Your Support Changes Everything",
+    why_sub: "Giving to the Lokho Ndéye Charitable Association ensures authentic, direct, and fully accountable solidarity.",
+    why_item1_title: "Immediate grassroots action",
+    why_item1_desc: "Your contribution is not absorbed by bureaucratic overhead: it materializes directly as food supplies and hands-on help for vulnerable families across Senegal.",
+    why_item2_title: "Transparency and statutory integrity",
+    why_item2_desc: "Our board serves entirely voluntarily. Every resource from donations and dues is rigorously recorded and audited (Articles VI & XII).",
+    why_item3_title: "Unconditional respect for dignity",
+    why_item3_desc: "We protect the privacy and dignity of every family helped. Aid is brought just as a loving mother would: with discretion, tenderness, and respect.",
+    why_box_title: "Every gesture counts",
+    why_box_desc: "Even the most modest donation provides a warm meal to a hungry child or a food basket to a struggling mother. Join our chain of brotherhood.",
+    why_box_btn: "Go to donation area",
+
+    // Section Faire un don
+    don_tag: "Priority Donor Area",
+    don_title: "Reach Out Your Hand: Donate to Lokho Ndéye",
+    don_sub: "Choose your preferred contribution method. 100% of your donations are dedicated to supporting children and mothers across Senegal.",
+    tab_pledge: "Pledge & Donation Form",
+    tab_methods: "Bank Transfer & Wave Details",
+    freq_label: "1. Frequency of your support:",
+    freq_ponctuel: "One-time gift",
+    freq_occasionnel: "Occasional gift",
+    amount_label: "2. Donation amount (Open amount):",
+    custom_amount_placeholder: "Enter the amount of your choice (in FCFA)",
+    preview_default: "<strong>Every gesture counts:</strong> There is no small donation. Your contribution, given from the heart according to your means, provides vital direct support to families and children.",
+    preview_custom: "<strong>Your solidarity support:</strong> Your donation of <strong>{amount} FCFA</strong> will be fully dedicated to priority actions (food aid, healthcare, and protection for children and mothers across Senegal).",
+    volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping beneficiaries and distributing food across Senegal.",
+
+    sum_title: "Your Donation Summary",
+    sum_beneficiary_lbl: "Official Beneficiary:",
+    sum_freq_lbl: "Donation Type:",
+    sum_amount_lbl: "Selected Amount:",
+    sum_amount_free: "Open amount of your choice",
+    sum_alloc_lbl: "Allocation:",
+    sum_alloc_val: "100% Social assistance & food aid",
+    btn_pledge: "Generate my donation pledge",
+    btn_see_coords: "See official payment details below",
+    don_security_note: "🔒 No sensitive banking data is stored on this site. Your contributions are made directly through the association's secure official channels.",
+
+    // Cartes de paiement
+    card_virement_badge: "Bank Transfer",
+    card_virement_title: "Official Bank Transfer",
+    card_virement_sub: "Institutional account in Senegal",
+    lbl_account_name: "Account Name:",
+    lbl_account_hq: "Headquarters / Domiciliation:",
+    val_account_hq: "Saly Station, Saly Portudal [Mbour], Senegal",
+    lbl_account_legal: "Legal Framework:",
+    val_account_legal: "Code of Civil and Commercial Obligations (Senegal)",
+    lbl_account_ref: "Reference / Purpose:",
+    val_account_ref: "SOLIDARITY DONATION - LOKHO NDEYE",
+    btn_copy_coords: "Copy details",
+    btn_request_rib: "Request full IBAN / RIB",
+
+    card_wave_badge: "Wave Senegal",
+    card_wave_title: "Donate with Wave",
+    card_wave_sub: "Fast Mobile Money & 0% fees",
+    wave_info_box: "Send your donation directly by opening the <strong>Wave Senegal</strong> app.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Official Beneficiary: Lokho Ndéye Charitable Association</span>",
+    lbl_wave_app: "Application:",
+    lbl_wave_recipient: "Recipient:",
+    lbl_wave_num: "Official Number:",
+    lbl_wave_account: "Official Association Account",
+    btn_copy_wave: "Copy Wave details",
+    btn_open_wave: "Open Wave",
+
+    upcoming_title: "Additional Payment Methods (Scalable Platform):",
+    upcoming_sub: "Our platform is built to accommodate future secure payment gateways:",
+    upcoming_orange: "● Orange Money (Coming soon)",
+    upcoming_free: "● Free Money (Coming soon)",
+    upcoming_card: "● Credit Card Visa / Mastercard (In progress)",
+
+    // Transparence
+    transp_tag: "Rigor & Transparency",
+    transp_title: "Collective Governance & Official Documents",
+    transp_sub: "The Lokho Ndéye Charitable Association grounds its actions in democratic, selfless, and transparent governance guaranteed by its official bylaws.",
+    chart_title: "Rigorous Resource Allocation",
+    chart_sub: "Every CFA franc collected is audited and directed to fieldwork",
+    chart_center_lbl: "Direct field relief",
+    legend_1: "Food assistance & emergency kits",
+    legend_2: "Logistics & relief distribution across Senegal",
+    legend_3: "Legal fees & mandatory audits (Art. VI)",
+
+    stat_pill_1_tag: "Management Certification",
+    stat_pill_1_title: "0 FCFA Compensation",
+    stat_pill_1_desc: "Pursuant to Article IX of the bylaws, all leadership and board positions are strictly voluntary. No attendance fees, honoraria, or benefits are ever provided.",
+    stat_pill_2_tag: "Banking Traceability",
+    stat_pill_2_title: "Declared Institutional Account",
+    stat_pill_2_desc: "All monetary flows transit exclusively through the association's official, declared banking and mobile money channels, audited annually by external controllers.",
+
+    card_commitments_title: "Our Statutory Commitments",
+    card_commitments_sub: "Every operational rule of the association guarantees the absolute integrity of donor funds:",
+    rule_1: "<strong>Zero remuneration for board roles (Article IX):</strong> No member of the Executive Board or Committee receives a salary or perks. Complete volunteer service.",
+    rule_2: "<strong>Audit and oversight commission (Article VI):</strong> Three non-board members are designated to verify the compliance of financial accounts each fiscal year.",
+    rule_3: "<strong>Exclusive devolution to secular charity (Article XVII):</strong> In case of dissolution, all remaining assets are legally devolved to a secular charitable body.",
+
+    card_docs_title: "Institutional Documents",
+    card_docs_sub: "Access administrative documentation and legal texts governing the Lokho Ndéye Charitable Association:",
+    doc_1_title: "Constitutive Bylaws of the Association",
+    doc_1_sub: "Registered with the Ministry of the Interior • Republic of Senegal",
+    doc_2_title: "Ethics & Volunteer Confidentiality Charter",
+    doc_2_sub: "Commitment to solidarity, privacy protection, and political neutrality",
+    doc_3_title: "Annual Activity & Transparency Reports",
+    doc_3_sub: "Presented annually to the Ordinary General Assembly",
+    btn_consult: "View Document",
+    badge_annual: "Annual session",
+
+    // Contact
+    contact_tag: "Administrative Secretariat",
+    contact_title: "Contact the Lokho Ndéye Charitable Association",
+    contact_sub: "For any inquiries, humanitarian partnership proposals, in-kind donations, or questions, write to our collective team.",
+    contact_hq_title: "Official Headquarters",
+    contact_hq_address: "Saly Station, Commune of Saly Portudal<br>Mbour Department, Thiès Region<br><strong>Republic of Senegal</strong>",
+    contact_hq_reach: "Operational scope: Entire Republic of Senegal",
+    contact_email_title: "Official Institutional Email",
+    contact_email_sub: "Replies provided by the General Secretariat",
+    contact_hours_title: "Office Hours & Support",
+    contact_hours_text: "Monday to Saturday: 8:30 AM - 6:00 PM GMT<br>Relief hotline for urgent matters",
+    contact_privacy_note_title: "Privacy Protection:",
+    contact_privacy_note_text: "In accordance with our members' and volunteers' wishes, our organization operates collegially and anonymously. No private personal details are published, preserving the pure spirit of selfless charity.",
+
+    form_title: "Send a message to the secretariat",
+    form_sub: "Complete the form below. Your information remains strictly confidential.",
+    lbl_nom: "Your Name or Organization *",
+    placeholder_nom: "E.g.: Awa Diop or Foundation...",
+    lbl_email: "Your Email Address *",
+    placeholder_email: "your.email@example.com",
+    lbl_objet: "Subject of your message *",
+    opt_select: "Select a reason...",
+    opt_don: "Information on donations and bank transfers",
+    opt_partenariat: "Partnership or sponsorship proposal",
+    opt_benevolat: "Volunteer offer or skills contribution",
+    opt_autre: "Other general information inquiry",
+    lbl_message: "Your Message *",
+    placeholder_message: "Write your message here...",
+    btn_submit_msg: "Send My Message",
+    msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of the Lokho Ndéye Charitable Association thanks you and will get back to you as soon as possible.",
+    form_privacy_footer: "🔒 Your contact details will never be sold, shared, or used for commercial purposes.",
+
+    // Footer
+    footer_tagline: "A Mother's Outstretched Hand",
+    footer_desc: "Charitable nonprofit association operating across Senegal, established under the Code of Civil and Commercial Obligations of the Republic of Senegal. Registered headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
+    footer_nav_title: "Navigation",
+    footer_ethics_title: "Solidarity & Ethics",
+    footer_link_virement: "Donate via bank transfer",
+    footer_link_wave: "Donate via Wave",
+    footer_link_statuts: "Constitutive Bylaws",
+    footer_link_privacy: "Ethics & Anonymity Charter",
+    footer_link_contact: "Contact us",
+    footer_legal_title: "Legal Status",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Scope:</strong> All of Senegal.<br><strong>Duration:</strong> Unlimited.",
+    footer_copyright: "© 2026 Lokho Ndéye Charitable Association (“A Mother's Outstretched Hand”). All rights reserved.",
+    footer_legal_notices: "Legal Notices",
+    footer_privacy_policy: "Privacy Policy",
+    footer_back_top: "Back to top ↑",
+
+    // Modals
+    modal_statuts_title: "Excerpts from the Official Bylaws",
+    modal_statuts_denom: "“Lokho Ndéye Charitable Association (A Mother's Outstretched Hand)”",
+    modal_statuts_form: "Nonprofit association governed by the amended Code of Civil and Commercial Obligations of the Republic of Senegal.",
+    modal_statuts_hq: "Saly Station, Commune of Saly Portudal [Mbour], Senegal. <strong>Scope:</strong> Entire Republic of Senegal. <strong>Duration:</strong> Unlimited.",
+    modal_statuts_art2: "Article II: Objectives of the Association",
+    modal_statuts_art2_1: "1. Unite members driven by the same ideal and build bonds of mutual understanding and solidarity.",
+    modal_statuts_art2_2: "2. Provide aid to vulnerable groups throughout the territory of Senegal.",
+    modal_statuts_art2_3: "3. Support community development initiatives.",
+    modal_statuts_art2_4: "4. Contribute to combating poverty, social exclusion, and inequality.",
+    modal_statuts_art2_5: "5. Carry out social welfare work.",
+    modal_statuts_art3: "Article III: Neutrality & Independence",
+    modal_statuts_art3_text: "The Association is open to all, respecting individual convictions, and remains strictly independent of political parties. Any political, religious, or union discussion is forbidden within the association.",
+    modal_statuts_art9: "Article IX: Voluntary Duties",
+    modal_statuts_art9_text: "“Board member roles are completely unremunerated.”",
+    modal_statuts_art17: "Article XVII: Dissolution",
+    modal_statuts_art17_text: "In the event of dissolution, any remaining net assets shall be legally devolved to a secular charitable organization.",
+    btn_close: "Close",
+
+    modal_privacy_title: "Privacy & Anonymity Charter",
+    modal_privacy_p1_title: "1. Anonymity of members and volunteers:",
+    modal_privacy_p1_text: "In keeping with the founding principle of selfless charitable giving, all founders, trustees, and volunteers of the Lokho Ndéye Charitable Association have chosen to act under the seal of anonymity. No personal identifying information is publicized, preserving the collective, dedicated spirit of our mission.",
+    modal_privacy_p2_title: "2. Respect for the dignity of beneficiaries:",
+    modal_privacy_p2_text: "All assisted persons and families across Senegal are shielded from exposure. No humiliating photos or sensitive personal data are ever shared.",
+    modal_privacy_p3_title: "3. Donor information:",
+    modal_privacy_p3_text: "Information provided during donations or inquiries is kept strictly confidential. No sensitive banking details are recorded on our platform.",
+    btn_understood: "Understood",
+
+    modal_rib_title: "Request for Official Bank Account Details (IBAN / RIB)",
+    modal_rib_alert: "To ensure the highest security for bank wire transfers and prevent fraud, complete bank domiciliation details (IBAN, Bank Code, Branch Code, Account Number) are issued upon official request by our administrative secretariat.",
+    modal_rib_recipient: "Association Caritative LOKHO NDEYE",
+    modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Senegal) — <em>Operating across all Senegal</em>",
+    modal_rib_instruction: "To immediately receive the official bank domiciliation certificate by email, please send a message to:",
+    modal_rib_note: "Simply mention as subject: “Request for official bank details for donation”.",
+    btn_send_email: "Send Email",
+
+    modal_pledge_title: "Charitable Donation Pledge",
+    modal_pledge_motto: "“Share • Nourish • Support • Build a better future”",
+    modal_pledge_hq: "Headquarters: Saly Station [Mbour] • Nationwide Action across Senegal",
+    modal_pledge_ref_lbl: "Pledge Reference:",
+    modal_pledge_date_lbl: "Date:",
+    modal_pledge_amount_lbl: "Support Amount:",
+    modal_pledge_freq_lbl: "Frequency:",
+    modal_pledge_alloc_lbl: "Social Allocation:",
+    modal_pledge_alloc_val: "Solidarity actions & food aid across Senegal",
+    modal_pledge_instructions: "<strong>Payment Instructions:</strong><br>To complete this pledge, please initiate the corresponding transfer via <strong>Wave</strong> or <strong>Bank Wire</strong> mentioning your official reference.",
+    btn_print: "Print this summary",
+
+    modal_logo_title: "Official Association Emblem — Full Resolution",
+    modal_logo_motto: "“Share • Nourish • Support • Build a better future”",
+    modal_logo_legal: "Registered Charity • Code of Civil and Commercial Obligations • Headquarters: Saly Station [Mbour] — Operating across all of Senegal",
+
+    // Dynamic Toasts & Alerts
+    toast_copied_suffix: "copied to clipboard!",
+    toast_copy_error: "Unable to copy automatically",
+    toast_message_sent: "Your solidarity message has been sent successfully!",
+    toast_copied_default: "Copied to clipboard successfully!",
+    toast_sound_on: "Kora acoustic soundscape enabled",
+    toast_sound_off: "Acoustic soundscape muted",
+    copy_label_bank: "Account details",
+    copy_label_wave: "Wave details",
+    btn_transmitting: "Sending in progress...",
+    receipt_free_amount: "Open amount (according to your means)"
+  }
+};
+
+// Export pour utilisation globale dans le navigateur
+if (typeof window !== 'undefined') {
+  window.i18nTranslations = translations;
+}
+
+
+/**
+ * ASSOCIATION LOKHO NDEYE - SITE OFFICIEL & EXPÉRIENCE DIGITALE PRIMÉE
+ * Moteur d'Interaction Haute-Couture :
+ * 1. Curseur Magnétique & Barre de Progression de Scroll
+ * 2. Scrollytelling Cinématique en 3 Actes (Hero Section)
+ * 3. Générateur de Poussière d'Or (HTML5 Canvas Particles)
+ * 4. Synthétiseur Acoustique Kora Africaine (Web Audio API)
+ * 5. Visualiseur Dynamique de Bol Solidaire & Calculateur de Don
+ * 6. Effets 3D Tilt & Micro-animations de Cartes
+ * 7. Modales, Presse-papiers & Formulaire Institutionnel
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ==========================================================================
+  // MOTEUR D'INTERNATIONALISATION BILINGUE (FR / EN) - INITIALISATION PRÉCOCE
+  // ==========================================================================
+  let currentLanguage = localStorage.getItem('lokho_ndeye_lang') || 'fr';
+  window.currentLanguage = currentLanguage;
+
+  function applyLanguage(lang) {
+    if (!window.i18nTranslations || !window.i18nTranslations[lang]) return;
+    currentLanguage = lang;
+    window.currentLanguage = lang;
+    localStorage.setItem('lokho_ndeye_lang', lang);
+    document.documentElement.lang = lang;
+
+    // Mise à jour de l'état actif sur tous les boutons de langue
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const btnLang = btn.getAttribute('data-lang');
+      const isActive = (btnLang === lang);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    const dict = window.i18nTranslations[lang];
+
+    // Mise à jour titre et meta description du document
+    if (dict.page_title) {
+      document.title = dict.page_title;
+    }
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && dict.meta_description) {
+      metaDesc.setAttribute('content', dict.meta_description);
+    }
+
+    // Mise à jour data-i18n (texte simple)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) {
+        el.textContent = dict[key];
+      }
+    });
+
+    // Mise à jour data-i18n-html (balisage HTML enrichi)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    // Mise à jour placeholders
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (dict[key] !== undefined) {
+        el.setAttribute('placeholder', dict[key]);
+      }
+    });
+
+    // Mise à jour titles
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      if (dict[key] !== undefined) {
+        el.setAttribute('title', dict[key]);
+      }
+    });
+
+    // Mise à jour aria-labels
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const key = el.getAttribute('data-i18n-aria');
+      if (dict[key] !== undefined) {
+        el.setAttribute('aria-label', dict[key]);
+      }
+    });
+
+    // Synchronisation du formulaire de don et calculs si défini
+    if (typeof updateDonationSummary === 'function') {
+      updateDonationSummary();
+    }
+  }
+  window.applyLanguage = applyLanguage;
+
+  function initLanguageButtons() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetLang = btn.getAttribute('data-lang');
+        if (targetLang && targetLang !== currentLanguage) {
+          applyLanguage(targetLang);
+        }
+      });
+    });
+  }
+  window.initLanguageButtons = initLanguageButtons;
+
+  // ==========================================================================
+  // 1. CURSEUR MAGNÉTIQUE PERSONNALISÉ (Desktop)
+  // ==========================================================================
+  const cursorDot = document.getElementById('customCursor');
+  const cursorFollower = document.getElementById('customCursorFollower');
+
+  if (cursorDot && cursorFollower && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let followerX = mouseX;
+    let followerY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    });
+
+    // Animation fluide avec lerp (Linear Interpolation)
+    function animateCursor() {
+      followerX += (mouseX - followerX) * 0.15;
+      followerY += (mouseY - followerY) * 0.15;
+      cursorFollower.style.left = `${followerX}px`;
+      cursorFollower.style.top = `${followerY}px`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Détection des éléments interactifs pour agrandir le curseur
+    const interactiveElements = document.querySelectorAll(
+      'a, button, input, textarea, .amount-btn, .freq-btn, .project-card, .domain-card, .impact-card, .stat-pill, .payment-card'
+    );
+
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.classList.add('hover');
+        cursorFollower.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.classList.remove('hover');
+        cursorFollower.classList.remove('hover');
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 2. NAVIGATION STICKY PERMANENTE & SURLIGNAGE SYNCHRONE DU LIEN ACTIF
+  // ==========================================================================
+  const header = document.querySelector('.site-header');
+  const siteHeader = header;
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navBackdrop = document.getElementById('navBackdrop');
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+
+  // Mapping des sections du site vers la rubrique correspondante dans le menu
+  const SECTION_TO_NAV = {
+    'accueil': 'accueil',
+    'mission': 'mission',
+    'domaines': 'domaines',
+    'actions': 'actions',
+    'impact': 'impact',
+    'pourquoi-nous-soutenir': 'pourquoi-nous-soutenir',
+    'faire-un-don': 'pourquoi-nous-soutenir',
+    'transparence': 'transparence',
+    'contact': 'contact'
+  };
+
+  const TRACKED_SECTIONS = [
+    'accueil',
+    'mission',
+    'domaines',
+    'actions',
+    'impact',
+    'pourquoi-nous-soutenir',
+    'faire-un-don',
+    'transparence',
+    'contact'
+  ];
+
+  let isClickScrolling = false;
+  let clickScrollTimer = null;
+
+  function highlightActiveNavLink() {
+    if (isClickScrolling) return;
+
+    const navItemLinks = Array.from(document.querySelectorAll('.nav-menu .nav-link'));
+    if (!navItemLinks.length) return;
+
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const headerHeight = header ? header.offsetHeight : 110;
+    const scrollBottom = window.innerHeight + scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+
+    let targetNavId = 'accueil';
+
+    // 1. Tout en haut du site
+    if (scrollY < 120) {
+      targetNavId = 'accueil';
+    } 
+    // 2. Tout en bas du site (Contact)
+    else if (scrollBottom >= docHeight - 80) {
+      targetNavId = 'contact';
+    } 
+    // 3. Détection par position relative au viewport (getBoundingClientRect)
+    else {
+      const focalLine = headerHeight + 60; // Ligne d'observation sous le ruban d'en-tête
+      let bestSectionId = null;
+
+      for (const id of TRACKED_SECTIONS) {
+        const sec = document.getElementById(id);
+        if (!sec) continue;
+        const rect = sec.getBoundingClientRect();
+        
+        // La section couvre la ligne d'observation
+        if (rect.top <= focalLine && rect.bottom > focalLine) {
+          bestSectionId = id;
+          break;
+        }
+      }
+
+      // Si le curseur est dans une transition, prendre la section la plus proche au-dessus
+      if (!bestSectionId) {
+        let maxTop = -Infinity;
+        for (const id of TRACKED_SECTIONS) {
+          const sec = document.getElementById(id);
+          if (!sec) continue;
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= focalLine && rect.top > maxTop) {
+            maxTop = rect.top;
+            bestSectionId = id;
+          }
+        }
+      }
+
+      if (bestSectionId && SECTION_TO_NAV[bestSectionId]) {
+        targetNavId = SECTION_TO_NAV[bestSectionId];
+      }
+    }
+
+    // Mise à jour de la classe active sur toutes les rubriques
+    navItemLinks.forEach(link => {
+      const linkTarget = link.getAttribute('href');
+      if (linkTarget === `#${targetNavId}`) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function closeMobileMenu() {
+    if (navMenu && navMenu.classList.contains('open')) {
+      navMenu.classList.remove('open');
+      if (mobileToggle) {
+        mobileToggle.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      }
+      if (navBackdrop) {
+        navBackdrop.classList.remove('active');
+      }
+      if (siteHeader) {
+        siteHeader.classList.remove('mobile-menu-active');
+      }
+      document.body.style.overflow = '';
+    }
+  }
+
+  function openMobileMenu() {
+    if (navMenu) {
+      navMenu.classList.add('open');
+      if (mobileToggle) {
+        mobileToggle.classList.add('active');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+      }
+      if (navBackdrop) {
+        navBackdrop.classList.add('active');
+      }
+      if (siteHeader) {
+        siteHeader.classList.add('mobile-menu-active');
+      }
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu.classList.contains('open')) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+  }
+
+  // Clic sur les liens du menu : sélection immédiate et défilement synchronisé
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetHref = link.getAttribute('href');
+      if (targetHref && targetHref.startsWith('#')) {
+        const targetId = targetHref.substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+
+          // Surlignage visuel immédiat et synchrone de la rubrique sélectionnée
+          navLinks.forEach(l => {
+            l.classList.remove('active');
+            l.removeAttribute('aria-current');
+          });
+          link.classList.add('active');
+          link.setAttribute('aria-current', 'page');
+
+          isClickScrolling = true;
+          clearTimeout(clickScrollTimer);
+          clickScrollTimer = setTimeout(() => {
+            isClickScrolling = false;
+            highlightActiveNavLink();
+          }, 850);
+
+          // Calcul d'offset précis avec l'en-tête compact
+          const currentHeader = document.querySelector('.site-header');
+          const headerOffset = currentHeader ? (currentHeader.classList.contains('scrolled') ? currentHeader.offsetHeight : 105) : 80;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerOffset - 5);
+
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      closeMobileMenu();
+    });
+  });
+
+  // ==========================================================================
+  // 3. BARRE DE PROGRESSION AU DÉFILEMENT & HEADER COMPACT SYNCHRONISÉ
+  // ==========================================================================
+  function handleScrollProgress() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+
+    if (scrollProgressBar) {
+      scrollProgressBar.style.width = `${scrollPercent}%`;
+    }
+
+    if (header) {
+      if (scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+
+    highlightActiveNavLink();
+  }
+
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        handleScrollProgress();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  handleScrollProgress();
+
+  // ==========================================================================
+  // 4. PRÉSENTATION FIXE DU HERO (ACTE 1 UNIQUE SANS DÉFILEMENT)
+  // ==========================================================================
+  const heroSection = document.querySelector('.hero-carousel-section');
+  const heroSlideTexts = document.querySelectorAll('.hero-slide-text');
+  const heroVisualSlides = document.querySelectorAll('.hero-visual-slide');
+  const heroDotBtns = document.querySelectorAll('.hero-dot-btn');
+  const heroThumbCards = document.querySelectorAll('.hero-thumb-card');
+  const heroPrevBtn = document.getElementById('heroPrevBtn');
+  const heroNextBtn = document.getElementById('heroNextBtn');
+  const heroPlayPauseBtn = document.getElementById('heroPlayPauseBtn');
+  const heroCurrentSlideNum = document.getElementById('heroCurrentSlideNum');
+
+  let currentSlideIndex = 0;
+  const totalSlides = heroVisualSlides.length || 1;
+  const SLIDE_DURATION = 5500;
+  let slideInterval = null;
+  let isAutoPlayActive = false;
+  let isHovered = false;
+
+  function goToHeroSlide(index) {
+    if (totalSlides <= 1) {
+      currentSlideIndex = 0;
+      heroSlideTexts.forEach(slide => slide.classList.add('active'));
+      heroVisualSlides.forEach(slide => slide.classList.add('active'));
+      return;
+    }
+
+    // Normalisation de l'index cyclique si multi-slides
+    currentSlideIndex = (index + totalSlides) % totalSlides;
+
+    // 1. Textes narratifs
+    heroSlideTexts.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentSlideIndex);
+    });
+
+    // 2. Diapositives visuelles au premier plan
+    heroVisualSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentSlideIndex);
+    });
+
+    // 3. Puces de progression
+    heroDotBtns.forEach((btn, i) => {
+      const isCurrent = (i === currentSlideIndex);
+      btn.classList.toggle('active', isCurrent);
+      btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+    });
+
+    // 4. Miniatures interactives (Thumbnails)
+    heroThumbCards.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === currentSlideIndex);
+    });
+
+    // 5. Compteur de slide
+    if (heroCurrentSlideNum) {
+      heroCurrentSlideNum.textContent = String(currentSlideIndex + 1).padStart(2, '0');
+    }
+  }
+
+  function startHeroAutoPlay() {
+    if (totalSlides <= 1) return;
+    if (slideInterval) clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+      if (isAutoPlayActive && !isHovered) {
+        goToHeroSlide(currentSlideIndex + 1);
+      }
+    }, SLIDE_DURATION);
+  }
+
+  function stopHeroAutoPlay() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  function resetAutoPlayTimer() {
+    if (totalSlides <= 1) return;
+    stopHeroAutoPlay();
+    startHeroAutoPlay();
+  }
+
+  // Écouteurs pour les boutons Précédent & Suivant
+  if (heroPrevBtn && totalSlides > 1) {
+    heroPrevBtn.addEventListener('click', () => {
+      goToHeroSlide(currentSlideIndex - 1);
+      resetAutoPlayTimer();
+    });
+  }
+
+  if (heroNextBtn && totalSlides > 1) {
+    heroNextBtn.addEventListener('click', () => {
+      goToHeroSlide(currentSlideIndex + 1);
+      resetAutoPlayTimer();
+    });
+  }
+
+  // Écouteurs pour les puces de pagination
+  if (totalSlides > 1) {
+    heroDotBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
+      });
+    });
+
+    heroThumbCards.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
+        if (!isNaN(targetIndex)) {
+          goToHeroSlide(targetIndex);
+          resetAutoPlayTimer();
+        }
+      });
+    });
+  }
+
+  // Initialisation de l'affichage unique (Acte 1)
+  goToHeroSlide(0);
+
+  // ==========================================================================
+  // 5. CANEVAS DE POUSSIÈRE D'OR & LUMIÈRE INTERACTIVE (HTML5 Canvas)
+  // ==========================================================================
+  const particleCanvas = document.getElementById('heroParticleCanvas');
+  if (particleCanvas) {
+    const ctx = particleCanvas.getContext('2d');
+    let canvasW = (particleCanvas.width = particleCanvas.offsetWidth);
+    let canvasH = (particleCanvas.height = particleCanvas.offsetHeight);
+
+    window.addEventListener('resize', () => {
+      canvasW = particleCanvas.width = particleCanvas.offsetWidth;
+      canvasH = particleCanvas.height = particleCanvas.offsetHeight;
+    });
+
+    // Création des particules
+    const particleCount = 45;
+    const particles = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvasW,
+        y: Math.random() * canvasH,
+        radius: Math.random() * 2.2 + 0.8,
+        alpha: Math.random() * 0.55 + 0.2,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: -Math.random() * 0.5 - 0.2,
+        pulseSpeed: Math.random() * 0.02 + 0.01,
+        pulseVal: Math.random() * Math.PI
+      });
+    }
+
+    let mouseParallaxX = 0;
+    let mouseParallaxY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseParallaxX = (e.clientX / window.innerWidth - 0.5) * 15;
+      mouseParallaxY = (e.clientY / window.innerHeight - 0.5) * 15;
+    });
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, canvasW, canvasH);
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.pulseVal += p.pulseSpeed;
+
+        // Bouclage des coordonnées
+        if (p.y < 0) {
+          p.y = canvasH + 10;
+          p.x = Math.random() * canvasW;
+        }
+        if (p.x < 0) p.x = canvasW;
+        if (p.x > canvasW) p.x = 0;
+
+        const currentAlpha = Math.max(0.1, p.alpha + Math.sin(p.pulseVal) * 0.2);
+
+        ctx.beginPath();
+        ctx.arc(p.x + mouseParallaxX, p.y + mouseParallaxY, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(240, 163, 67, ${currentAlpha})`;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(renderParticles);
+    }
+    renderParticles();
+  }
+
+  // ==========================================================================
+  // 6. SYNTHÉTISEUR ACOUSTIQUE KORA AFRICAINE (Web Audio API Authentique)
+  //    Généré 100% en code, sans aucun fichier externe requis
+  // ==========================================================================
+  const soundToggleBtn = document.getElementById('soundToggleBtn');
+  let audioCtx = null;
+  let isSoundPlaying = false;
+  let soundTimer = null;
+
+  // Gamme pentatonique traditionnelle Mandingue / Sénégalaise (Kora en Fa majeur)
+  const koraScale = [
+    349.23, // F4
+    392.00, // G4
+    440.00, // A4
+    523.25, // C5
+    587.33, // D5
+    698.46, // F5
+    783.99  // G5
+  ];
+
+  function playKoraNote(freq, time) {
+    if (!audioCtx) return;
+
+    const osc = audioCtx.createOscillator();
+    const osc2 = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    const filter = audioCtx.createBiquadFilter();
+
+    // Sonorité boisée et percussive de la calebasse
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(freq, time);
+
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(freq * 2.01, time);
+
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(2200, time);
+    filter.frequency.exponentialRampToValueAtTime(600, time + 0.8);
+
+    // Enveloppe d'attaque pincée puis résonance douce
+    gainNode.gain.setValueAtTime(0.0001, time);
+    gainNode.gain.linearRampToValueAtTime(0.07, time + 0.02);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, time + 1.6);
+
+    osc.connect(filter);
+    osc2.connect(filter);
+    filter.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    osc.start(time);
+    osc2.start(time);
+    osc.stop(time + 1.8);
+    osc2.stop(time + 1.8);
+  }
+
+  function startKoraMelody() {
+    if (!audioCtx) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContextClass();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    let noteIndex = 0;
+    const pattern = [0, 2, 4, 3, 1, 5, 2, 3, 0, 4, 1, 3];
+
+    function scheduleNotes() {
+      if (!isSoundPlaying) return;
+      const now = audioCtx.currentTime;
+      const freq = koraScale[pattern[noteIndex % pattern.length]];
+      playKoraNote(freq, now);
+
+      // Note d'accompagnement basse occasionnelle
+      if (noteIndex % 4 === 0) {
+        playKoraNote(koraScale[0] / 2, now + 0.05);
+      }
+
+      noteIndex++;
+      soundTimer = setTimeout(scheduleNotes, 550 + Math.random() * 200);
+    }
+
+    scheduleNotes();
+  }
+
+  function stopKoraMelody() {
+    if (soundTimer) clearTimeout(soundTimer);
+    if (audioCtx && audioCtx.state === 'running') {
+      audioCtx.suspend();
+    }
+  }
+
+  if (soundToggleBtn) {
+    soundToggleBtn.addEventListener('click', () => {
+      isSoundPlaying = !isSoundPlaying;
+      const iconOff = soundToggleBtn.querySelector('.sound-icon-off');
+      const iconOn = soundToggleBtn.querySelector('.sound-icon-on');
+      const lang = window.currentLanguage || 'fr';
+      const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+
+      if (isSoundPlaying) {
+        startKoraMelody();
+        soundToggleBtn.classList.add('playing');
+        if (iconOff) iconOff.style.display = 'none';
+        if (iconOn) iconOn.style.display = 'block';
+        showToast(dict.toast_sound_on || "Ambiance sonore kora activée");
+      } else {
+        stopKoraMelody();
+        soundToggleBtn.classList.remove('playing');
+        if (iconOff) iconOff.style.display = 'block';
+        if (iconOn) iconOn.style.display = 'none';
+        showToast(dict.toast_sound_off || "Ambiance sonore coupée");
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (MONTANT LIBRE SANS ESTIMATION)
+  // ==========================================================================
+  const customAmountInput = document.getElementById('customAmount');
+  const freqButtons = document.querySelectorAll('.freq-btn');
+  const summaryAmount = document.getElementById('summaryAmount');
+  const summaryFrequency = document.getElementById('summaryFrequency');
+  const impactText = document.getElementById('impactPreviewText');
+
+  let currentAmount = 0;
+  let currentFrequency = 'ponctuel';
+
+  const frequencyDisplayNames = {
+    fr: {
+      'ponctuel': 'Don ponctuel',
+      'occasionnel': 'Don occasionnel',
+      'unique': 'Don ponctuel',
+      'mensuel': 'Don régulier'
+    },
+    en: {
+      'ponctuel': 'One-time gift',
+      'occasionnel': 'Occasional gift',
+      'unique': 'One-time gift',
+      'mensuel': 'Regular gift'
+    }
+  };
+
+  function updateDonationSummary() {
+    const lang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'fr';
+    const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+    const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
+    const isEn = (lang === 'en');
+    const locale = isEn ? 'en-US' : 'fr-FR';
+
+    if (summaryAmount) {
+      if (currentAmount > 0) {
+        summaryAmount.textContent = `${currentAmount.toLocaleString(locale)} FCFA`;
+      } else {
+        summaryAmount.textContent = dict.sum_amount_free || (isEn ? 'Open amount of your choice' : 'Montant libre de votre choix');
+      }
+    }
+    if (summaryFrequency) {
+      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time gift' : 'Don ponctuel');
+    }
+
+    if (impactText) {
+      if (currentAmount > 0) {
+        if (isEn) {
+          impactText.innerHTML = `<strong>Your solidarity support:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> will be fully dedicated to priority actions (food aid, healthcare, and protection for children and mothers across Senegal).`;
+        } else {
+          impactText.innerHTML = `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement alloué aux actions prioritaires (aide alimentaire, soins de santé et protection des enfants et mères sur l'ensemble du territoire sénégalais).`;
+        }
+      } else {
+        if (isEn) {
+          impactText.innerHTML = `<strong>Every gesture counts:</strong> There is no small donation. Your contribution, given from the heart according to your means, provides direct, vital aid to families and children supported by the association.`;
+        } else {
+          impactText.innerHTML = `<strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles accompagnées par l'association au Sénégal.`;
+        }
+      }
+    }
+  }
+
+  // Saisie libre du montant par le donateur
+  if (customAmountInput) {
+    customAmountInput.addEventListener('input', (e) => {
+      const val = parseInt(e.target.value.replace(/\D/g, ''), 10);
+      if (!isNaN(val) && val > 0) {
+        currentAmount = val;
+      } else {
+        currentAmount = 0;
+      }
+      updateDonationSummary();
+    });
+  }
+
+  // Fréquence (Ponctuel ou Mensuel)
+  freqButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      freqButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFrequency = btn.getAttribute('data-frequency');
+      updateDonationSummary();
+    });
+  });
+
+  updateDonationSummary();
+
+  // ==========================================================================
+  // 8. EFFET 3D TILT SUR LES CARTES (Cartes Projets, Domaines & Paiement)
+  // ==========================================================================
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const tiltCards = document.querySelectorAll('.project-card, .domain-card, .payment-card');
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const cardX = e.clientX - rect.left;
+        const cardY = e.clientY - rect.top;
+
+        const rotateX = ((cardY / rect.height) - 0.5) * -10;
+        const rotateY = ((cardX / rect.width) - 0.5) * 10;
+
+        card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+  }
+
+  // ==========================================================================
+  // 9. COPIE FACILE DANS LE PRESSE-PAPIERS AVEC NOTIFICATION TOAST
+  // ==========================================================================
+  const toast = document.getElementById('toastNotice');
+  const toastText = document.getElementById('toastNoticeText');
+
+  window.showToast = function(message) {
+    if (!toast) return;
+    if (toastText) toastText.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3500);
+  };
+
+  window.copyText = function(text, labelOrKey) {
+    const lang = window.currentLanguage || 'fr';
+    const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+    let label = labelOrKey;
+    if (dict[labelOrKey]) {
+      label = dict[labelOrKey];
+    } else if (labelOrKey === 'Coordonnées du compte' && dict.copy_label_bank) {
+      label = dict.copy_label_bank;
+    } else if (labelOrKey === 'Informations Wave' && dict.copy_label_wave) {
+      label = dict.copy_label_wave;
+    }
+
+    const suffix = dict.toast_copied_suffix || (lang === 'en' ? 'copied to clipboard!' : 'copié dans le presse-papiers !');
+    const fullMsg = label ? `${label} ${suffix}` : (dict.toast_copied_default || 'Copié dans le presse-papiers avec succès !');
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(fullMsg);
+      }).catch(() => {
+        fallbackCopyText(text, label);
+      });
+    } else {
+      fallbackCopyText(text, label);
+    }
+  };
+
+  function fallbackCopyText(text, label) {
+    const lang = window.currentLanguage || 'fr';
+    const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+    const suffix = dict.toast_copied_suffix || (lang === 'en' ? 'copied to clipboard!' : 'copié dans le presse-papiers !');
+    const fullMsg = label ? `${label} ${suffix}` : (dict.toast_copied_default || 'Copié dans le presse-papiers avec succès !');
+
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast(fullMsg);
+    } catch (err) {
+      showToast(dict.toast_copy_error || (lang === 'en' ? 'Unable to copy automatically' : 'Impossible de copier automatiquement'));
+    }
+    document.body.removeChild(textArea);
+  }
+
+  // ==========================================================================
+  // 10. GESTION DES MODALES ACCESSIBLES (Statuts, RIB, Reçu Solidaire)
+  // ==========================================================================
+  window.openModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeModal = function(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(m => {
+        m.classList.remove('active');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+
+  // ==========================================================================
+  // 11. REÇU / ENGAGEMENT SOLIDAIRE EN LIGNE
+  // ==========================================================================
+  const btnGeneratePledge = document.getElementById('btnGeneratePledge');
+  if (btnGeneratePledge) {
+    btnGeneratePledge.addEventListener('click', () => {
+      const receiptAmount = document.getElementById('receiptModalAmount');
+      const receiptFrequency = document.getElementById('receiptModalFreq');
+      const receiptRef = document.getElementById('receiptModalRef');
+      const receiptDate = document.getElementById('receiptModalDate');
+
+      const lang = window.currentLanguage || 'fr';
+      const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+      const isEn = (lang === 'en');
+      const refNumber = 'LN-' + Math.floor(100000 + Math.random() * 900000);
+      const today = new Date().toLocaleDateString(isEn ? 'en-US' : 'fr-FR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      if (receiptAmount) {
+        receiptAmount.textContent = currentAmount > 0 
+          ? `${currentAmount.toLocaleString(isEn ? 'en-US' : 'fr-FR')} FCFA` 
+          : (dict.receipt_free_amount || (isEn ? 'Open amount (according to your means)' : 'Montant libre (selon vos capacités)'));
+      }
+      if (receiptFrequency) {
+        const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
+        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time gift' : 'Don ponctuel');
+      }
+      if (receiptRef) receiptRef.textContent = refNumber;
+      if (receiptDate) receiptDate.textContent = today;
+
+      openModal('pledgeModal');
+    });
+  }
+
+  // ==========================================================================
+  // 12. FORMULAIRE DE CONTACT INSTITUTIONNEL
+  // ==========================================================================
+  const contactForm = document.getElementById('institutionalContactForm');
+  const contactSuccessMsg = document.getElementById('contactSuccessMsg');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const lang = window.currentLanguage || 'fr';
+      const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
+      const isEn = (lang === 'en');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin">
+          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="16"></circle>
+        </svg> ${dict.btn_transmitting || (isEn ? 'Sending in progress...' : 'Transmission en cours...')}
+      `;
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        contactForm.reset();
+        
+        if (contactSuccessMsg) {
+          contactSuccessMsg.style.display = 'block';
+          setTimeout(() => {
+            contactSuccessMsg.style.display = 'none';
+          }, 8000);
+        }
+
+        showToast(dict.toast_message_sent || (isEn ? "Your solidarity message has been sent successfully!" : "Votre message solidaire a été transmis avec succès !"));
+      }, 1000);
+    });
+  }
+
+  // ==========================================================================
+  // 13. ACTIVATION DU SÉLECTEUR DE LANGUE BILINGUE (FR / EN)
+  // ==========================================================================
+  initLanguageButtons();
+  if (currentLanguage !== 'fr') {
+    applyLanguage(currentLanguage);
+  }
+
+});
+
+</script>
 </body>
 </html>
