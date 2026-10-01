@@ -36,7 +36,12 @@ Thumbs.db
 *.sln
 *.sw?
 
+# Deployment artifacts
+.vercel
+.netlify
+
 # Agent scratchpads and temporary local logs
 .system_generated/
 scratch/
 browser/
+
