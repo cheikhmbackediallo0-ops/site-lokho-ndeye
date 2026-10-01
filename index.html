@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=2.6">
+  <link rel="stylesheet" href="style.css?v=2.7">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -177,7 +177,6 @@
           <a href="#actions" class="nav-link" data-i18n="nav_actions">Nos Actions & Projets</a>
           <a href="#impact" class="nav-link" data-i18n="nav_impact">Notre Impact</a>
           <a href="#pourquoi-nous-soutenir" class="nav-link" data-i18n="nav_why">Pourquoi nous soutenir</a>
-          <a href="#transparence" class="nav-link" data-i18n="nav_transparency">Transparence</a>
           <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
 
           <!-- Sélecteur de langue dans le menu mobile -->
@@ -979,167 +978,6 @@
     </section>
 
     <!-- ==========================================================================
-         TRANSPARENCE & DOCUMENTS OFFICIELS
-         ========================================================================== -->
-    <section class="section" id="transparence">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag" data-i18n="transp_tag">Rigueur & Transparence</div>
-          <h2 class="section-title" data-i18n="transp_title">Gouvernance Collective & Documents Officiels</h2>
-          <p class="section-subtitle" data-i18n="transp_sub">
-            L'Association Caritative LOKHO NDEYE fonde son action sur une gestion démocratique, désintéressée et transparente, garantie par ses statuts officiels.
-          </p>
-        </div>
-
-        <!-- Tableau de bord de Transparence Financière & Allocation des Dons -->
-        <div class="transparency-dashboard-grid">
-          <div class="chart-visual-box">
-            <h4 data-i18n="chart_title">Allocation Rigoureuse des Ressources</h4>
-            <p class="chart-sub" data-i18n="chart_sub">Chaque franc CFA collecté est audité et orienté vers le terrain</p>
-            <div class="svg-donut-wrap">
-              <svg width="240" height="240" viewBox="0 0 240 240">
-                <circle cx="120" cy="120" r="90" fill="transparent" stroke="#E8DCD1" stroke-width="24"></circle>
-                <!-- 82% Actions de terrain & Secours direct -->
-                <circle cx="120" cy="120" r="90" fill="transparent" stroke="var(--color-primary)" stroke-width="24" stroke-dasharray="463.7 101.8" stroke-dashoffset="0" transform="rotate(-90 120 120)"></circle>
-                <!-- 13% Logistique & Distribution locale -->
-                <circle cx="120" cy="120" r="90" fill="transparent" stroke="var(--color-secondary)" stroke-width="24" stroke-dasharray="73.5 492" stroke-dashoffset="-463.7" transform="rotate(-90 120 120)"></circle>
-                <!-- 5% Audit & Frais légaux obligatoires -->
-                <circle cx="120" cy="120" r="90" fill="transparent" stroke="#523126" stroke-width="24" stroke-dasharray="28.3 537.2" stroke-dashoffset="-537.2" transform="rotate(-90 120 120)"></circle>
-              </svg>
-              <div class="svg-donut-center">
-                <div class="center-num">82%</div>
-                <div class="center-lbl" data-i18n="chart_center_lbl">Secours direct terrain</div>
-              </div>
-            </div>
-            <div class="chart-legend">
-              <div class="legend-item">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span class="legend-color-dot" style="background: var(--color-primary);"></span>
-                  <span data-i18n="legend_1">Aide alimentaire & kits d'urgence</span>
-                </div>
-                <strong>82%</strong>
-              </div>
-              <div class="legend-item">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span class="legend-color-dot" style="background: var(--color-secondary);"></span>
-                  <span data-i18n="legend_2">Logistique & distributions d'urgence au Sénégal</span>
-                </div>
-                <strong>13%</strong>
-              </div>
-              <div class="legend-item">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span class="legend-color-dot" style="background: #523126;"></span>
-                  <span data-i18n="legend_3">Frais légaux & audit obligatoire (Art. VI)</span>
-                </div>
-                <strong>5%</strong>
-              </div>
-            </div>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div class="stat-pill" style="background: #FFFFFF; border: 1.5px solid var(--color-border); text-align: left; padding: 24px;">
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; margin-bottom: 6px;" data-i18n="stat_pill_1_tag">Certification de Gestion</div>
-              <h3 style="font-size: 1.3rem; color: var(--color-dark); margin-bottom: 8px;" data-i18n="stat_pill_1_title">0 FCFA de Rémunération</h3>
-              <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.5; margin: 0;" data-i18n="stat_pill_1_desc">
-                En vertu de l'Article IX des statuts, les fonctions de tous les membres des organes dirigeants sont gratuites. Aucun jeton de présence, honoraire ou avantage en nature n'est alloué.
-              </p>
-            </div>
-
-            <div class="stat-pill" style="background: #FFFFFF; border: 1.5px solid var(--color-border); text-align: left; padding: 24px;">
-              <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-secondary-dark); text-transform: uppercase; margin-bottom: 6px;" data-i18n="stat_pill_2_tag">Traçabilité Bancaire</div>
-              <h3 style="font-size: 1.3rem; color: var(--color-dark); margin-bottom: 8px;" data-i18n="stat_pill_2_title">Compte Institutionnel Déclaré</h3>
-              <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.5; margin: 0;" data-i18n="stat_pill_2_desc">
-                Tous les flux financiers transitent exclusivement par les canaux bancaires et Mobile Money institutionnels déclarés de l'association, soumis au contrôle annuel des commissaires aux comptes.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="transparency-grid">
-          <!-- Carte 1 : Principes de gouvernance -->
-          <div class="transparency-card">
-            <h3 data-i18n="card_commitments_title">Nos engagements statutaires</h3>
-            <p data-i18n="card_commitments_sub">
-              Chaque règle de fonctionnement de l'association vise à garantir l'intégrité absolue des fonds confiés par les donateurs :
-            </p>
-
-            <ul style="display: flex; flex-direction: column; gap: 14px; margin-top: 18px;">
-              <li style="display: flex; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-primary)" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <div style="font-size: 0.9rem; color: var(--color-text-muted);" data-i18n-html="rule_1">
-                  <strong>Gratuité totale des mandats (Article IX) :</strong> Aucun membre du Bureau ou du Comité Directeur ne perçoit de salaire ou d'avantage. Le bénévolat est complet.
-                </div>
-              </li>
-              <li style="display: flex; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-primary)" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <div style="font-size: 0.9rem; color: var(--color-text-muted);" data-i18n-html="rule_2">
-                  <strong>Commission de contrôle des comptes (Article VI) :</strong> Trois membres extérieurs au bureau sont désignés pour vérifier la conformité des comptes de chaque exercice.
-                </div>
-              </li>
-              <li style="display: flex; gap: 12px;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--color-primary)" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <div style="font-size: 0.9rem; color: var(--color-text-muted);" data-i18n-html="rule_3">
-                  <strong>Dévolution exclusive à une œuvre laïque (Article XVII) :</strong> En cas de dissolution, l'intégralité du reliquat de l'actif est légalement dévolue à une œuvre caritative laïque.
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Carte 2 : Espace documents -->
-          <div class="transparency-card">
-            <h3 data-i18n="card_docs_title">Documents institutionnels</h3>
-            <p data-i18n="card_docs_sub">
-              Consultez les informations administratives et les textes régissant l'Association Caritative LOKHO NDEYE :
-            </p>
-
-            <div class="doc-download-list">
-              <div class="doc-download-item">
-                <div class="doc-info">
-                  <svg class="doc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                  <div>
-                    <div class="doc-name" data-i18n="doc_1_title">Statuts Constitutifs de l'Association</div>
-                    <div class="doc-sub" data-i18n="doc_1_sub">Enregistrés auprès du Ministère de l'Intérieur • République du Sénégal</div>
-                  </div>
-                </div>
-                <button type="button" class="doc-action-btn" onclick="openModal('statutsModal')">
-                  <span data-i18n="btn_consult">Consulter</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-              </div>
-
-              <div class="doc-download-item">
-                <div class="doc-info">
-                  <svg class="doc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                  <div>
-                    <div class="doc-name" data-i18n="doc_2_title">Charte d'Éthique & Anonymat des Bénévoles</div>
-                    <div class="doc-sub" data-i18n="doc_2_sub">Engagement solidaire, protection de la vie privée et neutralité</div>
-                  </div>
-                </div>
-                <button type="button" class="doc-action-btn" onclick="openModal('privacyModal')">
-                  <span data-i18n="btn_consult">Consulter</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-              </div>
-
-              <div class="doc-download-item">
-                <div class="doc-info">
-                  <svg class="doc-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <div>
-                    <div class="doc-name" data-i18n="doc_3_title">Rapports d'activités & Transparence</div>
-                    <div class="doc-sub" data-i18n="doc_3_sub">Présentés annuellement à l'Assemblée Générale ordinaire</div>
-                  </div>
-                </div>
-                <span style="font-size: 0.78rem; font-weight: 700; color: var(--color-secondary-dark); background: var(--color-secondary-soft); padding: 4px 8px; border-radius: 4px;" data-i18n="badge_annual">
-                  Session annuelle
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
          SECTION CONTACT INSTITUTIONNEL
          ========================================================================== -->
     <section class="section section-alt" id="contact">
@@ -1527,7 +1365,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=2.6"></script>
-  <script src="script.js?v=2.6"></script>
+  <script src="translations.js?v=2.7"></script>
+  <script src="script.js?v=2.7"></script>
 </body>
 </html>

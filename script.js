@@ -170,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'impact': 'impact',
     'pourquoi-nous-soutenir': 'pourquoi-nous-soutenir',
     'faire-un-don': 'pourquoi-nous-soutenir',
-    'transparence': 'transparence',
     'contact': 'contact'
   };
 
@@ -182,7 +181,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'impact',
     'pourquoi-nous-soutenir',
     'faire-un-don',
-    'transparence',
     'contact'
   ];
 
