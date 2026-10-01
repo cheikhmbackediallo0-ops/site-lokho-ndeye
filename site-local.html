@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="page_title">Association Caritative LOKHO NDEYE | La Main tendue d'une mère — Solidarité au Sénégal</title>
+  <title data-i18n="page_title">Association Caritative LOKHO NDEYE | Sauver & Protéger les Enfants de la Rue au Sénégal</title>
   
   <!-- SEO & Métadonnées -->
-  <meta name="description" content="Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais. Siège social : Saly [Mbour], Sénégal. Aide aux couches vulnérables, sécurité alimentaire, protection des mères et enfants." data-i18n-content="meta_description">
-  <meta name="keywords" content="Association Caritative LOKHO NDEYE, La Main tendue d'une mère, association caritative Sénégal, don Sénégal, solidarité Sénégal, aide alimentaire Sénégal, protection enfance Sénégal, siège Saly Mbour">
+  <meta name="description" content="Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), dédiée exclusivement aux enfants de la rue, enfants talibés et orphelins vulnérables au Sénégal. Repas chauds quotidiens, sandales neuves, soins médicaux des pieds et refuge nocturne d'urgence. Siège : Saly [Mbour]." data-i18n-content="meta_description">
+  <meta name="keywords" content="enfants de la rue Sénégal, enfants talibés Sénégal, orphelins Sénégal, Association Caritative LOKHO NDEYE, don enfants Sénégal, repas chaud talibés, sandales enfants de la rue, refuge Saly Mbour">
   <meta name="author" content="Association Caritative LOKHO NDEYE">
   <meta name="robots" content="index, follow">
 
   <!-- Open Graph / Réseaux Sociaux -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Association Caritative LOKHO NDEYE | La Main tendue d'une mère">
-  <meta property="og:description" content="Partager • Nourrir • Soutenir • Construire un avenir meilleur. Soutenez nos actions d'entraide et de solidarité pour les couches vulnérables sur l'ensemble du territoire sénégalais.">
-  <meta property="og:image" content="assets/logo.jpg">
+  <meta property="og:title" content="Association Caritative LOKHO NDEYE | Sauver les Enfants de la Rue">
+  <meta property="og:description" content="Pieds nus sur la terre brûlante, le ventre vide. Offrons un repas chaud, des chaussures et un refuge protecteur aux enfants de la rue au Sénégal.">
+  <meta property="og:image" content="assets/enfant-rue-appel.jpg">
   <meta property="og:locale" content="fr_SN">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Association Caritative LOKHO NDEYE | La Main tendue d'une mère">
-  <meta name="twitter:description" content="Association caritative à but non lucratif œuvrant sur l'ensemble du territoire sénégalais (Siège social : Saly [Mbour]) pour les enfants et les mères vulnérables.">
-  <meta name="twitter:image" content="assets/logo.jpg">
+  <meta name="twitter:title" content="Association Caritative LOKHO NDEYE | Sauver les Enfants de la Rue">
+  <meta name="twitter:description" content="Chaque jour, des milliers d'enfants de la rue errent pieds nus au Sénégal. Tendez-leur la main : repas chaud, chaussures, soins et refuge.">
+  <meta name="twitter:image" content="assets/enfant-rue-appel.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
@@ -4392,6 +4392,194 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   SECTION SPOTLIGHT ÉMOTIONNELLE - ENFANTS DE LA RUE
+   ========================================================================== */
+.spotlight-section {
+  position: relative;
+  padding: 85px 0;
+  background: linear-gradient(135deg, #1A0B06 0%, #291209 50%, #170A05 100%);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.spotlight-backdrop {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 80% 30%, rgba(212, 132, 39, 0.18) 0%, transparent 60%),
+                    radial-gradient(circle at 10% 80%, rgba(166, 72, 35, 0.22) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.spotlight-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.spotlight-media-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(212, 132, 39, 0.35);
+}
+
+.spotlight-media-img {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.spotlight-media-wrap:hover .spotlight-media-img {
+  transform: scale(1.03);
+}
+
+.spotlight-media-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(20, 8, 4, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(212, 132, 39, 0.4);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #FAF4EC;
+  line-height: 1.4;
+}
+
+.spotlight-tag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 132, 39, 0.2);
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.spotlight-title {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.spotlight-desc {
+  font-size: 1.02rem;
+  color: #E2D3C4;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.spotlight-impact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.spotlight-impact-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(212, 132, 39, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+}
+
+.spotlight-impact-val {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-secondary-light);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.spotlight-impact-lbl {
+  font-size: 0.82rem;
+  color: #D2C0B0;
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .spotlight-card-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .spotlight-title {
+    font-size: 1.7rem;
+  }
+}
+
+/* Paliers d'impact pour le don pour les enfants de la rue */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.amount-btn {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.amount-btn:hover {
+  border-color: var(--color-primary);
+  background: rgba(184, 51, 42, 0.04);
+  transform: translateY(-2px);
+}
+
+.amount-btn.active {
+  border-color: var(--color-primary);
+  background: rgba(184, 51, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(184, 51, 42, 0.15);
+}
+
+.amount-btn-value {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.amount-btn-desc {
+  font-size: 0.78rem;
+  color: var(--color-gray);
+  line-height: 1.35;
+}
+
+@media (max-width: 576px) {
+  .amount-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 </style>
 
@@ -4469,7 +4657,7 @@ html, body {
             <span class="brand-tagline" data-i18n="brand_tagline">« La Main tendue d'une mère »</span>
             <span class="brand-subtext">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--color-primary)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span data-i18n="brand_subtext">Intervention sur tout le Sénégal • Siège social à Saly [Mbour] • Association Déclarée</span>
+              <span data-i18n="brand_subtext">Secours aux enfants de la rue sur tout le Sénégal • Siège à Saly [Mbour] • Association Déclarée</span>
             </span>
           </div>
         </a>
@@ -4583,23 +4771,23 @@ html, body {
             <!-- Piste des Textes Narratifs synchronisés avec le défilement auto -->
             <div class="hero-narrative-track">
 
-              <!-- ACTE 1 : Réalité & Urgence -->
+              <!-- ACTE 1 : Urgence Vitale des Enfants de la Rue -->
               <article class="hero-slide-text active" data-slide="0" id="heroSlideText0">
                 <div class="hero-act-badge">
-                  <span class="badge-tag" data-i18n="hero_act1_tag">ACTE I</span>
+                  <span class="badge-tag" data-i18n="hero_act1_tag">URGENCE VITALE</span>
                   <span class="badge-sep">•</span>
-                  <span class="badge-label" data-i18n="hero_act1_badge">Réalité & Urgence Terrain</span>
+                  <span class="badge-label" data-i18n="hero_act1_badge">Enfants de la Rue au Sénégal</span>
                 </div>
                 <h1 class="hero-main-title" data-i18n-html="hero_act1_title">
-                  À travers le Sénégal, des enfants et des mères tendent la main.
-                  <span class="hero-title-highlight">Nous leur ouvrons les bras.</span>
+                  Pieds nus sur la terre brûlante, le ventre vide.
+                  <span class="hero-title-highlight">Sauvons les enfants de la rue.</span>
                 </h1>
                 <p class="hero-main-desc" data-i18n="hero_act1_desc">
-                  Face à la précarité des enfants talibés et à la détresse des mères isolées sur l'ensemble du territoire sénégalais, l'Association Caritative LOKHO NDEYE transforme chaque geste en un repas digne, un soin vital et une écoute bienveillante.
+                  Chaque jour au Sénégal, des milliers de jeunes garçons et orphelins errent pieds nus, vêtus d'habits déchirés et délabrés, un pot de tomate vide à la main pour mendier. L'Association Caritative LOKHO NDEYE tend la main protectrice d'une mère : nous leur offrons chaque jour un repas chaud, des chaussures fermes, des soins pour leurs pieds blessés et un refuge d'urgence.
                 </p>
                 <div class="hero-tags-row">
                   <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> <span data-i18n="hero_tag_senegal">Tout le Sénégal</span></span>
-                  <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> <span data-i18n="hero_tag_childhood">Protection de l'Enfance</span></span>
+                  <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> <span data-i18n="hero_tag_childhood">Secours Enfants de la Rue</span></span>
                   <span class="hero-mini-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg> <span data-i18n="hero_tag_hq">Siège à Saly [Mbour]</span></span>
                 </div>
                 <div class="hero-cta-group">
@@ -4607,10 +4795,10 @@ html, body {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
-                    <span data-i18n="hero_btn_donate_hope">Faire un don d'espoir</span>
+                    <span data-i18n="hero_btn_donate_hope">Offrir un repas chaud ce soir</span>
                   </a>
                   <a href="#mission" class="btn btn-outline hero-btn-light" data-i18n="hero_btn_explore_mission">
-                    Explorer notre mission
+                    Découvrir notre combat
                   </a>
                 </div>
               </article>
@@ -4626,9 +4814,9 @@ html, body {
             <div class="hero-foreground-stage">
               <!-- Cadre d'Image Principal en Haute Définition -->
               <div class="hero-main-stage-frame">
-                <!-- Slide Image 1 : Enfants talibés -->
+                <!-- Slide Image 1 : Enfants talibés et de la rue -->
                 <div class="hero-visual-slide active" data-slide="0" id="heroVisualSlide0">
-                  <img src="assets/enfants-talibes-saly.jpg" alt="Enfants talibés marchant dans les rues au Sénégal" class="hero-stage-img">
+                  <img src="assets/enfants-talibes-saly.jpg" alt="Enfants de la rue et talibés marchant pieds nus dans la poussière au Sénégal" class="hero-stage-img">
                 </div>
               </div>
             </div>
@@ -4642,24 +4830,24 @@ html, body {
     <aside class="kinetic-marquee" aria-label="Devise et valeurs de l'association">
       <div class="marquee-track">
         <div class="marquee-content">
-          <div class="marquee-item"><span data-i18n="marquee_share">Partager</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_nourish">Nourrir la dignité</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_support">Soutenir les mères</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_protect">Protéger l'enfance</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_dignity">Solidarité & Dignité</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_national">Action Nationale • Tout le Sénégal</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_hq">Siège à Saly [Mbour]</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_build">Construire un avenir solidaire</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_share">Partager l'amour</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_nourish">Nourrir un enfant affamé</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_support">Protéger les petits pieds nus</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_protect">Remplacer les vêtements déchirés</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_dignity">Soigner les blessures de la rue</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_national">Un toit protecteur pour la nuit</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_hq">L'amour d'une mère pour chaque orphelin</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_build">Redonner le sourire aux enfants sans abri</span> <div class="marquee-dot"></div></div>
         </div>
         <div class="marquee-content" aria-hidden="true">
-          <div class="marquee-item"><span data-i18n="marquee_share">Partager</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_nourish">Nourrir la dignité</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_support">Soutenir les mères</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_protect">Protéger l'enfance</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_dignity">Solidarité & Dignité</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span class="gold" data-i18n="marquee_national">Action Nationale • Tout le Sénégal</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_hq">Siège à Saly [Mbour]</span> <div class="marquee-dot"></div></div>
-          <div class="marquee-item"><span data-i18n="marquee_build">Construire un avenir solidaire</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_share">Partager l'amour</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_nourish">Nourrir un enfant affamé</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_support">Protéger les petits pieds nus</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_protect">Remplacer les vêtements déchirés</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_dignity">Soigner les blessures de la rue</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span class="gold" data-i18n="marquee_national">Un toit protecteur pour la nuit</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_hq">L'amour d'une mère pour chaque orphelin</span> <div class="marquee-dot"></div></div>
+          <div class="marquee-item"><span data-i18n="marquee_build">Redonner le sourire aux enfants sans abri</span> <div class="marquee-dot"></div></div>
         </div>
       </div>
     </aside>
@@ -4677,14 +4865,14 @@ html, body {
         <div class="mission-grid">
           <!-- Texte explicatif basé sur les statuts -->
           <div class="mission-text-block">
-            <h3 data-i18n="mission_spirit_title">L'esprit de « Lokho Ndéye »</h3>
+            <h3 data-i18n="mission_spirit_title">L'esprit de « Lokho Ndéye » : Une mère pour les enfants oubliés de la rue</h3>
             
             <p data-i18n-html="mission_spirit_p1">
-              En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em> — le geste universel de la protection maternelle : nourrir avec amour, guider les premiers pas et offrir un abri face à l'adversité.
+              En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em>. Pour un enfant qui dort seul sur le trottoir froid ou sur un morceau de carton poussiéreux, sans personne pour essuyer ses larmes ou soigner ses pieds écorchés, cette main est un miracle vital. Notre mission absolue est d'arracher ces enfants à la faim, à la maladie et aux dangers extrêmes de la rue.
             </p>
 
             <p data-i18n-html="mission_spirit_p2">
-              <strong>Qui nous accompagnons :</strong> Enfants en détresse nutritionnelle, mères vulnérables et foyers confrontés à l'exclusion sociale, sans aucune distinction d'origine.
+              <strong>Notre engagement exclusif :</strong> Secourir les enfants de la rue, enfants talibés, orphelins errants et mineurs abandonnés sans défense sur l'ensemble du territoire sénégalais, avec une bienveillance inconditionnelle.
             </p>
 
             <!-- Les 4 piliers de la devise -->
@@ -4692,33 +4880,33 @@ html, body {
               <div class="devise-card">
                 <div class="devise-card-head">
                   <div class="devise-card-icon">1</div>
-                  <span class="devise-card-title" data-i18n="pillar_1_title">Partager</span>
+                  <span class="devise-card-title" data-i18n="pillar_1_title">Partager l'Amour</span>
                 </div>
-                <p class="devise-card-desc" data-i18n="pillar_1_desc">Nos ressources et notre affection avec ceux qui manquent du nécessaire.</p>
+                <p class="devise-card-desc" data-i18n="pillar_1_desc">Rompre la terrible solitude de l'enfant des rues par une écoute affectueuse, respectueuse et un soutien fraternel constant.</p>
               </div>
 
               <div class="devise-card">
                 <div class="devise-card-head">
                   <div class="devise-card-icon">2</div>
-                  <span class="devise-card-title" data-i18n="pillar_2_title">Nourrir</span>
+                  <span class="devise-card-title" data-i18n="pillar_2_title">Nourrir Chaque Jour</span>
                 </div>
-                <p class="devise-card-desc" data-i18n="pillar_2_desc">Un repas chaud et nutritif pour les enfants et les foyers fragiles.</p>
+                <p class="devise-card-desc" data-i18n="pillar_2_desc">Distribuer des repas chauds, fortifiés et copieux pour qu'aucun enfant ne s'endorme les larmes aux yeux et le ventre vide.</p>
               </div>
 
               <div class="devise-card">
                 <div class="devise-card-head">
                   <div class="devise-card-icon">3</div>
-                  <span class="devise-card-title" data-i18n="pillar_3_title">Soutenir</span>
+                  <span class="devise-card-title" data-i18n="pillar_3_title">Soigner & Vêtir</span>
                 </div>
-                <p class="devise-card-desc" data-i18n="pillar_3_desc">Une écoute fraternelle et un secours social dans les moments critiques.</p>
+                <p class="devise-card-desc" data-i18n="pillar_3_desc">Panser les plaies infectées, fournir des sandales neuves aux pieds nus et remplacer les haillons délabrés par des habits propres.</p>
               </div>
 
               <div class="devise-card">
                 <div class="devise-card-head">
                   <div class="devise-card-icon">4</div>
-                  <span class="devise-card-title" data-i18n="pillar_4_title">Construire</span>
+                  <span class="devise-card-title" data-i18n="pillar_4_title">Abriter & Reconstruire</span>
                 </div>
-                <p class="devise-card-desc" data-i18n="pillar_4_desc">Un avenir meilleur par la solidarité communautaire et l'entraide.</p>
+                <p class="devise-card-desc" data-i18n="pillar_4_desc">Offrir un refuge sécurisé pour la nuit, les protéger de la violence nocturne et les guider vers l'alphabétisation et la dignité.</p>
               </div>
             </div>
           </div>
@@ -4727,7 +4915,7 @@ html, body {
           <div class="mission-visual-wrap">
             <div class="mission-emblem-showcase">
               <div class="emblem-grand-format-wrap" onclick="openModal('logoGrandFormatModal')" title="Cliquer pour afficher l'emblème en plein écran">
-                <span class="emblem-badge-hd" data-i18n="emblem_badge">✨ Emblème Officiel</span>
+                <span class="emblem-badge-hd" data-i18n="emblem_badge">✨ Emblème Protecteur</span>
                 <img src="assets/logo-grand-format.jpg" alt="Logo officiel et emblème en grand format de l'Association Caritative LOKHO NDEYE" class="emblem-grand-format-img" width="480" height="480">
                 <div class="emblem-zoom-hint">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
@@ -4756,6 +4944,48 @@ html, body {
     </section>
 
     <!-- ==========================================================================
+         NOUVELLE SECTION SPOTLIGHT ÉMOTIONNELLE : APPEL POUR LES ENFANTS DE LA RUE
+         ========================================================================== -->
+    <section class="spotlight-section" id="urgence-enfants" aria-label="Urgence enfants de la rue au Sénégal">
+      <div class="spotlight-backdrop" aria-hidden="true"></div>
+      <div class="container">
+        <div class="spotlight-card-grid">
+          <div class="spotlight-media-wrap">
+            <img src="assets/enfant-rue-appel.jpg" alt="Enfant vulnérable de la rue assis pieds nus sur le trottoir au Sénégal" class="spotlight-media-img" width="600" height="420" loading="lazy">
+            <div class="spotlight-media-badge" data-i18n="spotlight_quote">
+              « J'ai marché des heures pieds nus sur le goudron brûlant. Tout ce que je demandais, c'était un peu de pain... »
+            </div>
+          </div>
+          <div class="spotlight-content">
+            <div class="spotlight-tag-badge">
+              <span>⚠️</span>
+              <span data-i18n="spotlight_badge">Leur cri silencieux</span>
+            </div>
+            <h2 class="spotlight-title" data-i18n="spotlight_title">
+              « Regardez ses yeux : il n'a que 7 ans et son seul lit est la poussière de la rue. »
+            </h2>
+            <p class="spotlight-desc" data-i18n="spotlight_text">
+              Demain matin, quand le soleil se lèvera sur Dakar, Saly ou Thiès, ces enfants marcheront à nouveau pieds nus sur les gravats et les épines, leurs vêtements en lambeaux flottant au vent. Vos dons ne sont pas une simple aumône : c'est la différence entre une nuit de faim glaciale sur le béton et un bol de riz chaud servi avec amour. Ne détournez pas le regard.
+            </p>
+            <div class="spotlight-impact-row">
+              <div class="spotlight-impact-box">
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_1_val">2 000 FCFA</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_1_lbl">1 Repas chaud complet pour un enfant affamé</p>
+              </div>
+              <div class="spotlight-impact-box">
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_2_val">5 000 FCFA</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_2_lbl">1 Paire de sandales solides & des habits propres</p>
+              </div>
+            </div>
+            <a href="#faire-un-don" class="btn btn-secondary btn-pulse" style="font-size: 1.05rem; padding: 16px 32px;" data-i18n="spotlight_cta_btn">
+              Sauver un enfant maintenant
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          DOMAINES D'INTERVENTION (Article II des Statuts)
          ========================================================================== -->
     <section class="section" id="domaines">
@@ -4769,21 +4999,22 @@ html, body {
         </div>
 
         <div class="domains-grid">
-          <!-- 1. Aide aux couches vulnérables -->
+          <!-- 1. Maraudes & Sauvetage d'Urgence -->
           <div class="domain-card featured">
             <div class="domain-icon-box">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
             </div>
             <div class="domain-article-ref" data-i18n="domain_1_ref">Statuts • Article II - Alinéa 2</div>
-            <h3 class="domain-title" data-i18n="domain_1_title">Aide aux Couches Vulnérables</h3>
+            <h3 class="domain-title" data-i18n="domain_1_title">Maraudes & Sauvetage d'Urgence</h3>
             <p class="domain-desc" data-i18n="domain_1_desc">
-              Accompagnement ciblé des enfants en difficulté, des femmes enceintes ou isolées, des personnes âgées et de toute personne en situation d'extrême précarité sur l'ensemble du territoire sénégalais.
+              Recherche active de jour comme de nuit dans les gares routières, marchés et ruelles sombres pour repérer et sécuriser les enfants en détresse physique ou morale aiguë.
             </p>
           </div>
 
-          <!-- 2. Sécurité alimentaire & nutrition -->
+          <!-- 2. Nutrition vitale & bouillie quotidienne -->
           <div class="domain-card">
             <div class="domain-icon-box">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -4794,14 +5025,42 @@ html, body {
                 <line x1="14" y1="1" x2="14" y2="4"></line>
               </svg>
             </div>
-            <div class="domain-article-ref" data-i18n="domain_2_ref">Devise • « Nourrir & Partager »</div>
-            <h3 class="domain-title" data-i18n="domain_2_title">Nutrition & Sécurité Alimentaire</h3>
+            <div class="domain-article-ref" data-i18n="domain_2_ref">Devise • « Nourrir Chaque Jour »</div>
+            <h3 class="domain-title" data-i18n="domain_2_title">Nutrition Vitale & Bouillie Quotidienne</h3>
             <p class="domain-desc" data-i18n="domain_2_desc">
-              Distribution de repas équilibrés et approvisionnement en denrées de base (riz, huile, céréales locales) pour combattre la sous-nutrition infantile et le dénuement.
+              Distribution de repas chauds équilibrés (riz au poisson, ragoût de légumes) et de bouillies riches en vitamines pour stopper net la malnutrition infantile sévère.
             </p>
           </div>
 
-          <!-- 3. Développement communautaire -->
+          <!-- 3. Soins médicaux & protection des pieds -->
+          <div class="domain-card">
+            <div class="domain-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <div class="domain-article-ref" data-i18n="domain_3_ref">Statuts • Article II - Alinéa 5</div>
+            <h3 class="domain-title" data-i18n="domain_3_title">Soins Médicaux & Protection des Pieds</h3>
+            <p class="domain-desc" data-i18n="domain_3_desc">
+              Nettoyage minutieux et pansement des plaies ouvertes et infectées dues à la marche pieds nus sur les tessons, déparasitage et traitement d'urgence du paludisme.
+            </p>
+          </div>
+
+          <!-- 4. Habits décents & sandales neuves -->
+          <div class="domain-card">
+            <div class="domain-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
+              </svg>
+            </div>
+            <div class="domain-article-ref" data-i18n="domain_4_ref">Dignité Corporelle & Hygiène</div>
+            <h3 class="domain-title" data-i18n="domain_4_title">Habits Décents & Sandales Neuves</h3>
+            <p class="domain-desc" data-i18n="domain_4_desc">
+              Remplacement systématique des haillons déchirés et crasseux par des tenues propres et confortables, distribution de sandales durables et douches d'eau propre savonneuse.
+            </p>
+          </div>
+
+          <!-- 5. Refuge nocturne & sécurité d'urgence -->
           <div class="domain-card">
             <div class="domain-icon-box">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -4809,56 +5068,25 @@ html, body {
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
             </div>
-            <div class="domain-article-ref" data-i18n="domain_3_ref">Statuts • Article II - Alinéa 3</div>
-            <h3 class="domain-title" data-i18n="domain_3_title">Développement Communautaire</h3>
-            <p class="domain-desc" data-i18n="domain_3_desc">
-              Soutien actif aux initiatives collectives locales pour consolider le vivre-ensemble, renforcer les liens d'entraide de quartier et améliorer le cadre de vie.
-            </p>
-          </div>
-
-          <!-- 4. Lutte contre la pauvreté et les inégalités -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_4_ref">Statuts • Article II - Alinéa 4</div>
-            <h3 class="domain-title" data-i18n="domain_4_title">Lutte Contre la Pauvreté</h3>
-            <p class="domain-desc" data-i18n="domain_4_desc">
-              Contribution concrète à la réduction des inégalités sociales et des situations d'exclusion en offrant une aide matérielle et morale aux foyers marginalisés.
-            </p>
-          </div>
-
-          <!-- 5. Action sociale & entraide mutuelle -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_5_ref">Statuts • Article II - Alinéa 5</div>
-            <h3 class="domain-title" data-i18n="domain_5_title">Œuvre dans le Domaine Social</h3>
+            <div class="domain-article-ref" data-i18n="domain_5_ref">Statuts • Article II - Alinéa 4</div>
+            <h3 class="domain-title" data-i18n="domain_5_title">Refuge Nocturne & Sécurité d'Urgence</h3>
             <p class="domain-desc" data-i18n="domain_5_desc">
-              Médiation bienveillante, secours d'urgence aux familles en détresse passagère, distribution de vêtements et facilitation de l'accès aux soins de santé primaires.
+              Mise à disposition d'espaces protégés avec nattes douces et couvertures chaudes pour soustraire les enfants aux prédateurs nocturnes et au froid des trottoirs.
             </p>
           </div>
 
-          <!-- 6. Union et solidarité collective -->
+          <!-- 6. Éveil, alphabétisation & réinsertion -->
           <div class="domain-card">
             <div class="domain-icon-box">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M16 12l-4-4-4 4"></path>
-                <path d="M12 16V8"></path>
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
               </svg>
             </div>
             <div class="domain-article-ref" data-i18n="domain_6_ref">Statuts • Article II - Alinéa 1</div>
-            <h3 class="domain-title" data-i18n="domain_6_title">Union & Solidarité Citoyenne</h3>
+            <h3 class="domain-title" data-i18n="domain_6_title">Éveil, Alphabétisation & Réinsertion</h3>
             <p class="domain-desc" data-i18n="domain_6_desc">
-              Rassembler les citoyens et donateurs animés d'un même idéal d'amour fraternel et de cohésion humaine, pour agir ensemble d'une seule voix généreuse.
+              Ateliers d'apprentissage de base, soutien psychologique, réconfort affectif et recherche bienveillante de solutions de réinsertion familiale ou éducative pérenne.
             </p>
           </div>
         </div>
@@ -4871,89 +5099,89 @@ html, body {
     <section class="section section-alt" id="actions">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag" data-i18n="actions_tag">Terrain & Proximité</div>
-          <h2 class="section-title" data-i18n="actions_title">Nos Actions & Projets Solidaires</h2>
+          <div class="section-tag" data-i18n="actions_tag">Actions Concrètes sur le Terrain</div>
+          <h2 class="section-title" data-i18n="actions_title">Nos Projets Solidaires pour les Enfants de la Rue</h2>
           <p class="section-subtitle" data-i18n="actions_sub">
-            Des initiatives tangibles et directes menées sur l'ensemble du territoire sénégalais, au plus près des besoins vitaux des enfants et des familles.
+            Des initiatives tangibles, directes et vérifiables pour redonner santé, sécurité et dignité aux enfants les plus vulnérables du Sénégal.
           </p>
         </div>
 
         <div class="projects-grid">
-          <!-- Projet 1 : Le Bol Partagé -->
+          <!-- Projet 1 : Le Bol Chaud Solidaire -->
           <div class="project-card">
             <div class="project-image-box">
-              <img src="assets/repas-partage.jpg" alt="Distribution de repas communautaires nutritifs dans la tradition du partage au Sénégal" width="400" height="220">
-              <span class="project-status-tag" data-i18n="proj_status_ongoing">Action Continue</span>
+              <img src="assets/enfants-repas-chaud.jpg" alt="Enfants de la rue mangeant un repas chaud et nutritif ensemble au Sénégal" width="400" height="220" loading="lazy">
+              <span class="project-status-tag" data-i18n="proj_status_ongoing">Action Quotidienne</span>
             </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj1_cat">Nutrition & Enfance</span>
-              <h3 class="project-title" data-i18n="proj1_title">Projet « Le Bol Partagé »</h3>
+              <span class="project-category" data-i18n="proj1_cat">Nutrition d'Urgence & Survie</span>
+              <h3 class="project-title" data-i18n="proj1_title">Projet « Le Bol Chaud Solidaire »</h3>
               <p class="project-desc" data-i18n="proj1_desc">
-                Inspiré directement par le cœur de notre emblème représentant le don nourricier d'une mère, ce projet assure la préparation et la distribution de repas chauds nutritifs aux enfants et familles vulnérables.
+                Pour un enfant qui a passé la journée entière à mendier sous un soleil accablant, un bol de riz chaud est une bénédiction. Nous cuisinons et distribuons chaque jour des repas équilibrés, riches en protéines et légumes, servis dans la joie et le respect.
               </p>
 
               <div class="project-objective-box">
                 <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj1_obj">Assurer qu'aucun enfant ne s'endorme le ventre vide et lutter contre la malnutrition au Sénégal.</p>
+                <p class="objective-text" data-i18n="proj1_obj">Garantir qu'aucun enfant de la rue ne s'endorme les larmes aux yeux et le ventre vide.</p>
               </div>
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Soutenir cette action</span>
+                  <span data-i18n="proj_support_btn">Offrir un repas chaud (2 000 FCFA)</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Projet 2 : Trousseau Mère & Nouveau-né -->
+          <!-- Projet 2 : Des Pas Protégés : Sandales & Vêtements -->
           <div class="project-card">
             <div class="project-image-box">
-              <img src="assets/maternite-enfance.jpg" alt="Mère souriante avec son bébé au Sénégal, symbole du projet de protection maternelle" width="400" height="220">
-              <span class="project-status-tag" data-i18n="proj2_status">Santé & Prévention</span>
+              <img src="assets/enfants-soins-chaussures.jpg" alt="Bénévoles offrant des sandales neuves et des habits propres à un enfant de la rue au Sénégal" width="400" height="220" loading="lazy">
+              <span class="project-status-tag" data-i18n="proj2_status">Santé & Dignité Corporelle</span>
             </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj2_cat">Protection Maternelle</span>
-              <h3 class="project-title" data-i18n="proj2_title">Projet « Main Forte aux Mamans »</h3>
+              <span class="project-category" data-i18n="proj2_cat">Chaussures & Soins d'Urgence</span>
+              <h3 class="project-title" data-i18n="proj2_title">Projet « Des Pas Protégés : Sandales & Vêtements »</h3>
               <p class="project-desc" data-i18n="proj2_desc">
-                Accompagnement des mères isolées et en grande précarité dès la naissance de leur nourrisson à travers l'octroi de kits de puériculture essentiels, de produits d'hygiène et de conseils bienveillants.
+                Marcher des kilomètres pieds nus sur le bitume brûlant, les gravats et les débris provoque de douloureuses plaies infectieuses. Nous soignons leurs pieds, leur offrons des sandales fermes et remplaçons leurs haillons délabrés par des vêtements neufs et propres.
               </p>
 
               <div class="project-objective-box">
                 <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj2_obj">Préserver la santé néonatale, soulager la charge mentale des mamans et redonner confiance.</p>
+                <p class="objective-text" data-i18n="proj2_obj">Guérir les plaies de la marche, prévenir le tétanos et restaurer leur dignité d'enfant.</p>
               </div>
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Soutenir cette action</span>
+                  <span data-i18n="proj2_support_btn">Offrir sandales & vêtements (5 000 FCFA)</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Projet 3 : Solidarité & Secours d'Urgence -->
+          <!-- Projet 3 : Le Refuge de l'Espoir -->
           <div class="project-card">
             <div class="project-image-box">
-              <img src="assets/mains-solidaires.jpg" alt="Mains solidaires unies partageant les récoltes et les vivres, symbole d'entraide communautaire" width="400" height="220">
-              <span class="project-status-tag" data-i18n="proj3_status">Secours d'Urgence</span>
+              <img src="assets/enfants-refuge-nuit.jpg" alt="Enfants de la rue dormant en sécurité sous des couvertures chaudes dans le refuge de l'association" width="400" height="220" loading="lazy">
+              <span class="project-status-tag" data-i18n="proj3_status">Sécurité & Protection Nocturne</span>
             </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj3_cat">Cohésion Sociale</span>
-              <h3 class="project-title" data-i18n="proj3_title">Projet « Solidarité & Entraide »</h3>
+              <span class="project-category" data-i18n="proj3_cat">Refuge d'Urgence & Sommeil</span>
+              <h3 class="project-title" data-i18n="proj3_title">Projet « Le Refuge de l'Espoir »</h3>
               <p class="project-desc" data-i18n="proj3_desc">
-                Dispositif de secours immédiat coordonné depuis notre siège à Saly Station pour répondre aux accidents de la vie : kits d'urgence lors des saisons difficiles, vivres et orientation humaine pour les foyers marginalisés.
+                La nuit dans la rue est un univers d'insécurité, de froid et de violences. Notre espace d'accueil d'urgence offre des nattes douces, des couvertures propres, une douche chaude et la présence rassurante et protectrice d'éducateurs bienveillants.
               </p>
 
               <div class="project-objective-box">
                 <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj3_obj">Faire barrage à l'extrême précarité et préserver la dignité des foyers familiaux vulnérables.</p>
+                <p class="objective-text" data-i18n="proj3_obj">Arracher les enfants à l'enfer de la nuit dans la rue et leur offrir le sommeil paisible qu'ils méritent.</p>
               </div>
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Soutenir cette action</span>
+                  <span data-i18n="proj3_support_btn">Soutenir le refuge de nuit</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
@@ -4964,16 +5192,16 @@ html, body {
     </section>
 
     <!-- ==========================================================================
-         POURQUOI NOUS SOUTENIR ?
+         POURQUOI NOUS SOUTENIR ? (URGENCE DU CŒUR POUR LES ENFANTS)
          ========================================================================== -->
     <section class="section" id="pourquoi-nous-soutenir">
       <div class="container why-support-grid">
-        <!-- Arguments de confiance pour les donateurs -->
+        <!-- Arguments d'urgence et d'impact pour les enfants de la rue -->
         <div class="why-support-content">
-          <div class="section-tag" data-i18n="why_tag">Alliance Solidaire</div>
-          <h2 class="section-title" data-i18n="why_title">Pourquoi votre soutien change tout</h2>
+          <div class="section-tag" data-i18n="why_tag">L'Urgence du Cœur</div>
+          <h2 class="section-title" data-i18n="why_title">Pourquoi votre soutien sauve littéralement des vies</h2>
           <p class="section-subtitle" style="margin-bottom: 24px;" data-i18n="why_sub">
-            Donner à l'Association Caritative LOKHO NDEYE, c'est choisir l'assurance d'une solidarité authentique, directe et vérifiable.
+            Ces enfants de la rue n'ont personne d'autre au monde vers qui se tourner. Votre don se transforme directement en secours vital, sans intermédiaire.
           </p>
 
           <div class="why-support-list">
@@ -4984,8 +5212,8 @@ html, body {
                 </svg>
               </div>
               <div class="why-item-content">
-                <h4 data-i18n="why_item1_title">Une action de proximité immédiate</h4>
-                <p data-i18n="why_item1_desc">Votre contribution ne se perd pas dans des structures bureaucratiques : elle se matérialise sous forme de vivres et d'aide directe aux familles les plus vulnérables sur l'ensemble du territoire sénégalais.</p>
+                <h4 data-i18n="why_item1_title">100% direct aux enfants : repas, sandales et pansements</h4>
+                <p data-i18n="why_item1_desc">Votre contribution ne se perd pas dans des frais de structure : chaque franc collecté achète directement du riz, du lait, des paires de sandales, des pansements antiseptiques et des vêtements chauds.</p>
               </div>
             </div>
 
@@ -4996,8 +5224,8 @@ html, body {
                 </svg>
               </div>
               <div class="why-item-content">
-                <h4 data-i18n="why_item2_title">Transparence et intégrité statutaire</h4>
-                <p data-i18n="why_item2_desc">Notre bureau œuvre bénévolement. Chaque ressource issue des dons, cotisations et libéralités est scrupuleusement enregistrée et contrôlée (Articles VI & XII).</p>
+                <h4 data-i18n="why_item2_title">Une équipe bénévole présente chaque jour sur le terrain</h4>
+                <p data-i18n="why_item2_desc">Nos bénévoles arpentent la poussière des rues, s'assoient aux côtés des enfants, pansent leurs plaies et partagent leurs repas dans un dévouement total et désintéressé.</p>
               </div>
             </div>
 
@@ -5008,24 +5236,24 @@ html, body {
                 </svg>
               </div>
               <div class="why-item-content">
-                <h4 data-i18n="why_item3_title">Le respect inconditionnel de la dignité</h4>
-                <p data-i18n="why_item3_desc">Nous protégeons l'anonymat et la dignité de chaque famille aidée. L'aide est apportée comme le ferait une mère bienveillante : avec discrétion et respect.</p>
+                <h4 data-i18n="why_item3_title">L'amour d'une mère pour chaque enfant abandonné</h4>
+                <p data-i18n="why_item3_desc">Nous ne donnons pas seulement du pain : nous posons une main douce sur leur épaule, nous essuyons leurs larmes et nous leur redonnons la fierté d'être un enfant aimé.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Appel à la mobilisation -->
+        <!-- Appel à la mobilisation d'urgence -->
         <div class="why-cta-box">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary-light); margin-bottom: 16px;">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
-          <h3 data-i18n="why_box_title">Chaque geste compte</h3>
+          <h3 data-i18n="why_box_title">Ne les laissez pas seuls ce soir</h3>
           <p data-i18n="why_box_desc">
-            Même le plus modeste des dons permet d'offrir un repas chaud à un enfant affamé ou un panier de vivres à une maman isolée. Rejoignez notre chaîne d'amour fraternel.
+            À l'instant où vous lisez ces lignes, un petit garçon marche pieds nus dans la nuit, grelottant de froid. Pour 2 000 FCFA, vous lui offrez un repas chaud. Pour 5 000 FCFA, vous protégez ses pieds. Ouvrez-lui les bras.
           </p>
           <a href="#faire-un-don" class="btn btn-secondary btn-pulse" data-i18n="why_box_btn">
-            Accéder à l'espace de don
+            Faire un don maintenant pour un enfant
           </a>
         </div>
       </div>
@@ -5037,10 +5265,10 @@ html, body {
     <section class="section donation-section" id="faire-un-don">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag" style="background: var(--color-primary); color: #FFF;" data-i18n="don_tag">Espace Prioritaire Donateurs</div>
-          <h2 class="section-title" data-i18n="don_title">Tendez la main : Faites un don à Lokho Ndéye</h2>
+          <div class="section-tag" style="background: var(--color-primary); color: #FFF;" data-i18n="don_tag">Espace Donateurs Solidaires</div>
+          <h2 class="section-title" data-i18n="don_title">Tendez la main : Sauvez un enfant de la rue</h2>
           <p class="section-subtitle" data-i18n="don_sub">
-            Choisissez votre mode de contribution solidaire. L'intégralité de vos dons est consacrée à nos actions auprès des enfants et des mères sur l'ensemble du territoire sénégalais.
+            Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés à nourrir, soigner, vêtir et abriter les enfants de la rue au Sénégal.
           </p>
         </div>
 
@@ -5058,34 +5286,55 @@ html, body {
           </div>
 
           <div class="donation-content-area">
-            <!-- 1. Formulaire de promesse de don solidaire libre -->
+            <!-- 1. Formulaire de promesse de don solidaire libre avec paliers d'impact -->
             <div class="donation-interactive-grid">
               <div class="donation-form-panel">
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
                 <div class="frequency-selector">
-                  <button type="button" class="freq-btn active" data-frequency="ponctuel" data-i18n="freq_ponctuel">Don ponctuel</button>
-                  <button type="button" class="freq-btn" data-frequency="occasionnel" data-i18n="freq_occasionnel">Don occasionnel</button>
+                  <button type="button" class="freq-btn active" data-frequency="ponctuel" data-i18n="freq_ponctuel">Don ponctuel d'urgence</button>
+                  <button type="button" class="freq-btn" data-frequency="occasionnel" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
                 </div>
 
-                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre) :</label>
+                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Sélectionnez un palier d'impact ou saisie libre) :</label>
+                
+                <!-- Paliers d'impact concrets pour les enfants de la rue -->
+                <div class="amount-grid">
+                  <button type="button" class="amount-btn active" data-amount="2000">
+                    <span class="amount-btn-value" data-i18n="tier_2000">2 000 FCFA</span>
+                    <span class="amount-btn-desc" data-i18n="tier_2000_desc">🍲 1 Repas chaud complet & boisson nutritive</span>
+                  </button>
+                  <button type="button" class="amount-btn" data-amount="5000">
+                    <span class="amount-btn-value" data-i18n="tier_5000">5 000 FCFA</span>
+                    <span class="amount-btn-desc" data-i18n="tier_5000_desc">👟 1 Paire de sandales robustes & vêtements propres</span>
+                  </button>
+                  <button type="button" class="amount-btn" data-amount="10000">
+                    <span class="amount-btn-value" data-i18n="tier_10000">10 000 FCFA</span>
+                    <span class="amount-btn-desc" data-i18n="tier_10000_desc">🩹 Kit médical d'urgence (soins plaies, vermifuge, vitamines)</span>
+                  </button>
+                  <button type="button" class="amount-btn" data-amount="25000">
+                    <span class="amount-btn-value" data-i18n="tier_25000">25 000 FCFA</span>
+                    <span class="amount-btn-desc" data-i18n="tier_25000_desc">🌟 1 Mois de prise en charge complète d'un enfant de la rue</span>
+                  </button>
+                </div>
+
                 <!-- Montant personnalisé libre -->
                 <div class="custom-amount-wrap">
                   <span class="custom-amount-icon">FCFA</span>
-                  <input type="number" id="customAmount" class="custom-amount-input" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
+                  <input type="number" id="customAmount" class="custom-amount-input" value="2000" placeholder="Indiquez un autre montant libre (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
                 </div>
 
-                <!-- Encadré solidaire et fraternel sans sommes imposées -->
+                <!-- Encadré solidaire et impact émotionnel -->
                 <div class="donation-impact-preview">
-                  <span class="impact-preview-icon">🤝</span>
+                  <span class="impact-preview-icon">🍲</span>
                   <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
-                    <strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles et enfants accompagnés par l'association.
+                    <strong>Chaque geste sauve une vie :</strong> Avec 2 000 FCFA, vous offrez un repas chaud ce soir à un enfant affamé. Avec 5 000 FCFA, vous protégez ses pieds nus et lui offrez des vêtements propres.
                   </p>
                 </div>
 
                 <div style="background: rgba(43, 147, 72, 0.08); border: 1px solid rgba(43, 147, 72, 0.25); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; display: flex; align-items: flex-start; gap: 12px;">
                   <span style="font-size: 1.4rem;">🤍</span>
                   <div style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.5;" data-i18n-html="volunteer_box">
-                    <strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté exclusivement au soutien des bénéficiaires et aux distributions de vivres à travers le Sénégal.
+                    <strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).
                   </div>
                 </div>
               </div>
@@ -5101,19 +5350,19 @@ html, body {
 
                 <div class="summary-row">
                   <span data-i18n="sum_freq_lbl">Type de don :</span>
-                  <span id="summaryFrequency" style="font-weight: 600;">Don ponctuel</span>
+                  <span id="summaryFrequency" style="font-weight: 600;">Don ponctuel d'urgence</span>
                 </div>
 
                 <div class="summary-row">
                   <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
                   <div>
-                    <span id="summaryAmount" class="summary-val" data-i18n="sum_amount_free">Montant libre de votre choix</span>
+                    <span id="summaryAmount" class="summary-val">2 000 FCFA</span>
                   </div>
                 </div>
 
                 <div class="summary-row">
                   <span data-i18n="sum_alloc_lbl">Affectation :</span>
-                  <span style="font-weight: 600;" data-i18n="sum_alloc_val">100% Actions sociales & alimentaires</span>
+                  <span style="font-weight: 600;" data-i18n="sum_alloc_val">100% Repas, Soins & Protection des Enfants de la Rue</span>
                 </div>
 
                 <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
@@ -5168,13 +5417,13 @@ html, body {
                     </tr>
                     <tr>
                       <td data-i18n="lbl_account_ref">Motif / Référence :</td>
-                      <td><span style="color: var(--color-primary); font-family: monospace;" data-i18n="val_account_ref">DON SOLIDAIRE - LOKHO NDEYE</span></td>
+                      <td><span style="color: var(--color-primary); font-family: monospace;" data-i18n="val_account_ref">DON ENFANTS RUE - LOKHO NDEYE</span></td>
                     </tr>
                   </tbody>
                 </table>
 
                 <div class="copy-btn-group">
-                  <button type="button" class="btn-copy" onclick="copyText('Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-LOKHONDEYE', 'Coordonnées du compte')">
+                  <button type="button" class="btn-copy" onclick="copyText('Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE', 'Coordonnées du compte')">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     <span data-i18n="btn_copy_coords">Copier les informations</span>
                   </button>
@@ -5407,11 +5656,11 @@ html, body {
             </div>
             <div>
               <div class="footer-brand-title">LOKHO NDEYE</div>
-              <div class="footer-brand-sub" data-i18n="footer_tagline">La Main tendue d'une mère</div>
+              <div class="footer-brand-sub" data-i18n="footer_tagline">La Main tendue d'une mère pour les enfants de la rue</div>
             </div>
           </div>
           <p class="footer-desc" data-i18n-html="footer_desc">
-            Association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais, créée conformément au Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].
+            Association caritative à but non lucratif dédiée exclusivement au sauvetage, à la nutrition, aux soins et à la protection des enfants de la rue et talibés au Sénégal. Régie par le Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].
             <br><br>
             <em style="color: var(--color-secondary-light);">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>
           </p>
@@ -5448,7 +5697,7 @@ html, body {
             <strong style="color: #FFFFFF; display: block; margin-bottom: 6px;">République du Sénégal</strong>
             Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br>
             <strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br>
-            <strong>Rayonnement :</strong> Ensemble du Sénégal.<br>
+            <strong>Mission exclusive :</strong> Protection des enfants de la rue.<br>
             <strong>Durée :</strong> Illimitée.
           </div>
         </div>
@@ -5488,10 +5737,10 @@ html, body {
         <h4 style="color: var(--color-primary); margin: 18px 0 8px;" data-i18n="modal_statuts_art2">Article II : Buts de l'Association</h4>
         <ul style="padding-left: 20px; margin-bottom: 16px;">
           <li data-i18n="modal_statuts_art2_1">1. Unir les membres animés d'un même idéal et créer entre eux des liens d'entente et de solidarité.</li>
-          <li data-i18n="modal_statuts_art2_2">2. Venir en aide aux couches vulnérables sur tout le territoire sénégalais.</li>
-          <li data-i18n="modal_statuts_art2_3">3. Soutenir les initiatives de développement communautaire.</li>
-          <li data-i18n="modal_statuts_art2_4">4. Contribuer à la lutte contre la pauvreté, l'exclusion sociale et les inégalités.</li>
-          <li data-i18n="modal_statuts_art2_5">5. Œuvrer dans le domaine social.</li>
+          <li data-i18n="modal_statuts_art2_2">2. Venir en aide aux enfants de la rue et couches vulnérables sur tout le territoire sénégalais.</li>
+          <li data-i18n="modal_statuts_art2_3">3. Soutenir les initiatives de développement communautaire et de protection de l'enfance.</li>
+          <li data-i18n="modal_statuts_art2_4">4. Contribuer à la lutte contre la pauvreté, l'exclusion sociale et la détresse des mineurs errants.</li>
+          <li data-i18n="modal_statuts_art2_5">5. Œuvrer dans le domaine social et humanitaire d'urgence.</li>
         </ul>
 
         <h4 style="color: var(--color-primary); margin: 18px 0 8px;" data-i18n="modal_statuts_art3">Article III : Neutralité & Indépendance</h4>
@@ -5501,7 +5750,7 @@ html, body {
         <p data-i18n-html="modal_statuts_art9_text"><em>« Les fonctions de membres du bureau sont gratuites. »</em></p>
 
         <h4 style="color: var(--color-primary); margin: 18px 0 8px;" data-i18n="modal_statuts_art17">Article XVII : Dissolution</h4>
-        <p data-i18n="modal_statuts_art17_text">En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque.</p>
+        <p data-i18n="modal_statuts_art17_text">En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque de protection de l'enfance.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline" onclick="closeModal('statutsModal')" data-i18n="btn_close">Fermer</button>
@@ -5520,8 +5769,8 @@ html, body {
         <p data-i18n-html="modal_privacy_p1_title"><strong>1. Anonymat des membres et bénévoles :</strong></p>
         <p data-i18n="modal_privacy_p1_text">Conformément au principe fondateur de pureté du geste caritatif, l'ensemble des fondateurs, administrateurs et bénévoles de l'Association Caritative LOKHO NDEYE ont choisi d'agir sous le sceau de l'anonymat. Aucune information nominative personnelle n'est publiée, préservant ainsi l'esprit collectif et désintéressé de notre mission.</p>
         
-        <p data-i18n-html="modal_privacy_p2_title"><strong>2. Respect de la dignité des bénéficiaires :</strong></p>
-        <p data-i18n="modal_privacy_p2_text">Les personnes et familles accompagnées à travers le Sénégal sont protégées. Aucune photo dégradante ou donnée nominative sensible n'est divulguée.</p>
+        <p data-i18n-html="modal_privacy_p2_title"><strong>2. Respect de la dignité des enfants :</strong></p>
+        <p data-i18n="modal_privacy_p2_text">Les enfants de la rue et mineurs accompagnés à travers le Sénégal sont protégés avec une vigilance absolue. Aucune photo dégradante ou donnée nominative sensible n'est divulguée.</p>
 
         <p data-i18n-html="modal_privacy_p3_title"><strong>3. Données des donateurs :</strong></p>
         <p data-i18n="modal_privacy_p3_text">Les informations transmises lors de vos dons ou prises de contact sont strictement confidentielles. Aucune donnée bancaire sensible n'est enregistrée sur notre plateforme.</p>
@@ -5552,7 +5801,7 @@ html, body {
           contact@lokhondeye.org
         </div>
         <p style="font-size: 0.85rem; color: var(--color-text-muted);" data-i18n="modal_rib_note">
-          Indiquez simplement en objet : « Demande RIB officiel pour don ».
+          Indiquez simplement en objet : « Demande RIB officiel pour don enfants de la rue ».
         </p>
       </div>
       <div class="modal-footer">
@@ -5568,7 +5817,7 @@ html, body {
   <div class="modal-overlay" id="pledgeModal" role="dialog" aria-modal="true" aria-labelledby="pledgeModalTitle">
     <div class="modal-container">
       <div class="modal-header">
-        <h3 class="modal-title" id="pledgeModalTitle" data-i18n="modal_pledge_title">Engagement de Don Solidaire</h3>
+        <h3 class="modal-title" id="pledgeModalTitle" data-i18n="modal_pledge_title">Engagement de Don pour les Enfants de la Rue</h3>
         <button class="modal-close-btn" onclick="closeModal('pledgeModal')" aria-label="Fermer">✕</button>
       </div>
       <div class="modal-body" id="printablePledgeArea">
@@ -5591,15 +5840,15 @@ html, body {
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_amount_lbl">Montant du soutien :</td>
-              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount" data-i18n="receipt_free_amount">Montant libre (selon vos capacités)</td>
+              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount">2 000 FCFA</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_freq_lbl">Fréquence :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don ponctuel</td>
+              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don ponctuel d'urgence</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_alloc_lbl">Affectation sociale :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right; color: var(--color-success);" id="receiptModalAlloc" data-i18n="modal_pledge_alloc_val">Actions solidaires & aide alimentaire au Sénégal</td>
+              <td style="padding: 8px 0; font-weight: 600; text-align: right; color: var(--color-success);" id="receiptModalAlloc" data-i18n="modal_pledge_alloc_val">100% Repas, Soins & Protection des Enfants de la Rue</td>
             </tr>
           </tbody>
         </table>
@@ -5649,236 +5898,190 @@ html, body {
   <script>
 /**
  * ASSOCIATION CARITATIVE LOKHO NDEYE - DICTIONNAIRE OFFICIEL BILINGUE (FRANÇAIS / ANGLAIS)
+ * DÉDIÉ EXCLUSIVEMENT AUX ENFANTS DE LA RUE AU SÉNÉGAL
  * Système d'Internationalisation (i18n)
  */
 
 const translations = {
   fr: {
-    // Page Title & Meta
-    page_title: "Association Caritative LOKHO NDEYE | La Main tendue d'une mère — Solidarité au Sénégal",
-    meta_description: "Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais. Siège social : Saly [Mbour], Sénégal. Aide aux couches vulnérables, sécurité alimentaire, protection des mères et enfants.",
+    // Titre & Méta
+    page_title: "Association Caritative LOKHO NDEYE | Sauver & Protéger les Enfants de la Rue au Sénégal",
+    meta_description: "Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), dédiée exclusivement aux enfants de la rue, enfants talibés et orphelins vulnérables au Sénégal. Repas chauds quotidiens, sandales neuves, soins médicaux des pieds et refuge nocturne d'urgence. Siège : Saly [Mbour].",
 
-    // Top Bar
+    // Barre supérieure
     topbar_hq: "Siège Social : Saly [Mbour] — Action sur tout le Sénégal",
     topbar_status: "Association Déclarée (Code des Obligations Civiles et Commerciales)",
-    topbar_scope: "🌍 Action sur tout le Sénégal",
+    topbar_scope: "🌍 Urgence Enfants de la Rue • Sénégal",
     mobile_lang_label: "Langue du site :",
 
-    // Brand & Header
+    // Marque & En-tête
     brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
     official_beneficiary_name: "Association Caritative LOKHO NDEYE",
     brand_aria: "Retour à l'accueil de l'Association Caritative LOKHO NDEYE",
-    hero_section_aria: "Présentation et missions de l'Association Caritative LOKHO NDEYE",
+    hero_section_aria: "Sauvetage et protection des enfants de la rue au Sénégal",
     brand_tagline: "« La Main tendue d'une mère »",
-    brand_subtext: "Intervention sur tout le Sénégal • Siège social à Saly [Mbour] • Association Déclarée",
+    brand_subtext: "Secours aux enfants de la rue sur tout le Sénégal • Siège à Saly [Mbour] • Association Déclarée",
     header_trust_title: "Siège à Saly [Mbour]",
     header_trust_sub: "Action sur l'ensemble du Sénégal",
-    btn_donate: "Faire un don",
+    btn_donate: "Sauver un enfant",
     sound_toggle_aria: "Activer l'ambiance sonore kora",
     sound_toggle_title: "Ambiance sonore acoustique",
 
-    // Navigation Menu
+    // Menu de navigation
     nav_home: "Accueil",
     nav_mission: "Notre Mission",
     nav_domains: "Domaines d'action",
     nav_actions: "Nos Actions & Projets",
-    nav_impact: "Notre Impact",
     nav_why: "Pourquoi nous soutenir",
-    nav_transparency: "Transparence",
     nav_contact: "Contact",
 
-    // Hero Section - Act 1
-    hero_act1_tag: "ACTE I",
-    hero_act1_badge: "Réalité & Urgence Terrain",
-    hero_act1_title: "À travers le Sénégal, des enfants et des mères tendent la main. <span class=\"hero-title-highlight\">Nous leur ouvrons les bras.</span>",
-    hero_act1_desc: "Face à la précarité des enfants talibés et à la détresse des mères isolées sur l'ensemble du territoire sénégalais, l'Association Caritative LOKHO NDEYE transforme chaque geste en un repas digne, un soin vital et une écoute bienveillante.",
+    // Hero Section - Acte 1
+    hero_act1_tag: "URGENCE VITALE",
+    hero_act1_badge: "Enfants de la Rue au Sénégal",
+    hero_act1_title: "Pieds nus sur la terre brûlante, le ventre vide. <span class=\"hero-title-highlight\">Sauvons les enfants de la rue.</span>",
+    hero_act1_desc: "Chaque jour au Sénégal, des milliers de jeunes garçons et orphelins errent pieds nus, vêtus de haillons déchirés et délabrés, un pot de tomate vide à la main pour mendier. L'Association Caritative LOKHO NDEYE tend la main protectrice d'une mère : nous leur offrons chaque jour un repas chaud, des chaussures fermes, des soins pour leurs pieds blessés et un refuge d'urgence.",
     hero_tag_senegal: "Tout le Sénégal",
-    hero_tag_childhood: "Protection de l'Enfance",
+    hero_tag_childhood: "Secours Enfants de la Rue",
     hero_tag_hq: "Siège à Saly [Mbour]",
-    hero_btn_donate_hope: "Faire un don d'espoir",
-    hero_btn_explore_mission: "Explorer notre mission",
+    hero_btn_donate_hope: "Offrir un repas chaud ce soir",
+    hero_btn_explore_mission: "Découvrir notre combat",
 
-    // Hero Section - Act 2
-    hero_act2_tag: "ACTE II",
-    hero_act2_badge: "Une Réponse Concrète & Structurée",
-    hero_act2_title: "« Lokho Ndéye » : <span class=\"hero-title-highlight\">La tendresse et la rigueur</span> au service de la dignité",
-    hero_act2_desc: "Reconnue par le Code des Obligations Civiles et Commerciales de la République du Sénégal, notre structure déploie ses actions d'urgence sur tout le Sénégal avec une gestion bénévole irréprochable.",
-    hero_stat_volunteer_lbl: "Bénévolat Intégral",
-    hero_stat_territory_num: "Sénégal",
-    hero_stat_territory_lbl: "Action sur Tout le Territoire",
-    hero_btn_see_actions: "Voir nos actions en cours",
-    hero_btn_support_mothers: "Soutenir les mères",
-
-    // Hero Section - Act 3
-    hero_act3_tag: "ACTE III",
-    hero_act3_badge: "Bâtir un Futur Durable",
-    hero_act3_title: "Partager • Nourrir • Soutenir • <span class=\"hero-title-highlight\">Construire demain</span>",
-    hero_act3_desc: "Chaque donateur devient un maillon essentiel de cette chaîne humaine. En unissant nos forces, nous offrons à chaque enfant et à chaque mère vulnérable la certitude qu'ils ne sont plus seuls.",
-    hero_tag_transparency: "Transparence Totale",
-    hero_tag_security: "Dons Sécurisés",
-    hero_tag_solidarity: "Solidarité Active",
-    hero_btn_join_donors: "Rejoindre les donateurs",
-    hero_btn_transparency_guarantees: "Garanties de transparence",
-
-    // Hero Slider Controls
-    hero_dot_1: "01. Enfance & Urgence",
-    hero_dot_2: "02. Maternité & Action",
-    hero_dot_3: "03. Avenir & Solidarité",
-    hero_prev_aria: "Diapositive précédente",
-    hero_next_aria: "Diapositive suivante",
-    hero_play_pause_aria: "Mettre en pause ou relancer le défilement automatique",
-
-    // Hero Foreground Stage & Badges
-    float_badge_meal_title: "Repas & Nutrition",
+    // Hero Section - Badges & légendes
+    float_badge_meal_title: "Repas Chauds & Bouillie",
     float_badge_meal_sub: "Distribution quotidienne",
     float_badge_action_title: "Action Nationale",
     float_badge_action_sub: "Siège social à Saly [Mbour]",
     float_caption_1_tag: "Terrain",
-    float_caption_1_text: "Secours immédiat aux enfants talibés et jeunes en rupture",
+    float_caption_1_text: "Secours immédiat aux enfants de la rue et talibés vulnérables",
 
-    float_badge_mothers_title: "Mères & Nourrissons",
-    float_badge_mothers_sub: "Soins d'urgence & kits d'hygiène",
-    float_badge_vol_title: "100% Bénévolat",
-    float_badge_vol_sub: "Dévouement total au service du terrain",
-    float_caption_2_tag: "Santé & Protection",
-    float_caption_2_text: "Accompagnement médical et bienveillance pour les mères isolées",
-
-    float_badge_chain_title: "Chaîne Solidaire",
-    float_badge_chain_sub: "Partage & Fraternité active",
-    float_badge_transp_title: "Transparence Totale",
-    float_badge_transp_sub: "Chaque franc investi sur le terrain",
-    float_caption_3_tag: "Avenir",
-    float_caption_3_text: "Construire ensemble une communauté solidaire et pérenne",
-
-    // Thumbnails
-    thumb_act_1: "Acte 01",
-    thumb_1_title: "Enfance & Urgence",
-    thumb_act_2: "Acte 02",
-    thumb_2_title: "Mères & Soins",
-    thumb_act_3: "Acte 03",
-    thumb_3_title: "Union & Avenir",
-
-    // Kinetic Marquee
-    marquee_share: "Partager",
-    marquee_nourish: "Nourrir la dignité",
-    marquee_support: "Soutenir les mères",
-    marquee_protect: "Protéger l'enfance",
-    marquee_dignity: "Solidarité & Dignité",
-    marquee_national: "Action Nationale • Tout le Sénégal",
-    marquee_hq: "Siège à Saly [Mbour]",
-    marquee_build: "Construire un avenir solidaire",
+    // Ruban Kinétique
+    marquee_share: "Partager l'amour",
+    marquee_nourish: "Nourrir un enfant affamé",
+    marquee_support: "Protéger les petits pieds nus",
+    marquee_protect: "Remplacer les vêtements déchirés",
+    marquee_dignity: "Soigner les blessures de la rue",
+    marquee_national: "Un toit protecteur pour la nuit",
+    marquee_hq: "L'amour d'une mère pour chaque orphelin",
+    marquee_build: "Redonner le sourire aux enfants sans abri",
 
     // Section Notre Mission
     mission_tag: "Notre Mission Fondatrice",
     mission_title: "NOTRE MISSION",
-    mission_spirit_title: "L'esprit de « Lokho Ndéye »",
-    mission_spirit_p1: "En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em> — le geste universel de la protection maternelle : nourrir avec amour, guider les premiers pas et offrir un abri face à l'adversité.",
-    mission_spirit_p2: "<strong>Qui nous accompagnons :</strong> Enfants en détresse nutritionnelle, mères vulnérables et foyers confrontés à l'exclusion sociale, sans aucune distinction d'origine.",
-    pillar_1_title: "Partager",
-    pillar_1_desc: "Nos ressources et notre affection avec ceux qui manquent du nécessaire.",
-    pillar_2_title: "Nourrir",
-    pillar_2_desc: "Un repas chaud et nutritif pour les enfants et les foyers fragiles.",
-    pillar_3_title: "Soutenir",
-    pillar_3_desc: "Une écoute fraternelle et un secours social dans les moments critiques.",
-    pillar_4_title: "Construire",
-    pillar_4_desc: "Un avenir meilleur par la solidarité communautaire et l'entraide.",
-    emblem_badge: "✨ Emblème Officiel",
+    mission_spirit_title: "L'esprit de « Lokho Ndéye » : Une mère pour les enfants oubliés de la rue",
+    mission_spirit_p1: "En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em>. Pour un enfant qui dort seul sur le trottoir froid ou sur un morceau de carton poussiéreux, sans personne pour essuyer ses larmes ou soigner ses pieds écorchés, cette main est un miracle vital. Notre mission absolue est d'arracher ces enfants à la faim, à la maladie et aux dangers extrêmes de la rue.",
+    mission_spirit_p2: "<strong>Notre engagement exclusif :</strong> Secourir les enfants de la rue, enfants talibés, orphelins errants et mineurs abandonnés sans défense sur l'ensemble du territoire sénégalais, avec une bienveillance inconditionnelle.",
+    pillar_1_title: "Partager l'Amour",
+    pillar_1_desc: "Rompre la terrible solitude de l'enfant des rues par une écoute affectueuse, respectueuse et un soutien fraternel constant.",
+    pillar_2_title: "Nourrir Chaque Jour",
+    pillar_2_desc: "Distribuer des repas chauds, fortifiés et copieux pour qu'aucun enfant ne s'endorme les larmes aux yeux et le ventre vide.",
+    pillar_3_title: "Soigner & Vêtir",
+    pillar_3_desc: "Panser les plaies infectées, fournir des sandales neuves aux pieds nus et remplacer les haillons délabrés par des habits propres.",
+    pillar_4_title: "Abriter & Reconstruire",
+    pillar_4_desc: "Offrir un refuge sécurisé pour la nuit, les protéger de la violence nocturne et les guider vers l'alphabétisation et la dignité.",
+    emblem_badge: "✨ Emblème Protecteur",
     emblem_zoom: "Agrandir",
     emblem_caption_title: "La Main Protectrice et Nourricière",
     emblem_caption_text: "La mère bienveillante nourrissant les enfants depuis la calebasse solidaire, enveloppée par l'arche protectrice et surmontée de la devise : <em>« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>.",
     legal_box_title: "Cadre éthique & légal",
     legal_box_text: "<em>« L'Association est ouverte à tous, dans le respect des convictions individuelles, dans l'indépendance à l'égard des partis politiques. »</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III des Statuts officiels</strong>",
 
-    // Section Domaines d'Intervention
-    domains_tag: "Objectifs Statutaires",
-    domains_title: "Nos Domaines d'Intervention",
-    domains_sub: "Chacun de nos champs d'action est strictement fondé sur les buts officiels définis à l'Article II de nos statuts enregistrés en République du Sénégal.",
+    // Section Spotlight Émotionnelle
+    spotlight_tag: "URGENCE CRITIQUE",
+    spotlight_badge: "Leur cri silencieux",
+    spotlight_title: "« Regardez ses yeux : il n'a que 7 ans et son seul lit est la poussière de la rue. »",
+    spotlight_quote: "« J'ai marché des heures pieds nus sur le goudron brûlant. Tout ce que je demandais, c'était un peu de pain... »",
+    spotlight_text: "Demain matin, quand le soleil se lèvera sur Dakar, Saly ou Thiès, ces enfants marcheront à nouveau pieds nus sur les gravats et les épines, leurs vêtements en lambeaux flottant au vent. Vos dons ne sont pas une simple aumône : c'est la différence entre une nuit de faim glaciale sur le béton et un bol de riz chaud servi avec amour. Ne détournez pas le regard.",
+    spotlight_stat_1_val: "2 000 FCFA",
+    spotlight_stat_1_lbl: "1 Repas chaud complet pour un enfant affamé",
+    spotlight_stat_2_val: "5 000 FCFA",
+    spotlight_stat_2_lbl: "1 Paire de sandales solides & des habits propres",
+    spotlight_cta_btn: "Sauver un enfant maintenant",
+
+    // Section Domaines d'Intervention (100% Enfants de la Rue)
+    domains_tag: "Champs d'Action Terrain",
+    domains_title: "Nos Domaines d'Intervention auprès des Enfants de la Rue",
+    domains_sub: "Chaque action est menée au plus près de la détresse des enfants sans abri sur tout le territoire sénégalais, conformément aux buts de l'Article II de nos statuts officiels.",
     domain_1_ref: "Statuts • Article II - Alinéa 2",
-    domain_1_title: "Aide aux Couches Vulnérables",
-    domain_1_desc: "Accompagnement ciblé des enfants en difficulté, des femmes enceintes ou isolées, des personnes âgées et de toute personne en situation d'extrême précarité sur l'ensemble du territoire sénégalais.",
-    domain_2_ref: "Devise • « Nourrir & Partager »",
-    domain_2_title: "Nutrition & Sécurité Alimentaire",
-    domain_2_desc: "Distribution de repas équilibrés et approvisionnement en denrées de base (riz, huile, céréales locales) pour combattre la sous-nutrition infantile et le dénuement.",
-    domain_3_ref: "Statuts • Article II - Alinéa 3",
-    domain_3_title: "Développement Communautaire",
-    domain_3_desc: "Soutien actif aux initiatives collectives locales pour consolider le vivre-ensemble, renforcer les liens d'entraide de quartier et améliorer le cadre de vie.",
-    domain_4_ref: "Statuts • Article II - Alinéa 4",
-    domain_4_title: "Lutte Contre la Pauvreté",
-    domain_4_desc: "Contribution concrète à la réduction des inégalités sociales et des situations d'exclusion en offrant une aide matérielle et morale aux foyers marginalisés.",
-    domain_5_ref: "Statuts • Article II - Alinéa 5",
-    domain_5_title: "Œuvre dans le Domaine Social",
-    domain_5_desc: "Médiation bienveillante, secours d'urgence aux familles en détresse passagère, distribution de vêtements et facilitation de l'accès aux soins de santé primaires.",
+    domain_1_title: "Maraudes & Sauvetage d'Urgence",
+    domain_1_desc: "Recherche active de jour comme de nuit dans les gares routières, marchés et ruelles sombres pour repérer et sécuriser les enfants en détresse physique ou morale aiguë.",
+    domain_2_ref: "Devise • « Nourrir Chaque Jour »",
+    domain_2_title: "Nutrition Vitale & Bouillie Quotidienne",
+    domain_2_desc: "Distribution de repas chauds équilibrés (riz au poisson, ragoût de légumes) et de bouillies riches en vitamines pour stopper net la malnutrition infantile sévère.",
+    domain_3_ref: "Statuts • Article II - Alinéa 5",
+    domain_3_title: "Soins Médicaux & Protection des Pieds",
+    domain_3_desc: "Nettoyage minutieux et pansement des plaies ouvertes et infectées dues à la marche pieds nus sur les tessons, déparasitage et traitement d'urgence du paludisme.",
+    domain_4_ref: "Dignité Corporelle & Hygiène",
+    domain_4_title: "Habits Décents & Sandales Neuves",
+    domain_4_desc: "Remplacement systématique des haillons déchirés et crasseux par des tenues propres et confortables, distribution de sandales durables et douches d'eau propre savonneuse.",
+    domain_5_ref: "Statuts • Article II - Alinéa 4",
+    domain_5_title: "Refuge Nocturne & Sécurité d'Urgence",
+    domain_5_desc: "Mise à disposition d'espaces protégés avec nattes douces et couvertures chaudes pour soustraire les enfants aux prédateurs nocturnes et au froid des trottoirs.",
     domain_6_ref: "Statuts • Article II - Alinéa 1",
-    domain_6_title: "Union & Solidarité Citoyenne",
-    domain_6_desc: "Rassembler les citoyens et donateurs animés d'un même idéal d'amour fraternel et de cohésion humaine, pour agir ensemble d'une seule voix généreuse.",
+    domain_6_title: "Éveil, Alphabétisation & Réinsertion",
+    domain_6_desc: "Ateliers d'apprentissage de base, soutien psychologique, réconfort affectif et recherche bienveillante de solutions de réinsertion familiale ou éducative pérenne.",
 
     // Section Actions & Projets
-    actions_tag: "Terrain & Proximité",
-    actions_title: "Nos Actions & Projets Solidaires",
-    actions_sub: "Des initiatives tangibles et directes menées sur l'ensemble du territoire sénégalais, au plus près des besoins vitaux des enfants et des familles.",
-    proj_status_ongoing: "Action Continue",
-    proj1_cat: "Nutrition & Enfance",
-    proj1_title: "Projet « Le Bol Partagé »",
-    proj1_desc: "Inspiré directement par le cœur de notre emblème représentant le don nourricier d'une mère, ce projet assure la préparation et la distribution de repas chauds nutritifs aux enfants et familles vulnérables.",
+    actions_tag: "Actions Concrètes sur le Terrain",
+    actions_title: "Nos Projets Solidaires pour les Enfants de la Rue",
+    actions_sub: "Des initiatives tangibles, directes et vérifiables pour redonner santé, sécurité et dignité aux enfants les plus vulnérables du Sénégal.",
+    proj_status_ongoing: "Action Quotidienne",
+    proj1_cat: "Nutrition d'Urgence & Survie",
+    proj1_title: "Projet « Le Bol Chaud Solidaire »",
+    proj1_desc: "Pour un enfant qui a passé la journée entière à mendier sous un soleil accablant, un bol de riz chaud est une bénédiction. Nous cuisinons et distribuons chaque jour des repas équilibrés, riches en protéines et légumes, servis dans la joie et le respect.",
     proj_obj_label: "Objectif prioritaire :",
-    proj1_obj: "Assurer qu'aucun enfant ne s'endorme le ventre vide et lutter contre la malnutrition au Sénégal.",
-    proj_support_btn: "Soutenir cette action",
+    proj1_obj: "Garantir qu'aucun enfant de la rue ne s'endorme les larmes aux yeux et le ventre vide.",
+    proj_support_btn: "Offrir un repas chaud (2 000 FCFA)",
 
-    proj2_status: "Santé & Prévention",
-    proj2_cat: "Protection Maternelle",
-    proj2_title: "Projet « Main Forte aux Mamans »",
-    proj2_desc: "Accompagnement des mères isolées et en grande précarité dès la naissance de leur nourrisson à travers l'octroi de kits de puériculture essentiels, de produits d'hygiène et de conseils bienveillants.",
-    proj2_obj: "Préserver la santé néonatale, soulager la charge mentale des mamans et redonner confiance.",
+    proj2_status: "Santé & Dignité Corporelle",
+    proj2_cat: "Chaussures & Soins d'Urgence",
+    proj2_title: "Projet « Des Pas Protégés : Sandales & Vêtements »",
+    proj2_desc: "Marcher des kilomètres pieds nus sur le bitume brûlant, les gravats et les débris provoque de douloureuses plaies infectieuses. Nous soignons leurs pieds, leur offrons des sandales fermes et remplaçons leurs haillons délabrés par des vêtements neufs et propres.",
+    proj2_obj: "Guérir les plaies de la marche, prévenir le tétanos et restaurer leur dignité d'enfant.",
+    proj2_support_btn: "Offrir sandales & vêtements (5 000 FCFA)",
 
-    proj3_status: "Secours d'Urgence",
-    proj3_cat: "Cohésion Sociale",
-    proj3_title: "Projet « Solidarité & Entraide »",
-    proj3_desc: "Dispositif de secours immédiat coordonné depuis notre siège à Saly Station pour répondre aux accidents de la vie : kits d'urgence lors des saisons difficiles, vivres et orientation humaine pour les foyers marginalisés.",
-    proj3_obj: "Faire barrage à l'extrême précarité et préserver la dignité des foyers familiaux vulnérables.",
-
-    // Section Notre Impact
-    impact_tag: "Éthique & Réalité de Terrain",
-    impact_title: "Notre Impact auprès des Communautés",
-    impact_sub: "Fidèle à notre charte de transparence absolue, nous ne fabriquons aucun chiffre artificiel. Notre impact se mesure d'abord à la réalité des vies touchées et à l'intégrité sans compromis de notre gouvernance.",
-    impact_card1_title: "Dédié au Terrain",
-    impact_card1_desc: "Chaque franc collecté est affecté directement aux denrées alimentaires, aux kits de santé et à l'aide matérielle des familles vulnérables au Sénégal.",
-    impact_card2_title: "Rémunération Dirigeants",
-    impact_card2_desc: "L'Article IX des Statuts stipule expressément : <em>« Les fonctions de membres du bureau sont gratuites »</em>. Aucun salaire, que du don de soi.",
-    impact_card3_num: "Régulier",
-    impact_card3_title: "Contrôle des Comptes",
-    impact_card3_desc: "Vérification comptable indépendante et rapport moral et financier annuel présenté en Assemblée Générale (Article VI).",
-    impact_card4_num: "Sénégal",
-    impact_card4_title: "Rayonnement National",
-    impact_card4_desc: "Une capacité d'intervention sur l'ensemble du territoire sénégalais, avec un siège social établi à Saly [Mbour] pour une coordination directe.",
+    proj3_status: "Sécurité & Protection Nocturne",
+    proj3_cat: "Refuge d'Urgence & Sommeil",
+    proj3_title: "Projet « Le Refuge de l'Espoir »",
+    proj3_desc: "La nuit dans la rue est un univers d'insécurité, de froid et de violences. Notre espace d'accueil d'urgence offre des nattes douces, des couvertures propres, une douche chaude et la présence rassurante et protectrice d'éducateurs bienveillants.",
+    proj3_obj: "Arracher les enfants à l'enfer de la nuit dans la rue et leur offrir le sommeil paisible qu'ils méritent.",
+    proj3_support_btn: "Soutenir le refuge de nuit",
 
     // Section Pourquoi nous soutenir
-    why_tag: "Alliance Solidaire",
-    why_title: "Pourquoi votre soutien change tout",
-    why_sub: "Donner à l'Association Caritative LOKHO NDEYE, c'est choisir l'assurance d'une solidarité authentique, directe et vérifiable.",
-    why_item1_title: "Une action de proximité immédiate",
-    why_item1_desc: "Votre contribution ne se perd pas dans des structures bureaucratiques : elle se matérialise sous forme de vivres et d'aide directe aux familles les plus vulnérables sur l'ensemble du territoire sénégalais.",
-    why_item2_title: "Transparence et intégrité statutaire",
-    why_item2_desc: "Notre bureau œuvre bénévolement. Chaque ressource issue des dons, cotisations et libéralités est scrupuleusement enregistrée et contrôlée (Articles VI & XII).",
-    why_item3_title: "Le respect inconditionnel de la dignité",
-    why_item3_desc: "Nous protégeons l'anonymat et la dignité de chaque famille aidée. L'aide est apportée comme le ferait une mère bienveillante : avec discrétion et respect.",
-    why_box_title: "Chaque geste compte",
-    why_box_desc: "Même le plus modeste des dons permet d'offrir un repas chaud à un enfant affamé ou un panier de vivres à une maman isolée. Rejoignez notre chaîne d'amour fraternel.",
-    why_box_btn: "Accéder à l'espace de don",
+    why_tag: "L'Urgence du Cœur",
+    why_title: "Pourquoi votre soutien sauve littéralement des vies",
+    why_sub: "Ces enfants de la rue n'ont personne d'autre au monde vers qui se tourner. Votre don se transforme directement en secours vital, sans intermédiaire.",
+    why_item1_title: "100% direct aux enfants : repas, sandales et pansements",
+    why_item1_desc: "Votre contribution ne se perd pas dans des frais de structure : chaque franc collecté achète directement du riz, du lait, des paires de sandales, des pansements antiseptiques et des vêtements chauds.",
+    why_item2_title: "Une équipe bénévole présente chaque jour sur le terrain",
+    why_item2_desc: "Nos bénévoles arpentent la poussière des rues, s'assoient aux côtés des enfants, pansent leurs plaies et partagent leurs repas dans un dévouement total et désintéressé.",
+    why_item3_title: "L'amour d'une mère pour chaque enfant abandonné",
+    why_item3_desc: "Nous ne donnons pas seulement du pain : nous posons une main douce sur leur épaule, nous essuyons leurs larmes et nous leur redonnons la fierté d'être un enfant aimé.",
+    why_box_title: "Ne les laissez pas seuls ce soir",
+    why_box_desc: "À l'instant où vous lisez ces lignes, un petit garçon marche pieds nus dans la nuit, grelottant de froid. Pour 2 000 FCFA, vous lui offrez un repas chaud. Pour 5 000 FCFA, vous protégez ses pieds. Ouvrez-lui les bras.",
+    why_box_btn: "Faire un don maintenant pour un enfant",
 
-    // Section Faire un don
-    don_tag: "Espace Prioritaire Donateurs",
-    don_title: "Tendez la main : Faites un don à Lokho Ndéye",
-    don_sub: "Choisissez votre mode de contribution solidaire. L'intégralité de vos dons est consacrée à nos actions auprès des enfants et des mères sur l'ensemble du territoire sénégalais.",
+    // Section Faire un don (Paliers d'impact émotionnels)
+    don_tag: "Espace Donateurs Solidaires",
+    don_title: "Tendez la main : Sauvez un enfant de la rue",
+    don_sub: "Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés à nourrir, soigner, vêtir et abriter les enfants de la rue au Sénégal.",
     tab_pledge: "Promesse & Formulaire de don",
     tab_methods: "Coordonnées de virement & Wave",
     freq_label: "1. Fréquence de votre soutien solidaire :",
-    freq_ponctuel: "Don ponctuel",
-    freq_occasionnel: "Don occasionnel",
-    amount_label: "2. Montant de votre don (Montant libre) :",
-    custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
-    preview_default: "<strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles et enfants accompagnés par l'association.",
-    preview_custom: "<strong>Votre soutien solidaire :</strong> Votre don de <strong>{amount} FCFA</strong> sera intégralement alloué aux actions prioritaires (aide alimentaire, soins de santé et protection des enfants et mères sur l'ensemble du territoire sénégalais).",
-    volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté exclusivement au soutien des bénéficiaires et aux distributions de vivres à travers le Sénégal.",
+    freq_ponctuel: "Don ponctuel d'urgence",
+    freq_occasionnel: "Don régulier (mensuel)",
+    amount_label: "2. Montant de votre don (Sélectionnez un palier d'impact ou saisie libre) :",
+    custom_amount_placeholder: "Indiquez un autre montant libre (en FCFA)",
+    tier_2000: "2 000 FCFA",
+    tier_2000_desc: "🍲 1 Repas chaud complet & boisson nutritive",
+    tier_5000: "5 000 FCFA",
+    tier_5000_desc: "👟 1 Paire de sandales robustes & vêtements propres",
+    tier_10000: "10 000 FCFA",
+    tier_10000_desc: "🩹 Kit médical d'urgence (soins plaies, vermifuge, vitamines)",
+    tier_25000: "25 000 FCFA",
+    tier_25000_desc: "🌟 1 Mois de prise en charge complète d'un enfant de la rue",
+    preview_default: "<strong>Chaque geste sauve une vie :</strong> Avec 2 000 FCFA, vous offrez un repas chaud ce soir à un enfant affamé. Avec 5 000 FCFA, vous protégez ses pieds nus et lui offrez des vêtements propres.",
+    preview_custom: "<strong>Votre geste solidaire pour les enfants :</strong> Votre don de <strong>{amount} FCFA</strong> sera intégralement alloué aux repas chauds, soins médicaux des pieds, chaussures et abri pour les enfants de la rue au Sénégal.",
+    volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).",
 
     sum_title: "Récapitulatif de votre don",
     sum_beneficiary_lbl: "Bénéficiaire officiel :",
@@ -5886,7 +6089,7 @@ const translations = {
     sum_amount_lbl: "Montant indiqué :",
     sum_amount_free: "Montant libre de votre choix",
     sum_alloc_lbl: "Affectation :",
-    sum_alloc_val: "100% Actions sociales & alimentaires",
+    sum_alloc_val: "100% Repas, Soins & Protection des Enfants de la Rue",
     btn_pledge: "Générer mon engagement de don",
     btn_see_coords: "Voir les coordonnées officielles ci-dessous",
     don_security_note: "🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.",
@@ -5901,7 +6104,7 @@ const translations = {
     lbl_account_legal: "Cadre juridique :",
     val_account_legal: "Code des Obligations Civiles et Commerciales (Sénégal)",
     lbl_account_ref: "Motif / Référence :",
-    val_account_ref: "DON SOLIDAIRE - LOKHO NDEYE",
+    val_account_ref: "DON ENFANTS RUE - LOKHO NDEYE",
     btn_copy_coords: "Copier les informations",
     btn_request_rib: "Demander le RIB complet",
 
@@ -5922,45 +6125,10 @@ const translations = {
     upcoming_free: "● Free Money (Bientôt)",
     upcoming_card: "● Carte Bancaire Visa / Mastercard (En cours)",
 
-    // Transparence
-    transp_tag: "Rigueur & Transparence",
-    transp_title: "Gouvernance Collective & Documents Officiels",
-    transp_sub: "L'Association Caritative LOKHO NDEYE fonde son action sur une gestion démocratique, désintéressée et transparente, garantie par ses statuts officiels.",
-    chart_title: "Allocation Rigoureuse des Ressources",
-    chart_sub: "Chaque franc CFA collecté est audité et orienté vers le terrain",
-    chart_center_lbl: "Secours direct terrain",
-    legend_1: "Aide alimentaire & kits d'urgence",
-    legend_2: "Logistique & distributions d'urgence au Sénégal",
-    legend_3: "Frais légaux & audit obligatoire (Art. VI)",
-
-    stat_pill_1_tag: "Certification de Gestion",
-    stat_pill_1_title: "0 FCFA de Rémunération",
-    stat_pill_1_desc: "En vertu de l'Article IX des statuts, les fonctions de tous les membres des organes dirigeants sont gratuites. Aucun jeton de présence, honoraire ou avantage en nature n'est alloué.",
-    stat_pill_2_tag: "Traçabilité Bancaire",
-    stat_pill_2_title: "Compte Institutionnel Déclaré",
-    stat_pill_2_desc: "Tous les flux financiers transitent exclusivement par les canaux bancaires et Mobile Money institutionnels déclarés de l'association, soumis au contrôle annuel des commissaires aux comptes.",
-
-    card_commitments_title: "Nos engagements statutaires",
-    card_commitments_sub: "Chaque règle de fonctionnement de l'association vise à garantir l'intégrité absolue des fonds confiés par les donateurs :",
-    rule_1: "<strong>Gratuité totale des mandats (Article IX) :</strong> Aucun membre du Bureau ou du Comité Directeur ne perçoit de salaire ou d'avantage. Le bénévolat est complet.",
-    rule_2: "<strong>Commission de contrôle des comptes (Article VI) :</strong> Trois membres extérieurs au bureau sont désignés pour vérifier la conformité des comptes de chaque exercice.",
-    rule_3: "<strong>Dévolution exclusive à une œuvre laïque (Article XVII) :</strong> En cas de dissolution, l'intégralité du reliquat de l'actif est légalement dévolue à une œuvre caritative laïque.",
-
-    card_docs_title: "Documents institutionnels",
-    card_docs_sub: "Consultez les informations administratives et les textes régissant l'Association Caritative LOKHO NDEYE :",
-    doc_1_title: "Statuts Constitutifs de l'Association",
-    doc_1_sub: "Enregistrés auprès du Ministère de l'Intérieur • République du Sénégal",
-    doc_2_title: "Charte d'Éthique & Anonymat des Bénévoles",
-    doc_2_sub: "Engagement solidaire, protection de la vie privée et neutralité",
-    doc_3_title: "Rapports d'activités & Transparence",
-    doc_3_sub: "Présentés annuellement à l'Assemblée Générale ordinaire",
-    btn_consult: "Consulter",
-    badge_annual: "Session annuelle",
-
     // Contact
     contact_tag: "Secrétariat Administratif",
     contact_title: "Contactez l'Association Caritative LOKHO NDEYE",
-    contact_sub: "Pour toute demande d'information, proposition de partenariat humanitaire, don en nature ou questionnement, écrivez à notre équipe collective.",
+    contact_sub: "Pour toute question sur nos actions auprès des enfants de la rue, proposition de partenariat humanitaire ou don en nature (chaussures, vêtements, riz), écrivez-nous.",
     contact_hq_title: "Siège Social Officiel",
     contact_hq_address: "Saly Station, Commune de Saly Portudal<br>Département de Mbour, Région de Thiès<br><strong>République du Sénégal</strong>",
     contact_hq_reach: "Rayonnement d'action : Ensemble du Sénégal",
@@ -5979,19 +6147,19 @@ const translations = {
     placeholder_email: "votre.email@exemple.com",
     lbl_objet: "Objet de votre démarche *",
     opt_select: "Sélectionnez un motif...",
-    opt_don: "Renseignements sur les dons et virement bancaire",
-    opt_partenariat: "Proposition de partenariat institutionnel / mécénat",
-    opt_benevolat: "Proposition d'aide bénévole ou compétences",
+    opt_don: "Renseignements sur les dons pour les enfants de la rue",
+    opt_partenariat: "Proposition de partenariat humanitaire / mécénat",
+    opt_benevolat: "Proposition d'aide bénévole sur le terrain",
     opt_autre: "Autre demande d'information générale",
     lbl_message: "Votre Message *",
     placeholder_message: "Écrivez votre message ici...",
     btn_submit_msg: "Transmettre mon message",
-    msg_success: "✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie et vous répondra dans les meilleurs délais.",
+    msg_success: "✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie du fond du cœur au nom des enfants de la rue et vous répondra très rapidement.",
     form_privacy_footer: "🔒 Vos coordonnées ne seront jamais cédées, vendues ou utilisées à des fins commerciales.",
 
-    // Footer
-    footer_tagline: "La Main tendue d'une mère",
-    footer_desc: "Association caritative à but non lucratif intervenant sur l'ensemble du territoire sénégalais, créée conformément au Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
+    // Pied de page
+    footer_tagline: "La Main tendue d'une mère pour les enfants de la rue",
+    footer_desc: "Association caritative à but non lucratif dédiée exclusivement au sauvetage, à la nutrition, aux soins et à la protection des enfants de la rue et talibés au Sénégal. Régie par le Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarité & Éthique",
     footer_link_virement: "Faire un don par virement",
@@ -6000,49 +6168,49 @@ const translations = {
     footer_link_privacy: "Charte d'anonymat & déontologie",
     footer_link_contact: "Nous contacter",
     footer_legal_title: "Statut Juridique",
-    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">République du Sénégal</strong>Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br><strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Rayonnement :</strong> Ensemble du Sénégal.<br><strong>Durée :</strong> Illimitée.",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">République du Sénégal</strong>Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br><strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Mission exclusive :</strong> Protection des enfants de la rue.<br><strong>Durée :</strong> Illimitée.",
     footer_copyright: "© 2026 Association Caritative LOKHO NDEYE (« La Main tendue d'une mère »). Tous droits réservés.",
     footer_legal_notices: "Mentions Légales",
     footer_privacy_policy: "Politique de Confidentialité",
     footer_back_top: "Haut de page ↑",
 
-    // Modals
+    // Modales
     modal_statuts_title: "Extraits des Statuts Officiels",
     modal_statuts_denom: "« Association Caritative LOKHO NDEYE (la Main tendue d'une mère) »",
     modal_statuts_form: "Association à but non lucratif régie par les dispositions du Code des Obligations Civiles et Commerciales modifié de la République du Sénégal.",
     modal_statuts_hq: "Saly Station, Commune de Saly Portudal [Mbour], Sénégal. <strong>Rayonnement :</strong> Ensemble du territoire sénégalais. <strong>Durée :</strong> Illimitée.",
     modal_statuts_art2: "Article II : Buts de l'Association",
     modal_statuts_art2_1: "1. Unir les membres animés d'un même idéal et créer entre eux des liens d'entente et de solidarité.",
-    modal_statuts_art2_2: "2. Venir en aide aux couches vulnérables sur tout le territoire sénégalais.",
-    modal_statuts_art2_3: "3. Soutenir les initiatives de développement communautaire.",
-    modal_statuts_art2_4: "4. Contribuer à la lutte contre la pauvreté, l'exclusion sociale et les inégalités.",
-    modal_statuts_art2_5: "5. Œuvrer dans le domaine social.",
+    modal_statuts_art2_2: "2. Venir en aide aux enfants de la rue et couches vulnérables sur tout le territoire sénégalais.",
+    modal_statuts_art2_3: "3. Soutenir les initiatives de développement communautaire et de protection de l'enfance.",
+    modal_statuts_art2_4: "4. Contribuer à la lutte contre la pauvreté, l'exclusion sociale et la détresse des mineurs errants.",
+    modal_statuts_art2_5: "5. Œuvrer dans le domaine social et humanitaire d'urgence.",
     modal_statuts_art3: "Article III : Neutralité & Indépendance",
     modal_statuts_art3_text: "L'Association est ouverte à tous, dans le respect des convictions individuelles, dans l'indépendance à l'égard des partis politiques. Toute discussion politique, religieuse ou syndicale est interdite au sein de l'association.",
     modal_statuts_art9: "Article IX : Bénévolat des Fonctions",
     modal_statuts_art9_text: "« Les fonctions de membres du bureau sont gratuites. »",
     modal_statuts_art17: "Article XVII : Dissolution",
-    modal_statuts_art17_text: "En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque.",
+    modal_statuts_art17_text: "En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque de protection de l'enfance.",
     btn_close: "Fermer",
 
     modal_privacy_title: "Charte de Confidentialité & d'Anonymat",
     modal_privacy_p1_title: "1. Anonymat des membres et bénévoles :",
     modal_privacy_p1_text: "Conformément au principe fondateur de pureté du geste caritatif, l'ensemble des fondateurs, administrateurs et bénévoles de l'Association Caritative LOKHO NDEYE ont choisi d'agir sous le sceau de l'anonymat. Aucune information nominative personnelle n'est publiée, préservant ainsi l'esprit collectif et désintéressé de notre mission.",
-    modal_privacy_p2_title: "2. Respect de la dignité des bénéficiaires :",
-    modal_privacy_p2_text: "Les personnes et familles accompagnées à travers le Sénégal sont protégées. Aucune photo dégradante ou donnée nominative sensible n'est divulguée.",
+    modal_privacy_p2_title: "2. Respect de la dignité des enfants :",
+    modal_privacy_p2_text: "Les enfants de la rue et mineurs accompagnés à travers le Sénégal sont protégés avec une vigilance absolue. Aucune photo dégradante ou donnée nominative sensible n'est divulguée.",
     modal_privacy_p3_title: "3. Données des donateurs :",
     modal_privacy_p3_text: "Les informations transmises lors de vos dons ou prises de contact sont strictement confidentielles. Aucune donnée bancaire sensible n'est enregistrée sur notre plateforme.",
     btn_understood: "J'ai compris",
 
     modal_rib_title: "Demande du RIB / IBAN officiel complet",
     modal_rib_alert: "Afin de sécuriser les flux de virement bancaire et de prévenir toute tentative de fraude, le relevé d'identité bancaire complet (IBAN, Code Banque, Code Guichet, Clé RIB) est transmis sur demande officielle par le secrétariat administratif.",
-    modal_rib_recipient: "Lokho Ndéye Charitable Association",
+    modal_rib_recipient: "Association Caritative LOKHO NDEYE",
     modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Sénégal) — <em>Action sur tout le Sénégal</em>",
     modal_rib_instruction: "Pour recevoir instantanément l'attestation de domiciliation bancaire officielle par email, veuillez envoyer un message à :",
-    modal_rib_note: "Indiquez simplement en objet : « Demande RIB officiel pour don ».",
+    modal_rib_note: "Indiquez simplement en objet : « Demande RIB officiel pour don enfants de la rue ».",
     btn_send_email: "Envoyer un email",
 
-    modal_pledge_title: "Engagement de Don Solidaire",
+    modal_pledge_title: "Engagement de Don pour les Enfants de la Rue",
     modal_pledge_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
     modal_pledge_hq: "Siège : Saly Station [Mbour] • Action Nationale sur tout le Sénégal",
     modal_pledge_ref_lbl: "Référence d'engagement :",
@@ -6050,18 +6218,18 @@ const translations = {
     modal_pledge_amount_lbl: "Montant du soutien :",
     modal_pledge_freq_lbl: "Fréquence :",
     modal_pledge_alloc_lbl: "Affectation sociale :",
-    modal_pledge_alloc_val: "Actions solidaires & aide alimentaire au Sénégal",
-    modal_pledge_instructions: "<strong>Instructions de transmission :</strong><br>Pour concrétiser cet engagement, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.",
+    modal_pledge_alloc_val: "100% Repas chauds, sandales, soins & refuge pour les enfants de la rue",
+    modal_pledge_instructions: "<strong>Instructions de transmission :</strong><br>Pour concrétiser cet engagement de don, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.",
     btn_print: "Imprimer ce récapitulatif",
 
     modal_logo_title: "Emblème Officiel de l'Association — Grand Format",
     modal_logo_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
     modal_logo_legal: "Association caritative déclarée • Code des Obligations Civiles et Commerciales • Siège : Saly Station [Mbour] — Action sur tout le Sénégal",
 
-    // Dynamic Toasts & Alerts
+    // Alertes et notifications
     toast_copied_suffix: "copié dans le presse-papiers !",
     toast_copy_error: "Impossible de copier automatiquement",
-    toast_message_sent: "Votre message solidaire a été transmis avec succès !",
+    toast_message_sent: "Votre message de soutien pour les enfants a été transmis avec succès !",
     toast_copied_default: "Copié dans le presse-papiers avec succès !",
     toast_sound_on: "Ambiance sonore kora activée",
     toast_sound_off: "Ambiance sonore coupée",
@@ -6073,25 +6241,25 @@ const translations = {
 
   en: {
     // Page Title & Meta
-    page_title: "Lokho Ndéye Charitable Association | A Mother's Outstretched Hand — Solidarity in Senegal",
-    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), a non-profit registered charity operating across all of Senegal. Headquarters: Saly [Mbour], Senegal. Relief for vulnerable groups, food security, protection of mothers and children.",
+    page_title: "Lokho Ndéye Charitable Association | Rescuing & Protecting Street Children in Senegal",
+    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), dedicated exclusively to street children, talibés, and vulnerable orphans in Senegal. Daily hot meals, sturdy sandals, foot wound care, and emergency night shelter. HQ: Saly [Mbour].",
 
     // Top Bar
     topbar_hq: "Headquarters: Saly [Mbour] — Operating throughout Senegal",
     topbar_status: "Registered Charity (Code of Civil and Commercial Obligations)",
-    topbar_scope: "🌍 Operating across all of Senegal",
+    topbar_scope: "🌍 Street Children Emergency • Senegal",
     mobile_lang_label: "Site Language:",
 
     // Brand & Header
     brand_title: "CHARITABLE ASSOCIATION LOKHO NDEYE",
     official_beneficiary_name: "Lokho Ndéye Charitable Association",
     brand_aria: "Back to home - Lokho Ndéye Charitable Association",
-    hero_section_aria: "Presentation and missions of the Lokho Ndéye Charitable Association",
+    hero_section_aria: "Rescuing and protecting street children across Senegal",
     brand_tagline: "“A Mother's Outstretched Hand”",
-    brand_subtext: "Operating across all of Senegal • Headquarters in Saly [Mbour] • Registered Charity",
+    brand_subtext: "Relief for street children across Senegal • Headquarters in Saly [Mbour] • Registered Charity",
     header_trust_title: "Headquarters in Saly [Mbour]",
     header_trust_sub: "Nationwide action across Senegal",
-    btn_donate: "Donate Now",
+    btn_donate: "Save a Child",
     sound_toggle_aria: "Toggle kora acoustic soundscape",
     sound_toggle_title: "Acoustic soundscape",
 
@@ -6100,203 +6268,156 @@ const translations = {
     nav_mission: "Our Mission",
     nav_domains: "Fields of Action",
     nav_actions: "Actions & Projects",
-    nav_impact: "Our Impact",
     nav_why: "Why Support Us",
-    nav_transparency: "Transparency",
     nav_contact: "Contact",
 
     // Hero Section - Act 1
-    hero_act1_tag: "ACT I",
-    hero_act1_badge: "On-the-ground Reality & Urgency",
-    hero_act1_title: "Across Senegal, children and mothers reach out their hands. <span class=\"hero-title-highlight\">We welcome them with open arms.</span>",
-    hero_act1_desc: "Confronting the hardship of talibé children and the distress of vulnerable single mothers throughout Senegal, the Lokho Ndéye Charitable Association transforms every gesture into a nutritious meal, vital healthcare, and compassionate support.",
+    hero_act1_tag: "VITAL EMERGENCY",
+    hero_act1_badge: "Street Children in Senegal",
+    hero_act1_title: "Barefoot on the scorching dust, empty bellies. <span class=\"hero-title-highlight\">Let's rescue street children.</span>",
+    hero_act1_desc: "Every day across Senegal, thousands of young boys and orphans roam barefoot in tattered, worn-out rags, holding small empty tins to beg for food. The Lokho Ndéye Charitable Association reaches out with a mother's protective embrace: providing daily hot meals, sturdy shoes, wound care for scraped feet, and emergency shelter.",
     hero_tag_senegal: "All of Senegal",
-    hero_tag_childhood: "Child Protection",
+    hero_tag_childhood: "Street Children Rescue",
     hero_tag_hq: "HQ in Saly [Mbour]",
-    hero_btn_donate_hope: "Make a Gift of Hope",
-    hero_btn_explore_mission: "Explore Our Mission",
-
-    // Hero Section - Act 2
-    hero_act2_tag: "ACT II",
-    hero_act2_badge: "A Concrete & Structured Response",
-    hero_act2_title: "“Lokho Ndéye”: <span class=\"hero-title-highlight\">Tenderness and rigor</span> in the service of human dignity",
-    hero_act2_desc: "Officially registered under the Code of Civil and Commercial Obligations of the Republic of Senegal, our charity deploys relief across the nation with impeccable 100% volunteer management.",
-    hero_stat_volunteer_lbl: "100% Volunteer-Led",
-    hero_stat_territory_num: "Senegal",
-    hero_stat_territory_lbl: "Nationwide Operations",
-    hero_btn_see_actions: "See Our Current Actions",
-    hero_btn_support_mothers: "Support Mothers",
-
-    // Hero Section - Act 3
-    hero_act3_tag: "ACT III",
-    hero_act3_badge: "Building a Sustainable Future",
-    hero_act3_title: "Share • Nourish • Support • <span class=\"hero-title-highlight\">Build Tomorrow</span>",
-    hero_act3_desc: "Every donor is an essential link in this human chain. By uniting our strength, we give every vulnerable child and mother the certainty that they are never alone.",
-    hero_tag_transparency: "Total Transparency",
-    hero_tag_security: "Secure Donations",
-    hero_tag_solidarity: "Active Solidarity",
-    hero_btn_join_donors: "Join Our Donors",
-    hero_btn_transparency_guarantees: "Transparency Guarantees",
-
-    // Hero Slider Controls
-    hero_dot_1: "01. Children & Relief",
-    hero_dot_2: "02. Maternity & Care",
-    hero_dot_3: "03. Future & Unity",
-    hero_prev_aria: "Previous slide",
-    hero_next_aria: "Next slide",
-    hero_play_pause_aria: "Pause or resume automatic scrolling",
+    hero_btn_donate_hope: "Provide a Hot Meal Tonight",
+    hero_btn_explore_mission: "Discover Our Fight",
 
     // Hero Foreground Stage & Badges
-    float_badge_meal_title: "Meals & Nutrition",
+    float_badge_meal_title: "Hot Meals & Porridge",
     float_badge_meal_sub: "Daily food distribution",
     float_badge_action_title: "Nationwide Scope",
     float_badge_action_sub: "Headquarters in Saly [Mbour]",
     float_caption_1_tag: "Fieldwork",
-    float_caption_1_text: "Direct relief for talibé children and vulnerable youth",
-
-    float_badge_mothers_title: "Mothers & Infants",
-    float_badge_mothers_sub: "Emergency care & hygiene kits",
-    float_badge_vol_title: "100% Volunteer",
-    float_badge_vol_sub: "Complete devotion to grassroots action",
-    float_caption_2_tag: "Health & Protection",
-    float_caption_2_text: "Medical support and kindness for single mothers",
-
-    float_badge_chain_title: "Solidarity Chain",
-    float_badge_chain_sub: "Sharing & active brotherhood",
-    float_badge_transp_title: "Total Transparency",
-    float_badge_transp_sub: "Every franc invested on the ground",
-    float_caption_3_tag: "Future",
-    float_caption_3_text: "Building together a caring, sustainable community",
-
-    // Thumbnails
-    thumb_act_1: "Act 01",
-    thumb_1_title: "Children & Relief",
-    thumb_act_2: "Act 02",
-    thumb_2_title: "Mothers & Care",
-    thumb_act_3: "Act 03",
-    thumb_3_title: "Unity & Future",
+    float_caption_1_text: "Immediate relief for street kids and vulnerable talibés",
 
     // Kinetic Marquee
-    marquee_share: "Share",
-    marquee_nourish: "Nourish Dignity",
-    marquee_support: "Support Mothers",
-    marquee_protect: "Protect Children",
-    marquee_dignity: "Solidarity & Dignity",
-    marquee_national: "Nationwide Scope • All of Senegal",
-    marquee_hq: "Headquarters in Saly [Mbour]",
-    marquee_build: "Build a Caring Future",
+    marquee_share: "Share Love",
+    marquee_nourish: "Feed a Hungry Child",
+    marquee_support: "Protect Bare Feet",
+    marquee_protect: "Replace Tattered Clothes",
+    marquee_dignity: "Heal the Wounds of the Street",
+    marquee_national: "A Safe Roof for the Night",
+    marquee_hq: "A Mother's Love for Every Orphan",
+    marquee_build: "Restore Hope to Homeless Children",
 
-    // Section Notre Mission
+    // Section Our Mission
     mission_tag: "Our Founding Mission",
     mission_title: "OUR MISSION",
-    mission_spirit_title: "The Spirit of “Lokho Ndéye”",
-    mission_spirit_p1: "In Wolof, <strong>“Lokho Ndéye”</strong> means <em>“A mother's outstretched hand”</em> — the universal gesture of maternal protection: feeding with love, guiding first steps, and providing shelter in adversity.",
-    mission_spirit_p2: "<strong>Whom we support:</strong> Malnourished children, vulnerable mothers, and families facing severe social exclusion, without any discrimination.",
-    pillar_1_title: "Share",
-    pillar_1_desc: "Our resources and affection with those deprived of essentials.",
-    pillar_2_title: "Nourish",
-    pillar_2_desc: "A warm and nutritious meal for vulnerable children and families.",
-    pillar_3_title: "Support",
-    pillar_3_desc: "Compassionate listening and social relief during critical times.",
-    pillar_4_title: "Build",
-    pillar_4_desc: "A brighter future through community solidarity and mutual aid.",
-    emblem_badge: "✨ Official Emblem",
+    mission_spirit_title: "The Spirit of “Lokho Ndéye”: A Mother for Forgotten Street Children",
+    mission_spirit_p1: "In Wolof, <strong>“Lokho Ndéye”</strong> means <em>“A mother's outstretched hand”</em>. For a child sleeping alone on cold concrete or dusty cardboard, with no one to wipe his tears or bandage his bleeding feet, this hand is a lifesaving miracle. Our absolute purpose is to rescue these children from hunger, sickness, and the severe perils of the street.",
+    mission_spirit_p2: "<strong>Our exclusive dedication:</strong> Protecting street children, talibés, runaway orphans, and abandoned minors throughout Senegal with unconditional love and care.",
+    pillar_1_title: "Share Love & Presence",
+    pillar_1_desc: "Break the heartbreaking loneliness of homeless children through affectionate listening, dignity, and constant fraternal presence.",
+    pillar_2_title: "Nourish Every Day",
+    pillar_2_desc: "Cook and serve daily warm, vitamin-rich, hearty meals so no child cries himself to sleep with an empty stomach.",
+    pillar_3_title: "Heal & Clothe",
+    pillar_3_desc: "Clean infected wounds, provide brand-new sturdy sandals to protect bare feet, and replace tattered rags with clean clothing.",
+    pillar_4_title: "Shelter & Rebuild",
+    pillar_4_desc: "Provide safe emergency overnight shelters to protect them from cold streets, violence, and guide them toward literacy.",
+    emblem_badge: "✨ Protective Emblem",
     emblem_zoom: "Enlarge",
     emblem_caption_title: "The Protective & Nourishing Hand",
     emblem_caption_text: "The caring mother feeding children from the communal calabash, sheltered beneath the protective arch and crowned by our motto: <em>“Share • Nourish • Support • Build a better future”</em>.",
     legal_box_title: "Ethical & Legal Framework",
     legal_box_text: "<em>“The Association is open to all, respecting individual convictions, and remains strictly independent of political parties.”</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III of Official Bylaws</strong>",
 
-    // Section Domaines d'Intervention
-    domains_tag: "Statutory Objectives",
-    domains_title: "Our Areas of Action",
-    domains_sub: "Each of our areas of intervention is strictly founded on the official objectives defined in Article II of our bylaws registered in the Republic of Senegal.",
+    // Spotlight Section
+    spotlight_tag: "CRITICAL EMERGENCY",
+    spotlight_badge: "Their Silent Cry",
+    spotlight_title: "“Look into his eyes: he is only 7 years old, and his only bed is the street dust.”",
+    spotlight_quote: "“I walked for hours barefoot on scorching asphalt. All I asked for was a piece of bread...”",
+    spotlight_text: "Tomorrow morning, as the sun rises over Dakar, Saly, or Thiès, these children will once again walk barefoot over broken glass and thorns, their ragged clothes flapping in the wind. Your donation is not mere spare change: it is the exact difference between a freezing night on concrete and a warm bowl of rice served with unconditional love. Please don't look away.",
+    spotlight_stat_1_val: "2,000 FCFA",
+    spotlight_stat_1_lbl: "1 Warm nourishing meal for a hungry street kid",
+    spotlight_stat_2_val: "5,000 FCFA",
+    spotlight_stat_2_lbl: "1 Pair of sturdy sandals & clean clothes",
+    spotlight_cta_btn: "Rescue a Child Now",
+
+    // Fields of Action
+    domains_tag: "Grassroots Operations",
+    domains_title: "Our Areas of Action for Street Children",
+    domains_sub: "Every action directly targets the hardship of homeless children across Senegal, in full compliance with Article II of our official bylaws.",
     domain_1_ref: "Bylaws • Article II - Paragraph 2",
-    domain_1_title: "Aid to Vulnerable Groups",
-    domain_1_desc: "Targeted support for children in hardship, pregnant or single mothers, the elderly, and anyone facing extreme poverty across Senegal.",
-    domain_2_ref: "Motto • “Nourish & Share”",
-    domain_2_title: "Nutrition & Food Security",
-    domain_2_desc: "Distribution of balanced meals and staple supplies (rice, cooking oil, local grains) to fight child malnutrition and hunger.",
-    domain_3_ref: "Bylaws • Article II - Paragraph 3",
-    domain_3_title: "Community Development",
-    domain_3_desc: "Active support for grassroots collective initiatives to foster social harmony, strengthen mutual aid bonds, and improve living conditions.",
-    domain_4_ref: "Bylaws • Article II - Paragraph 4",
-    domain_4_title: "Poverty Alleviation",
-    domain_4_desc: "Concrete contribution to reducing social inequality and exclusion by providing essential material and moral aid to marginalized households.",
-    domain_5_ref: "Bylaws • Article II - Paragraph 5",
-    domain_5_title: "Social Care & Support",
-    domain_5_desc: "Compassionate social mediation, emergency relief for families in sudden crisis, clothing distributions, and facilitating primary healthcare access.",
+    domain_1_title: "Night & Day Emergency Outreach",
+    domain_1_desc: "Active day and night patrols in bus stations, markets, and dark alleys to identify, rescue, and secure children in acute physical or psychological distress.",
+    domain_2_ref: "Motto • “Nourish Daily”",
+    domain_2_title: "Vital Nutrition & Daily Porridge",
+    domain_2_desc: "Daily distribution of large bowls of warm fish-and-vegetable rice and fortified porridge to permanently halt severe acute child malnutrition.",
+    domain_3_ref: "Bylaws • Article II - Paragraph 5",
+    domain_3_title: "Medical Care & Foot Protection",
+    domain_3_desc: "Thorough cleaning and antiseptic dressing of infected sores caused by walking barefoot on debris, deworming, and malaria emergency care.",
+    domain_4_ref: "Physical Dignity & Hygiene",
+    domain_4_title: "Decent Clothing & New Sandals",
+    domain_4_desc: "Systematic replacement of tattered, torn rags with clean, comfortable outfits, distribution of durable sandals, and access to warm soapy showers.",
+    domain_5_ref: "Bylaws • Article II - Paragraph 4",
+    domain_5_title: "Emergency Night Shelter & Safety",
+    domain_5_desc: "Providing safe spaces with soft floor mats and warm fleece blankets to shield children from nighttime predators and the freezing cold sidewalks.",
     domain_6_ref: "Bylaws • Article II - Paragraph 1",
-    domain_6_title: "Citizen Unity & Solidarity",
-    domain_6_desc: "Bringing together citizens and donors sharing the same ideal of fraternal love and human cohesion to act with one generous voice.",
+    domain_6_title: "Literacy, Mental Care & Reintegration",
+    domain_6_desc: "Basic literacy workshops, trauma counseling, emotional support, and careful efforts to facilitate family reunification or educational schooling.",
 
-    // Section Actions & Projets
-    actions_tag: "Grassroots & Fieldwork",
-    actions_title: "Our Solidarity Actions & Projects",
-    actions_sub: "Tangible and direct initiatives conducted across Senegal, addressing the most vital needs of vulnerable children and families.",
-    proj_status_ongoing: "Continuous Action",
-    proj1_cat: "Nutrition & Childhood",
-    proj1_title: "Project “The Shared Bowl”",
-    proj1_desc: "Directly inspired by our emblem representing a mother's nourishing gift, this project provides hot, nutritious meals to children and vulnerable families.",
+    // Actions & Projects
+    actions_tag: "Grassroots Fieldwork",
+    actions_title: "Our Solidarity Projects for Street Children",
+    actions_sub: "Tangible, direct, and verifiable initiatives to restore health, safety, and dignity to the most vulnerable children in Senegal.",
+    proj_status_ongoing: "Daily Ongoing Action",
+    proj1_cat: "Emergency Nutrition & Survival",
+    proj1_title: "Project “The Warm Solidarity Bowl”",
+    proj1_desc: "For a child who spent the entire day begging under a blazing sun, a warm bowl of rice is a blessing. We cook and distribute balanced, protein-rich, and vitamin-packed meals every single day, shared with joyful brotherly warmth.",
     proj_obj_label: "Priority objective:",
-    proj1_obj: "Ensure no child goes to sleep hungry and combat malnutrition across Senegal.",
-    proj_support_btn: "Support this project",
+    proj1_obj: "Ensure no street child goes to sleep with tears in his eyes and an empty stomach.",
+    proj_support_btn: "Provide a warm meal (2,000 FCFA)",
 
-    proj2_status: "Health & Prevention",
-    proj2_cat: "Maternal Protection",
-    proj2_title: "Project “Helping Hand to Mothers”",
-    proj2_desc: "Care for single and impoverished mothers right from the birth of their baby through newborn care essentials, hygiene kits, and gentle guidance.",
-    proj2_obj: "Safeguard newborn health, alleviate emotional burdens, and restore confidence and peace of mind.",
+    proj2_status: "Health & Physical Dignity",
+    proj2_cat: "Sandals & Emergency Care",
+    proj2_title: "Project “Protected Steps: Shoes & Clothes”",
+    proj2_desc: "Walking barefoot for miles on burning pavement, rubble, and thorns causes agonizing infected sores. We bandage their feet, provide sturdy sandals, and replace their torn rags with clean, decent clothing.",
+    proj2_obj: "Heal walking sores, prevent severe tetanus, and restore their childhood dignity.",
+    proj2_support_btn: "Give sandals & clothes (5,000 FCFA)",
 
-    proj3_status: "Emergency Relief",
-    proj3_cat: "Social Cohesion",
-    proj3_title: "Project “Solidarity & Mutual Aid”",
-    proj3_desc: "Immediate response system coordinated from our headquarters in Saly Station for unforeseen hardships: seasonal emergency packs, food, and human support.",
-    proj3_obj: "Stop extreme poverty in its tracks and preserve the dignity of vulnerable families.",
+    proj3_status: "Night Safety & Protection",
+    proj3_cat: "Emergency Shelter & Sleep",
+    proj3_title: "Project “The Shelter of Hope”",
+    proj3_desc: "The street at night is a world of freezing cold and extreme dangers. Our emergency night sanctuary provides soft mats, clean blankets, a warm shower, and the comforting, protective presence of caring mentors.",
+    proj3_obj: "Rescue children from the horrors of the street night and offer them the peaceful sleep they deserve.",
+    proj3_support_btn: "Support the night shelter",
 
-    // Section Notre Impact
-    impact_tag: "Ethics & Field Reality",
-    impact_title: "Our Impact in Communities",
-    impact_sub: "True to our charter of absolute transparency, we do not fabricate figures. Our impact is measured first by real lives touched and uncompromised governance.",
-    impact_card1_title: "Dedicated to the Field",
-    impact_card1_desc: "Every franc collected is directly spent on food supplies, health kits, and direct relief for vulnerable families across Senegal.",
-    impact_card2_title: "Executive Compensation",
-    impact_card2_desc: "Article IX of our Bylaws explicitly states: <em>“Board member roles are completely unremunerated.”</em> Zero salary, only pure service.",
-    impact_card3_num: "Regular",
-    impact_card3_title: "Financial Audits",
-    impact_card3_desc: "Independent accounting audits and annual moral and financial reporting presented at the General Assembly (Article VI).",
-    impact_card4_num: "Senegal",
-    impact_card4_title: "Nationwide Scope",
-    impact_card4_desc: "Operational capacity across the entire territory of Senegal, with a registered headquarters in Saly [Mbour] for direct coordination.",
-
-    // Section Pourquoi nous soutenir
-    why_tag: "Alliance of Solidarity",
-    why_title: "Why Your Support Changes Everything",
-    why_sub: "Giving to the Lokho Ndéye Charitable Association ensures authentic, direct, and fully accountable solidarity.",
-    why_item1_title: "Immediate grassroots action",
-    why_item1_desc: "Your contribution is not absorbed by bureaucratic overhead: it materializes directly as food supplies and hands-on help for vulnerable families across Senegal.",
-    why_item2_title: "Transparency and statutory integrity",
-    why_item2_desc: "Our board serves entirely voluntarily. Every resource from donations and dues is rigorously recorded and audited (Articles VI & XII).",
-    why_item3_title: "Unconditional respect for dignity",
-    why_item3_desc: "We protect the privacy and dignity of every family helped. Aid is brought just as a loving mother would: with discretion, tenderness, and respect.",
-    why_box_title: "Every gesture counts",
-    why_box_desc: "Even the most modest donation provides a warm meal to a hungry child or a food basket to a struggling mother. Join our chain of brotherhood.",
-    why_box_btn: "Go to donation area",
+    // Why Support Us
+    why_tag: "From the Heart",
+    why_title: "Why Your Support Literally Saves Lives",
+    why_sub: "These homeless children have no one else in the world to turn to. Your gift transforms directly into vital relief without middlemen.",
+    why_item1_title: "100% direct to the children: food, shoes, and medicine",
+    why_item1_desc: "Your gift is never wasted in overhead: every single franc buys rice, milk, pairs of durable sandals, antiseptic bandages, and warm clothes.",
+    why_item2_title: "Dedicated volunteers in the streets every single day",
+    why_item2_desc: "Our volunteers walk the dusty alleys, sit beside the children, wash their wounds, and share their meals with pure, selfless devotion.",
+    why_item3_title: "A mother's love for every abandoned child",
+    why_item3_desc: "We don't just hand out food: we put a gentle hand on their shoulder, listen to their sorrow, and restore their pride as loved human beings.",
+    why_box_title: "Don't leave them alone tonight",
+    why_box_desc: "As you read these words, a young boy is walking barefoot in the dark, shivering from cold. For 2,000 FCFA, you change his night. For 5,000 FCFA, you protect his steps for months. Reach out your hand.",
+    why_box_btn: "Donate now for a street child",
 
     // Section Faire un don
-    don_tag: "Priority Donor Area",
-    don_title: "Reach Out Your Hand: Donate to Lokho Ndéye",
-    don_sub: "Choose your preferred contribution method. 100% of your donations are dedicated to supporting children and mothers across Senegal.",
+    don_tag: "Street Children Emergency Area",
+    don_title: "Reach Out Your Hand: Save a Street Child",
+    don_sub: "Choose your contribution. 100% of your donations are exclusively dedicated to feeding, healing, clothing, and sheltering street children in Senegal.",
     tab_pledge: "Pledge & Donation Form",
-    tab_methods: "Bank Transfer & Wave Details",
+    tab_methods: "Bank Wire & Wave Details",
     freq_label: "1. Frequency of your support:",
-    freq_ponctuel: "One-time gift",
-    freq_occasionnel: "Occasional gift",
-    amount_label: "2. Donation amount (Open amount):",
-    custom_amount_placeholder: "Enter the amount of your choice (in FCFA)",
-    preview_default: "<strong>Every gesture counts:</strong> There is no small donation. Your contribution, given from the heart according to your means, provides vital direct support to families and children.",
-    preview_custom: "<strong>Your solidarity support:</strong> Your donation of <strong>{amount} FCFA</strong> will be fully dedicated to priority actions (food aid, healthcare, and protection for children and mothers across Senegal).",
-    volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping beneficiaries and distributing food across Senegal.",
+    freq_ponctuel: "One-time emergency gift",
+    freq_occasionnel: "Monthly regular gift",
+    amount_label: "2. Donation amount (Select an impact tier or enter a custom amount):",
+    custom_amount_placeholder: "Enter custom amount (in FCFA)",
+    tier_2000: "2,000 FCFA",
+    tier_2000_desc: "🍲 1 Complete hot meal & nutritious drink",
+    tier_5000: "5,000 FCFA",
+    tier_5000_desc: "👟 1 Pair of sturdy sandals & clean clothes",
+    tier_10000: "10,000 FCFA",
+    tier_10000_desc: "🩹 Emergency medical kit (wound care, deworming, vitamins)",
+    tier_25000: "25,000 FCFA",
+    tier_25000_desc: "🌟 1 Full month of complete care for a street child",
+    preview_default: "<strong>Every gesture saves a life:</strong> With 2,000 FCFA, you offer a hot meal tonight to a starving child. With 5,000 FCFA, you protect his bare feet and give him clean clothes.",
+    preview_custom: "<strong>Your support for the children:</strong> Your donation of <strong>{amount} FCFA</strong> will be fully dedicated to warm meals, foot wound care, protective shoes, and shelter for street children across Senegal.",
+    volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping street children across Senegal. Zero salaries paid to leadership (Art. IX).",
 
     sum_title: "Your Donation Summary",
     sum_beneficiary_lbl: "Official Beneficiary:",
@@ -6304,14 +6425,14 @@ const translations = {
     sum_amount_lbl: "Selected Amount:",
     sum_amount_free: "Open amount of your choice",
     sum_alloc_lbl: "Allocation:",
-    sum_alloc_val: "100% Social assistance & food aid",
+    sum_alloc_val: "100% Meals, Medical Care & Protection for Street Children",
     btn_pledge: "Generate my donation pledge",
     btn_see_coords: "See official payment details below",
     don_security_note: "🔒 No sensitive banking data is stored on this site. Your contributions are made directly through the association's secure official channels.",
 
-    // Cartes de paiement
-    card_virement_badge: "Bank Transfer",
-    card_virement_title: "Official Bank Transfer",
+    // Payment Cards
+    card_virement_badge: "Bank Wire",
+    card_virement_title: "Official Bank Wire",
     card_virement_sub: "Institutional account in Senegal",
     lbl_account_name: "Account Name:",
     lbl_account_hq: "Headquarters / Domiciliation:",
@@ -6319,7 +6440,7 @@ const translations = {
     lbl_account_legal: "Legal Framework:",
     val_account_legal: "Code of Civil and Commercial Obligations (Senegal)",
     lbl_account_ref: "Reference / Purpose:",
-    val_account_ref: "SOLIDARITY DONATION - LOKHO NDEYE",
+    val_account_ref: "DON ENFANTS RUE - LOKHO NDEYE",
     btn_copy_coords: "Copy details",
     btn_request_rib: "Request full IBAN / RIB",
 
@@ -6340,45 +6461,10 @@ const translations = {
     upcoming_free: "● Free Money (Coming soon)",
     upcoming_card: "● Credit Card Visa / Mastercard (In progress)",
 
-    // Transparence
-    transp_tag: "Rigor & Transparency",
-    transp_title: "Collective Governance & Official Documents",
-    transp_sub: "The Lokho Ndéye Charitable Association grounds its actions in democratic, selfless, and transparent governance guaranteed by its official bylaws.",
-    chart_title: "Rigorous Resource Allocation",
-    chart_sub: "Every CFA franc collected is audited and directed to fieldwork",
-    chart_center_lbl: "Direct field relief",
-    legend_1: "Food assistance & emergency kits",
-    legend_2: "Logistics & relief distribution across Senegal",
-    legend_3: "Legal fees & mandatory audits (Art. VI)",
-
-    stat_pill_1_tag: "Management Certification",
-    stat_pill_1_title: "0 FCFA Compensation",
-    stat_pill_1_desc: "Pursuant to Article IX of the bylaws, all leadership and board positions are strictly voluntary. No attendance fees, honoraria, or benefits are ever provided.",
-    stat_pill_2_tag: "Banking Traceability",
-    stat_pill_2_title: "Declared Institutional Account",
-    stat_pill_2_desc: "All monetary flows transit exclusively through the association's official, declared banking and mobile money channels, audited annually by external controllers.",
-
-    card_commitments_title: "Our Statutory Commitments",
-    card_commitments_sub: "Every operational rule of the association guarantees the absolute integrity of donor funds:",
-    rule_1: "<strong>Zero remuneration for board roles (Article IX):</strong> No member of the Executive Board or Committee receives a salary or perks. Complete volunteer service.",
-    rule_2: "<strong>Audit and oversight commission (Article VI):</strong> Three non-board members are designated to verify the compliance of financial accounts each fiscal year.",
-    rule_3: "<strong>Exclusive devolution to secular charity (Article XVII):</strong> In case of dissolution, all remaining assets are legally devolved to a secular charitable body.",
-
-    card_docs_title: "Institutional Documents",
-    card_docs_sub: "Access administrative documentation and legal texts governing the Lokho Ndéye Charitable Association:",
-    doc_1_title: "Constitutive Bylaws of the Association",
-    doc_1_sub: "Registered with the Ministry of the Interior • Republic of Senegal",
-    doc_2_title: "Ethics & Volunteer Confidentiality Charter",
-    doc_2_sub: "Commitment to solidarity, privacy protection, and political neutrality",
-    doc_3_title: "Annual Activity & Transparency Reports",
-    doc_3_sub: "Presented annually to the Ordinary General Assembly",
-    btn_consult: "View Document",
-    badge_annual: "Annual session",
-
     // Contact
     contact_tag: "Administrative Secretariat",
     contact_title: "Contact the Lokho Ndéye Charitable Association",
-    contact_sub: "For any inquiries, humanitarian partnership proposals, in-kind donations, or questions, write to our collective team.",
+    contact_sub: "For questions about our operations for street children, humanitarian partnerships, or in-kind donations (shoes, clothing, rice), contact our team.",
     contact_hq_title: "Official Headquarters",
     contact_hq_address: "Saly Station, Commune of Saly Portudal<br>Mbour Department, Thiès Region<br><strong>Republic of Senegal</strong>",
     contact_hq_reach: "Operational scope: Entire Republic of Senegal",
@@ -6397,19 +6483,19 @@ const translations = {
     placeholder_email: "your.email@example.com",
     lbl_objet: "Subject of your message *",
     opt_select: "Select a reason...",
-    opt_don: "Information on donations and bank transfers",
+    opt_don: "Information on donations for street children",
     opt_partenariat: "Partnership or sponsorship proposal",
-    opt_benevolat: "Volunteer offer or skills contribution",
+    opt_benevolat: "Volunteer offer on the ground",
     opt_autre: "Other general information inquiry",
     lbl_message: "Your Message *",
     placeholder_message: "Write your message here...",
     btn_submit_msg: "Send My Message",
-    msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of the Lokho Ndéye Charitable Association thanks you and will get back to you as soon as possible.",
+    msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of the Lokho Ndéye Charitable Association thanks you from the bottom of our hearts on behalf of the street children and will get back to you promptly.",
     form_privacy_footer: "🔒 Your contact details will never be sold, shared, or used for commercial purposes.",
 
     // Footer
-    footer_tagline: "A Mother's Outstretched Hand",
-    footer_desc: "Charitable nonprofit association operating across Senegal, established under the Code of Civil and Commercial Obligations of the Republic of Senegal. Registered headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
+    footer_tagline: "A Mother's Outstretched Hand for Street Children",
+    footer_desc: "Charitable nonprofit association dedicated exclusively to rescuing, feeding, healing, and protecting street children and talibés in Senegal. Registered under the Code of Civil and Commercial Obligations of the Republic of Senegal. Headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarity & Ethics",
     footer_link_virement: "Donate via bank transfer",
@@ -6418,7 +6504,7 @@ const translations = {
     footer_link_privacy: "Ethics & Anonymity Charter",
     footer_link_contact: "Contact us",
     footer_legal_title: "Legal Status",
-    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Scope:</strong> All of Senegal.<br><strong>Duration:</strong> Unlimited.",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Exclusive Mission:</strong> Protection of street children.<br><strong>Duration:</strong> Unlimited.",
     footer_copyright: "© 2026 Lokho Ndéye Charitable Association (“A Mother's Outstretched Hand”). All rights reserved.",
     footer_legal_notices: "Legal Notices",
     footer_privacy_policy: "Privacy Policy",
@@ -6431,23 +6517,23 @@ const translations = {
     modal_statuts_hq: "Saly Station, Commune of Saly Portudal [Mbour], Senegal. <strong>Scope:</strong> Entire Republic of Senegal. <strong>Duration:</strong> Unlimited.",
     modal_statuts_art2: "Article II: Objectives of the Association",
     modal_statuts_art2_1: "1. Unite members driven by the same ideal and build bonds of mutual understanding and solidarity.",
-    modal_statuts_art2_2: "2. Provide aid to vulnerable groups throughout the territory of Senegal.",
-    modal_statuts_art2_3: "3. Support community development initiatives.",
-    modal_statuts_art2_4: "4. Contribute to combating poverty, social exclusion, and inequality.",
-    modal_statuts_art2_5: "5. Carry out social welfare work.",
+    modal_statuts_art2_2: "2. Provide aid to street children and vulnerable groups throughout the territory of Senegal.",
+    modal_statuts_art2_3: "3. Support community development and child protection initiatives.",
+    modal_statuts_art2_4: "4. Contribute to combating poverty, social exclusion, and youth distress.",
+    modal_statuts_art2_5: "5. Carry out social welfare and humanitarian emergency work.",
     modal_statuts_art3: "Article III: Neutrality & Independence",
     modal_statuts_art3_text: "The Association is open to all, respecting individual convictions, and remains strictly independent of political parties. Any political, religious, or union discussion is forbidden within the association.",
     modal_statuts_art9: "Article IX: Voluntary Duties",
     modal_statuts_art9_text: "“Board member roles are completely unremunerated.”",
     modal_statuts_art17: "Article XVII: Dissolution",
-    modal_statuts_art17_text: "In the event of dissolution, any remaining net assets shall be legally devolved to a secular charitable organization.",
+    modal_statuts_art17_text: "In the event of dissolution, any remaining net assets shall be legally devolved to a secular child protection charitable organization.",
     btn_close: "Close",
 
     modal_privacy_title: "Privacy & Anonymity Charter",
     modal_privacy_p1_title: "1. Anonymity of members and volunteers:",
     modal_privacy_p1_text: "In keeping with the founding principle of selfless charitable giving, all founders, trustees, and volunteers of the Lokho Ndéye Charitable Association have chosen to act under the seal of anonymity. No personal identifying information is publicized, preserving the collective, dedicated spirit of our mission.",
-    modal_privacy_p2_title: "2. Respect for the dignity of beneficiaries:",
-    modal_privacy_p2_text: "All assisted persons and families across Senegal are shielded from exposure. No humiliating photos or sensitive personal data are ever shared.",
+    modal_privacy_p2_title: "2. Respect for the dignity of children:",
+    modal_privacy_p2_text: "Street children and assisted youth across Senegal are shielded from exposure. No humiliating photos or sensitive personal data are ever shared.",
     modal_privacy_p3_title: "3. Donor information:",
     modal_privacy_p3_text: "Information provided during donations or inquiries is kept strictly confidential. No sensitive banking details are recorded on our platform.",
     btn_understood: "Understood",
@@ -6457,10 +6543,10 @@ const translations = {
     modal_rib_recipient: "Association Caritative LOKHO NDEYE",
     modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Senegal) — <em>Operating across all Senegal</em>",
     modal_rib_instruction: "To immediately receive the official bank domiciliation certificate by email, please send a message to:",
-    modal_rib_note: "Simply mention as subject: “Request for official bank details for donation”.",
+    modal_rib_note: "Simply mention as subject: “Request for official bank details for street children donation”.",
     btn_send_email: "Send Email",
 
-    modal_pledge_title: "Charitable Donation Pledge",
+    modal_pledge_title: "Charitable Donation Pledge for Street Children",
     modal_pledge_motto: "“Share • Nourish • Support • Build a better future”",
     modal_pledge_hq: "Headquarters: Saly Station [Mbour] • Nationwide Action across Senegal",
     modal_pledge_ref_lbl: "Pledge Reference:",
@@ -6468,7 +6554,7 @@ const translations = {
     modal_pledge_amount_lbl: "Support Amount:",
     modal_pledge_freq_lbl: "Frequency:",
     modal_pledge_alloc_lbl: "Social Allocation:",
-    modal_pledge_alloc_val: "Solidarity actions & food aid across Senegal",
+    modal_pledge_alloc_val: "100% Warm meals, shoes, medical care & shelter for street children in Senegal",
     modal_pledge_instructions: "<strong>Payment Instructions:</strong><br>To complete this pledge, please initiate the corresponding transfer via <strong>Wave</strong> or <strong>Bank Wire</strong> mentioning your official reference.",
     btn_print: "Print this summary",
 
@@ -6476,7 +6562,7 @@ const translations = {
     modal_logo_motto: "“Share • Nourish • Support • Build a better future”",
     modal_logo_legal: "Registered Charity • Code of Civil and Commercial Obligations • Headquarters: Saly Station [Mbour] — Operating across all of Senegal",
 
-    // Dynamic Toasts & Alerts
+    // Toasts
     toast_copied_suffix: "copied to clipboard!",
     toast_copy_error: "Unable to copy automatically",
     toast_message_sent: "Your solidarity message has been sent successfully!",
@@ -7193,29 +7279,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (MONTANT LIBRE SANS ESTIMATION)
+  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (PALIERS ÉMOTIONNELS & MONTANT LIBRE)
   // ==========================================================================
   const customAmountInput = document.getElementById('customAmount');
+  const amountButtons = document.querySelectorAll('.amount-btn');
   const freqButtons = document.querySelectorAll('.freq-btn');
   const summaryAmount = document.getElementById('summaryAmount');
   const summaryFrequency = document.getElementById('summaryFrequency');
   const impactText = document.getElementById('impactPreviewText');
 
-  let currentAmount = 0;
+  let currentAmount = 2000;
   let currentFrequency = 'ponctuel';
 
   const frequencyDisplayNames = {
     fr: {
       'ponctuel': 'Don ponctuel',
-      'occasionnel': 'Don occasionnel',
+      'occasionnel': 'Don mensuel',
       'unique': 'Don ponctuel',
-      'mensuel': 'Don régulier'
+      'mensuel': 'Don mensuel'
     },
     en: {
       'ponctuel': 'One-time gift',
-      'occasionnel': 'Occasional gift',
+      'occasionnel': 'Monthly gift',
       'unique': 'One-time gift',
-      'mensuel': 'Regular gift'
+      'mensuel': 'Monthly gift'
     }
   };
 
@@ -7238,28 +7325,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (impactText) {
-      if (currentAmount > 0) {
-        if (isEn) {
-          impactText.innerHTML = `<strong>Your solidarity support:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> will be fully dedicated to priority actions (food aid, healthcare, and protection for children and mothers across Senegal).`;
-        } else {
-          impactText.innerHTML = `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement alloué aux actions prioritaires (aide alimentaire, soins de santé et protection des enfants et mères sur l'ensemble du territoire sénégalais).`;
-        }
+      if (currentAmount === 2000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🍲 Vital Hot Meal:</strong> Your gift of <strong>2,000 FCFA</strong> provides 1 complete hot meal and a fortified drink to a starving street child tonight.`
+          : `<strong>🍲 Repas Chaud Vital :</strong> Votre don de <strong>2 000 FCFA</strong> offre ce soir 1 repas chaud complet et une boisson nutritive à un enfant affamé de la rue.`;
+      } else if (currentAmount === 5000) {
+        impactText.innerHTML = isEn
+          ? `<strong>👟 Sturdy Sandals & Clean Clothes:</strong> Your gift of <strong>5,000 FCFA</strong> protects a child's bare feet with durable sandals and replaces his worn-out tattered rags.`
+          : `<strong>👟 Sandales & Habits Décents :</strong> Votre don de <strong>5 000 FCFA</strong> protège les petits pieds nus d'un enfant avec des sandales robustes et remplace ses vêtements déchirés par des habits propres.`;
+      } else if (currentAmount === 10000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🩹 Emergency Medical Care:</strong> Your gift of <strong>10,000 FCFA</strong> funds an antiseptic wound kit, antibiotics, and malaria treatment for a wounded street child.`
+          : `<strong>🩹 Soins Médicaux d'Urgence :</strong> Votre don de <strong>10 000 FCFA</strong> finance un kit de soins antiseptiques, antibiotiques et déparasitage pour soigner les plaies d'un enfant de la rue.`;
+      } else if (currentAmount >= 25000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🌟 Full Sponsorship (1 Month):</strong> Your generous gift of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> covers complete food, clothing, hygiene, and safe emergency shelter for street children.`
+          : `<strong>🌟 Parrainage d'Espoir (1 Mois) :</strong> Votre don exceptionnel de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> assure la nourriture quotidienne, les vêtements, les soins et l'abri sécurisé d'un enfant des rues.`;
+      } else if (currentAmount > 0) {
+        impactText.innerHTML = isEn
+          ? `<strong>Your gift of love:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, clothing, healing, and sheltering street children in Senegal.`
+          : `<strong>Votre geste d'amour :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
       } else {
-        if (isEn) {
-          impactText.innerHTML = `<strong>Every gesture counts:</strong> There is no small donation. Your contribution, given from the heart according to your means, provides direct, vital aid to families and children supported by the association.`;
-        } else {
-          impactText.innerHTML = `<strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles accompagnées par l'association au Sénégal.`;
-        }
+        impactText.innerHTML = isEn
+          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Every franc helps provide warm food, clean sandals, and shelter to children sleeping on the street.`
+          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Chaque franc permet d'offrir un repas chaud, des sandales neuves et un toit protecteur aux enfants de la rue.`;
       }
     }
   }
+
+  // Sélection rapide du montant par bouton de palier
+  amountButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      amountButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const val = parseInt(btn.getAttribute('data-amount'), 10);
+      if (!isNaN(val) && val > 0) {
+        currentAmount = val;
+        if (customAmountInput) customAmountInput.value = val;
+      }
+      updateDonationSummary();
+    });
+  });
 
   // Saisie libre du montant par le donateur
   if (customAmountInput) {
     customAmountInput.addEventListener('input', (e) => {
       const val = parseInt(e.target.value.replace(/\D/g, ''), 10);
+      amountButtons.forEach(b => b.classList.remove('active'));
       if (!isNaN(val) && val > 0) {
         currentAmount = val;
+        amountButtons.forEach(b => {
+          if (parseInt(b.getAttribute('data-amount'), 10) === val) {
+            b.classList.add('active');
+          }
+        });
       } else {
         currentAmount = 0;
       }

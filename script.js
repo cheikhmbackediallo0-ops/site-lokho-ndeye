@@ -695,29 +695,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (MONTANT LIBRE SANS ESTIMATION)
+  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (PALIERS ÉMOTIONNELS & MONTANT LIBRE)
   // ==========================================================================
   const customAmountInput = document.getElementById('customAmount');
+  const amountButtons = document.querySelectorAll('.amount-btn');
   const freqButtons = document.querySelectorAll('.freq-btn');
   const summaryAmount = document.getElementById('summaryAmount');
   const summaryFrequency = document.getElementById('summaryFrequency');
   const impactText = document.getElementById('impactPreviewText');
 
-  let currentAmount = 0;
+  let currentAmount = 2000;
   let currentFrequency = 'ponctuel';
 
   const frequencyDisplayNames = {
     fr: {
       'ponctuel': 'Don ponctuel',
-      'occasionnel': 'Don occasionnel',
+      'occasionnel': 'Don mensuel',
       'unique': 'Don ponctuel',
-      'mensuel': 'Don régulier'
+      'mensuel': 'Don mensuel'
     },
     en: {
       'ponctuel': 'One-time gift',
-      'occasionnel': 'Occasional gift',
+      'occasionnel': 'Monthly gift',
       'unique': 'One-time gift',
-      'mensuel': 'Regular gift'
+      'mensuel': 'Monthly gift'
     }
   };
 
@@ -740,28 +741,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (impactText) {
-      if (currentAmount > 0) {
-        if (isEn) {
-          impactText.innerHTML = `<strong>Your solidarity support:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> will be fully dedicated to priority actions (food aid, healthcare, and protection for children and mothers across Senegal).`;
-        } else {
-          impactText.innerHTML = `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement alloué aux actions prioritaires (aide alimentaire, soins de santé et protection des enfants et mères sur l'ensemble du territoire sénégalais).`;
-        }
+      if (currentAmount === 2000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🍲 Vital Hot Meal:</strong> Your gift of <strong>2,000 FCFA</strong> provides 1 complete hot meal and a fortified drink to a starving street child tonight.`
+          : `<strong>🍲 Repas Chaud Vital :</strong> Votre don de <strong>2 000 FCFA</strong> offre ce soir 1 repas chaud complet et une boisson nutritive à un enfant affamé de la rue.`;
+      } else if (currentAmount === 5000) {
+        impactText.innerHTML = isEn
+          ? `<strong>👟 Sturdy Sandals & Clean Clothes:</strong> Your gift of <strong>5,000 FCFA</strong> protects a child's bare feet with durable sandals and replaces his worn-out tattered rags.`
+          : `<strong>👟 Sandales & Habits Décents :</strong> Votre don de <strong>5 000 FCFA</strong> protège les petits pieds nus d'un enfant avec des sandales robustes et remplace ses vêtements déchirés par des habits propres.`;
+      } else if (currentAmount === 10000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🩹 Emergency Medical Care:</strong> Your gift of <strong>10,000 FCFA</strong> funds an antiseptic wound kit, antibiotics, and malaria treatment for a wounded street child.`
+          : `<strong>🩹 Soins Médicaux d'Urgence :</strong> Votre don de <strong>10 000 FCFA</strong> finance un kit de soins antiseptiques, antibiotiques et déparasitage pour soigner les plaies d'un enfant de la rue.`;
+      } else if (currentAmount >= 25000) {
+        impactText.innerHTML = isEn
+          ? `<strong>🌟 Full Sponsorship (1 Month):</strong> Your generous gift of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> covers complete food, clothing, hygiene, and safe emergency shelter for street children.`
+          : `<strong>🌟 Parrainage d'Espoir (1 Mois) :</strong> Votre don exceptionnel de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> assure la nourriture quotidienne, les vêtements, les soins et l'abri sécurisé d'un enfant des rues.`;
+      } else if (currentAmount > 0) {
+        impactText.innerHTML = isEn
+          ? `<strong>Your gift of love:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, clothing, healing, and sheltering street children in Senegal.`
+          : `<strong>Votre geste d'amour :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
       } else {
-        if (isEn) {
-          impactText.innerHTML = `<strong>Every gesture counts:</strong> There is no small donation. Your contribution, given from the heart according to your means, provides direct, vital aid to families and children supported by the association.`;
-        } else {
-          impactText.innerHTML = `<strong>Chaque geste compte :</strong> Il n'y a pas de petit don. Votre contribution, selon votre cœur et vos moyens, permet d'apporter un soutien direct et vital aux familles accompagnées par l'association au Sénégal.`;
-        }
+        impactText.innerHTML = isEn
+          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Every franc helps provide warm food, clean sandals, and shelter to children sleeping on the street.`
+          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Chaque franc permet d'offrir un repas chaud, des sandales neuves et un toit protecteur aux enfants de la rue.`;
       }
     }
   }
+
+  // Sélection rapide du montant par bouton de palier
+  amountButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      amountButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const val = parseInt(btn.getAttribute('data-amount'), 10);
+      if (!isNaN(val) && val > 0) {
+        currentAmount = val;
+        if (customAmountInput) customAmountInput.value = val;
+      }
+      updateDonationSummary();
+    });
+  });
 
   // Saisie libre du montant par le donateur
   if (customAmountInput) {
     customAmountInput.addEventListener('input', (e) => {
       const val = parseInt(e.target.value.replace(/\D/g, ''), 10);
+      amountButtons.forEach(b => b.classList.remove('active'));
       if (!isNaN(val) && val > 0) {
         currentAmount = val;
+        amountButtons.forEach(b => {
+          if (parseInt(b.getAttribute('data-amount'), 10) === val) {
+            b.classList.add('active');
+          }
+        });
       } else {
         currentAmount = 0;
       }
