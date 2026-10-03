@@ -705,20 +705,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const impactText = document.getElementById('impactPreviewText');
 
   let currentAmount = 0;
-  let currentFrequency = 'ponctuel';
+  let currentFrequency = 'occasionnel';
 
   const frequencyDisplayNames = {
     fr: {
-      'ponctuel': 'Don ponctuel d\'urgence',
-      'occasionnel': 'Don régulier (mensuel)',
-      'unique': 'Don ponctuel d\'urgence',
+      'occasionnel': 'Don occasionnel',
+      'ponctuel': 'Don occasionnel',
+      'unique': 'Don occasionnel',
+      'regulier': 'Don régulier (mensuel)',
       'mensuel': 'Don régulier (mensuel)'
     },
     en: {
-      'ponctuel': 'One-time emergency gift',
-      'occasionnel': 'Monthly regular gift',
-      'unique': 'One-time emergency gift',
-      'mensuel': 'Monthly regular gift'
+      'occasionnel': 'Occasional gift',
+      'ponctuel': 'Occasional gift',
+      'unique': 'Occasional gift',
+      'regulier': 'Regular gift (monthly)',
+      'mensuel': 'Regular gift (monthly)'
     }
   };
 
@@ -737,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (summaryFrequency) {
-      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time emergency gift' : 'Don ponctuel d\'urgence');
+      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
     }
 
     if (impactText) {
@@ -951,7 +953,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (receiptFrequency) {
         const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
-        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time gift' : 'Don ponctuel');
+        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
       }
       if (receiptRef) receiptRef.textContent = refNumber;
       if (receiptDate) receiptDate.textContent = today;

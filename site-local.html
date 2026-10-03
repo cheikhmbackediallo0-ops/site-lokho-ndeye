@@ -1982,6 +1982,7 @@ section[id] {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
@@ -1991,29 +1992,12 @@ section[id] {
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
-}
-
-.project-image-box {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-}
-
-.project-image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.project-card:hover .project-image-box img {
-  transform: scale(1.08);
+  border-top-color: var(--color-secondary);
 }
 
 .project-status-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
+  display: inline-flex;
+  align-items: center;
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
@@ -2023,8 +2007,7 @@ section[id] {
   background: #2D140B !important;
   color: #FFFFFF !important;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
-  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .project-body {
@@ -5148,12 +5131,11 @@ html, body {
         <div class="projects-grid">
           <!-- Projet 1 : Le Bol Chaud Solidaire -->
           <div class="project-card">
-            <div class="project-image-box">
-              <img src="assets/enfants-repas-chaud.jpg" alt="Enfants de la rue mangeant un repas chaud et nutritif ensemble au Sénégal" width="400" height="220" loading="lazy">
-              <span class="project-status-tag" data-i18n="proj_status_ongoing">Action Quotidienne</span>
-            </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj1_cat">Nutrition d'Urgence & Survie</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                <span class="project-status-tag" data-i18n="proj_status_ongoing">Action Quotidienne</span>
+                <span class="project-category" data-i18n="proj1_cat">Nutrition d'Urgence & Survie</span>
+              </div>
               <h3 class="project-title" data-i18n="proj1_title">Projet « Le Bol Chaud Solidaire »</h3>
               <p class="project-desc" data-i18n="proj1_desc">
                 Pour un enfant qui a passé la journée entière à mendier sous un soleil accablant, un bol de riz chaud est une bénédiction. Nous cuisinons et distribuons chaque jour des repas équilibrés, riches en protéines et légumes, servis dans la joie et le respect.
@@ -5175,12 +5157,11 @@ html, body {
 
           <!-- Projet 2 : Des Pas Protégés : Sandales & Vêtements -->
           <div class="project-card">
-            <div class="project-image-box">
-              <img src="assets/enfants-soins-chaussures.jpg" alt="Bénévoles offrant des sandales neuves et des habits propres à un enfant de la rue au Sénégal" width="400" height="220" loading="lazy">
-              <span class="project-status-tag" data-i18n="proj2_status">Santé & Dignité Corporelle</span>
-            </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj2_cat">Chaussures & Soins d'Urgence</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                <span class="project-status-tag" data-i18n="proj2_status">Santé & Dignité Corporelle</span>
+                <span class="project-category" data-i18n="proj2_cat">Chaussures & Soins d'Urgence</span>
+              </div>
               <h3 class="project-title" data-i18n="proj2_title">Projet « Des Pas Protégés : Sandales & Vêtements »</h3>
               <p class="project-desc" data-i18n="proj2_desc">
                 Marcher des kilomètres pieds nus sur le bitume brûlant, les gravats et les débris provoque de douloureuses plaies infectieuses. Nous soignons leurs pieds, leur offrons des sandales fermes et remplaçons leurs haillons délabrés par des vêtements neufs et propres.
@@ -5202,12 +5183,11 @@ html, body {
 
           <!-- Projet 3 : Le Refuge de l'Espoir -->
           <div class="project-card">
-            <div class="project-image-box">
-              <img src="assets/enfants-refuge-nuit.jpg" alt="Enfants de la rue dormant en sécurité sous des couvertures chaudes dans le refuge de l'association" width="400" height="220" loading="lazy">
-              <span class="project-status-tag" data-i18n="proj3_status">Sécurité & Protection Nocturne</span>
-            </div>
             <div class="project-body">
-              <span class="project-category" data-i18n="proj3_cat">Refuge d'Urgence & Sommeil</span>
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+                <span class="project-status-tag" data-i18n="proj3_status">Sécurité & Protection Nocturne</span>
+                <span class="project-category" data-i18n="proj3_cat">Refuge d'Urgence & Sommeil</span>
+              </div>
               <h3 class="project-title" data-i18n="proj3_title">Projet « Le Refuge de l'Espoir »</h3>
               <p class="project-desc" data-i18n="proj3_desc">
                 La nuit dans la rue est un univers d'insécurité, de froid et de violences. Notre espace d'accueil d'urgence offre des nattes douces, des couvertures propres, une douche chaude et la présence rassurante et protectrice d'éducateurs bienveillants.
@@ -5330,8 +5310,8 @@ html, body {
               <div class="donation-form-panel">
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
                 <div class="frequency-selector">
-                  <button type="button" class="freq-btn active" data-frequency="ponctuel" data-i18n="freq_ponctuel">Don ponctuel d'urgence</button>
-                  <button type="button" class="freq-btn" data-frequency="occasionnel" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
+                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_ponctuel">Don occasionnel</button>
+                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
                 </div>
 
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
@@ -5369,7 +5349,7 @@ html, body {
 
                 <div class="summary-row">
                   <span data-i18n="sum_freq_lbl">Type de don :</span>
-                  <span id="summaryFrequency" style="font-weight: 600;">Don ponctuel d'urgence</span>
+                  <span id="summaryFrequency" style="font-weight: 600;" data-i18n="freq_ponctuel">Don occasionnel</span>
                 </div>
 
                 <div class="summary-row">
@@ -5863,7 +5843,7 @@ html, body {
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_freq_lbl">Fréquence :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don ponctuel d'urgence</td>
+              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don occasionnel</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_alloc_lbl">Affectation sociale :</td>
@@ -6086,7 +6066,7 @@ const translations = {
     tab_pledge: "Promesse & Formulaire de don",
     tab_methods: "Coordonnées de virement & Wave",
     freq_label: "1. Fréquence de votre soutien solidaire :",
-    freq_ponctuel: "Don ponctuel d'urgence",
+    freq_ponctuel: "Don occasionnel",
     freq_occasionnel: "Don régulier (mensuel)",
     amount_label: "2. Montant de votre don (Montant libre selon vos capacités) :",
     custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
@@ -6422,7 +6402,7 @@ const translations = {
     tab_pledge: "Pledge & Donation Form",
     tab_methods: "Bank Wire & Wave Details",
     freq_label: "1. Frequency of your support:",
-    freq_ponctuel: "One-time emergency gift",
+    freq_ponctuel: "Occasional gift",
     freq_occasionnel: "Monthly regular gift",
     amount_label: "2. Donation amount (Open amount according to your means):",
     custom_amount_placeholder: "Enter custom amount (in FCFA)",
@@ -7308,20 +7288,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const impactText = document.getElementById('impactPreviewText');
 
   let currentAmount = 0;
-  let currentFrequency = 'ponctuel';
+  let currentFrequency = 'occasionnel';
 
   const frequencyDisplayNames = {
     fr: {
-      'ponctuel': 'Don ponctuel d\'urgence',
-      'occasionnel': 'Don régulier (mensuel)',
-      'unique': 'Don ponctuel d\'urgence',
+      'occasionnel': 'Don occasionnel',
+      'ponctuel': 'Don occasionnel',
+      'unique': 'Don occasionnel',
+      'regulier': 'Don régulier (mensuel)',
       'mensuel': 'Don régulier (mensuel)'
     },
     en: {
-      'ponctuel': 'One-time emergency gift',
-      'occasionnel': 'Monthly regular gift',
-      'unique': 'One-time emergency gift',
-      'mensuel': 'Monthly regular gift'
+      'occasionnel': 'Occasional gift',
+      'ponctuel': 'Occasional gift',
+      'unique': 'Occasional gift',
+      'regulier': 'Regular gift (monthly)',
+      'mensuel': 'Regular gift (monthly)'
     }
   };
 
@@ -7340,7 +7322,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (summaryFrequency) {
-      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time emergency gift' : 'Don ponctuel d\'urgence');
+      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
     }
 
     if (impactText) {
@@ -7554,7 +7536,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (receiptFrequency) {
         const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
-        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time gift' : 'Don ponctuel');
+        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
       }
       if (receiptRef) receiptRef.textContent = refNumber;
       if (receiptDate) receiptDate.textContent = today;
