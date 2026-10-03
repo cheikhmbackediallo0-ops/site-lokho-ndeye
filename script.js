@@ -889,7 +889,8 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const saved = localStorage.getItem('lokho_donor_currency');
       if (saved && CURRENCIES[saved]) {
-        const savedLabel = localStorage.getItem('lokho_donor_country_label');
+        const rawSavedLabel = localStorage.getItem('lokho_donor_country_label');
+        const savedLabel = rawSavedLabel ? String(rawSavedLabel).replace(/[^\p{L}\p{N}\s\-()',.]/gu, '').slice(0, 50) : null;
         setDonationCurrency(saved, savedLabel, false);
         return;
       }
@@ -967,8 +968,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(data => {
         if (userManuallySelectedCurrency) return; // Respect du choix explicite de l'utilisateur
-        const cc = (data.country || '').toUpperCase();
-        const countryName = data.name || data.country || '';
+        const cc = (String(data.country || '').replace(/[^A-Za-z]/g, '').slice(0, 2)).toUpperCase();
+        const rawName = data.name || data.country || '';
+        const countryName = String(rawName).replace(/[^\p{L}\p{N}\s\-()',.]/gu, '').slice(0, 50);
         let targetCurr = 'USD';
         let flag = '🌍';
 
@@ -1074,13 +1076,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Saisie libre du montant par le donateur
+  // Saisie libre du montant par le donateur (sécurisée contre les injections et saisies invalides)
   if (customAmountInput) {
+    customAmountInput.addEventListener('keydown', (e) => {
+      // Interdire les signes négatifs, positifs et la notation exponentielle
+      if (['-', '+', 'e', 'E'].includes(e.key)) {
+        e.preventDefault();
+      }
+    });
+
     customAmountInput.addEventListener('input', (e) => {
       const rawVal = e.target.value.replace(/[^0-9.]/g, '');
-      const val = parseFloat(rawVal);
+      let val = parseFloat(rawVal);
       amountButtons.forEach(b => b.classList.remove('active'));
+
       if (!isNaN(val) && val > 0) {
+        // Plafond de sécurité à 100 millions pour éviter les débordements numériques
+        if (val > 100000000) {
+          val = 100000000;
+          customAmountInput.value = val;
+        }
         currentAmount = val;
         amountButtons.forEach(b => {
           if (parseFloat(b.getAttribute('data-amount')) === val) {
@@ -1297,9 +1312,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 10. GESTION DES MODALES ACCESSIBLES (Statuts, RIB, Reçu Solidaire)
+  // 10. GESTION DES MODALES ACCESSIBLES & SÉCURISÉES (Statuts, RIB, Reçu Solidaire)
   // ==========================================================================
+  const ALLOWED_MODALS = new Set(['statutsModal', 'ribModal', 'waveModal', 'pledgeModal']);
+
   window.openModal = function(modalId) {
+    if (!ALLOWED_MODALS.has(modalId)) return;
     const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.add('active');
@@ -1308,6 +1326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.closeModal = function(modalId) {
+    if (!ALLOWED_MODALS.has(modalId)) return;
     const modal = document.getElementById(modalId);
     if (modal) {
       modal.classList.remove('active');
@@ -1382,10 +1401,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 12. FORMULAIRE DE CONTACT INSTITUTIONNEL
+  // 12. FORMULAIRE DE CONTACT INSTITUTIONNEL SÉCURISÉ & ANTI-SPAM
   // ==========================================================================
   const contactForm = document.getElementById('institutionalContactForm');
   const contactSuccessMsg = document.getElementById('contactSuccessMsg');
+  const contactErrorMsg = document.getElementById('contactErrorMsg');
+
+  // Enregistrement de l'heure de chargement pour détection de robots instantanés
+  const formInitTime = Date.now();
+  let lastContactSubmitTime = 0;
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -1394,6 +1418,84 @@ document.addEventListener('DOMContentLoaded', () => {
       const lang = window.currentLanguage || 'fr';
       const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
       const isEn = (lang === 'en');
+
+      if (contactErrorMsg) {
+        contactErrorMsg.style.display = 'none';
+        contactErrorMsg.textContent = '';
+      }
+
+      // 1. Détection bot via champ Honeypot
+      const honeypot = contactForm.querySelector('input[name="contact_website_url"]');
+      if (honeypot && honeypot.value.trim() !== '') {
+        console.warn('Tentative de soumission automatisée bloquée.');
+        contactForm.reset();
+        return;
+      }
+
+      // 2. Détection bot par rapidité surhumaine (< 1.5s après chargement)
+      if (Date.now() - formInitTime < 1500) {
+        console.warn('Soumission trop rapide (robot suspecté).');
+        contactForm.reset();
+        return;
+      }
+
+      // 3. Protection anti-flood / limitation du débit (Rate Limiting : 15 secondes)
+      if (Date.now() - lastContactSubmitTime < 15000) {
+        if (contactErrorMsg) {
+          contactErrorMsg.textContent = dict.err_rate_limit || (isEn ? "Please wait a few moments before sending another message." : "Veuillez patienter quelques instants avant de soumettre un nouveau message.");
+          contactErrorMsg.style.display = 'block';
+        }
+        return;
+      }
+
+      // 4. Extraction et assainissement strict des champs
+      const nomInput = document.getElementById('contactNom');
+      const emailInput = document.getElementById('contactEmail');
+      const objetSelect = document.getElementById('contactObjet');
+      const messageInput = document.getElementById('contactMessage');
+
+      const nomVal = (nomInput ? nomInput.value : '').trim().replace(/<[^>]*>/g, '');
+      const emailVal = (emailInput ? emailInput.value : '').trim();
+      const objetVal = (objetSelect ? objetSelect.value : '').trim();
+      const messageVal = (messageInput ? messageInput.value : '').trim().replace(/<[^>]*>/g, '');
+
+      // 5. Validation stricte des entrées utilisateur
+      function showValidationError(msg) {
+        if (contactErrorMsg) {
+          contactErrorMsg.textContent = msg;
+          contactErrorMsg.style.display = 'block';
+          contactErrorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+
+      if (!nomVal || nomVal.length < 2 || nomVal.length > 100) {
+        showValidationError(dict.err_name_required || (isEn ? "Please enter a valid name or organization (at least 2 characters)." : "Veuillez indiquer un nom ou une organisation valide (au moins 2 caractères)."));
+        if (nomInput) nomInput.focus();
+        return;
+      }
+
+      // RFC 5322 regex email stricte
+      const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+      if (!emailVal || !emailRegex.test(emailVal) || emailVal.length > 120) {
+        showValidationError(dict.err_email_invalid || (isEn ? "Please enter a valid email address." : "Veuillez indiquer une adresse email valide (ex. nom@domaine.com)."));
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      const validObjets = ['don', 'partenariat', 'benevolat', 'autre'];
+      if (!objetVal || !validObjets.includes(objetVal)) {
+        showValidationError(dict.err_subject_required || (isEn ? "Please select the subject of your inquiry." : "Veuillez sélectionner l'objet de votre démarche."));
+        if (objetSelect) objetSelect.focus();
+        return;
+      }
+
+      if (!messageVal || messageVal.length < 10 || messageVal.length > 2500) {
+        showValidationError(dict.err_message_short || (isEn ? "Your message is too short (at least 10 characters required)." : "Votre message est trop court (au moins 10 caractères requis)."));
+        if (messageInput) messageInput.focus();
+        return;
+      }
+
+      // 6. Transmission sécurisée
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
 
@@ -1405,6 +1507,7 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       setTimeout(() => {
+        lastContactSubmitTime = Date.now();
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
         contactForm.reset();
@@ -1413,7 +1516,7 @@ document.addEventListener('DOMContentLoaded', () => {
           contactSuccessMsg.style.display = 'block';
           setTimeout(() => {
             contactSuccessMsg.style.display = 'none';
-          }, 8000);
+          }, 9000);
         }
 
         showToast(dict.toast_message_sent || (isEn ? "Your solidarity message has been sent successfully!" : "Votre message solidaire a été transmis avec succès !"));

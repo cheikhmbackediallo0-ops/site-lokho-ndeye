@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title data-i18n="page_title">Association Caritative LOKHO NDEYE | Sauver & Protéger les Enfants de la Rue au Sénégal</title>
   
   <!-- SEO & Métadonnées -->
@@ -34,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=3.4">
+  <link rel="stylesheet" href="style.css?v=3.5">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -782,7 +784,7 @@
                   <!-- Montant personnalisé libre -->
                   <div class="custom-amount-wrap">
                     <span class="custom-amount-icon" id="customAmountIcon">FCFA</span>
-                    <input type="number" id="customAmount" class="custom-amount-input" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
+                    <input type="number" id="customAmount" class="custom-amount-input" name="donation_amount" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" max="100000000" step="500" autocomplete="off" data-i18n-placeholder="custom_amount_placeholder">
                   </div>
 
                   <!-- Encadré solidaire et impact émotionnel -->
@@ -1069,21 +1071,27 @@
               Remplissez le formulaire ci-dessous. Vos informations sont strictement confidentielles.
             </p>
 
-            <form id="institutionalContactForm">
+            <form id="institutionalContactForm" novalidate autocomplete="on">
+              <!-- Protection anti-spam Honeypot pour robots malveillants -->
+              <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none; height: 0; width: 0;" aria-hidden="true" tabindex="-1">
+                <label for="contactWebsiteUrl">Ne pas remplir ce champ</label>
+                <input type="text" id="contactWebsiteUrl" name="contact_website_url" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="contactNom" class="form-label" data-i18n="lbl_nom">Votre Nom ou Organisation *</label>
-                  <input type="text" id="contactNom" class="form-control" placeholder="Ex: Awa Diop ou Fondation..." required data-i18n-placeholder="placeholder_nom">
+                  <input type="text" id="contactNom" name="contact_nom" class="form-control" placeholder="Ex: Awa Diop ou Fondation..." required maxlength="100" autocomplete="name" data-i18n-placeholder="placeholder_nom">
                 </div>
                 <div class="form-group">
                   <label for="contactEmail" class="form-label" data-i18n="lbl_email">Votre Adresse Email *</label>
-                  <input type="email" id="contactEmail" class="form-control" placeholder="votre.email@exemple.com" required data-i18n-placeholder="placeholder_email">
+                  <input type="email" id="contactEmail" name="contact_email" class="form-control" placeholder="votre.email@exemple.com" required maxlength="120" autocomplete="email" data-i18n-placeholder="placeholder_email">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="contactObjet" class="form-label" data-i18n="lbl_objet">Objet de votre démarche *</label>
-                <select id="contactObjet" class="form-control" required>
+                <select id="contactObjet" name="contact_objet" class="form-control" required>
                   <option value="" disabled selected data-i18n="opt_select">Sélectionnez un motif...</option>
                   <option value="don" data-i18n="opt_don">Renseignements sur les dons et virement bancaire</option>
                   <option value="partenariat" data-i18n="opt_partenariat">Proposition de partenariat institutionnel / mécénat</option>
@@ -1094,8 +1102,10 @@
 
               <div class="form-group">
                 <label for="contactMessage" class="form-label" data-i18n="lbl_message">Votre Message *</label>
-                <textarea id="contactMessage" class="form-control" placeholder="Écrivez votre message ici..." required data-i18n-placeholder="placeholder_message"></textarea>
+                <textarea id="contactMessage" name="contact_message" class="form-control" placeholder="Écrivez votre message ici..." required maxlength="2500" data-i18n-placeholder="placeholder_message"></textarea>
               </div>
+
+              <div id="contactErrorMsg" style="display: none; margin-bottom: 16px; padding: 12px 16px; background: #FFEBEE; border: 1px solid #FFCDD2; border-radius: var(--radius-sm); color: #C62828; font-size: 0.88rem; font-weight: 600;" role="alert"></div>
 
               <button type="submit" class="btn btn-primary" style="width: 100%;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1105,7 +1115,7 @@
                 <span data-i18n="btn_submit_msg">Transmettre mon message</span>
               </button>
 
-              <div id="contactSuccessMsg" style="display: none; margin-top: 18px; padding: 14px; background: #E8F5E9; border: 1px solid #A5D6A7; border-radius: var(--radius-sm); color: #1B5E20; font-size: 0.9rem;" data-i18n-html="msg_success">
+              <div id="contactSuccessMsg" style="display: none; margin-top: 18px; padding: 14px; background: #E8F5E9; border: 1px solid #A5D6A7; border-radius: var(--radius-sm); color: #1B5E20; font-size: 0.9rem;" data-i18n-html="msg_success" role="status">
                 ✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie et vous répondra dans les meilleurs délais.
               </div>
 
@@ -1372,7 +1382,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=3.4"></script>
-  <script src="script.js?v=3.4"></script>
+  <script src="translations.js?v=3.5"></script>
+  <script src="script.js?v=3.5"></script>
 </body>
 </html>

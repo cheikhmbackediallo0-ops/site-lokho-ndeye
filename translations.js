@@ -263,6 +263,12 @@ const translations = {
     btn_submit_msg: "Transmettre mon message",
     msg_success: "✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie du fond du cœur au nom des enfants de la rue et vous répondra très rapidement.",
     form_privacy_footer: "🔒 Vos coordonnées ne seront jamais cédées, vendues ou utilisées à des fins commerciales.",
+    err_name_required: "Veuillez indiquer un nom ou une organisation valide (au moins 2 caractères).",
+    err_email_invalid: "Veuillez indiquer une adresse email valide (ex. nom@domaine.com).",
+    err_subject_required: "Veuillez sélectionner l'objet de votre démarche.",
+    err_message_short: "Votre message est trop court (au moins 10 caractères requis).",
+    err_rate_limit: "Veuillez patienter quelques instants avant de soumettre un nouveau message.",
+    err_bot_detected: "Erreur de transmission : tentative automatisée bloquée.",
 
     // Pied de page
     footer_tagline: "La Main tendue d'une mère pour les enfants de la rue",
@@ -604,6 +610,12 @@ const translations = {
     btn_submit_msg: "Send My Message",
     msg_success: "✓ <strong>Message successfully sent.</strong> The secretariat of the Lokho Ndéye Charitable Association thanks you from the bottom of our hearts on behalf of the street children and will get back to you promptly.",
     form_privacy_footer: "🔒 Your contact details will never be sold, shared, or used for commercial purposes.",
+    err_name_required: "Please enter a valid name or organization (at least 2 characters).",
+    err_email_invalid: "Please enter a valid email address (e.g. name@domain.com).",
+    err_subject_required: "Please select the subject of your inquiry.",
+    err_message_short: "Your message is too short (at least 10 characters required).",
+    err_rate_limit: "Please wait a few moments before sending another message.",
+    err_bot_detected: "Transmission error: automated attempt blocked.",
 
     // Footer
     footer_tagline: "A Mother's Outstretched Hand for Street Children",
