@@ -84,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Synchronisation du formulaire de don et calculs si défini
+    // Synchronisation du formulaire de don, de la devise et des calculs
+    if (typeof updateCurrencyLabelsOnLangChange === 'function') {
+      updateCurrencyLabelsOnLangChange(lang);
+    }
     if (typeof updateDonationSummary === 'function') {
       updateDonationSummary();
     }
@@ -695,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE (PALIERS ÉMOTIONNELS & MONTANT LIBRE)
+  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE & DEVISE ADAPTÉE AU PAYS DU DONATEUR
   // ==========================================================================
   const customAmountInput = document.getElementById('customAmount');
   const amountButtons = document.querySelectorAll('.amount-btn');
@@ -706,6 +709,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentAmount = 0;
   let currentFrequency = 'occasionnel';
+
+  // Configuration des devises avec parités réelles et conversion vers le FCFA
+  const CURRENCIES = {
+    XOF: {
+      code: 'XOF',
+      name: 'FCFA',
+      symbol: 'FCFA',
+      flag: '🇸🇳',
+      countryNameFr: 'Sénégal / UEMOA (FCFA)',
+      countryNameEn: 'Senegal / WAEMU (FCFA)',
+      rateToXof: 1,
+      minAmount: 500,
+      step: 500,
+      placeholderFr: 'Indiquez le montant de votre choix (en FCFA)',
+      placeholderEn: 'Enter custom amount (in FCFA)'
+    },
+    EUR: {
+      code: 'EUR',
+      name: 'Euro',
+      symbol: '€',
+      flag: '🇪🇺',
+      countryNameFr: 'France / Zone Euro (€)',
+      countryNameEn: 'France / Eurozone (€)',
+      rateToXof: 655.957,
+      minAmount: 5,
+      step: 5,
+      placeholderFr: 'Indiquez le montant de votre choix (en €)',
+      placeholderEn: 'Enter custom amount (in €)'
+    },
+    USD: {
+      code: 'USD',
+      name: 'Dollar US',
+      symbol: '$',
+      flag: '🇺🇸',
+      countryNameFr: 'États-Unis / International ($)',
+      countryNameEn: 'United States / International ($)',
+      rateToXof: 605,
+      minAmount: 5,
+      step: 5,
+      placeholderFr: 'Indiquez le montant de votre choix (en $)',
+      placeholderEn: 'Enter custom amount (in $)'
+    },
+    CAD: {
+      code: 'CAD',
+      name: 'Dollar Canadien',
+      symbol: '$ CA',
+      flag: '🇨🇦',
+      countryNameFr: 'Canada ($ CA)',
+      countryNameEn: 'Canada ($ CA)',
+      rateToXof: 445,
+      minAmount: 5,
+      step: 5,
+      placeholderFr: 'Indiquez le montant de votre choix (en $ CA)',
+      placeholderEn: 'Enter custom amount (in $ CA)'
+    },
+    GBP: {
+      code: 'GBP',
+      name: 'Livre Sterling',
+      symbol: '£',
+      flag: '🇬🇧',
+      countryNameFr: 'Royaume-Uni (£)',
+      countryNameEn: 'United Kingdom (£)',
+      rateToXof: 780,
+      minAmount: 5,
+      step: 5,
+      placeholderFr: 'Indiquez le montant de votre choix (en £)',
+      placeholderEn: 'Enter custom amount (in £)'
+    },
+    CHF: {
+      code: 'CHF',
+      name: 'Franc Suisse',
+      symbol: 'CHF',
+      flag: '🇨🇭',
+      countryNameFr: 'Suisse (CHF)',
+      countryNameEn: 'Switzerland (CHF)',
+      rateToXof: 690,
+      minAmount: 5,
+      step: 5,
+      placeholderFr: 'Indiquez le montant de votre choix (en CHF)',
+      placeholderEn: 'Enter custom amount (in CHF)'
+    }
+  };
+  window.CURRENCIES = CURRENCIES;
+
+  let currentCurrency = 'XOF';
+  let userManuallySelectedCurrency = false;
 
   const frequencyDisplayNames = {
     fr: {
@@ -724,16 +813,216 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  function formatMoneyValue(val, locale) {
+    const isInt = Number.isInteger(val);
+    return val.toLocaleString(locale, {
+      minimumFractionDigits: isInt ? 0 : 2,
+      maximumFractionDigits: isInt ? 0 : 2
+    });
+  }
+  window.formatMoneyValue = formatMoneyValue;
+
+  function updateCurrencyLabelsOnLangChange(lang) {
+    const curr = CURRENCIES[currentCurrency] || CURRENCIES.XOF;
+    const isEn = (lang === 'en');
+    const nameEl = document.getElementById('detectedCountryName');
+    if (nameEl) {
+      nameEl.textContent = isEn ? curr.countryNameEn : curr.countryNameFr;
+    }
+    if (customAmountInput) {
+      customAmountInput.setAttribute('placeholder', isEn ? curr.placeholderEn : curr.placeholderFr);
+    }
+  }
+  window.updateCurrencyLabelsOnLangChange = updateCurrencyLabelsOnLangChange;
+
+  function setDonationCurrency(currCode, customLabel = null, isManual = true, customFlag = null) {
+    if (!CURRENCIES[currCode]) currCode = 'XOF';
+    currentCurrency = currCode;
+    const curr = CURRENCIES[currCode];
+    const lang = window.currentLanguage || 'fr';
+    const isEn = (lang === 'en');
+
+    if (isManual) {
+      userManuallySelectedCurrency = true;
+      try {
+        localStorage.setItem('lokho_donor_currency', currCode);
+        if (customLabel) localStorage.setItem('lokho_donor_country_label', customLabel);
+      } catch (e) {}
+    }
+
+    // Mise à jour visuelle des boutons pilules de devises
+    document.querySelectorAll('.currency-pill-btn').forEach(btn => {
+      const isSelected = (btn.getAttribute('data-currency') === currCode);
+      btn.classList.toggle('active', isSelected);
+      btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+    });
+
+    // Mise à jour de l'icône dans le champ de saisie
+    const iconEl = document.getElementById('customAmountIcon');
+    if (iconEl) {
+      iconEl.textContent = curr.symbol;
+    }
+
+    // Mise à jour du champ personnalisé (placeholder, min, step)
+    if (customAmountInput) {
+      customAmountInput.setAttribute('placeholder', isEn ? curr.placeholderEn : curr.placeholderFr);
+      customAmountInput.setAttribute('min', curr.minAmount);
+      customAmountInput.setAttribute('step', curr.step);
+    }
+
+    // Mise à jour du badge de pays détecté
+    const flagEl = document.getElementById('detectedCountryFlag');
+    const nameEl = document.getElementById('detectedCountryName');
+    if (flagEl) {
+      flagEl.textContent = customFlag || curr.flag;
+    }
+    if (nameEl) {
+      nameEl.textContent = customLabel || (isEn ? curr.countryNameEn : curr.countryNameFr);
+    }
+
+    updateDonationSummary();
+  }
+  window.setDonationCurrency = setDonationCurrency;
+
+  function detectDonorCountryAndCurrency() {
+    // 1. Préférence enregistrée dans localStorage si existante
+    try {
+      const saved = localStorage.getItem('lokho_donor_currency');
+      if (saved && CURRENCIES[saved]) {
+        const savedLabel = localStorage.getItem('lokho_donor_country_label');
+        setDonationCurrency(saved, savedLabel, false);
+        return;
+      }
+    } catch (e) {}
+
+    // 2. Détection heuristique instantanée 0ms par timezone et langues du navigateur
+    let initialCode = 'XOF';
+    let initialLabelFr = 'Sénégal / UEMOA (FCFA)';
+    let initialLabelEn = 'Senegal / WAEMU (FCFA)';
+    let initialFlag = '🇸🇳';
+
+    try {
+      const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+      const navLangs = (navigator.languages || [navigator.language || '']).map(l => (l || '').toLowerCase());
+      const has = (term) => tz.includes(term) || navLangs.some(l => l.includes(term));
+
+      if (has('toronto') || has('montreal') || has('vancouver') || has('edmonton') || has('-ca')) {
+        initialCode = 'CAD';
+        initialLabelFr = 'Canada ($ CA)';
+        initialLabelEn = 'Canada ($ CA)';
+        initialFlag = '🇨🇦';
+      } else if (has('london') || has('-gb')) {
+        initialCode = 'GBP';
+        initialLabelFr = 'Royaume-Uni (£)';
+        initialLabelEn = 'United Kingdom (£)';
+        initialFlag = '🇬🇧';
+      } else if (has('zurich') || has('-ch')) {
+        initialCode = 'CHF';
+        initialLabelFr = 'Suisse (CHF)';
+        initialLabelEn = 'Switzerland (CHF)';
+        initialFlag = '🇨🇭';
+      } else if (
+        has('paris') || has('brussels') || has('berlin') || has('rome') ||
+        has('madrid') || has('amsterdam') || has('vienna') || has('lisbon') ||
+        has('dublin') || has('-fr') || has('-be') || has('-de') || has('-es') || has('-it')
+      ) {
+        initialCode = 'EUR';
+        initialLabelFr = 'France / Zone Euro (€)';
+        initialLabelEn = 'France / Eurozone (€)';
+        initialFlag = '🇪🇺';
+      } else if (
+        has('new_york') || has('chicago') || has('los_angeles') ||
+        has('denver') || has('phoenix') || has('-us')
+      ) {
+        initialCode = 'USD';
+        initialLabelFr = 'États-Unis / International ($)';
+        initialLabelEn = 'United States / International ($)';
+        initialFlag = '🇺🇸';
+      } else if (
+        has('dakar') || has('abidjan') || has('bamako') || has('ouagadougou') ||
+        has('lome') || has('cotonou') || has('niamey') || has('-sn') || has('-ci')
+      ) {
+        initialCode = 'XOF';
+        initialLabelFr = 'Sénégal / UEMOA (FCFA)';
+        initialLabelEn = 'Senegal / WAEMU (FCFA)';
+        initialFlag = '🇸🇳';
+      }
+    } catch (err) {
+      console.warn('Erreur détection heuristique fuseau horaire:', err);
+    }
+
+    const currentLang = window.currentLanguage || 'fr';
+    setDonationCurrency(
+      initialCode,
+      currentLang === 'en' ? initialLabelEn : initialLabelFr,
+      false,
+      initialFlag
+    );
+
+    // 3. Affinement asynchrone non-bloquant par géolocalisation IP (GeoJS gratuit HTTPS)
+    fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
+      .then(res => {
+        if (!res.ok) throw new Error('GeoJS non accessible');
+        return res.json();
+      })
+      .then(data => {
+        if (userManuallySelectedCurrency) return; // Respect du choix explicite de l'utilisateur
+        const cc = (data.country || '').toUpperCase();
+        const countryName = data.name || data.country || '';
+        let targetCurr = 'USD';
+        let flag = '🌍';
+
+        const westAfrica = ['SN', 'CI', 'ML', 'BF', 'BJ', 'TG', 'NE', 'GW', 'CM', 'GA', 'CG', 'TD', 'CF', 'GQ'];
+        const eurozone = ['FR', 'BE', 'DE', 'ES', 'IT', 'NL', 'PT', 'AT', 'IE', 'FI', 'GR', 'LU', 'MC', 'AD', 'SM', 'VA', 'ME', 'XK', 'SK', 'SI', 'EE', 'LV', 'LT', 'CY', 'MT', 'HR'];
+
+        if (westAfrica.includes(cc)) {
+          targetCurr = 'XOF';
+          flag = cc === 'SN' ? '🇸🇳' : '🌍';
+        } else if (eurozone.includes(cc)) {
+          targetCurr = 'EUR';
+          flag = cc === 'FR' ? '🇫🇷' : '🇪🇺';
+        } else if (cc === 'US') {
+          targetCurr = 'USD';
+          flag = '🇺🇸';
+        } else if (cc === 'CA') {
+          targetCurr = 'CAD';
+          flag = '🇨🇦';
+        } else if (cc === 'GB') {
+          targetCurr = 'GBP';
+          flag = '🇬🇧';
+        } else if (cc === 'CH') {
+          targetCurr = 'CHF';
+          flag = '🇨🇭';
+        }
+
+        const sym = CURRENCIES[targetCurr] ? CURRENCIES[targetCurr].symbol : '';
+        const displayLabel = countryName ? `${countryName} (${sym})` : null;
+        setDonationCurrency(targetCurr, displayLabel, false, flag);
+      })
+      .catch(() => {
+        // En cas de blocage réseau ou adblocker, l'heuristique timezone reste active
+      });
+  }
+
   function updateDonationSummary() {
     const lang = window.currentLanguage || 'fr';
     const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
     const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
     const isEn = (lang === 'en');
     const locale = isEn ? 'en-US' : 'fr-FR';
+    const curr = (typeof CURRENCIES !== 'undefined' && CURRENCIES[currentCurrency]) ? CURRENCIES[currentCurrency] : { code: 'XOF', symbol: 'FCFA', rateToXof: 1 };
+
+    // Calcul de l'équivalent local au Sénégal en FCFA
+    const amountInXof = Math.round(currentAmount * curr.rateToXof);
 
     if (summaryAmount) {
       if (currentAmount > 0) {
-        summaryAmount.textContent = `${currentAmount.toLocaleString(locale)} FCFA`;
+        const formattedCurr = `${formatMoneyValue(currentAmount, locale)} ${curr.symbol}`;
+        if (curr.code === 'XOF') {
+          summaryAmount.textContent = `${formatMoneyValue(currentAmount, locale)} FCFA`;
+        } else {
+          summaryAmount.innerHTML = `<strong>${formattedCurr}</strong> <span style="font-size: 0.85em; opacity: 0.85; font-weight: normal;">(~${formatMoneyValue(amountInXof, locale)} FCFA)</span>`;
+        }
       } else {
         summaryAmount.textContent = dict.sum_amount_free || (isEn ? 'Open amount according to your means' : 'Montant libre selon vos capacités');
       }
@@ -744,9 +1033,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (impactText) {
       if (currentAmount > 0) {
-        impactText.innerHTML = isEn
-          ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, healing, clothing, and sheltering street children in Senegal.`
-          : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
+        if (curr.code === 'XOF') {
+          impactText.innerHTML = isEn
+            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> goes 100% directly to feeding, healing, clothing, and sheltering street children in Senegal.`
+            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
+        } else {
+          impactText.innerHTML = isEn
+            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (approx. <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) goes 100% directly to feeding, healing, clothing, and sheltering street children in Senegal.`
+            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (environ <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
+        }
       } else {
         impactText.innerHTML = isEn
           ? `<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to feeding, clothing, healing, and sheltering street children in Senegal.`
@@ -755,12 +1050,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Clics sur les pilules de devises
+  document.querySelectorAll('.currency-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const code = btn.getAttribute('data-currency');
+      if (code && CURRENCIES[code]) {
+        setDonationCurrency(code, null, true);
+      }
+    });
+  });
+
   // Sélection rapide du montant par bouton de palier (si présent)
   amountButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       amountButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const val = parseInt(btn.getAttribute('data-amount'), 10);
+      const val = parseFloat(btn.getAttribute('data-amount'));
       if (!isNaN(val) && val > 0) {
         currentAmount = val;
         if (customAmountInput) customAmountInput.value = val;
@@ -772,12 +1077,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Saisie libre du montant par le donateur
   if (customAmountInput) {
     customAmountInput.addEventListener('input', (e) => {
-      const val = parseInt(e.target.value.replace(/\D/g, ''), 10);
+      const rawVal = e.target.value.replace(/[^0-9.]/g, '');
+      const val = parseFloat(rawVal);
       amountButtons.forEach(b => b.classList.remove('active'));
       if (!isNaN(val) && val > 0) {
         currentAmount = val;
         amountButtons.forEach(b => {
-          if (parseInt(b.getAttribute('data-amount'), 10) === val) {
+          if (parseFloat(b.getAttribute('data-amount')) === val) {
             b.classList.add('active');
           }
         });
@@ -802,7 +1108,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  updateDonationSummary();
+  // Détection initiale de la devise selon le pays du donateur
+  detectDonorCountryAndCurrency();
 
   // ==========================================================================
   // 7bis. GESTIONNAIRE D'ONGLETS DE L'ESPACE DE DON (Formulaire vs Coordonnées officielles)
@@ -1048,9 +1355,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (receiptAmount) {
-        receiptAmount.textContent = currentAmount > 0 
-          ? `${currentAmount.toLocaleString(isEn ? 'en-US' : 'fr-FR')} FCFA` 
-          : (dict.receipt_free_amount || (isEn ? 'Open amount (according to your means)' : 'Montant libre (selon vos capacités)'));
+        const curr = (typeof CURRENCIES !== 'undefined' && CURRENCIES[currentCurrency]) ? CURRENCIES[currentCurrency] : { code: 'XOF', symbol: 'FCFA', rateToXof: 1 };
+        const locale = isEn ? 'en-US' : 'fr-FR';
+        if (currentAmount > 0) {
+          const formattedVal = (typeof formatMoneyValue === 'function') ? formatMoneyValue(currentAmount, locale) : currentAmount.toLocaleString(locale);
+          if (curr.code === 'XOF') {
+            receiptAmount.textContent = `${formattedVal} FCFA`;
+          } else {
+            const amountInXof = Math.round(currentAmount * curr.rateToXof);
+            const formattedXof = (typeof formatMoneyValue === 'function') ? formatMoneyValue(amountInXof, locale) : amountInXof.toLocaleString(locale);
+            receiptAmount.textContent = `${formattedVal} ${curr.symbol} (~${formattedXof} FCFA)`;
+          }
+        } else {
+          receiptAmount.textContent = dict.receipt_free_amount || (isEn ? 'Open amount (according to your means)' : 'Montant libre (selon vos capacités)');
+        }
       }
       if (receiptFrequency) {
         const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;

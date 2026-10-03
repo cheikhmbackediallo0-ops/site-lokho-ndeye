@@ -2431,6 +2431,74 @@ section[id] {
   box-shadow: 0 0 0 1px var(--color-primary);
 }
 
+/* Sélecteur de devise géolocalisé & intelligent */
+.currency-selector-wrap {
+  margin-bottom: 18px;
+  background: rgba(251, 246, 239, 0.75);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(212, 132, 39, 0.22);
+}
+
+.currency-detected-note {
+  font-size: 0.82rem;
+  color: var(--color-text-main);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.currency-detected-note .detected-badge {
+  background: rgba(43, 147, 72, 0.12);
+  color: #1e7033;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.76rem;
+  border: 1px solid rgba(43, 147, 72, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.currency-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.currency-pill-btn {
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: #FFFFFF;
+  color: var(--color-dark);
+  font-weight: 700;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.currency-pill-btn:hover:not(.active) {
+  border-color: var(--color-primary);
+  background: #FFF9F3;
+  transform: translateY(-1px);
+}
+
+.currency-pill-btn.active {
+  background: var(--color-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 3px 10px rgba(166, 72, 35, 0.28);
+}
+
 .custom-amount-wrap {
   position: relative;
   margin-bottom: 24px;
@@ -2465,7 +2533,8 @@ section[id] {
   font-size: 0.95rem;
   pointer-events: none;
   user-select: none;
-}
+  display: inline-flex;
+  align-items: center;
 }
 
 /* Impact de ce don */

@@ -10,13 +10,13 @@ const script = fs.readFileSync(path.join(dir, 'script.js'), 'utf8');
 // Replace CSS link with inline style
 html = html.replace(
   /<link rel="stylesheet" href="style\.css[^"]*">/,
-  `<style>\n${css}\n</style>`
+  () => `<style>\n${css}\n</style>`
 );
 
 // Replace scripts with inline script containing translations and script
 html = html.replace(
   /<script src="translations\.js[^"]*"><\/script>\s*<script src="script\.js[^"]*"><\/script>/,
-  `<script>\n${translations}\n\n${script}\n</script>`
+  () => `<script>\n${translations}\n\n${script}\n</script>`
 );
 
 fs.writeFileSync(path.join(dir, 'site-local.html'), html, 'utf8');

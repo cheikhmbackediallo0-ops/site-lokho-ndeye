@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=3.3">
+  <link rel="stylesheet" href="style.css?v=3.4">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -748,9 +748,40 @@
 
                   <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
 
+                  <!-- Sélecteur de devise adapté au pays de résidence du donateur -->
+                  <div class="currency-selector-wrap">
+                    <div class="currency-detected-note">
+                      <span data-i18n="currency_auto_detected">Devise adaptée à votre pays de résidence :</span>
+                      <span class="detected-badge" id="detectedCountryBadge">
+                        <span id="detectedCountryFlag">🇸🇳</span>
+                        <span id="detectedCountryName">Sénégal (FCFA)</span>
+                      </span>
+                    </div>
+                    <div class="currency-pills" role="radiogroup" aria-label="Devise du don">
+                      <button type="button" class="currency-pill-btn active" data-currency="XOF" role="radio" aria-checked="true">
+                        <span>🇸🇳</span> FCFA (XOF)
+                      </button>
+                      <button type="button" class="currency-pill-btn" data-currency="EUR" role="radio" aria-checked="false">
+                        <span>🇪🇺</span> EUR (€)
+                      </button>
+                      <button type="button" class="currency-pill-btn" data-currency="USD" role="radio" aria-checked="false">
+                        <span>🇺🇸</span> USD ($)
+                      </button>
+                      <button type="button" class="currency-pill-btn" data-currency="CAD" role="radio" aria-checked="false">
+                        <span>🇨🇦</span> CAD ($)
+                      </button>
+                      <button type="button" class="currency-pill-btn" data-currency="GBP" role="radio" aria-checked="false">
+                        <span>🇬🇧</span> GBP (£)
+                      </button>
+                      <button type="button" class="currency-pill-btn" data-currency="CHF" role="radio" aria-checked="false">
+                        <span>🇨🇭</span> CHF
+                      </button>
+                    </div>
+                  </div>
+
                   <!-- Montant personnalisé libre -->
                   <div class="custom-amount-wrap">
-                    <span class="custom-amount-icon">FCFA</span>
+                    <span class="custom-amount-icon" id="customAmountIcon">FCFA</span>
                     <input type="number" id="customAmount" class="custom-amount-input" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
                   </div>
 
@@ -1341,7 +1372,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=3.3"></script>
-  <script src="script.js?v=3.3"></script>
+  <script src="translations.js?v=3.4"></script>
+  <script src="script.js?v=3.4"></script>
 </body>
 </html>
