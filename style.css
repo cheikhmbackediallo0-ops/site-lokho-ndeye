@@ -1492,55 +1492,89 @@ section[id] {
    TYPOGRAPHIE HAUTE VISIBILITÉ : TOUS LES TEXTES EN GRAS DANS TOUTES LES RUBRIQUES
    (Visibilité et lisibilité maximales : textes en gras et contrastés sur fond beige)
    ========================================================================== */
-.section,
-.section p,
-.section li,
-.section a:not(.btn),
-.section span:not(.badge-tag):not(.btn):not(.tag-text):not(.dot):not(.devise-card-icon),
-.section dd,
-.section dt,
-.section label,
-.section .section-subtitle,
-.section .domain-desc,
-.section .project-desc,
-.section .objective-text,
-.section .impact-desc,
-.section .why-item-content p,
-.section .devise-card-desc,
-.section .legal-badge-desc,
-.section .contact-details p,
-.section .transparency-card p,
-.section .doc-sub,
-.section .bank-info-table td,
-.section .chart-sub,
-.section .legend-item,
-.section .form-privacy-note,
-.section .impact-preview-text,
-.section .bowl-progress-note,
-.section .summary-row,
-.section .payment-card-sub,
-.section .upcoming-methods-box p,
-.section .mission-text-block p {
+.section:not(.spotlight-section),
+.section:not(.spotlight-section) p:not(.why-cta-box p):not(.spotlight-desc):not(.project-status-tag),
+.section:not(.spotlight-section) li,
+.section:not(.spotlight-section) a:not(.btn):not(.project-status-tag),
+.section:not(.spotlight-section) span:not(.badge-tag):not(.btn):not(.tag-text):not(.dot):not(.devise-card-icon):not(.project-status-tag):not(.why-cta-box span),
+.section:not(.spotlight-section) dd,
+.section:not(.spotlight-section) dt,
+.section:not(.spotlight-section) label,
+.section:not(.spotlight-section) .section-subtitle,
+.section:not(.spotlight-section) .domain-desc,
+.section:not(.spotlight-section) .project-desc,
+.section:not(.spotlight-section) .objective-text,
+.section:not(.spotlight-section) .impact-desc,
+.section:not(.spotlight-section) .why-item-content p,
+.section:not(.spotlight-section) .devise-card-desc,
+.section:not(.spotlight-section) .legal-badge-desc,
+.section:not(.spotlight-section) .contact-details p,
+.section:not(.spotlight-section) .transparency-card p,
+.section:not(.spotlight-section) .doc-sub,
+.section:not(.spotlight-section) .bank-info-table td,
+.section:not(.spotlight-section) .chart-sub,
+.section:not(.spotlight-section) .legend-item,
+.section:not(.spotlight-section) .form-privacy-note,
+.section:not(.spotlight-section) .impact-preview-text,
+.section:not(.spotlight-section) .bowl-progress-note,
+.section:not(.spotlight-section) .summary-row,
+.section:not(.spotlight-section) .payment-card-sub,
+.section:not(.spotlight-section) .upcoming-methods-box p,
+.section:not(.spotlight-section) .mission-text-block p {
   font-weight: 700 !important;
   color: var(--color-text-main) !important;
 }
 
-.section strong,
-.section b,
-.section .font-bold,
-.section h1,
-.section h2,
-.section h3,
-.section h4,
-.section h5,
-.section .section-title,
-.section .devise-card-title,
-.section .domain-title,
-.section .project-title,
-.section .impact-title,
-.section .doc-name {
+.section:not(.spotlight-section) strong:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) b:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) .font-bold:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h1:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h2:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h3:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h4:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h5:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) .section-title,
+.section:not(.spotlight-section) .devise-card-title,
+.section:not(.spotlight-section) .domain-title,
+.section:not(.spotlight-section) .project-title,
+.section:not(.spotlight-section) .impact-title,
+.section:not(.spotlight-section) .doc-name {
   font-weight: 800 !important;
   color: #0D0301 !important;
+}
+
+/* ==========================================================================
+   LISIBILITÉ MAXIMALE : TEXTES EN BLANC ÉCLATANT SUR TOUS LES FONDS MARRON / SOMBRES
+   ========================================================================== */
+.why-cta-box,
+.why-cta-box *,
+.why-cta-box h1,
+.why-cta-box h2,
+.why-cta-box h3,
+.why-cta-box h4,
+.why-cta-box h5,
+.why-cta-box p,
+.why-cta-box span,
+.project-status-tag,
+.project-status-tag *,
+.project-status-tag span,
+.hero-act-badge,
+.hero-act-badge *,
+.spotlight-section,
+.spotlight-section *,
+.spotlight-title,
+.spotlight-desc,
+.spotlight-impact-lbl,
+.spotlight-impact-val,
+.freq-btn.active,
+.btn-primary,
+.btn-primary * {
+  color: #FFFFFF !important;
+}
+
+.why-cta-box p,
+.spotlight-desc {
+  color: #FFF5EA !important;
 }
 
 /* ==========================================================================
@@ -1941,14 +1975,17 @@ section[id] {
   position: absolute;
   top: 14px;
   left: 14px;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800 !important;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: rgba(39, 20, 14, 0.94);
-  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  background: #2D140B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 .project-body {
@@ -2185,15 +2222,15 @@ section[id] {
 }
 
 .why-cta-box h3 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-size: 1.75rem;
   margin-bottom: 14px;
 }
 
 .why-cta-box p {
-  color: #F8EFE6;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #FFF5EA !important;
+  font-size: 1.05rem;
+  font-weight: 600 !important;
   margin-bottom: 28px;
   line-height: 1.6;
 }

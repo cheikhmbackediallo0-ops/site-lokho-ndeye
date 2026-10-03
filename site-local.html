@@ -1529,55 +1529,89 @@ section[id] {
    TYPOGRAPHIE HAUTE VISIBILITÉ : TOUS LES TEXTES EN GRAS DANS TOUTES LES RUBRIQUES
    (Visibilité et lisibilité maximales : textes en gras et contrastés sur fond beige)
    ========================================================================== */
-.section,
-.section p,
-.section li,
-.section a:not(.btn),
-.section span:not(.badge-tag):not(.btn):not(.tag-text):not(.dot):not(.devise-card-icon),
-.section dd,
-.section dt,
-.section label,
-.section .section-subtitle,
-.section .domain-desc,
-.section .project-desc,
-.section .objective-text,
-.section .impact-desc,
-.section .why-item-content p,
-.section .devise-card-desc,
-.section .legal-badge-desc,
-.section .contact-details p,
-.section .transparency-card p,
-.section .doc-sub,
-.section .bank-info-table td,
-.section .chart-sub,
-.section .legend-item,
-.section .form-privacy-note,
-.section .impact-preview-text,
-.section .bowl-progress-note,
-.section .summary-row,
-.section .payment-card-sub,
-.section .upcoming-methods-box p,
-.section .mission-text-block p {
+.section:not(.spotlight-section),
+.section:not(.spotlight-section) p:not(.why-cta-box p):not(.spotlight-desc):not(.project-status-tag),
+.section:not(.spotlight-section) li,
+.section:not(.spotlight-section) a:not(.btn):not(.project-status-tag),
+.section:not(.spotlight-section) span:not(.badge-tag):not(.btn):not(.tag-text):not(.dot):not(.devise-card-icon):not(.project-status-tag):not(.why-cta-box span),
+.section:not(.spotlight-section) dd,
+.section:not(.spotlight-section) dt,
+.section:not(.spotlight-section) label,
+.section:not(.spotlight-section) .section-subtitle,
+.section:not(.spotlight-section) .domain-desc,
+.section:not(.spotlight-section) .project-desc,
+.section:not(.spotlight-section) .objective-text,
+.section:not(.spotlight-section) .impact-desc,
+.section:not(.spotlight-section) .why-item-content p,
+.section:not(.spotlight-section) .devise-card-desc,
+.section:not(.spotlight-section) .legal-badge-desc,
+.section:not(.spotlight-section) .contact-details p,
+.section:not(.spotlight-section) .transparency-card p,
+.section:not(.spotlight-section) .doc-sub,
+.section:not(.spotlight-section) .bank-info-table td,
+.section:not(.spotlight-section) .chart-sub,
+.section:not(.spotlight-section) .legend-item,
+.section:not(.spotlight-section) .form-privacy-note,
+.section:not(.spotlight-section) .impact-preview-text,
+.section:not(.spotlight-section) .bowl-progress-note,
+.section:not(.spotlight-section) .summary-row,
+.section:not(.spotlight-section) .payment-card-sub,
+.section:not(.spotlight-section) .upcoming-methods-box p,
+.section:not(.spotlight-section) .mission-text-block p {
   font-weight: 700 !important;
   color: var(--color-text-main) !important;
 }
 
-.section strong,
-.section b,
-.section .font-bold,
-.section h1,
-.section h2,
-.section h3,
-.section h4,
-.section h5,
-.section .section-title,
-.section .devise-card-title,
-.section .domain-title,
-.section .project-title,
-.section .impact-title,
-.section .doc-name {
+.section:not(.spotlight-section) strong:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) b:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) .font-bold:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h1:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h2:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h3:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h4:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) h5:not(.why-cta-box *):not(.spotlight-section *),
+.section:not(.spotlight-section) .section-title,
+.section:not(.spotlight-section) .devise-card-title,
+.section:not(.spotlight-section) .domain-title,
+.section:not(.spotlight-section) .project-title,
+.section:not(.spotlight-section) .impact-title,
+.section:not(.spotlight-section) .doc-name {
   font-weight: 800 !important;
   color: #0D0301 !important;
+}
+
+/* ==========================================================================
+   LISIBILITÉ MAXIMALE : TEXTES EN BLANC ÉCLATANT SUR TOUS LES FONDS MARRON / SOMBRES
+   ========================================================================== */
+.why-cta-box,
+.why-cta-box *,
+.why-cta-box h1,
+.why-cta-box h2,
+.why-cta-box h3,
+.why-cta-box h4,
+.why-cta-box h5,
+.why-cta-box p,
+.why-cta-box span,
+.project-status-tag,
+.project-status-tag *,
+.project-status-tag span,
+.hero-act-badge,
+.hero-act-badge *,
+.spotlight-section,
+.spotlight-section *,
+.spotlight-title,
+.spotlight-desc,
+.spotlight-impact-lbl,
+.spotlight-impact-val,
+.freq-btn.active,
+.btn-primary,
+.btn-primary * {
+  color: #FFFFFF !important;
+}
+
+.why-cta-box p,
+.spotlight-desc {
+  color: #FFF5EA !important;
 }
 
 /* ==========================================================================
@@ -1978,14 +2012,17 @@ section[id] {
   position: absolute;
   top: 14px;
   left: 14px;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800 !important;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: rgba(39, 20, 14, 0.94);
-  color: #FFFFFF;
+  letter-spacing: 0.06em;
+  background: #2D140B !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 .project-body {
@@ -2222,15 +2259,15 @@ section[id] {
 }
 
 .why-cta-box h3 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-size: 1.75rem;
   margin-bottom: 14px;
 }
 
 .why-cta-box p {
-  color: #F8EFE6;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #FFF5EA !important;
+  font-size: 1.05rem;
+  font-weight: 600 !important;
   margin-bottom: 28px;
   line-height: 1.6;
 }
@@ -4969,12 +5006,12 @@ html, body {
             </p>
             <div class="spotlight-impact-row">
               <div class="spotlight-impact-box">
-                <span class="spotlight-impact-val" data-i18n="spotlight_stat_1_val">2 000 FCFA</span>
-                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_1_lbl">1 Repas chaud complet pour un enfant affamé</p>
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_1_val">100% Direct</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_1_lbl">De vos dons affectés au secours des enfants de la rue</p>
               </div>
               <div class="spotlight-impact-box">
-                <span class="spotlight-impact-val" data-i18n="spotlight_stat_2_val">5 000 FCFA</span>
-                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_2_lbl">1 Paire de sandales solides & des habits propres</p>
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_2_val">Zéro Frais</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_2_lbl">Bénévolat intégral : aucun salaire prélevé (Art. IX)</p>
               </div>
             </div>
             <a href="#faire-un-don" class="btn btn-secondary btn-pulse" style="font-size: 1.05rem; padding: 16px 32px;" data-i18n="spotlight_cta_btn">
@@ -5127,7 +5164,7 @@ html, body {
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Offrir un repas chaud (2 000 FCFA)</span>
+                  <span data-i18n="proj_support_btn">Soutenir l'aide alimentaire</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
@@ -5154,7 +5191,7 @@ html, body {
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj2_support_btn">Offrir sandales & vêtements (5 000 FCFA)</span>
+                  <span data-i18n="proj2_support_btn">Soutenir les soins & sandales</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
@@ -5248,9 +5285,9 @@ html, body {
           <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary-light); margin-bottom: 16px;">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
-          <h3 data-i18n="why_box_title">Ne les laissez pas seuls ce soir</h3>
-          <p data-i18n="why_box_desc">
-            À l'instant où vous lisez ces lignes, un petit garçon marche pieds nus dans la nuit, grelottant de froid. Pour 2 000 FCFA, vous lui offrez un repas chaud. Pour 5 000 FCFA, vous protégez ses pieds. Ouvrez-lui les bras.
+          <h3 data-i18n="why_box_title" style="color: #FFFFFF !important;">Ne les laissez pas seuls ce soir</h3>
+          <p data-i18n="why_box_desc" style="color: #FFF5EA !important;">
+            À l'instant où vous lisez ces lignes, des enfants errent seuls dans la nuit, grelottant de froid et souffrant de la faim. Quel que soit votre geste, vous leur apportez secours, chaleur et protection. Ouvrez-leur les bras.
           </p>
           <a href="#faire-un-don" class="btn btn-secondary btn-pulse" data-i18n="why_box_btn">
             Faire un don maintenant pour un enfant
@@ -5295,39 +5332,19 @@ html, body {
                   <button type="button" class="freq-btn" data-frequency="occasionnel" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
                 </div>
 
-                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Sélectionnez un palier d'impact ou saisie libre) :</label>
+                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant libre de votre don solidaire :</label>
                 
-                <!-- Paliers d'impact concrets pour les enfants de la rue -->
-                <div class="amount-grid">
-                  <button type="button" class="amount-btn active" data-amount="2000">
-                    <span class="amount-btn-value" data-i18n="tier_2000">2 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_2000_desc">🍲 1 Repas chaud complet & boisson nutritive</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="5000">
-                    <span class="amount-btn-value" data-i18n="tier_5000">5 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_5000_desc">👟 1 Paire de sandales robustes & vêtements propres</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="10000">
-                    <span class="amount-btn-value" data-i18n="tier_10000">10 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_10000_desc">🩹 Kit médical d'urgence (soins plaies, vermifuge, vitamines)</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="25000">
-                    <span class="amount-btn-value" data-i18n="tier_25000">25 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_25000_desc">🌟 1 Mois de prise en charge complète d'un enfant de la rue</span>
-                  </button>
-                </div>
-
-                <!-- Montant personnalisé libre -->
+                <!-- Saisie libre du don solidaire (sans sommes ni matériels estimatifs) -->
                 <div class="custom-amount-wrap">
                   <span class="custom-amount-icon">FCFA</span>
-                  <input type="number" id="customAmount" class="custom-amount-input" value="2000" placeholder="Indiquez un autre montant libre (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
+                  <input type="number" id="customAmount" class="custom-amount-input" value="5000" placeholder="Indiquez le montant de votre don (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
                 </div>
 
                 <!-- Encadré solidaire et impact émotionnel -->
                 <div class="donation-impact-preview">
-                  <span class="impact-preview-icon">🍲</span>
+                  <span class="impact-preview-icon">❤️</span>
                   <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
-                    <strong>Chaque geste sauve une vie :</strong> Avec 2 000 FCFA, vous offrez un repas chaud ce soir à un enfant affamé. Avec 5 000 FCFA, vous protégez ses pieds nus et lui offrez des vêtements propres.
+                    <strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.
                   </p>
                 </div>
 
@@ -5356,7 +5373,7 @@ html, body {
                 <div class="summary-row">
                   <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
                   <div>
-                    <span id="summaryAmount" class="summary-val">2 000 FCFA</span>
+                    <span id="summaryAmount" class="summary-val">5 000 FCFA</span>
                   </div>
                 </div>
 
@@ -5991,10 +6008,10 @@ const translations = {
     spotlight_title: "« Regardez ses yeux : il n'a que 7 ans et son seul lit est la poussière de la rue. »",
     spotlight_quote: "« J'ai marché des heures pieds nus sur le goudron brûlant. Tout ce que je demandais, c'était un peu de pain... »",
     spotlight_text: "Demain matin, quand le soleil se lèvera sur Dakar, Saly ou Thiès, ces enfants marcheront à nouveau pieds nus sur les gravats et les épines, leurs vêtements en lambeaux flottant au vent. Vos dons ne sont pas une simple aumône : c'est la différence entre une nuit de faim glaciale sur le béton et un bol de riz chaud servi avec amour. Ne détournez pas le regard.",
-    spotlight_stat_1_val: "2 000 FCFA",
-    spotlight_stat_1_lbl: "1 Repas chaud complet pour un enfant affamé",
-    spotlight_stat_2_val: "5 000 FCFA",
-    spotlight_stat_2_lbl: "1 Paire de sandales solides & des habits propres",
+    spotlight_stat_1_val: "100% Direct",
+    spotlight_stat_1_lbl: "De vos dons affectés au secours des enfants de la rue",
+    spotlight_stat_2_val: "Zéro Frais",
+    spotlight_stat_2_lbl: "Bénévolat intégral : aucun salaire prélevé (Art. IX)",
     spotlight_cta_btn: "Sauver un enfant maintenant",
 
     // Section Domaines d'Intervention (100% Enfants de la Rue)
@@ -6030,14 +6047,14 @@ const translations = {
     proj1_desc: "Pour un enfant qui a passé la journée entière à mendier sous un soleil accablant, un bol de riz chaud est une bénédiction. Nous cuisinons et distribuons chaque jour des repas équilibrés, riches en protéines et légumes, servis dans la joie et le respect.",
     proj_obj_label: "Objectif prioritaire :",
     proj1_obj: "Garantir qu'aucun enfant de la rue ne s'endorme les larmes aux yeux et le ventre vide.",
-    proj_support_btn: "Offrir un repas chaud (2 000 FCFA)",
+    proj_support_btn: "Soutenir l'aide alimentaire",
 
     proj2_status: "Santé & Dignité Corporelle",
     proj2_cat: "Chaussures & Soins d'Urgence",
     proj2_title: "Projet « Des Pas Protégés : Sandales & Vêtements »",
     proj2_desc: "Marcher des kilomètres pieds nus sur le bitume brûlant, les gravats et les débris provoque de douloureuses plaies infectieuses. Nous soignons leurs pieds, leur offrons des sandales fermes et remplaçons leurs haillons délabrés par des vêtements neufs et propres.",
     proj2_obj: "Guérir les plaies de la marche, prévenir le tétanos et restaurer leur dignité d'enfant.",
-    proj2_support_btn: "Offrir sandales & vêtements (5 000 FCFA)",
+    proj2_support_btn: "Soutenir les soins & sandales",
 
     proj3_status: "Sécurité & Protection Nocturne",
     proj3_cat: "Refuge d'Urgence & Sommeil",
@@ -6057,7 +6074,7 @@ const translations = {
     why_item3_title: "L'amour d'une mère pour chaque enfant abandonné",
     why_item3_desc: "Nous ne donnons pas seulement du pain : nous posons une main douce sur leur épaule, nous essuyons leurs larmes et nous leur redonnons la fierté d'être un enfant aimé.",
     why_box_title: "Ne les laissez pas seuls ce soir",
-    why_box_desc: "À l'instant où vous lisez ces lignes, un petit garçon marche pieds nus dans la nuit, grelottant de froid. Pour 2 000 FCFA, vous lui offrez un repas chaud. Pour 5 000 FCFA, vous protégez ses pieds. Ouvrez-lui les bras.",
+    why_box_desc: "À l'instant où vous lisez ces lignes, des enfants errent seuls dans la nuit, grelottant de froid et souffrant de la faim. Quel que soit votre geste, vous leur apportez secours, chaleur et protection. Ouvrez-leur les bras.",
     why_box_btn: "Faire un don maintenant pour un enfant",
 
     // Section Faire un don (Paliers d'impact émotionnels)
@@ -6069,17 +6086,17 @@ const translations = {
     freq_label: "1. Fréquence de votre soutien solidaire :",
     freq_ponctuel: "Don ponctuel d'urgence",
     freq_occasionnel: "Don régulier (mensuel)",
-    amount_label: "2. Montant de votre don (Sélectionnez un palier d'impact ou saisie libre) :",
-    custom_amount_placeholder: "Indiquez un autre montant libre (en FCFA)",
+    amount_label: "2. Montant libre de votre don solidaire :",
+    custom_amount_placeholder: "Indiquez le montant de votre don (en FCFA)",
     tier_2000: "2 000 FCFA",
-    tier_2000_desc: "🍲 1 Repas chaud complet & boisson nutritive",
+    tier_2000_desc: "🍲 Repas chaud & boisson nutritive",
     tier_5000: "5 000 FCFA",
-    tier_5000_desc: "👟 1 Paire de sandales robustes & vêtements propres",
+    tier_5000_desc: "👟 Sandales solides & vêtements propres",
     tier_10000: "10 000 FCFA",
-    tier_10000_desc: "🩹 Kit médical d'urgence (soins plaies, vermifuge, vitamines)",
+    tier_10000_desc: "🩹 Kit médical & soins d'urgence",
     tier_25000: "25 000 FCFA",
-    tier_25000_desc: "🌟 1 Mois de prise en charge complète d'un enfant de la rue",
-    preview_default: "<strong>Chaque geste sauve une vie :</strong> Avec 2 000 FCFA, vous offrez un repas chaud ce soir à un enfant affamé. Avec 5 000 FCFA, vous protégez ses pieds nus et lui offrez des vêtements propres.",
+    tier_25000_desc: "🌟 Prise en charge solidaire globale",
+    preview_default: "<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.",
     preview_custom: "<strong>Votre geste solidaire pour les enfants :</strong> Votre don de <strong>{amount} FCFA</strong> sera intégralement alloué aux repas chauds, soins médicaux des pieds, chaussures et abri pour les enfants de la rue au Sénégal.",
     volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).",
 
@@ -6327,10 +6344,10 @@ const translations = {
     spotlight_title: "“Look into his eyes: he is only 7 years old, and his only bed is the street dust.”",
     spotlight_quote: "“I walked for hours barefoot on scorching asphalt. All I asked for was a piece of bread...”",
     spotlight_text: "Tomorrow morning, as the sun rises over Dakar, Saly, or Thiès, these children will once again walk barefoot over broken glass and thorns, their ragged clothes flapping in the wind. Your donation is not mere spare change: it is the exact difference between a freezing night on concrete and a warm bowl of rice served with unconditional love. Please don't look away.",
-    spotlight_stat_1_val: "2,000 FCFA",
-    spotlight_stat_1_lbl: "1 Warm nourishing meal for a hungry street kid",
-    spotlight_stat_2_val: "5,000 FCFA",
-    spotlight_stat_2_lbl: "1 Pair of sturdy sandals & clean clothes",
+    spotlight_stat_1_val: "100% Direct",
+    spotlight_stat_1_lbl: "Of your donations dedicated to rescuing street children",
+    spotlight_stat_2_val: "Zero Fees",
+    spotlight_stat_2_lbl: "Fully volunteer-run: no salaries deducted (Art. IX)",
     spotlight_cta_btn: "Rescue a Child Now",
 
     // Fields of Action
@@ -6366,14 +6383,14 @@ const translations = {
     proj1_desc: "For a child who spent the entire day begging under a blazing sun, a warm bowl of rice is a blessing. We cook and distribute balanced, protein-rich, and vitamin-packed meals every single day, shared with joyful brotherly warmth.",
     proj_obj_label: "Priority objective:",
     proj1_obj: "Ensure no street child goes to sleep with tears in his eyes and an empty stomach.",
-    proj_support_btn: "Provide a warm meal (2,000 FCFA)",
+    proj_support_btn: "Support warm meals relief",
 
     proj2_status: "Health & Physical Dignity",
     proj2_cat: "Sandals & Emergency Care",
     proj2_title: "Project “Protected Steps: Shoes & Clothes”",
     proj2_desc: "Walking barefoot for miles on burning pavement, rubble, and thorns causes agonizing infected sores. We bandage their feet, provide sturdy sandals, and replace their torn rags with clean, decent clothing.",
     proj2_obj: "Heal walking sores, prevent severe tetanus, and restore their childhood dignity.",
-    proj2_support_btn: "Give sandals & clothes (5,000 FCFA)",
+    proj2_support_btn: "Support healthcare & sandals",
 
     proj3_status: "Night Safety & Protection",
     proj3_cat: "Emergency Shelter & Sleep",
@@ -6393,7 +6410,7 @@ const translations = {
     why_item3_title: "A mother's love for every abandoned child",
     why_item3_desc: "We don't just hand out food: we put a gentle hand on their shoulder, listen to their sorrow, and restore their pride as loved human beings.",
     why_box_title: "Don't leave them alone tonight",
-    why_box_desc: "As you read these words, a young boy is walking barefoot in the dark, shivering from cold. For 2,000 FCFA, you change his night. For 5,000 FCFA, you protect his steps for months. Reach out your hand.",
+    why_box_desc: "As you read these words, children wander alone in the dark, shivering from cold and suffering from hunger. Whatever the size of your gift, you bring them direct relief, warmth, and protection. Open your arms to them.",
     why_box_btn: "Donate now for a street child",
 
     // Section Faire un don
@@ -6405,17 +6422,17 @@ const translations = {
     freq_label: "1. Frequency of your support:",
     freq_ponctuel: "One-time emergency gift",
     freq_occasionnel: "Monthly regular gift",
-    amount_label: "2. Donation amount (Select an impact tier or enter a custom amount):",
-    custom_amount_placeholder: "Enter custom amount (in FCFA)",
+    amount_label: "2. Free solidarity donation amount:",
+    custom_amount_placeholder: "Enter donation amount (in FCFA)",
     tier_2000: "2,000 FCFA",
-    tier_2000_desc: "🍲 1 Complete hot meal & nutritious drink",
+    tier_2000_desc: "🍲 Warm meal & nutritious drink",
     tier_5000: "5,000 FCFA",
-    tier_5000_desc: "👟 1 Pair of sturdy sandals & clean clothes",
+    tier_5000_desc: "👟 Sturdy sandals & clean clothes",
     tier_10000: "10,000 FCFA",
-    tier_10000_desc: "🩹 Emergency medical kit (wound care, deworming, vitamins)",
+    tier_10000_desc: "🩹 Medical kit & emergency care",
     tier_25000: "25,000 FCFA",
-    tier_25000_desc: "🌟 1 Full month of complete care for a street child",
-    preview_default: "<strong>Every gesture saves a life:</strong> With 2,000 FCFA, you offer a hot meal tonight to a starving child. With 5,000 FCFA, you protect his bare feet and give him clean clothes.",
+    tier_25000_desc: "🌟 Full solidarity sponsorship",
+    preview_default: "<strong>Every gesture saves a life:</strong> There is no small donation. Your generosity helps rescue, feed, heal, and shelter street children in Senegal.",
     preview_custom: "<strong>Your support for the children:</strong> Your donation of <strong>{amount} FCFA</strong> will be fully dedicated to warm meals, foot wound care, protective shoes, and shelter for street children across Senegal.",
     volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping street children across Senegal. Zero salaries paid to leadership (Art. IX).",
 
@@ -7288,7 +7305,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryFrequency = document.getElementById('summaryFrequency');
   const impactText = document.getElementById('impactPreviewText');
 
-  let currentAmount = 2000;
+  let currentAmount = 5000;
   let currentFrequency = 'ponctuel';
 
   const frequencyDisplayNames = {
@@ -7325,30 +7342,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (impactText) {
-      if (currentAmount === 2000) {
+      if (currentAmount > 0) {
         impactText.innerHTML = isEn
-          ? `<strong>🍲 Vital Hot Meal:</strong> Your gift of <strong>2,000 FCFA</strong> provides 1 complete hot meal and a fortified drink to a starving street child tonight.`
-          : `<strong>🍲 Repas Chaud Vital :</strong> Votre don de <strong>2 000 FCFA</strong> offre ce soir 1 repas chaud complet et une boisson nutritive à un enfant affamé de la rue.`;
-      } else if (currentAmount === 5000) {
-        impactText.innerHTML = isEn
-          ? `<strong>👟 Sturdy Sandals & Clean Clothes:</strong> Your gift of <strong>5,000 FCFA</strong> protects a child's bare feet with durable sandals and replaces his worn-out tattered rags.`
-          : `<strong>👟 Sandales & Habits Décents :</strong> Votre don de <strong>5 000 FCFA</strong> protège les petits pieds nus d'un enfant avec des sandales robustes et remplace ses vêtements déchirés par des habits propres.`;
-      } else if (currentAmount === 10000) {
-        impactText.innerHTML = isEn
-          ? `<strong>🩹 Emergency Medical Care:</strong> Your gift of <strong>10,000 FCFA</strong> funds an antiseptic wound kit, antibiotics, and malaria treatment for a wounded street child.`
-          : `<strong>🩹 Soins Médicaux d'Urgence :</strong> Votre don de <strong>10 000 FCFA</strong> finance un kit de soins antiseptiques, antibiotiques et déparasitage pour soigner les plaies d'un enfant de la rue.`;
-      } else if (currentAmount >= 25000) {
-        impactText.innerHTML = isEn
-          ? `<strong>🌟 Full Sponsorship (1 Month):</strong> Your generous gift of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> covers complete food, clothing, hygiene, and safe emergency shelter for street children.`
-          : `<strong>🌟 Parrainage d'Espoir (1 Mois) :</strong> Votre don exceptionnel de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> assure la nourriture quotidienne, les vêtements, les soins et l'abri sécurisé d'un enfant des rues.`;
-      } else if (currentAmount > 0) {
-        impactText.innerHTML = isEn
-          ? `<strong>Your gift of love:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, clothing, healing, and sheltering street children in Senegal.`
-          : `<strong>Votre geste d'amour :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
+          ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> directly supports rescue, nutrition, medical care, and safe shelter for street children in Senegal.`
+          : `<strong>Votre geste solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> est intégralement dédié au secours, aux repas, aux soins et à la protection des enfants de la rue au Sénégal.`;
       } else {
         impactText.innerHTML = isEn
-          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Every franc helps provide warm food, clean sandals, and shelter to children sleeping on the street.`
-          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Chaque franc permet d'offrir un repas chaud, des sandales neuves et un toit protecteur aux enfants de la rue.`;
+          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Your generosity helps rescue, feed, heal, and shelter street children in Senegal.`
+          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.`;
       }
     }
   }

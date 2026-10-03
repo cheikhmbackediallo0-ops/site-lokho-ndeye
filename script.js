@@ -704,7 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryFrequency = document.getElementById('summaryFrequency');
   const impactText = document.getElementById('impactPreviewText');
 
-  let currentAmount = 2000;
+  let currentAmount = 5000;
   let currentFrequency = 'ponctuel';
 
   const frequencyDisplayNames = {
@@ -741,30 +741,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (impactText) {
-      if (currentAmount === 2000) {
+      if (currentAmount > 0) {
         impactText.innerHTML = isEn
-          ? `<strong>🍲 Vital Hot Meal:</strong> Your gift of <strong>2,000 FCFA</strong> provides 1 complete hot meal and a fortified drink to a starving street child tonight.`
-          : `<strong>🍲 Repas Chaud Vital :</strong> Votre don de <strong>2 000 FCFA</strong> offre ce soir 1 repas chaud complet et une boisson nutritive à un enfant affamé de la rue.`;
-      } else if (currentAmount === 5000) {
-        impactText.innerHTML = isEn
-          ? `<strong>👟 Sturdy Sandals & Clean Clothes:</strong> Your gift of <strong>5,000 FCFA</strong> protects a child's bare feet with durable sandals and replaces his worn-out tattered rags.`
-          : `<strong>👟 Sandales & Habits Décents :</strong> Votre don de <strong>5 000 FCFA</strong> protège les petits pieds nus d'un enfant avec des sandales robustes et remplace ses vêtements déchirés par des habits propres.`;
-      } else if (currentAmount === 10000) {
-        impactText.innerHTML = isEn
-          ? `<strong>🩹 Emergency Medical Care:</strong> Your gift of <strong>10,000 FCFA</strong> funds an antiseptic wound kit, antibiotics, and malaria treatment for a wounded street child.`
-          : `<strong>🩹 Soins Médicaux d'Urgence :</strong> Votre don de <strong>10 000 FCFA</strong> finance un kit de soins antiseptiques, antibiotiques et déparasitage pour soigner les plaies d'un enfant de la rue.`;
-      } else if (currentAmount >= 25000) {
-        impactText.innerHTML = isEn
-          ? `<strong>🌟 Full Sponsorship (1 Month):</strong> Your generous gift of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> covers complete food, clothing, hygiene, and safe emergency shelter for street children.`
-          : `<strong>🌟 Parrainage d'Espoir (1 Mois) :</strong> Votre don exceptionnel de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> assure la nourriture quotidienne, les vêtements, les soins et l'abri sécurisé d'un enfant des rues.`;
-      } else if (currentAmount > 0) {
-        impactText.innerHTML = isEn
-          ? `<strong>Your gift of love:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, clothing, healing, and sheltering street children in Senegal.`
-          : `<strong>Votre geste d'amour :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
+          ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> directly supports rescue, nutrition, medical care, and safe shelter for street children in Senegal.`
+          : `<strong>Votre geste solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> est intégralement dédié au secours, aux repas, aux soins et à la protection des enfants de la rue au Sénégal.`;
       } else {
         impactText.innerHTML = isEn
-          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Every franc helps provide warm food, clean sandals, and shelter to children sleeping on the street.`
-          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Chaque franc permet d'offrir un repas chaud, des sandales neuves et un toit protecteur aux enfants de la rue.`;
+          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Your generosity helps rescue, feed, heal, and shelter street children in Senegal.`
+          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.`;
       }
     }
   }

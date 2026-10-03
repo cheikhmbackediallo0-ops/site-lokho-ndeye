@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=2.8">
+  <link rel="stylesheet" href="style.css?v=2.9">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -422,12 +422,12 @@
             </p>
             <div class="spotlight-impact-row">
               <div class="spotlight-impact-box">
-                <span class="spotlight-impact-val" data-i18n="spotlight_stat_1_val">2 000 FCFA</span>
-                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_1_lbl">1 Repas chaud complet pour un enfant affamé</p>
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_1_val">100% Direct</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_1_lbl">De vos dons affectés au secours des enfants de la rue</p>
               </div>
               <div class="spotlight-impact-box">
-                <span class="spotlight-impact-val" data-i18n="spotlight_stat_2_val">5 000 FCFA</span>
-                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_2_lbl">1 Paire de sandales solides & des habits propres</p>
+                <span class="spotlight-impact-val" data-i18n="spotlight_stat_2_val">Zéro Frais</span>
+                <p class="spotlight-impact-lbl" data-i18n="spotlight_stat_2_lbl">Bénévolat intégral : aucun salaire prélevé (Art. IX)</p>
               </div>
             </div>
             <a href="#faire-un-don" class="btn btn-secondary btn-pulse" style="font-size: 1.05rem; padding: 16px 32px;" data-i18n="spotlight_cta_btn">
@@ -580,7 +580,7 @@
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Offrir un repas chaud (2 000 FCFA)</span>
+                  <span data-i18n="proj_support_btn">Soutenir l'aide alimentaire</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
@@ -607,7 +607,7 @@
 
               <div class="project-footer">
                 <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj2_support_btn">Offrir sandales & vêtements (5 000 FCFA)</span>
+                  <span data-i18n="proj2_support_btn">Soutenir les soins & sandales</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
               </div>
@@ -701,9 +701,9 @@
           <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-secondary-light); margin-bottom: 16px;">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
           </svg>
-          <h3 data-i18n="why_box_title">Ne les laissez pas seuls ce soir</h3>
-          <p data-i18n="why_box_desc">
-            À l'instant où vous lisez ces lignes, un petit garçon marche pieds nus dans la nuit, grelottant de froid. Pour 2 000 FCFA, vous lui offrez un repas chaud. Pour 5 000 FCFA, vous protégez ses pieds. Ouvrez-lui les bras.
+          <h3 data-i18n="why_box_title" style="color: #FFFFFF !important;">Ne les laissez pas seuls ce soir</h3>
+          <p data-i18n="why_box_desc" style="color: #FFF5EA !important;">
+            À l'instant où vous lisez ces lignes, des enfants errent seuls dans la nuit, grelottant de froid et souffrant de la faim. Quel que soit votre geste, vous leur apportez secours, chaleur et protection. Ouvrez-leur les bras.
           </p>
           <a href="#faire-un-don" class="btn btn-secondary btn-pulse" data-i18n="why_box_btn">
             Faire un don maintenant pour un enfant
@@ -748,39 +748,19 @@
                   <button type="button" class="freq-btn" data-frequency="occasionnel" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
                 </div>
 
-                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Sélectionnez un palier d'impact ou saisie libre) :</label>
+                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant libre de votre don solidaire :</label>
                 
-                <!-- Paliers d'impact concrets pour les enfants de la rue -->
-                <div class="amount-grid">
-                  <button type="button" class="amount-btn active" data-amount="2000">
-                    <span class="amount-btn-value" data-i18n="tier_2000">2 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_2000_desc">🍲 1 Repas chaud complet & boisson nutritive</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="5000">
-                    <span class="amount-btn-value" data-i18n="tier_5000">5 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_5000_desc">👟 1 Paire de sandales robustes & vêtements propres</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="10000">
-                    <span class="amount-btn-value" data-i18n="tier_10000">10 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_10000_desc">🩹 Kit médical d'urgence (soins plaies, vermifuge, vitamines)</span>
-                  </button>
-                  <button type="button" class="amount-btn" data-amount="25000">
-                    <span class="amount-btn-value" data-i18n="tier_25000">25 000 FCFA</span>
-                    <span class="amount-btn-desc" data-i18n="tier_25000_desc">🌟 1 Mois de prise en charge complète d'un enfant de la rue</span>
-                  </button>
-                </div>
-
-                <!-- Montant personnalisé libre -->
+                <!-- Saisie libre du don solidaire (sans sommes ni matériels estimatifs) -->
                 <div class="custom-amount-wrap">
                   <span class="custom-amount-icon">FCFA</span>
-                  <input type="number" id="customAmount" class="custom-amount-input" value="2000" placeholder="Indiquez un autre montant libre (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
+                  <input type="number" id="customAmount" class="custom-amount-input" value="5000" placeholder="Indiquez le montant de votre don (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
                 </div>
 
                 <!-- Encadré solidaire et impact émotionnel -->
                 <div class="donation-impact-preview">
-                  <span class="impact-preview-icon">🍲</span>
+                  <span class="impact-preview-icon">❤️</span>
                   <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
-                    <strong>Chaque geste sauve une vie :</strong> Avec 2 000 FCFA, vous offrez un repas chaud ce soir à un enfant affamé. Avec 5 000 FCFA, vous protégez ses pieds nus et lui offrez des vêtements propres.
+                    <strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.
                   </p>
                 </div>
 
@@ -809,7 +789,7 @@
                 <div class="summary-row">
                   <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
                   <div>
-                    <span id="summaryAmount" class="summary-val">2 000 FCFA</span>
+                    <span id="summaryAmount" class="summary-val">5 000 FCFA</span>
                   </div>
                 </div>
 
@@ -1348,7 +1328,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=2.8"></script>
-  <script src="script.js?v=2.8"></script>
+  <script src="translations.js?v=2.9"></script>
+  <script src="script.js?v=2.9"></script>
 </body>
 </html>
