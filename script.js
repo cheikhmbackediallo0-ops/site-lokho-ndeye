@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function updateDonationSummary() {
-    const lang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'fr';
+    const lang = window.currentLanguage || 'fr';
     const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
     const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
     const isEn = (lang === 'en');
@@ -755,7 +755,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Sélection rapide du montant par bouton de palier
+  // Sélection rapide du montant par bouton de palier (si présent)
   amountButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       amountButtons.forEach(b => b.classList.remove('active'));
@@ -788,12 +788,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fréquence (Ponctuel ou Mensuel)
+  // Fréquence (Occasionnel ou Régulier)
   freqButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      freqButtons.forEach(b => b.classList.remove('active'));
+      freqButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
-      currentFrequency = btn.getAttribute('data-frequency');
+      btn.setAttribute('aria-pressed', 'true');
+      currentFrequency = btn.getAttribute('data-frequency') || 'occasionnel';
       updateDonationSummary();
     });
   });

@@ -2380,19 +2380,28 @@ section[id] {
 
 .freq-btn {
   flex: 1;
-  padding: 10px 18px;
+  padding: 11px 18px;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--color-text-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
   transition: all var(--transition-fast);
   text-align: center;
+  user-select: none;
+}
+
+.freq-btn:hover:not(.active) {
+  color: var(--color-dark);
+  background: rgba(166, 72, 35, 0.08);
 }
 
 .freq-btn.active {
-  background: var(--color-primary);
-  color: #FFFFFF;
-  box-shadow: var(--shadow-xs);
+  background: var(--color-primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(166, 72, 35, 0.28);
 }
 
 /* Montants suggérés */
@@ -2446,7 +2455,7 @@ section[id] {
 
 .custom-amount-input {
   width: 100%;
-  padding: 16px 20px 16px 54px;
+  padding: 16px 20px 16px 68px;
   border-radius: var(--radius-md);
   border: 2px solid rgba(212, 132, 39, 0.35);
   font-size: 1.15rem;
@@ -2465,12 +2474,15 @@ section[id] {
 
 .custom-amount-icon {
   position: absolute;
-  left: 14px;
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-secondary-dark);
   font-weight: 800;
   font-size: 0.95rem;
+  pointer-events: none;
+  user-select: none;
+}
 }
 
 /* Impact de ce don */
@@ -2602,10 +2614,24 @@ section[id] {
 .summary-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
   border-bottom: 1px dashed var(--color-border);
   font-size: 0.92rem;
+}
+
+.summary-row > span:first-child {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.summary-row > span:last-child,
+.summary-row > div:last-child {
+  text-align: right;
+  word-break: normal;
 }
 
 .summary-row:last-of-type {
@@ -5310,8 +5336,8 @@ html, body {
               <div class="donation-form-panel">
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
                 <div class="frequency-selector">
-                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_ponctuel">Don occasionnel</button>
-                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
+                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_occasionnel" aria-pressed="true">Don occasionnel</button>
+                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_regulier" aria-pressed="false">Don régulier (mensuel)</button>
                 </div>
 
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
@@ -5349,13 +5375,13 @@ html, body {
 
                 <div class="summary-row">
                   <span data-i18n="sum_freq_lbl">Type de don :</span>
-                  <span id="summaryFrequency" style="font-weight: 600;" data-i18n="freq_ponctuel">Don occasionnel</span>
+                  <span id="summaryFrequency" style="font-weight: 600;">Don occasionnel</span>
                 </div>
 
                 <div class="summary-row">
                   <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
                   <div>
-                    <span id="summaryAmount" class="summary-val" data-i18n="sum_amount_free">Montant libre selon vos capacités</span>
+                    <span id="summaryAmount" class="summary-val">Montant libre selon vos capacités</span>
                   </div>
                 </div>
 
@@ -5839,11 +5865,11 @@ html, body {
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_amount_lbl">Montant du soutien :</td>
-              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount" data-i18n="receipt_free_amount">Montant libre (selon vos capacités)</td>
+              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount">Montant libre (selon vos capacités)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_freq_lbl">Fréquence :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don occasionnel</td>
+              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq">Don occasionnel</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_alloc_lbl">Affectation sociale :</td>
@@ -6066,8 +6092,9 @@ const translations = {
     tab_pledge: "Promesse & Formulaire de don",
     tab_methods: "Coordonnées de virement & Wave",
     freq_label: "1. Fréquence de votre soutien solidaire :",
+    freq_occasionnel: "Don occasionnel",
+    freq_regulier: "Don régulier (mensuel)",
     freq_ponctuel: "Don occasionnel",
-    freq_occasionnel: "Don régulier (mensuel)",
     amount_label: "2. Montant de votre don (Montant libre selon vos capacités) :",
     custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
     tier_2000: "Don Solidaire",
@@ -6402,8 +6429,9 @@ const translations = {
     tab_pledge: "Pledge & Donation Form",
     tab_methods: "Bank Wire & Wave Details",
     freq_label: "1. Frequency of your support:",
+    freq_occasionnel: "Occasional gift",
+    freq_regulier: "Regular gift (monthly)",
     freq_ponctuel: "Occasional gift",
-    freq_occasionnel: "Monthly regular gift",
     amount_label: "2. Donation amount (Open amount according to your means):",
     custom_amount_placeholder: "Enter custom amount (in FCFA)",
     tier_2000: "Solidarity Gift",
@@ -7308,7 +7336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function updateDonationSummary() {
-    const lang = (typeof currentLanguage !== 'undefined') ? currentLanguage : 'fr';
+    const lang = window.currentLanguage || 'fr';
     const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
     const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
     const isEn = (lang === 'en');
@@ -7338,7 +7366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Sélection rapide du montant par bouton de palier
+  // Sélection rapide du montant par bouton de palier (si présent)
   amountButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       amountButtons.forEach(b => b.classList.remove('active'));
@@ -7371,12 +7399,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Fréquence (Ponctuel ou Mensuel)
+  // Fréquence (Occasionnel ou Régulier)
   freqButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      freqButtons.forEach(b => b.classList.remove('active'));
+      freqButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
-      currentFrequency = btn.getAttribute('data-frequency');
+      btn.setAttribute('aria-pressed', 'true');
+      currentFrequency = btn.getAttribute('data-frequency') || 'occasionnel';
       updateDonationSummary();
     });
   });

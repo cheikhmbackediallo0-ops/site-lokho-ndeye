@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=2.8">
+  <link rel="stylesheet" href="style.css?v=3.2">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -741,8 +741,8 @@
               <div class="donation-form-panel">
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
                 <div class="frequency-selector">
-                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_ponctuel">Don occasionnel</button>
-                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_occasionnel">Don régulier (mensuel)</button>
+                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_occasionnel" aria-pressed="true">Don occasionnel</button>
+                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_regulier" aria-pressed="false">Don régulier (mensuel)</button>
                 </div>
 
                 <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
@@ -780,13 +780,13 @@
 
                 <div class="summary-row">
                   <span data-i18n="sum_freq_lbl">Type de don :</span>
-                  <span id="summaryFrequency" style="font-weight: 600;" data-i18n="freq_ponctuel">Don occasionnel</span>
+                  <span id="summaryFrequency" style="font-weight: 600;">Don occasionnel</span>
                 </div>
 
                 <div class="summary-row">
                   <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
                   <div>
-                    <span id="summaryAmount" class="summary-val" data-i18n="sum_amount_free">Montant libre selon vos capacités</span>
+                    <span id="summaryAmount" class="summary-val">Montant libre selon vos capacités</span>
                   </div>
                 </div>
 
@@ -1270,11 +1270,11 @@
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_amount_lbl">Montant du soutien :</td>
-              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount" data-i18n="receipt_free_amount">Montant libre (selon vos capacités)</td>
+              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount">Montant libre (selon vos capacités)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--color-border);">
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_freq_lbl">Fréquence :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq" data-i18n="freq_ponctuel">Don occasionnel</td>
+              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq">Don occasionnel</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_alloc_lbl">Affectation sociale :</td>
@@ -1325,7 +1325,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=2.8"></script>
-  <script src="script.js?v=2.8"></script>
+  <script src="translations.js?v=3.2"></script>
+  <script src="script.js?v=3.2"></script>
 </body>
 </html>
