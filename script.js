@@ -805,6 +805,103 @@ document.addEventListener('DOMContentLoaded', () => {
   updateDonationSummary();
 
   // ==========================================================================
+  // 7bis. GESTIONNAIRE D'ONGLETS DE L'ESPACE DE DON (Formulaire vs Coordonnées officielles)
+  // ==========================================================================
+  const tabInteractiveDon = document.getElementById('tabInteractiveDon');
+  const tabOfficialMethods = document.getElementById('tabOfficialMethods');
+  const panelInteractiveDon = document.getElementById('panelInteractiveDon');
+  const panelOfficialMethods = document.getElementById('panelOfficialMethods');
+  const btnSeeCoords = document.getElementById('btnSeeCoords');
+  const btnBackToPledgeForm = document.getElementById('btnBackToPledgeForm');
+
+  function switchDonationTab(target) {
+    if (target === 'methods' || target === 'coordonnees') {
+      if (tabInteractiveDon) {
+        tabInteractiveDon.classList.remove('active');
+        tabInteractiveDon.setAttribute('aria-selected', 'false');
+      }
+      if (tabOfficialMethods) {
+        tabOfficialMethods.classList.add('active');
+        tabOfficialMethods.setAttribute('aria-selected', 'true');
+      }
+      if (panelInteractiveDon) {
+        panelInteractiveDon.classList.remove('active');
+        panelInteractiveDon.style.display = 'none';
+      }
+      if (panelOfficialMethods) {
+        panelOfficialMethods.classList.add('active');
+        panelOfficialMethods.style.display = 'block';
+      }
+    } else {
+      if (tabOfficialMethods) {
+        tabOfficialMethods.classList.remove('active');
+        tabOfficialMethods.setAttribute('aria-selected', 'false');
+      }
+      if (tabInteractiveDon) {
+        tabInteractiveDon.classList.add('active');
+        tabInteractiveDon.setAttribute('aria-selected', 'true');
+      }
+      if (panelOfficialMethods) {
+        panelOfficialMethods.classList.remove('active');
+        panelOfficialMethods.style.display = 'none';
+      }
+      if (panelInteractiveDon) {
+        panelInteractiveDon.classList.add('active');
+        panelInteractiveDon.style.display = 'block';
+      }
+    }
+  }
+  window.switchDonationTab = switchDonationTab;
+
+  if (tabInteractiveDon) {
+    tabInteractiveDon.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchDonationTab('interactive');
+    });
+  }
+
+  if (tabOfficialMethods) {
+    tabOfficialMethods.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchDonationTab('methods');
+    });
+  }
+
+  if (btnSeeCoords) {
+    btnSeeCoords.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchDonationTab('methods');
+      const coordsSec = document.getElementById('coordonnees-officielles') || panelOfficialMethods;
+      if (coordsSec) {
+        coordsSec.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
+  if (btnBackToPledgeForm) {
+    btnBackToPledgeForm.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchDonationTab('interactive');
+      const tabsHeader = document.querySelector('.donation-tabs-header');
+      if (tabsHeader) {
+        tabsHeader.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
+
+  // Boutons « Soutenir » des cartes projets : basculent sur le formulaire et ciblent le don
+  document.querySelectorAll('.project-link-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchDonationTab('interactive');
+      if (customAmountInput) {
+        setTimeout(() => {
+          customAmountInput.focus();
+        }, 500);
+      }
+    });
+  });
+
+  // ==========================================================================
   // 8. EFFET 3D TILT SUR LES CARTES (Cartes Projets, Domaines & Paiement)
   // ==========================================================================
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {

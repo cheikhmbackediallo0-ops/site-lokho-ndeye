@@ -195,6 +195,8 @@ const translations = {
     sum_alloc_val: "100% Repas, Soins & Protection des Enfants de la Rue",
     btn_pledge: "Générer mon engagement de don",
     btn_see_coords: "Voir les coordonnées officielles ci-dessous",
+    btn_back_to_form: "← Remplir une promesse de don / Obtenir un reçu",
+    coords_banner_text: "Coordonnées officielles vérifiées de l'Association Caritative LOKHO NDEYE",
     don_security_note: "🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.",
 
     // Cartes de paiement
@@ -532,6 +534,8 @@ const translations = {
     sum_alloc_val: "100% Meals, Medical Care & Protection for Street Children",
     btn_pledge: "Generate my donation pledge",
     btn_see_coords: "See official payment details below",
+    btn_back_to_form: "← Return to pledge form / Get receipt",
+    coords_banner_text: "Verified official account details of Lokho Ndéye Charitable Association",
     don_security_note: "🔒 No sensitive banking data is stored on this site. Your contributions are made directly through the association's secure official channels.",
 
     // Payment Cards

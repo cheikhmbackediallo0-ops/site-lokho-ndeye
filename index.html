@@ -34,7 +34,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=3.2">
+  <link rel="stylesheet" href="style.css?v=3.3">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -737,200 +737,216 @@
 
           <div class="donation-content-area">
             <!-- 1. Formulaire de promesse de don solidaire libre avec paliers d'impact -->
-            <div class="donation-interactive-grid">
-              <div class="donation-form-panel">
-                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
-                <div class="frequency-selector">
-                  <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_occasionnel" aria-pressed="true">Don occasionnel</button>
-                  <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_regulier" aria-pressed="false">Don régulier (mensuel)</button>
+            <div id="panelInteractiveDon" class="donation-tab-panel active" role="tabpanel" aria-labelledby="tabInteractiveDon">
+              <div class="donation-interactive-grid">
+                <div class="donation-form-panel">
+                  <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
+                  <div class="frequency-selector">
+                    <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_occasionnel" aria-pressed="true">Don occasionnel</button>
+                    <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_regulier" aria-pressed="false">Don régulier (mensuel)</button>
+                  </div>
+
+                  <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
+
+                  <!-- Montant personnalisé libre -->
+                  <div class="custom-amount-wrap">
+                    <span class="custom-amount-icon">FCFA</span>
+                    <input type="number" id="customAmount" class="custom-amount-input" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
+                  </div>
+
+                  <!-- Encadré solidaire et impact émotionnel -->
+                  <div class="donation-impact-preview">
+                    <span class="impact-preview-icon">🤍</span>
+                    <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
+                      <strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée à nourrir, vêtir, soigner et protéger les enfants de la rue au Sénégal.
+                    </p>
+                  </div>
+
+                  <div style="background: rgba(43, 147, 72, 0.08); border: 1px solid rgba(43, 147, 72, 0.25); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; display: flex; align-items: flex-start; gap: 12px;">
+                    <span style="font-size: 1.4rem;">🤍</span>
+                    <div style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.5;" data-i18n-html="volunteer_box">
+                      <strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).
+                    </div>
+                  </div>
                 </div>
 
-                <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
+                <!-- Volet Récapitulatif -->
+                <div class="donation-summary-card">
+                  <h4 data-i18n="sum_title">Récapitulatif de votre don</h4>
 
-                <!-- Montant personnalisé libre -->
-                <div class="custom-amount-wrap">
-                  <span class="custom-amount-icon">FCFA</span>
-                  <input type="number" id="customAmount" class="custom-amount-input" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" step="500" data-i18n-placeholder="custom_amount_placeholder">
-                </div>
+                  <div class="summary-row">
+                    <span data-i18n="sum_beneficiary_lbl">Bénéficiaire officiel :</span>
+                    <span style="font-weight: 700; color: var(--color-dark);" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</span>
+                  </div>
 
-                <!-- Encadré solidaire et impact émotionnel -->
-                <div class="donation-impact-preview">
-                  <span class="impact-preview-icon">🤍</span>
-                  <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
-                    <strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée à nourrir, vêtir, soigner et protéger les enfants de la rue au Sénégal.
+                  <div class="summary-row">
+                    <span data-i18n="sum_freq_lbl">Type de don :</span>
+                    <span id="summaryFrequency" style="font-weight: 600;">Don occasionnel</span>
+                  </div>
+
+                  <div class="summary-row">
+                    <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
+                    <div>
+                      <span id="summaryAmount" class="summary-val">Montant libre selon vos capacités</span>
+                    </div>
+                  </div>
+
+                  <div class="summary-row">
+                    <span data-i18n="sum_alloc_lbl">Affectation :</span>
+                    <span style="font-weight: 600;" id="summaryAllocVal" data-i18n="sum_alloc_val">100% Repas, Soins & Protection des Enfants de la Rue</span>
+                  </div>
+
+                  <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+                    <button type="button" class="btn btn-primary btn-pulse" id="btnGeneratePledge" style="width: 100%;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                      <span data-i18n="btn_pledge">Générer mon engagement de don</span>
+                    </button>
+
+                    <button type="button" class="btn btn-outline" id="btnSeeCoords" style="width: 100%; text-align: center;" data-i18n="btn_see_coords">
+                      Voir les coordonnées officielles ci-dessous
+                    </button>
+                  </div>
+
+                  <p style="font-size: 0.75rem; color: var(--color-text-light); text-align: center; margin-top: 14px;" data-i18n="don_security_note">
+                    🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.
                   </p>
                 </div>
-
-                <div style="background: rgba(43, 147, 72, 0.08); border: 1px solid rgba(43, 147, 72, 0.25); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; display: flex; align-items: flex-start; gap: 12px;">
-                  <span style="font-size: 1.4rem;">🤍</span>
-                  <div style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.5;" data-i18n-html="volunteer_box">
-                    <strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).
-                  </div>
-                </div>
-              </div>
-
-              <!-- Volet Récapitulatif -->
-              <div class="donation-summary-card">
-                <h4 data-i18n="sum_title">Récapitulatif de votre don</h4>
-
-                <div class="summary-row">
-                  <span data-i18n="sum_beneficiary_lbl">Bénéficiaire officiel :</span>
-                  <span style="font-weight: 700; color: var(--color-dark);" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</span>
-                </div>
-
-                <div class="summary-row">
-                  <span data-i18n="sum_freq_lbl">Type de don :</span>
-                  <span id="summaryFrequency" style="font-weight: 600;">Don occasionnel</span>
-                </div>
-
-                <div class="summary-row">
-                  <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
-                  <div>
-                    <span id="summaryAmount" class="summary-val">Montant libre selon vos capacités</span>
-                  </div>
-                </div>
-
-                <div class="summary-row">
-                  <span data-i18n="sum_alloc_lbl">Affectation :</span>
-                  <span style="font-weight: 600;" data-i18n="sum_alloc_val">100% Repas, Soins & Protection des Enfants de la Rue</span>
-                </div>
-
-                <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
-                  <button type="button" class="btn btn-primary btn-pulse" id="btnGeneratePledge" style="width: 100%;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                    <span data-i18n="btn_pledge">Générer mon engagement de don</span>
-                  </button>
-
-                  <a href="#coordonnees-officielles" class="btn btn-outline" style="width: 100%; text-align: center;" data-i18n="btn_see_coords">
-                    Voir les coordonnées officielles ci-dessous
-                  </a>
-                </div>
-
-                <p style="font-size: 0.75rem; color: var(--color-text-light); text-align: center; margin-top: 14px;" data-i18n="don_security_note">
-                  🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.
-                </p>
               </div>
             </div>
 
             <!-- 2. Cartes de paiement officielles fournies -->
-            <div id="coordonnees-officielles" class="payment-methods-grid">
+            <div id="panelOfficialMethods" class="donation-tab-panel" role="tabpanel" aria-labelledby="tabOfficialMethods" style="display: none;">
               
-              <!-- Carte Virement Bancaire -->
-              <div class="payment-card card-virement">
-                <span class="payment-card-badge" data-i18n="card_virement_badge">Virement Bancaire</span>
-                <div class="payment-card-header">
-                  <div class="payment-icon-box">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <line x1="12" y1="1" x2="12" y2="23"></line>
-                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
+              <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; background: #FFFFFF; padding: 16px 22px; border-radius: var(--radius-md); border: 1.5px solid rgba(212, 132, 39, 0.25); box-shadow: var(--shadow-xs);">
+                <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                  <span>🏛️</span>
+                  <span data-i18n="coords_banner_text">Coordonnées officielles vérifiées de l'Association Caritative LOKHO NDEYE</span>
+                </div>
+                <button type="button" class="btn btn-outline" id="btnBackToPledgeForm" style="padding: 9px 18px; font-size: 0.88rem; font-weight: 700; border-color: var(--color-primary); color: var(--color-primary);">
+                  <span data-i18n="btn_back_to_form">← Remplir une promesse de don / Obtenir un reçu</span>
+                </button>
+              </div>
+
+              <div id="coordonnees-officielles" class="payment-methods-grid" style="margin-top: 0;">
+                
+                <!-- Carte Virement Bancaire -->
+                <div class="payment-card card-virement">
+                  <span class="payment-card-badge" data-i18n="card_virement_badge">Virement Bancaire</span>
+                  <div class="payment-card-header">
+                    <div class="payment-icon-box">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="payment-card-title" data-i18n="card_virement_title">Virement Bancaire Officiel</h3>
+                      <span class="payment-card-sub" data-i18n="card_virement_sub">Compte institutionnel au Sénégal</span>
+                    </div>
                   </div>
-                  <div>
-                    <h3 class="payment-card-title" data-i18n="card_virement_title">Virement Bancaire Officiel</h3>
-                    <span class="payment-card-sub" data-i18n="card_virement_sub">Compte institutionnel au Sénégal</span>
+
+                  <table class="bank-info-table">
+                    <tbody>
+                      <tr>
+                        <td data-i18n="lbl_account_name">Intitulé du compte :</td>
+                        <td id="bankAccountName" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
+                      </tr>
+                      <tr>
+                        <td data-i18n="lbl_account_hq">Siège / Domiciliation :</td>
+                        <td data-i18n="val_account_hq">Saly Station, Saly Portudal [Mbour], Sénégal</td>
+                      </tr>
+                      <tr>
+                        <td data-i18n="lbl_account_legal">Cadre juridique :</td>
+                        <td data-i18n="val_account_legal">Code des Obligations Civiles et Commerciales (Sénégal)</td>
+                      </tr>
+                      <tr>
+                        <td data-i18n="lbl_account_ref">Motif / Référence :</td>
+                        <td><span style="color: var(--color-primary); font-family: monospace;" data-i18n="val_account_ref">DON ENFANTS RUE - LOKHO NDEYE</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="copy-btn-group">
+                    <button type="button" class="btn-copy" onclick="copyText('Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE', 'Coordonnées du compte')">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      <span data-i18n="btn_copy_coords">Copier les informations</span>
+                    </button>
+
+                    <button type="button" class="btn-copy" style="border-color: var(--color-primary); color: var(--color-primary);" onclick="openModal('ribModal')" data-i18n="btn_request_rib">
+                      Demander le RIB complet
+                    </button>
                   </div>
                 </div>
 
-                <table class="bank-info-table">
-                  <tbody>
-                    <tr>
-                      <td data-i18n="lbl_account_name">Intitulé du compte :</td>
-                      <td id="bankAccountName" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
-                    </tr>
-                    <tr>
-                      <td data-i18n="lbl_account_hq">Siège / Domiciliation :</td>
-                      <td data-i18n="val_account_hq">Saly Station, Saly Portudal [Mbour], Sénégal</td>
-                    </tr>
-                    <tr>
-                      <td data-i18n="lbl_account_legal">Cadre juridique :</td>
-                      <td data-i18n="val_account_legal">Code des Obligations Civiles et Commerciales (Sénégal)</td>
-                    </tr>
-                    <tr>
-                      <td data-i18n="lbl_account_ref">Motif / Référence :</td>
-                      <td><span style="color: var(--color-primary); font-family: monospace;" data-i18n="val_account_ref">DON ENFANTS RUE - LOKHO NDEYE</span></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <!-- Carte Wave Sénégal -->
+                <div class="payment-card card-wave">
+                  <span class="payment-card-badge" data-i18n="card_wave_badge">Wave Sénégal</span>
+                  <div class="payment-card-header">
+                    <div class="payment-icon-box">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="payment-card-title" data-i18n="card_wave_title">Faire un don avec Wave</h3>
+                      <span class="payment-card-sub" data-i18n="card_wave_sub">Mobile Money rapide & 0% frais</span>
+                    </div>
+                  </div>
 
-                <div class="copy-btn-group">
-                  <button type="button" class="btn-copy" onclick="copyText('Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE', 'Coordonnées du compte')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span data-i18n="btn_copy_coords">Copier les informations</span>
-                  </button>
+                  <div style="background: rgba(0, 180, 216, 0.08); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 20px;">
+                    <div style="font-size: 0.85rem; color: var(--color-dark); line-height: 1.45;" data-i18n-html="wave_info_box">
+                      Envoyez directement votre don en ouvrant l'application <strong>Wave Sénégal</strong>.
+                      <br>
+                      <span style="font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;">Bénéficiaire officiel : Association Caritative LOKHO NDEYE</span>
+                    </div>
+                  </div>
 
-                  <button type="button" class="btn-copy" style="border-color: var(--color-primary); color: var(--color-primary);" onclick="openModal('ribModal')" data-i18n="btn_request_rib">
-                    Demander le RIB complet
-                  </button>
+                  <table class="bank-info-table">
+                    <tbody>
+                      <tr>
+                        <td data-i18n="lbl_wave_app">Application :</td>
+                        <td style="color: var(--color-wave-dark); font-weight: 700;">Wave Sénégal</td>
+                      </tr>
+                      <tr>
+                        <td data-i18n="lbl_wave_recipient">Destinataire :</td>
+                        <td data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
+                      </tr>
+                      <tr>
+                        <td data-i18n="lbl_wave_num">Numéro officiel :</td>
+                        <td><em data-i18n="lbl_wave_account">Compte officiel de l'Association</em></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="copy-btn-group">
+                    <button type="button" class="btn-copy btn-wave-action" onclick="copyText('Association Caritative LOKHO NDEYE - Service de Don Wave officiel', 'Informations Wave')">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                      <span data-i18n="btn_copy_wave">Copier les identifiants Wave</span>
+                    </button>
+
+                    <a href="https://wave.com" target="_blank" rel="noopener noreferrer" class="btn-copy" style="text-decoration: none;" data-i18n="btn_open_wave">
+                      Ouvrir Wave
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Architecture prête pour les futurs moyens de paiement -->
+              <div class="upcoming-methods-box">
+                <div>
+                  <strong style="color: var(--color-dark); font-size: 0.9rem;" data-i18n="upcoming_title">Moyens de paiement additionnels (Architecture évolutive) :</strong>
+                  <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 2px 0 0;" data-i18n="upcoming_sub">
+                    Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :
+                  </p>
+                </div>
+                <div class="upcoming-badges">
+                  <span class="method-tag" data-i18n="upcoming_orange">⏳ Orange Money (Bientôt)</span>
+                  <span class="method-tag" data-i18n="upcoming_free">⏳ Free Money (Bientôt)</span>
+                  <span class="method-tag" data-i18n="upcoming_card">💳 Carte Bancaire Visa / Mastercard (En cours)</span>
                 </div>
               </div>
 
-              <!-- Carte Wave Sénégal -->
-              <div class="payment-card card-wave">
-                <span class="payment-card-badge" data-i18n="card_wave_badge">Wave Sénégal</span>
-                <div class="payment-card-header">
-                  <div class="payment-icon-box">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="payment-card-title" data-i18n="card_wave_title">Faire un don avec Wave</h3>
-                    <span class="payment-card-sub" data-i18n="card_wave_sub">Mobile Money rapide & 0% frais</span>
-                  </div>
-                </div>
-
-                <div style="background: rgba(0, 180, 216, 0.08); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 20px;">
-                  <div style="font-size: 0.85rem; color: var(--color-dark); line-height: 1.45;" data-i18n-html="wave_info_box">
-                    Envoyez directement votre don en ouvrant l'application <strong>Wave Sénégal</strong>.
-                    <br>
-                    <span style="font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;">Bénéficiaire officiel : Association Caritative LOKHO NDEYE</span>
-                  </div>
-                </div>
-
-                <table class="bank-info-table">
-                  <tbody>
-                    <tr>
-                      <td data-i18n="lbl_wave_app">Application :</td>
-                      <td style="color: var(--color-wave-dark); font-weight: 700;">Wave Sénégal</td>
-                    </tr>
-                    <tr>
-                      <td data-i18n="lbl_wave_recipient">Destinataire :</td>
-                      <td data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
-                    </tr>
-                    <tr>
-                      <td data-i18n="lbl_wave_num">Numéro officiel :</td>
-                      <td><em data-i18n="lbl_wave_account">Compte officiel de l'Association</em></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div class="copy-btn-group">
-                  <button type="button" class="btn-copy btn-wave-action" onclick="copyText('Association Caritative LOKHO NDEYE - Service de Don Wave officiel', 'Informations Wave')">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    <span data-i18n="btn_copy_wave">Copier les identifiants Wave</span>
-                  </button>
-
-                  <a href="https://wave.com" target="_blank" rel="noopener noreferrer" class="btn-copy" style="text-decoration: none;" data-i18n="btn_open_wave">
-                    Ouvrir Wave
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Architecture prête pour les futurs moyens de paiement -->
-            <div class="upcoming-methods-box">
-              <div>
-                <strong style="color: var(--color-dark); font-size: 0.9rem;" data-i18n="upcoming_title">Moyens de paiement additionnels (Architecture évolutive) :</strong>
-                <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 2px 0 0;" data-i18n="upcoming_sub">
-                  Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :
-                </p>
-              </div>
-              <div class="upcoming-badges">
-                <span class="method-tag" data-i18n="upcoming_orange">⏳ Orange Money (Bientôt)</span>
-                <span class="method-tag" data-i18n="upcoming_free">⏳ Free Money (Bientôt)</span>
-                <span class="method-tag" data-i18n="upcoming_card">💳 Carte Bancaire Visa / Mastercard (En cours)</span>
-              </div>
             </div>
 
           </div>
@@ -1325,7 +1341,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=3.2"></script>
-  <script src="script.js?v=3.2"></script>
+  <script src="translations.js?v=3.3"></script>
+  <script src="script.js?v=3.3"></script>
 </body>
 </html>

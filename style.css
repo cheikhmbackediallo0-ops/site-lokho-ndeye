@@ -2281,6 +2281,26 @@ section[id] {
   padding: 40px;
 }
 
+.donation-tab-panel {
+  display: none;
+  animation: panelFadeIn 0.35s ease;
+}
+
+.donation-tab-panel.active {
+  display: block;
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Visualisation dynamique du Bol Solidaire */
 .bowl-visualizer-box {
   background: linear-gradient(135deg, #1C0F0A 0%, #30170E 100%);
