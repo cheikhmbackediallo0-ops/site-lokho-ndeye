@@ -704,21 +704,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const summaryFrequency = document.getElementById('summaryFrequency');
   const impactText = document.getElementById('impactPreviewText');
 
-  let currentAmount = 5000;
+  let currentAmount = 0;
   let currentFrequency = 'ponctuel';
 
   const frequencyDisplayNames = {
     fr: {
-      'ponctuel': 'Don ponctuel',
-      'occasionnel': 'Don mensuel',
-      'unique': 'Don ponctuel',
-      'mensuel': 'Don mensuel'
+      'ponctuel': 'Don ponctuel d\'urgence',
+      'occasionnel': 'Don régulier (mensuel)',
+      'unique': 'Don ponctuel d\'urgence',
+      'mensuel': 'Don régulier (mensuel)'
     },
     en: {
-      'ponctuel': 'One-time gift',
-      'occasionnel': 'Monthly gift',
-      'unique': 'One-time gift',
-      'mensuel': 'Monthly gift'
+      'ponctuel': 'One-time emergency gift',
+      'occasionnel': 'Monthly regular gift',
+      'unique': 'One-time emergency gift',
+      'mensuel': 'Monthly regular gift'
     }
   };
 
@@ -733,22 +733,22 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentAmount > 0) {
         summaryAmount.textContent = `${currentAmount.toLocaleString(locale)} FCFA`;
       } else {
-        summaryAmount.textContent = dict.sum_amount_free || (isEn ? 'Open amount of your choice' : 'Montant libre de votre choix');
+        summaryAmount.textContent = dict.sum_amount_free || (isEn ? 'Open amount according to your means' : 'Montant libre selon vos capacités');
       }
     }
     if (summaryFrequency) {
-      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time gift' : 'Don ponctuel');
+      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'One-time emergency gift' : 'Don ponctuel d\'urgence');
     }
 
     if (impactText) {
       if (currentAmount > 0) {
         impactText.innerHTML = isEn
-          ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> directly supports rescue, nutrition, medical care, and safe shelter for street children in Senegal.`
-          : `<strong>Votre geste solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> est intégralement dédié au secours, aux repas, aux soins et à la protection des enfants de la rue au Sénégal.`;
+          ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> goes 100% directly to feeding, healing, clothing, and sheltering street children in Senegal.`
+          : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${currentAmount.toLocaleString(locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir, soigner et abriter les enfants de la rue au Sénégal.`;
       } else {
         impactText.innerHTML = isEn
-          ? `<strong>Every gesture saves a life:</strong> There is no small donation. Your generosity helps rescue, feed, heal, and shelter street children in Senegal.`
-          : `<strong>Chaque geste sauve une vie :</strong> Il n'y a pas de petit don. Votre générosité permet de secourir, nourrir, soigner et abriter les enfants de la rue au Sénégal.`;
+          ? `<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to feeding, clothing, healing, and sheltering street children in Senegal.`
+          : `<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée à nourrir, vêtir, soigner et protéger les enfants de la rue au Sénégal.`;
       }
     }
   }
