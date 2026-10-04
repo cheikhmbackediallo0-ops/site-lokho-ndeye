@@ -1224,8 +1224,8 @@ section[id] {
   height: 100%;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale(1.04);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transform: scale(1.02);
 }
 
 .hero-visual-slide.active {
@@ -1239,11 +1239,39 @@ section[id] {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.hero-visual-slide.active .hero-stage-img {
-  transform: scale(1.03);
+/* Puces indicatrices du diaporama d'accueil (2 secondes par photo) */
+.hero-slider-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.hero-slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(212, 132, 39, 0.35);
+  border: 1px solid rgba(212, 132, 39, 0.6);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-slider-dot:hover:not(.active) {
+  background: rgba(212, 132, 39, 0.65);
+  transform: scale(1.2);
+}
+
+.hero-slider-dot.active {
+  width: 28px;
+  border-radius: 12px;
+  background: var(--color-primary, #A64823);
+  border-color: var(--color-primary, #A64823);
+  box-shadow: 0 0 12px rgba(166, 72, 35, 0.6);
 }
 
 /* Options et superpositions sur les captures d'écran masquées */
@@ -4951,12 +4979,37 @@ html, body {
                ================================================================== -->
           <div class="hero-visual-col">
             <div class="hero-foreground-stage">
-              <!-- Cadre d'Image Principal en Haute Définition -->
-              <div class="hero-main-stage-frame">
-                <!-- Slide Image 1 : Enfants talibés et de la rue -->
+              <!-- Cadre d'Image Principal en Haute Définition avec diaporama automatique 2s -->
+              <div class="hero-main-stage-frame" id="heroMainStageFrame">
+                <!-- Slide Image 1 : Deux jeunes enfants talibés marchant pieds nus avec pots de conserve -->
                 <div class="hero-visual-slide active" data-slide="0" id="heroVisualSlide0">
-                  <img src="assets/enfants-talibes-saly.jpg" alt="Enfants de la rue et talibés marchant pieds nus dans la poussière au Sénégal" class="hero-stage-img">
+                  <img src="assets/hero-enfant-rue-1.jpg" alt="Deux jeunes enfants de la rue et talibés marchant pieds nus avec leurs pots de mendicité au Sénégal" class="hero-stage-img">
                 </div>
+                <!-- Slide Image 2 : Deux enfants de la rue épuisés dormant sur le rebord d'un trottoir -->
+                <div class="hero-visual-slide" data-slide="1" id="heroVisualSlide1">
+                  <img src="assets/hero-enfant-rue-2.jpg" alt="Enfants de la rue épuisés dormant sur le rebord d'un trottoir au Sénégal" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 3 : Jeune talibé pieds nus sur l'asphalte brûlant -->
+                <div class="hero-visual-slide" data-slide="2" id="heroVisualSlide2">
+                  <img src="assets/hero-enfant-rue-3.jpg" alt="Jeune enfant talibé pieds nus sur l'asphalte brûlant cherchant de quoi manger" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 4 : Enfant assis avec sa sébile vide espérant un repas -->
+                <div class="hero-visual-slide" data-slide="3" id="heroVisualSlide3">
+                  <img src="assets/hero-enfant-rue-4.jpg" alt="Enfant de la rue assis avec son bol vide espérant de la nourriture" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 5 : Enfant tendant la main pour demander secours -->
+                <div class="hero-visual-slide" data-slide="4" id="heroVisualSlide4">
+                  <img src="assets/hero-enfant-rue-5.jpg" alt="Enfant de la rue tendant la main pour demander de l'aide et de la nourriture au Sénégal" class="hero-stage-img">
+                </div>
+              </div>
+
+              <!-- Puces indicatrices du diaporama (2 secondes par image) -->
+              <div class="hero-slider-indicators" role="tablist" aria-label="Photos des enfants de la rue">
+                <button type="button" class="hero-slider-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Photo 1 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Photo 2 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Photo 3 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="3" role="tab" aria-selected="false" aria-label="Photo 4 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="4" role="tab" aria-selected="false" aria-label="Photo 5 sur 5"></button>
               </div>
             </div>
           </div>
@@ -7166,23 +7219,25 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScrollProgress();
 
   // ==========================================================================
-  // 4. PRÉSENTATION FIXE DU HERO (ACTE 1 UNIQUE SANS DÉFILEMENT)
+  // 4. DIAPORAMA D'ACCUEIL DYNAMIQUE DES ENFANTS DE LA RUE (DÉFILEMENT TOUTES LES 2 SECONDES)
   // ==========================================================================
   const heroSection = document.querySelector('.hero-carousel-section');
   const heroSlideTexts = document.querySelectorAll('.hero-slide-text');
   const heroVisualSlides = document.querySelectorAll('.hero-visual-slide');
+  const heroSliderDots = document.querySelectorAll('.hero-slider-dot');
   const heroDotBtns = document.querySelectorAll('.hero-dot-btn');
   const heroThumbCards = document.querySelectorAll('.hero-thumb-card');
   const heroPrevBtn = document.getElementById('heroPrevBtn');
   const heroNextBtn = document.getElementById('heroNextBtn');
   const heroPlayPauseBtn = document.getElementById('heroPlayPauseBtn');
   const heroCurrentSlideNum = document.getElementById('heroCurrentSlideNum');
+  const heroStageFrame = document.getElementById('heroMainStageFrame');
 
   let currentSlideIndex = 0;
   const totalSlides = heroVisualSlides.length || 1;
-  const SLIDE_DURATION = 5500;
+  const SLIDE_DURATION = 2000; // Exactement 2 secondes par image selon les consignes
   let slideInterval = null;
-  let isAutoPlayActive = false;
+  let isAutoPlayActive = true;
   let isHovered = false;
 
   function goToHeroSlide(index) {
@@ -7193,27 +7248,37 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Normalisation de l'index cyclique si multi-slides
+    // Normalisation cyclique de l'index
     currentSlideIndex = (index + totalSlides) % totalSlides;
 
-    // 1. Textes narratifs
-    heroSlideTexts.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentSlideIndex);
-    });
+    // 1. Textes narratifs (maintien permanent si texte unique, synchronisation si multi-textes)
+    if (heroSlideTexts.length > 1) {
+      heroSlideTexts.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlideIndex);
+      });
+    } else {
+      heroSlideTexts.forEach(slide => slide.classList.add('active'));
+    }
 
-    // 2. Diapositives visuelles au premier plan
+    // 2. Diapositives visuelles au premier plan (défilent toutes les 2 secondes)
     heroVisualSlides.forEach((slide, i) => {
       slide.classList.toggle('active', i === currentSlideIndex);
     });
 
-    // 3. Puces de progression
+    // 3. Puces indicatrices du diaporama
+    heroSliderDots.forEach((dot, i) => {
+      const isCurrent = (i === currentSlideIndex);
+      dot.classList.toggle('active', isCurrent);
+      dot.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+    });
+
+    // 4. Puces et miniatures de secours si présentes
     heroDotBtns.forEach((btn, i) => {
       const isCurrent = (i === currentSlideIndex);
       btn.classList.toggle('active', isCurrent);
       btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
     });
 
-    // 4. Miniatures interactives (Thumbnails)
     heroThumbCards.forEach((thumb, i) => {
       thumb.classList.toggle('active', i === currentSlideIndex);
     });
@@ -7247,7 +7312,21 @@ document.addEventListener('DOMContentLoaded', () => {
     startHeroAutoPlay();
   }
 
-  // Écouteurs pour les boutons Précédent & Suivant
+  // Écouteurs pour les puces indicatrices
+  heroSliderDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goToHeroSlide(i);
+      resetAutoPlayTimer();
+    });
+  });
+
+  // Pause au survol de l'image (reprise automatique dès qu'on quitte le cadre)
+  if (heroStageFrame) {
+    heroStageFrame.addEventListener('mouseenter', () => { isHovered = true; });
+    heroStageFrame.addEventListener('mouseleave', () => { isHovered = false; });
+  }
+
+  // Écouteurs pour boutons Précédent & Suivant si présents
   if (heroPrevBtn && totalSlides > 1) {
     heroPrevBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex - 1);
@@ -7262,31 +7341,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Écouteurs pour les puces de pagination
-  if (totalSlides > 1) {
-    heroDotBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
-        if (!isNaN(targetIndex)) {
-          goToHeroSlide(targetIndex);
-          resetAutoPlayTimer();
-        }
-      });
-    });
-
-    heroThumbCards.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
-        if (!isNaN(targetIndex)) {
-          goToHeroSlide(targetIndex);
-          resetAutoPlayTimer();
-        }
-      });
-    });
-  }
-
-  // Initialisation de l'affichage unique (Acte 1)
+  // Initialisation et lancement du défilement automatique à 2 secondes
   goToHeroSlide(0);
+  startHeroAutoPlay();
 
   // ==========================================================================
   // 5. CANEVAS DE POUSSIÈRE D'OR & LUMIÈRE INTERACTIVE (HTML5 Canvas)

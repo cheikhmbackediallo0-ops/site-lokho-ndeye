@@ -36,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=3.5">
+  <link rel="stylesheet" href="style.css?v=3.6">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -267,12 +267,37 @@
                ================================================================== -->
           <div class="hero-visual-col">
             <div class="hero-foreground-stage">
-              <!-- Cadre d'Image Principal en Haute Définition -->
-              <div class="hero-main-stage-frame">
-                <!-- Slide Image 1 : Enfants talibés et de la rue -->
+              <!-- Cadre d'Image Principal en Haute Définition avec diaporama automatique 2s -->
+              <div class="hero-main-stage-frame" id="heroMainStageFrame">
+                <!-- Slide Image 1 : Deux jeunes enfants talibés marchant pieds nus avec pots de conserve -->
                 <div class="hero-visual-slide active" data-slide="0" id="heroVisualSlide0">
-                  <img src="assets/enfants-talibes-saly.jpg" alt="Enfants de la rue et talibés marchant pieds nus dans la poussière au Sénégal" class="hero-stage-img">
+                  <img src="assets/hero-enfant-rue-1.jpg" alt="Deux jeunes enfants de la rue et talibés marchant pieds nus avec leurs pots de mendicité au Sénégal" class="hero-stage-img">
                 </div>
+                <!-- Slide Image 2 : Deux enfants de la rue épuisés dormant sur le rebord d'un trottoir -->
+                <div class="hero-visual-slide" data-slide="1" id="heroVisualSlide1">
+                  <img src="assets/hero-enfant-rue-2.jpg" alt="Enfants de la rue épuisés dormant sur le rebord d'un trottoir au Sénégal" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 3 : Jeune talibé pieds nus sur l'asphalte brûlant -->
+                <div class="hero-visual-slide" data-slide="2" id="heroVisualSlide2">
+                  <img src="assets/hero-enfant-rue-3.jpg" alt="Jeune enfant talibé pieds nus sur l'asphalte brûlant cherchant de quoi manger" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 4 : Enfant assis avec sa sébile vide espérant un repas -->
+                <div class="hero-visual-slide" data-slide="3" id="heroVisualSlide3">
+                  <img src="assets/hero-enfant-rue-4.jpg" alt="Enfant de la rue assis avec son bol vide espérant de la nourriture" class="hero-stage-img">
+                </div>
+                <!-- Slide Image 5 : Enfant tendant la main pour demander secours -->
+                <div class="hero-visual-slide" data-slide="4" id="heroVisualSlide4">
+                  <img src="assets/hero-enfant-rue-5.jpg" alt="Enfant de la rue tendant la main pour demander de l'aide et de la nourriture au Sénégal" class="hero-stage-img">
+                </div>
+              </div>
+
+              <!-- Puces indicatrices du diaporama (2 secondes par image) -->
+              <div class="hero-slider-indicators" role="tablist" aria-label="Photos des enfants de la rue">
+                <button type="button" class="hero-slider-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Photo 1 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Photo 2 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Photo 3 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="3" role="tab" aria-selected="false" aria-label="Photo 4 sur 5"></button>
+                <button type="button" class="hero-slider-dot" data-slide="4" role="tab" aria-selected="false" aria-label="Photo 5 sur 5"></button>
               </div>
             </div>
           </div>
@@ -1382,7 +1407,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=3.5"></script>
-  <script src="script.js?v=3.5"></script>
+  <script src="translations.js?v=3.6"></script>
+  <script src="script.js?v=3.6"></script>
 </body>
 </html>

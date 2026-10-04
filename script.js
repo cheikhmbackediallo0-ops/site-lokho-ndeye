@@ -389,23 +389,25 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScrollProgress();
 
   // ==========================================================================
-  // 4. PRÉSENTATION FIXE DU HERO (ACTE 1 UNIQUE SANS DÉFILEMENT)
+  // 4. DIAPORAMA D'ACCUEIL DYNAMIQUE DES ENFANTS DE LA RUE (DÉFILEMENT TOUTES LES 2 SECONDES)
   // ==========================================================================
   const heroSection = document.querySelector('.hero-carousel-section');
   const heroSlideTexts = document.querySelectorAll('.hero-slide-text');
   const heroVisualSlides = document.querySelectorAll('.hero-visual-slide');
+  const heroSliderDots = document.querySelectorAll('.hero-slider-dot');
   const heroDotBtns = document.querySelectorAll('.hero-dot-btn');
   const heroThumbCards = document.querySelectorAll('.hero-thumb-card');
   const heroPrevBtn = document.getElementById('heroPrevBtn');
   const heroNextBtn = document.getElementById('heroNextBtn');
   const heroPlayPauseBtn = document.getElementById('heroPlayPauseBtn');
   const heroCurrentSlideNum = document.getElementById('heroCurrentSlideNum');
+  const heroStageFrame = document.getElementById('heroMainStageFrame');
 
   let currentSlideIndex = 0;
   const totalSlides = heroVisualSlides.length || 1;
-  const SLIDE_DURATION = 5500;
+  const SLIDE_DURATION = 2000; // Exactement 2 secondes par image selon les consignes
   let slideInterval = null;
-  let isAutoPlayActive = false;
+  let isAutoPlayActive = true;
   let isHovered = false;
 
   function goToHeroSlide(index) {
@@ -416,27 +418,37 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Normalisation de l'index cyclique si multi-slides
+    // Normalisation cyclique de l'index
     currentSlideIndex = (index + totalSlides) % totalSlides;
 
-    // 1. Textes narratifs
-    heroSlideTexts.forEach((slide, i) => {
-      slide.classList.toggle('active', i === currentSlideIndex);
-    });
+    // 1. Textes narratifs (maintien permanent si texte unique, synchronisation si multi-textes)
+    if (heroSlideTexts.length > 1) {
+      heroSlideTexts.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlideIndex);
+      });
+    } else {
+      heroSlideTexts.forEach(slide => slide.classList.add('active'));
+    }
 
-    // 2. Diapositives visuelles au premier plan
+    // 2. Diapositives visuelles au premier plan (défilent toutes les 2 secondes)
     heroVisualSlides.forEach((slide, i) => {
       slide.classList.toggle('active', i === currentSlideIndex);
     });
 
-    // 3. Puces de progression
+    // 3. Puces indicatrices du diaporama
+    heroSliderDots.forEach((dot, i) => {
+      const isCurrent = (i === currentSlideIndex);
+      dot.classList.toggle('active', isCurrent);
+      dot.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+    });
+
+    // 4. Puces et miniatures de secours si présentes
     heroDotBtns.forEach((btn, i) => {
       const isCurrent = (i === currentSlideIndex);
       btn.classList.toggle('active', isCurrent);
       btn.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
     });
 
-    // 4. Miniatures interactives (Thumbnails)
     heroThumbCards.forEach((thumb, i) => {
       thumb.classList.toggle('active', i === currentSlideIndex);
     });
@@ -470,7 +482,21 @@ document.addEventListener('DOMContentLoaded', () => {
     startHeroAutoPlay();
   }
 
-  // Écouteurs pour les boutons Précédent & Suivant
+  // Écouteurs pour les puces indicatrices
+  heroSliderDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goToHeroSlide(i);
+      resetAutoPlayTimer();
+    });
+  });
+
+  // Pause au survol de l'image (reprise automatique dès qu'on quitte le cadre)
+  if (heroStageFrame) {
+    heroStageFrame.addEventListener('mouseenter', () => { isHovered = true; });
+    heroStageFrame.addEventListener('mouseleave', () => { isHovered = false; });
+  }
+
+  // Écouteurs pour boutons Précédent & Suivant si présents
   if (heroPrevBtn && totalSlides > 1) {
     heroPrevBtn.addEventListener('click', () => {
       goToHeroSlide(currentSlideIndex - 1);
@@ -485,31 +511,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Écouteurs pour les puces de pagination
-  if (totalSlides > 1) {
-    heroDotBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetIndex = parseInt(btn.getAttribute('data-slide'), 10);
-        if (!isNaN(targetIndex)) {
-          goToHeroSlide(targetIndex);
-          resetAutoPlayTimer();
-        }
-      });
-    });
-
-    heroThumbCards.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        const targetIndex = parseInt(thumb.getAttribute('data-slide'), 10);
-        if (!isNaN(targetIndex)) {
-          goToHeroSlide(targetIndex);
-          resetAutoPlayTimer();
-        }
-      });
-    });
-  }
-
-  // Initialisation de l'affichage unique (Acte 1)
+  // Initialisation et lancement du défilement automatique à 2 secondes
   goToHeroSlide(0);
+  startHeroAutoPlay();
 
   // ==========================================================================
   // 5. CANEVAS DE POUSSIÈRE D'OR & LUMIÈRE INTERACTIVE (HTML5 Canvas)
