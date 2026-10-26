@@ -306,10 +306,6 @@ p:last-child {
   transition: padding var(--transition-smooth);
 }
 
-.site-header.scrolled .header-main-brand-bar {
-  padding: 6px 0;
-}
-
 .header-brand-container {
   display: flex;
   align-items: center;
@@ -348,15 +344,6 @@ p:last-child {
   box-shadow: 0 18px 48px rgba(166, 72, 35, 0.4), 0 0 0 6px var(--color-secondary);
 }
 
-.site-header.scrolled .brand-logo-wrap {
-  width: 76px;
-  height: 76px;
-  border-radius: 14px;
-  border-width: 2.5px;
-  padding: 3px;
-  box-shadow: 0 6px 18px rgba(166, 72, 35, 0.2);
-}
-
 .brand-logo-wrap img {
   width: 100%;
   height: 100%;
@@ -380,10 +367,6 @@ p:last-child {
   text-transform: uppercase;
 }
 
-.site-header.scrolled .brand-title {
-  font-size: 1.25rem;
-}
-
 .brand-tagline {
   font-size: 1.15rem;
   font-weight: 700;
@@ -394,10 +377,6 @@ p:last-child {
   margin-top: 4px;
 }
 
-.site-header.scrolled .brand-tagline {
-  font-size: 0.92rem;
-}
-
 .brand-subtext {
   font-size: 0.84rem;
   color: var(--color-text-muted);
@@ -406,10 +385,6 @@ p:last-child {
   gap: 8px;
   margin-top: 6px;
   font-weight: 600;
-}
-
-.site-header.scrolled .brand-subtext {
-  display: none;
 }
 
 /* Actions rapides en haut à droite */
@@ -450,13 +425,36 @@ p:last-child {
   box-shadow: 0 6px 20px rgba(166, 72, 35, 0.38) !important;
 }
 
-.site-header.scrolled .header-donate-grand {
-  padding: 10px 22px !important;
-  font-size: 0.95rem !important;
+/* Écrans d'ordinateur moyens : l'en-tête ne doit jamais déborder à droite */
+@media (min-width: 901px) {
+  .header-trust-badge {
+    display: none;
+  }
+
+  .brand-link {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .brand-text {
+    white-space: normal;
+    min-width: 0;
+  }
 }
 
-.site-header.scrolled .header-trust-badge {
-  display: none;
+@media (min-width: 901px) and (max-width: 1200px) {
+  .brand-subtext {
+    display: none;
+  }
+}
+
+/* Les gros boutons d'appel peuvent passer à la ligne sur petit écran */
+@media (max-width: 576px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 /* Étage 2 : Ruban de Navigation Dédié (Caractères Grands, Gras & Ultra-Visibles) */
@@ -494,11 +492,6 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.site-header.scrolled .nav-link {
-  padding: 7px 14px;
-  font-size: 0.98rem;
 }
 
 .nav-link:hover {
@@ -1678,6 +1671,11 @@ section[id] {
   margin-top: 18px;
 }
 
+/* Dernière carte seule sur sa ligne : elle occupe toute la largeur */
+.devise-pillars > .devise-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .devise-card {
   background: #FFFFFF;
   padding: 16px 18px;
@@ -2377,6 +2375,11 @@ section[id] {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 40px;
+}
+
+/* Empêche le contenu d'élargir les colonnes au-delà de l'écran */
+.donation-interactive-grid > * {
+  min-width: 0;
 }
 
 /* Fréquence */
@@ -4307,7 +4310,7 @@ html, body {
   .transparency-dashboard-grid,
   .transparency-grid,
   .donation-interactive-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr) !important;
     gap: 24px !important;
   }
 
@@ -4383,6 +4386,9 @@ html, body {
   .freq-btn {
     padding: 8px 10px !important;
     font-size: 0.82rem !important;
+    min-width: 0;
+    white-space: normal;
+    line-height: 1.25;
   }
 
   .amount-grid {

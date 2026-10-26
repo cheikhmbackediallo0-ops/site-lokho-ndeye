@@ -1,0 +1,21 @@
+# Fichiers à ne jamais publier sur le site en ligne
+.env*
+*.key
+*.pem
+node_modules
+.vscode
+.idea
+
+# Outils de développement (inutiles pour les visiteurs)
+local_server.js
+build_site_local.js
+check_translations.js
+check_untagged.js
+package.json
+package-lock.json
+site-local.html
+README*
+*.md
+
+# Photos brutes non utilisées par le site
+WhatsApp Image*

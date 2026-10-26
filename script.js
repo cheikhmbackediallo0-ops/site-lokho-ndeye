@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Détection des éléments interactifs pour agrandir le curseur
     const interactiveElements = document.querySelectorAll(
-      'a, button, input, textarea, .amount-btn, .freq-btn, .project-card, .domain-card, .impact-card, .stat-pill, .payment-card'
+      'a, button, input, textarea, .amount-btn, .freq-btn, .impact-card, .stat-pill, .payment-card'
     );
 
     interactiveElements.forEach(el => {
@@ -168,8 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const SECTION_TO_NAV = {
     'accueil': 'accueil',
     'mission': 'mission',
-    'domaines': 'domaines',
-    'actions': 'actions',
     'pourquoi-nous-soutenir': 'pourquoi-nous-soutenir',
     'faire-un-don': 'pourquoi-nous-soutenir',
     'contact': 'contact'
@@ -178,8 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const TRACKED_SECTIONS = [
     'accueil',
     'mission',
-    'domaines',
-    'actions',
     'pourquoi-nous-soutenir',
     'faire-un-don',
     'contact'
@@ -338,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Calcul d'offset précis avec l'en-tête compact
           const currentHeader = document.querySelector('.site-header');
-          const headerOffset = currentHeader ? (currentHeader.classList.contains('scrolled') ? currentHeader.offsetHeight : 105) : 80;
+          const headerOffset = currentHeader ? currentHeader.offsetHeight : 80;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - (headerOffset - 5);
 
           window.scrollTo({
@@ -374,6 +370,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     highlightActiveNavLink();
   }
+
+  // Les liens vers une section s'arrêtent juste sous l'en-tête (hauteur fixe, mesurée réellement)
+  function syncHeaderHeight() {
+    if (header) {
+      document.documentElement.style.setProperty('--header-height', `${header.offsetHeight}px`);
+    }
+  }
+  syncHeaderHeight();
+  window.addEventListener('resize', syncHeaderHeight, { passive: true });
+  window.addEventListener('load', syncHeaderHeight);
 
   let scrollTicking = false;
   window.addEventListener('scroll', () => {
@@ -1215,23 +1221,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Boutons « Soutenir » des cartes projets : basculent sur le formulaire et ciblent le don
-  document.querySelectorAll('.project-link-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      switchDonationTab('interactive');
-      if (customAmountInput) {
-        setTimeout(() => {
-          customAmountInput.focus();
-        }, 500);
-      }
-    });
-  });
-
   // ==========================================================================
-  // 8. EFFET 3D TILT SUR LES CARTES (Cartes Projets, Domaines & Paiement)
+  // 8. EFFET 3D TILT SUR LES CARTES (Cartes de Paiement)
   // ==========================================================================
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const tiltCards = document.querySelectorAll('.project-card, .domain-card, .payment-card');
+    const tiltCards = document.querySelectorAll('.payment-card');
 
     tiltCards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -1318,7 +1312,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   // 10. GESTION DES MODALES ACCESSIBLES & SÉCURISÉES (Statuts, RIB, Reçu Solidaire)
   // ==========================================================================
-  const ALLOWED_MODALS = new Set(['statutsModal', 'ribModal', 'waveModal', 'pledgeModal']);
+  const ALLOWED_MODALS = new Set(['statutsModal', 'privacyModal', 'ribModal', 'pledgeModal', 'logoGrandFormatModal']);
 
   window.openModal = function(modalId) {
     if (!ALLOWED_MODALS.has(modalId)) return;
@@ -1326,6 +1320,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      const closeBtn = modal.querySelector('.modal-close-btn');
+      if (closeBtn) closeBtn.focus({ preventScroll: true });
     }
   };
 
@@ -1337,6 +1333,49 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
   };
+
+  // Actions déclarées dans le HTML via data-* (aucun onclick en ligne : compatible CSP stricte)
+  document.addEventListener('click', (e) => {
+    const logoLink = e.target.closest('[data-logo-zoom]');
+    if (logoLink && e.target.closest('.brand-logo-wrap')) {
+      e.preventDefault();
+      openModal(logoLink.getAttribute('data-logo-zoom'));
+      return;
+    }
+
+    const opener = e.target.closest('[data-open-modal]');
+    if (opener) {
+      e.preventDefault();
+      openModal(opener.getAttribute('data-open-modal'));
+      return;
+    }
+
+    const closer = e.target.closest('[data-close-modal]');
+    if (closer) {
+      closeModal(closer.getAttribute('data-close-modal'));
+      return;
+    }
+
+    const copier = e.target.closest('[data-copy-text]');
+    if (copier) {
+      copyText(copier.getAttribute('data-copy-text'), copier.getAttribute('data-copy-label'));
+      return;
+    }
+
+    if (e.target.closest('[data-action="print"]')) {
+      window.print();
+    }
+  });
+
+  // Ouverture au clavier des éléments non natifs (ex. logo du pied de page)
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const opener = e.target.closest('div[data-open-modal]');
+    if (opener) {
+      e.preventDefault();
+      openModal(opener.getAttribute('data-open-modal'));
+    }
+  });
 
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
@@ -1499,32 +1538,30 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // 6. Transmission sécurisée
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
+      // 6. Envoi : le site n'a pas de serveur d'envoi, on ouvre donc la messagerie
+      //    du visiteur avec le message déjà rédigé (destinataire défini dans le HTML).
+      const recipient = contactForm.getAttribute('data-recipient') || '';
+      if (!/^[^\s@<>]+@[^\s@<>]+\.[a-z]{2,}$/i.test(recipient)) {
+        showValidationError(isEn ? 'Contact address unavailable. Please try again later.' : 'Adresse de contact indisponible. Merci de réessayer plus tard.');
+        return;
+      }
 
-      submitBtn.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spin">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="16"></circle>
-        </svg> ${dict.btn_transmitting || (isEn ? 'Sending in progress...' : 'Transmission en cours...')}
-      `;
-      submitBtn.disabled = true;
+      const objetOption = objetSelect ? objetSelect.options[objetSelect.selectedIndex] : null;
+      const objetLabel = objetOption ? objetOption.textContent.trim() : objetVal;
+      const subject = `[Site LOKHO NDEYE] ${objetLabel}`;
+      const body = isEn
+        ? `${messageVal}\n\n---\nName / Organization: ${nomVal}\nReply to: ${emailVal}`
+        : `${messageVal}\n\n---\nNom / Organisation : ${nomVal}\nRépondre à : ${emailVal}`;
 
-      setTimeout(() => {
-        lastContactSubmitTime = Date.now();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        contactForm.reset();
-        
-        if (contactSuccessMsg) {
-          contactSuccessMsg.style.display = 'block';
-          setTimeout(() => {
-            contactSuccessMsg.style.display = 'none';
-          }, 9000);
-        }
+      lastContactSubmitTime = Date.now();
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-        showToast(dict.toast_message_sent || (isEn ? "Your solidarity message has been sent successfully!" : "Votre message solidaire a été transmis avec succès !"));
-      }, 1000);
+      if (contactSuccessMsg) {
+        contactSuccessMsg.style.display = 'block';
+        setTimeout(() => {
+          contactSuccessMsg.style.display = 'none';
+        }, 12000);
+      }
     });
   }
 

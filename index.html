@@ -36,7 +36,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Feuille de styles principale -->
-  <link rel="stylesheet" href="style.css?v=3.6">
+  <link rel="stylesheet" href="style.css?v=3.8">
 
   <!-- Données structurées Schema.org pour ONG / Association -->
   <script type="application/ld+json">
@@ -103,7 +103,7 @@
     <div class="header-main-brand-bar">
       <div class="container header-brand-container">
         <!-- Logo en TRÈS GRAND FORMAT (155px) et dénomination officielle -->
-        <a href="#accueil" class="brand-link" aria-label="Retour à l'accueil de l'Association Caritative LOKHO NDEYE" data-i18n-aria="brand_aria" title="Cliquer pour afficher l'emblème officiel en plein écran" onclick="if(event.target.closest('.brand-logo-wrap')){event.preventDefault();openModal('logoGrandFormatModal');}">
+        <a href="#accueil" class="brand-link" aria-label="Retour à l'accueil de l'Association Caritative LOKHO NDEYE" data-i18n-aria="brand_aria" title="Cliquer pour afficher l'emblème officiel en plein écran" data-logo-zoom="logoGrandFormatModal">
           <div class="brand-logo-wrap">
             <img src="assets/logo-grand-format.jpg" alt="Logo officiel de l'Association Caritative LOKHO NDEYE - La Main tendue d'une mère" width="155" height="155">
           </div>
@@ -175,8 +175,6 @@
         <nav class="nav-menu" id="navMenu" aria-label="Menu principal">
           <a href="#accueil" class="nav-link active" data-i18n="nav_home">Accueil</a>
           <a href="#mission" class="nav-link" data-i18n="nav_mission">Notre Mission</a>
-          <a href="#domaines" class="nav-link" data-i18n="nav_domains">Domaines d'action</a>
-          <a href="#actions" class="nav-link" data-i18n="nav_actions">Nos Actions & Projets</a>
           <a href="#pourquoi-nous-soutenir" class="nav-link" data-i18n="nav_why">Pourquoi nous soutenir</a>
           <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
 
@@ -380,36 +378,11 @@
                 </div>
                 <p class="devise-card-desc" data-i18n="pillar_3_desc">Panser les plaies infectées, fournir des sandales neuves aux pieds nus et remplacer les haillons délabrés par des habits propres.</p>
               </div>
-
-              <div class="devise-card">
-                <div class="devise-card-head">
-                  <div class="devise-card-icon">4</div>
-                  <span class="devise-card-title" data-i18n="pillar_4_title">Abriter & Reconstruire</span>
-                </div>
-                <p class="devise-card-desc" data-i18n="pillar_4_desc">Offrir un refuge sécurisé pour la nuit, les protéger de la violence nocturne et les guider vers l'alphabétisation et la dignité.</p>
-              </div>
             </div>
           </div>
 
-          <!-- Emblème Officiel compact et encart statutaire -->
+          <!-- Encart statutaire -->
           <div class="mission-visual-wrap">
-            <div class="mission-emblem-showcase">
-              <div class="emblem-grand-format-wrap" onclick="openModal('logoGrandFormatModal')" title="Cliquer pour afficher l'emblème en plein écran">
-                <span class="emblem-badge-hd" data-i18n="emblem_badge">✨ Emblème Protecteur</span>
-                <img src="assets/logo-grand-format.jpg" alt="Logo officiel et emblème en grand format de l'Association Caritative LOKHO NDEYE" class="emblem-grand-format-img" width="480" height="480">
-                <div class="emblem-zoom-hint">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-                  <span data-i18n="emblem_zoom">Agrandir</span>
-                </div>
-              </div>
-              <div class="emblem-caption-box">
-                <h4 data-i18n="emblem_caption_title">La Main Protectrice et Nourricière</h4>
-                <p data-i18n-html="emblem_caption_text">
-                  La mère bienveillante nourrissant les enfants depuis la calebasse solidaire, enveloppée par l'arche protectrice et surmontée de la devise : <em>« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>.
-                </p>
-              </div>
-            </div>
-
             <div class="mission-legal-box">
               <div class="legal-badge-title" data-i18n="legal_box_title">Cadre éthique & légal</div>
               <p class="legal-badge-desc" data-i18n-html="legal_box_text">
@@ -460,209 +433,6 @@
             <a href="#faire-un-don" class="btn btn-secondary btn-pulse" style="font-size: 1.05rem; padding: 16px 32px;" data-i18n="spotlight_cta_btn">
               Sauver un enfant maintenant
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         DOMAINES D'INTERVENTION (Article II des Statuts)
-         ========================================================================== -->
-    <section class="section" id="domaines">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag" data-i18n="domains_tag">Objectifs Statutaires</div>
-          <h2 class="section-title" data-i18n="domains_title">Nos Domaines d'Intervention</h2>
-          <p class="section-subtitle" data-i18n="domains_sub">
-            Chacun de nos champs d'action est strictement fondé sur les buts officiels définis à l'Article II de nos statuts enregistrés en République du Sénégal.
-          </p>
-        </div>
-
-        <div class="domains-grid">
-          <!-- 1. Maraudes & Sauvetage d'Urgence -->
-          <div class="domain-card featured">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_1_ref">Statuts • Article II - Alinéa 2</div>
-            <h3 class="domain-title" data-i18n="domain_1_title">Maraudes & Sauvetage d'Urgence</h3>
-            <p class="domain-desc" data-i18n="domain_1_desc">
-              Recherche active de jour comme de nuit dans les gares routières, marchés et ruelles sombres pour repérer et sécuriser les enfants en détresse physique ou morale aiguë.
-            </p>
-          </div>
-
-          <!-- 2. Nutrition vitale & bouillie quotidienne -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-                <line x1="6" y1="1" x2="6" y2="4"></line>
-                <line x1="10" y1="1" x2="10" y2="4"></line>
-                <line x1="14" y1="1" x2="14" y2="4"></line>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_2_ref">Devise • « Nourrir Chaque Jour »</div>
-            <h3 class="domain-title" data-i18n="domain_2_title">Nutrition Vitale & Bouillie Quotidienne</h3>
-            <p class="domain-desc" data-i18n="domain_2_desc">
-              Distribution de repas chauds équilibrés (riz au poisson, ragoût de légumes) et de bouillies riches en vitamines pour stopper net la malnutrition infantile sévère.
-            </p>
-          </div>
-
-          <!-- 3. Soins médicaux & protection des pieds -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_3_ref">Statuts • Article II - Alinéa 5</div>
-            <h3 class="domain-title" data-i18n="domain_3_title">Soins Médicaux & Protection des Pieds</h3>
-            <p class="domain-desc" data-i18n="domain_3_desc">
-              Nettoyage minutieux et pansement des plaies ouvertes et infectées dues à la marche pieds nus sur les tessons, déparasitage et traitement d'urgence du paludisme.
-            </p>
-          </div>
-
-          <!-- 4. Habits décents & sandales neuves -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_4_ref">Dignité Corporelle & Hygiène</div>
-            <h3 class="domain-title" data-i18n="domain_4_title">Habits Décents & Sandales Neuves</h3>
-            <p class="domain-desc" data-i18n="domain_4_desc">
-              Remplacement systématique des haillons déchirés et crasseux par des tenues propres et confortables, distribution de sandales durables et douches d'eau propre savonneuse.
-            </p>
-          </div>
-
-          <!-- 5. Refuge nocturne & sécurité d'urgence -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_5_ref">Statuts • Article II - Alinéa 4</div>
-            <h3 class="domain-title" data-i18n="domain_5_title">Refuge Nocturne & Sécurité d'Urgence</h3>
-            <p class="domain-desc" data-i18n="domain_5_desc">
-              Mise à disposition d'espaces protégés avec nattes douces et couvertures chaudes pour soustraire les enfants aux prédateurs nocturnes et au froid des trottoirs.
-            </p>
-          </div>
-
-          <!-- 6. Éveil, alphabétisation & réinsertion -->
-          <div class="domain-card">
-            <div class="domain-icon-box">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-              </svg>
-            </div>
-            <div class="domain-article-ref" data-i18n="domain_6_ref">Statuts • Article II - Alinéa 1</div>
-            <h3 class="domain-title" data-i18n="domain_6_title">Éveil, Alphabétisation & Réinsertion</h3>
-            <p class="domain-desc" data-i18n="domain_6_desc">
-              Ateliers d'apprentissage de base, soutien psychologique, réconfort affectif et recherche bienveillante de solutions de réinsertion familiale ou éducative pérenne.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         NOS ACTIONS & PROJETS
-         ========================================================================== -->
-    <section class="section section-alt" id="actions">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-tag" data-i18n="actions_tag">Actions Concrètes sur le Terrain</div>
-          <h2 class="section-title" data-i18n="actions_title">Nos Projets Solidaires pour les Enfants de la Rue</h2>
-          <p class="section-subtitle" data-i18n="actions_sub">
-            Des initiatives tangibles, directes et vérifiables pour redonner santé, sécurité et dignité aux enfants les plus vulnérables du Sénégal.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Projet 1 : Le Bol Chaud Solidaire -->
-          <div class="project-card">
-            <div class="project-body">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-                <span class="project-status-tag" data-i18n="proj_status_ongoing">Action Quotidienne</span>
-                <span class="project-category" data-i18n="proj1_cat">Nutrition d'Urgence & Survie</span>
-              </div>
-              <h3 class="project-title" data-i18n="proj1_title">Projet « Le Bol Chaud Solidaire »</h3>
-              <p class="project-desc" data-i18n="proj1_desc">
-                Pour un enfant qui a passé la journée entière à mendier sous un soleil accablant, un bol de riz chaud est une bénédiction. Nous cuisinons et distribuons chaque jour des repas équilibrés, riches en protéines et légumes, servis dans la joie et le respect.
-              </p>
-
-              <div class="project-objective-box">
-                <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj1_obj">Garantir qu'aucun enfant de la rue ne s'endorme les larmes aux yeux et le ventre vide.</p>
-              </div>
-
-              <div class="project-footer">
-                <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj_support_btn">Soutenir ce projet alimentaire</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Projet 2 : Des Pas Protégés : Sandales & Vêtements -->
-          <div class="project-card">
-            <div class="project-body">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-                <span class="project-status-tag" data-i18n="proj2_status">Santé & Dignité Corporelle</span>
-                <span class="project-category" data-i18n="proj2_cat">Chaussures & Soins d'Urgence</span>
-              </div>
-              <h3 class="project-title" data-i18n="proj2_title">Projet « Des Pas Protégés : Sandales & Vêtements »</h3>
-              <p class="project-desc" data-i18n="proj2_desc">
-                Marcher des kilomètres pieds nus sur le bitume brûlant, les gravats et les débris provoque de douloureuses plaies infectieuses. Nous soignons leurs pieds, leur offrons des sandales fermes et remplaçons leurs haillons délabrés par des vêtements neufs et propres.
-              </p>
-
-              <div class="project-objective-box">
-                <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj2_obj">Guérir les plaies de la marche, prévenir le tétanos et restaurer leur dignité d'enfant.</p>
-              </div>
-
-              <div class="project-footer">
-                <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj2_support_btn">Protéger les pieds d'un enfant</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Projet 3 : Le Refuge de l'Espoir -->
-          <div class="project-card">
-            <div class="project-body">
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-                <span class="project-status-tag" data-i18n="proj3_status">Sécurité & Protection Nocturne</span>
-                <span class="project-category" data-i18n="proj3_cat">Refuge d'Urgence & Sommeil</span>
-              </div>
-              <h3 class="project-title" data-i18n="proj3_title">Projet « Le Refuge de l'Espoir »</h3>
-              <p class="project-desc" data-i18n="proj3_desc">
-                La nuit dans la rue est un univers d'insécurité, de froid et de violences. Notre espace d'accueil d'urgence offre des nattes douces, des couvertures propres, une douche chaude et la présence rassurante et protectrice d'éducateurs bienveillants.
-              </p>
-
-              <div class="project-objective-box">
-                <div class="objective-label" data-i18n="proj_obj_label">Objectif prioritaire :</div>
-                <p class="objective-text" data-i18n="proj3_obj">Arracher les enfants à l'enfer de la nuit dans la rue et leur offrir le sommeil paisible qu'ils méritent.</p>
-              </div>
-
-              <div class="project-footer">
-                <a href="#faire-un-don" class="project-link-btn">
-                  <span data-i18n="proj3_support_btn">Soutenir le refuge de nuit</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -925,12 +695,12 @@
                   </table>
 
                   <div class="copy-btn-group">
-                    <button type="button" class="btn-copy" onclick="copyText('Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE', 'Coordonnées du compte')">
+                    <button type="button" class="btn-copy" data-copy-text="Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE" data-copy-label="Coordonnées du compte">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                       <span data-i18n="btn_copy_coords">Copier les informations</span>
                     </button>
 
-                    <button type="button" class="btn-copy" style="border-color: var(--color-primary); color: var(--color-primary);" onclick="openModal('ribModal')" data-i18n="btn_request_rib">
+                    <button type="button" class="btn-copy" style="border-color: var(--color-primary); color: var(--color-primary);" data-open-modal="ribModal" data-i18n="btn_request_rib">
                       Demander le RIB complet
                     </button>
                   </div>
@@ -977,7 +747,7 @@
                   </table>
 
                   <div class="copy-btn-group">
-                    <button type="button" class="btn-copy btn-wave-action" onclick="copyText('Association Caritative LOKHO NDEYE - Service de Don Wave officiel', 'Informations Wave')">
+                    <button type="button" class="btn-copy btn-wave-action" data-copy-text="Association Caritative LOKHO NDEYE - Service de Don Wave officiel" data-copy-label="Informations Wave">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                       <span data-i18n="btn_copy_wave">Copier les identifiants Wave</span>
                     </button>
@@ -1096,7 +866,7 @@
               Remplissez le formulaire ci-dessous. Vos informations sont strictement confidentielles.
             </p>
 
-            <form id="institutionalContactForm" novalidate autocomplete="on">
+            <form id="institutionalContactForm" novalidate autocomplete="on" data-recipient="contact@lokhondeye.org">
               <!-- Protection anti-spam Honeypot pour robots malveillants -->
               <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none; height: 0; width: 0;" aria-hidden="true" tabindex="-1">
                 <label for="contactWebsiteUrl">Ne pas remplir ce champ</label>
@@ -1137,11 +907,11 @@
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
-                <span data-i18n="btn_submit_msg">Transmettre mon message</span>
+                <span data-i18n="btn_submit_msg">Préparer mon message</span>
               </button>
 
               <div id="contactSuccessMsg" style="display: none; margin-top: 18px; padding: 14px; background: #E8F5E9; border: 1px solid #A5D6A7; border-radius: var(--radius-sm); color: #1B5E20; font-size: 0.9rem;" data-i18n-html="msg_success" role="status">
-                ✓ <strong>Message reçu avec succès.</strong> Le secrétariat de l'Association Caritative LOKHO NDEYE vous remercie et vous répondra dans les meilleurs délais.
+                ✓ <strong>Votre messagerie s'ouvre avec votre message prêt.</strong> Il ne vous reste qu'à cliquer sur « Envoyer ». Merci du fond du cœur au nom des enfants de la rue.
               </div>
 
               <p class="form-privacy-note" data-i18n="form_privacy_footer">
@@ -1163,7 +933,7 @@
         <!-- Présentation institutionnelle -->
         <div class="footer-about">
           <div class="footer-brand">
-            <div class="footer-logo-wrap" onclick="openModal('logoGrandFormatModal')" title="Cliquer pour afficher l'emblème en grand format" data-i18n-title="emblem_zoom">
+            <div class="footer-logo-wrap" role="button" tabindex="0" data-open-modal="logoGrandFormatModal" title="Cliquer pour afficher l'emblème en grand format" data-i18n-title="emblem_zoom">
               <img src="assets/logo-grand-format.jpg" alt="Logo Association Caritative LOKHO NDEYE en grand format" width="100" height="100">
             </div>
             <div>
@@ -1184,8 +954,6 @@
           <div class="footer-links">
             <a href="#accueil" data-i18n="nav_home">Accueil</a>
             <a href="#mission" data-i18n="nav_mission">Notre mission</a>
-            <a href="#domaines" data-i18n="nav_domains">Domaines d'action</a>
-            <a href="#actions" data-i18n="nav_actions">Nos projets</a>
             <a href="#pourquoi-nous-soutenir" data-i18n="nav_why">Pourquoi nous soutenir</a>
           </div>
         </div>
@@ -1196,8 +964,8 @@
           <div class="footer-links">
             <a href="#faire-un-don" data-i18n="footer_link_virement">Faire un don par virement</a>
             <a href="#faire-un-don" data-i18n="footer_link_wave">Faire un don via Wave</a>
-            <a href="javascript:void(0)" onclick="openModal('statutsModal')" data-i18n="footer_link_statuts">Statuts constitutifs</a>
-            <a href="javascript:void(0)" onclick="openModal('privacyModal')" data-i18n="footer_link_privacy">Charte d'anonymat & déontologie</a>
+            <a href="#" role="button" data-open-modal="statutsModal" data-i18n="footer_link_statuts">Statuts constitutifs</a>
+            <a href="#" role="button" data-open-modal="privacyModal" data-i18n="footer_link_privacy">Charte d'anonymat & déontologie</a>
             <a href="#contact" data-i18n="footer_link_contact">Nous contacter</a>
           </div>
         </div>
@@ -1220,9 +988,9 @@
           © 2026 Association Caritative LOKHO NDEYE (« La Main tendue d'une mère »). Tous droits réservés.
         </div>
         <div class="footer-bottom-links">
-          <a href="javascript:void(0)" onclick="openModal('statutsModal')" data-i18n="footer_legal_notices">Mentions Légales</a>
+          <a href="#" role="button" data-open-modal="statutsModal" data-i18n="footer_legal_notices">Mentions Légales</a>
           <span>•</span>
-          <a href="javascript:void(0)" onclick="openModal('privacyModal')" data-i18n="footer_privacy_policy">Politique de Confidentialité</a>
+          <a href="#" role="button" data-open-modal="privacyModal" data-i18n="footer_privacy_policy">Politique de Confidentialité</a>
           <span>•</span>
           <a href="#top" data-i18n="footer_back_top">Haut de page ↑</a>
         </div>
@@ -1239,7 +1007,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 class="modal-title" id="statutsModalTitle" data-i18n="modal_statuts_title">Extraits des Statuts Officiels</h3>
-        <button class="modal-close-btn" onclick="closeModal('statutsModal')" aria-label="Fermer la boîte de dialogue">✕</button>
+        <button class="modal-close-btn" data-close-modal="statutsModal" aria-label="Fermer la boîte de dialogue">✕</button>
       </div>
       <div class="modal-body">
         <p data-i18n-html="modal_statuts_denom"><strong>Dénomination officielle :</strong> « Association Caritative LOKHO NDEYE (la Main tendue d'une mère) »</p>
@@ -1265,7 +1033,7 @@
         <p data-i18n="modal_statuts_art17_text">En cas de dissolution de l'association, le reliquat de l'actif sera dévolu à une œuvre laïque de protection de l'enfance.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline" onclick="closeModal('statutsModal')" data-i18n="btn_close">Fermer</button>
+        <button type="button" class="btn btn-outline" data-close-modal="statutsModal" data-i18n="btn_close">Fermer</button>
       </div>
     </div>
   </div>
@@ -1275,7 +1043,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 class="modal-title" id="privacyModalTitle" data-i18n="modal_privacy_title">Charte de Confidentialité & d'Anonymat</h3>
-        <button class="modal-close-btn" onclick="closeModal('privacyModal')" aria-label="Fermer la boîte de dialogue">✕</button>
+        <button class="modal-close-btn" data-close-modal="privacyModal" aria-label="Fermer la boîte de dialogue">✕</button>
       </div>
       <div class="modal-body">
         <p data-i18n-html="modal_privacy_p1_title"><strong>1. Anonymat des membres et bénévoles :</strong></p>
@@ -1288,7 +1056,7 @@
         <p data-i18n="modal_privacy_p3_text">Les informations transmises lors de vos dons ou prises de contact sont strictement confidentielles. Aucune donnée bancaire sensible n'est enregistrée sur notre plateforme.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" onclick="closeModal('privacyModal')" data-i18n="btn_understood">J'ai compris</button>
+        <button type="button" class="btn btn-primary" data-close-modal="privacyModal" data-i18n="btn_understood">J'ai compris</button>
       </div>
     </div>
   </div>
@@ -1298,7 +1066,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 class="modal-title" id="ribModalTitle" data-i18n="modal_rib_title">Demande du RIB / IBAN officiel complet</h3>
-        <button class="modal-close-btn" onclick="closeModal('ribModal')" aria-label="Fermer">✕</button>
+        <button class="modal-close-btn" data-close-modal="ribModal" aria-label="Fermer">✕</button>
       </div>
       <div class="modal-body">
         <div style="background: var(--color-primary-soft); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 16px;">
@@ -1317,7 +1085,7 @@
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline" onclick="closeModal('ribModal')" data-i18n="btn_close">Fermer</button>
+        <button type="button" class="btn btn-outline" data-close-modal="ribModal" data-i18n="btn_close">Fermer</button>
         <a href="mailto:contact@lokhondeye.org?subject=Demande%20RIB%20officiel%20Association%20Lokho%20Ndeye" class="btn btn-primary" data-i18n="btn_send_email">
           Envoyer un email
         </a>
@@ -1330,7 +1098,7 @@
     <div class="modal-container">
       <div class="modal-header">
         <h3 class="modal-title" id="pledgeModalTitle" data-i18n="modal_pledge_title">Engagement de Don pour les Enfants de la Rue</h3>
-        <button class="modal-close-btn" onclick="closeModal('pledgeModal')" aria-label="Fermer">✕</button>
+        <button class="modal-close-btn" data-close-modal="pledgeModal" aria-label="Fermer">✕</button>
       </div>
       <div class="modal-body" id="printablePledgeArea">
         <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px dashed var(--color-border); margin-bottom: 20px;">
@@ -1372,11 +1140,11 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline" onclick="window.print()">
+        <button type="button" class="btn btn-outline" data-action="print">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
           <span data-i18n="btn_print">Imprimer ce récapitulatif</span>
         </button>
-        <button type="button" class="btn btn-primary" onclick="closeModal('pledgeModal')" data-i18n="btn_close">Fermer</button>
+        <button type="button" class="btn btn-primary" data-close-modal="pledgeModal" data-i18n="btn_close">Fermer</button>
       </div>
     </div>
   </div>
@@ -1386,7 +1154,7 @@
     <div class="modal-container" style="max-width: 680px; text-align: center; background: #FFFFFF; padding: 28px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
         <h3 id="logoGrandFormatTitle" style="color: var(--color-dark); font-size: 1.35rem; font-weight: 800;" data-i18n="modal_logo_title">Emblème Officiel de l'Association — Grand Format</h3>
-        <button type="button" class="modal-close-btn" onclick="closeModal('logoGrandFormatModal')" aria-label="Fermer la vue grand format">✕</button>
+        <button type="button" class="modal-close-btn" data-close-modal="logoGrandFormatModal" aria-label="Fermer la vue grand format">✕</button>
       </div>
       <div style="background: radial-gradient(circle at center, #FFFFFF 0%, #FAF4EC 100%); padding: 24px; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 2.5px solid var(--color-secondary);">
         <img src="assets/logo-grand-format.jpg" alt="Logo officiel Association Caritative LOKHO NDEYE en grand format haute définition" style="max-width: 100%; height: auto; border-radius: 12px; filter: drop-shadow(0 10px 24px rgba(39,20,14,0.18)); image-rendering: -webkit-optimize-contrast;">
@@ -1407,7 +1175,7 @@
   </div>
 
   <!-- Scripts d'internationalisation & d'interaction -->
-  <script src="translations.js?v=3.6"></script>
-  <script src="script.js?v=3.6"></script>
+  <script src="translations.js?v=3.8"></script>
+  <script src="script.js?v=3.8"></script>
 </body>
 </html>
