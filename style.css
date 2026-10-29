@@ -448,15 +448,6 @@ p:last-child {
   }
 }
 
-/* Les gros boutons d'appel peuvent passer à la ligne sur petit écran */
-@media (max-width: 576px) {
-  .btn {
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-  }
-}
-
 /* Étage 2 : Ruban de Navigation Dédié (Caractères Grands, Gras & Ultra-Visibles) */
 .header-nav-strip {
   background: #FAF6F0;
@@ -2253,6 +2244,31 @@ section[id] {
   background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* Encart d'invitation au contact (remplace le formulaire et les coordonnées de paiement) */
+.don-contact-box {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 28px;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.don-contact-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0 0 22px;
+}
+
+@media (max-width: 576px) {
+  .don-contact-box {
+    padding: 24px 18px;
+  }
 }
 
 .donation-wrapper {
@@ -4714,3 +4730,13 @@ html, body {
   }
 }
 
+
+/* Les gros boutons d'appel peuvent passer à la ligne sur petit écran
+   (placé en fin de fichier pour l'emporter sur la règle .btn générale) */
+@media (max-width: 576px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}

@@ -487,15 +487,6 @@ p:last-child {
   }
 }
 
-/* Les gros boutons d'appel peuvent passer à la ligne sur petit écran */
-@media (max-width: 576px) {
-  .btn {
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-  }
-}
-
 /* Étage 2 : Ruban de Navigation Dédié (Caractères Grands, Gras & Ultra-Visibles) */
 .header-nav-strip {
   background: #FAF6F0;
@@ -2292,6 +2283,31 @@ section[id] {
   background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* Encart d'invitation au contact (remplace le formulaire et les coordonnées de paiement) */
+.don-contact-box {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 28px;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.don-contact-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0 0 22px;
+}
+
+@media (max-width: 576px) {
+  .don-contact-box {
+    padding: 24px 18px;
+  }
 }
 
 .donation-wrapper {
@@ -4754,6 +4770,16 @@ html, body {
 }
 
 
+/* Les gros boutons d'appel peuvent passer à la ligne sur petit écran
+   (placé en fin de fichier pour l'emporter sur la règle .btn générale) */
+@media (max-width: 576px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
 </style>
 
   <!-- Données structurées Schema.org pour ONG / Association -->
@@ -5219,269 +5245,13 @@ html, body {
           <div class="section-tag" style="background: var(--color-primary); color: #FFF;" data-i18n="don_tag">Espace Donateurs Solidaires</div>
           <h2 class="section-title" data-i18n="don_title">Tendez la main : Sauvez un enfant de la rue</h2>
           <p class="section-subtitle" data-i18n="don_sub">
-            Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés aux repas chauds des enfants de la rue au Sénégal.
+            100% de vos dons sont exclusivement consacrés aux repas chauds des enfants de la rue au Sénégal.
           </p>
         </div>
 
-        <div class="donation-wrapper">
-          <!-- Onglets de l'espace de don -->
-          <div class="donation-tabs-header">
-            <button class="donation-tab-btn active" id="tabInteractiveDon" type="button">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
-              <span data-i18n="tab_pledge">Promesse & Formulaire de don</span>
-            </button>
-            <button class="donation-tab-btn" id="tabOfficialMethods" type="button">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-              <span data-i18n="tab_methods">Coordonnées de virement & Wave</span>
-            </button>
-          </div>
-
-          <div class="donation-content-area">
-            <!-- 1. Formulaire de promesse de don solidaire libre avec paliers d'impact -->
-            <div id="panelInteractiveDon" class="donation-tab-panel active" role="tabpanel" aria-labelledby="tabInteractiveDon">
-              <div class="donation-interactive-grid">
-                <div class="donation-form-panel">
-                  <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" data-i18n="freq_label">1. Fréquence de votre soutien solidaire :</label>
-                  <div class="frequency-selector">
-                    <button type="button" class="freq-btn active" data-frequency="occasionnel" data-i18n="freq_occasionnel" aria-pressed="true">Don occasionnel</button>
-                    <button type="button" class="freq-btn" data-frequency="regulier" data-i18n="freq_regulier" aria-pressed="false">Don régulier (mensuel)</button>
-                  </div>
-
-                  <label class="form-label" style="font-size: 1rem; margin-bottom: 12px;" for="customAmount" data-i18n="amount_label">2. Montant de votre don (Montant libre selon vos capacités) :</label>
-
-                  <!-- Sélecteur de devise adapté au pays de résidence du donateur -->
-                  <div class="currency-selector-wrap">
-                    <div class="currency-detected-note">
-                      <span data-i18n="currency_auto_detected">Devise adaptée à votre pays de résidence :</span>
-                      <span class="detected-badge" id="detectedCountryBadge">
-                        <span id="detectedCountryFlag">🇸🇳</span>
-                        <span id="detectedCountryName">Sénégal (FCFA)</span>
-                      </span>
-                    </div>
-                    <div class="currency-pills" role="radiogroup" aria-label="Devise du don">
-                      <button type="button" class="currency-pill-btn active" data-currency="XOF" role="radio" aria-checked="true">
-                        <span>🇸🇳</span> FCFA (XOF)
-                      </button>
-                      <button type="button" class="currency-pill-btn" data-currency="EUR" role="radio" aria-checked="false">
-                        <span>🇪🇺</span> EUR (€)
-                      </button>
-                      <button type="button" class="currency-pill-btn" data-currency="USD" role="radio" aria-checked="false">
-                        <span>🇺🇸</span> USD ($)
-                      </button>
-                      <button type="button" class="currency-pill-btn" data-currency="CAD" role="radio" aria-checked="false">
-                        <span>🇨🇦</span> CAD ($)
-                      </button>
-                      <button type="button" class="currency-pill-btn" data-currency="GBP" role="radio" aria-checked="false">
-                        <span>🇬🇧</span> GBP (£)
-                      </button>
-                      <button type="button" class="currency-pill-btn" data-currency="CHF" role="radio" aria-checked="false">
-                        <span>🇨🇭</span> CHF
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Montant personnalisé libre -->
-                  <div class="custom-amount-wrap">
-                    <span class="custom-amount-icon" id="customAmountIcon">FCFA</span>
-                    <input type="number" id="customAmount" class="custom-amount-input" name="donation_amount" placeholder="Indiquez le montant de votre choix (en FCFA)" min="500" max="100000000" step="500" autocomplete="off" data-i18n-placeholder="custom_amount_placeholder">
-                  </div>
-
-                  <!-- Encadré solidaire et impact émotionnel -->
-                  <div class="donation-impact-preview">
-                    <span class="impact-preview-icon">🤍</span>
-                    <p class="impact-preview-text" id="impactPreviewText" data-i18n-html="preview_default">
-                      <strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée aux repas chauds des enfants de la rue au Sénégal.
-                    </p>
-                  </div>
-
-                  <div style="background: rgba(43, 147, 72, 0.08); border: 1px solid rgba(43, 147, 72, 0.25); border-radius: var(--radius-md); padding: 16px; margin-top: 16px; display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem;">🤍</span>
-                    <div style="font-size: 0.88rem; color: var(--color-dark); line-height: 1.5;" data-i18n-html="volunteer_box">
-                      <strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Volet Récapitulatif -->
-                <div class="donation-summary-card">
-                  <h4 data-i18n="sum_title">Récapitulatif de votre don</h4>
-
-                  <div class="summary-row">
-                    <span data-i18n="sum_beneficiary_lbl">Bénéficiaire officiel :</span>
-                    <span style="font-weight: 700; color: var(--color-dark);" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span data-i18n="sum_freq_lbl">Type de don :</span>
-                    <span id="summaryFrequency" style="font-weight: 600;">Don occasionnel</span>
-                  </div>
-
-                  <div class="summary-row">
-                    <span data-i18n="sum_amount_lbl">Montant indiqué :</span>
-                    <div>
-                      <span id="summaryAmount" class="summary-val">Montant libre selon vos capacités</span>
-                    </div>
-                  </div>
-
-                  <div class="summary-row">
-                    <span data-i18n="sum_alloc_lbl">Affectation :</span>
-                    <span style="font-weight: 600;" id="summaryAllocVal" data-i18n="sum_alloc_val">100% Repas chauds pour les Enfants de la Rue</span>
-                  </div>
-
-                  <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
-                    <button type="button" class="btn btn-primary btn-pulse" id="btnGeneratePledge" style="width: 100%;">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                      <span data-i18n="btn_pledge">Générer mon engagement de don</span>
-                    </button>
-
-                    <button type="button" class="btn btn-outline" id="btnSeeCoords" style="width: 100%; text-align: center;" data-i18n="btn_see_coords">
-                      Voir les coordonnées officielles ci-dessous
-                    </button>
-                  </div>
-
-                  <p style="font-size: 0.75rem; color: var(--color-text-light); text-align: center; margin-top: 14px;" data-i18n="don_security_note">
-                    🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- 2. Cartes de paiement officielles fournies -->
-            <div id="panelOfficialMethods" class="donation-tab-panel" role="tabpanel" aria-labelledby="tabOfficialMethods" style="display: none;">
-              
-              <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; background: #FFFFFF; padding: 16px 22px; border-radius: var(--radius-md); border: 1.5px solid rgba(212, 132, 39, 0.25); box-shadow: var(--shadow-xs);">
-                <div style="font-size: 0.95rem; color: var(--color-dark); font-weight: 700; display: flex; align-items: center; gap: 8px;">
-                  <span>🏛️</span>
-                  <span data-i18n="coords_banner_text">Coordonnées officielles vérifiées de l'Association Caritative LOKHO NDEYE</span>
-                </div>
-                <button type="button" class="btn btn-outline" id="btnBackToPledgeForm" style="padding: 9px 18px; font-size: 0.88rem; font-weight: 700; border-color: var(--color-primary); color: var(--color-primary);">
-                  <span data-i18n="btn_back_to_form">← Remplir une promesse de don / Obtenir un reçu</span>
-                </button>
-              </div>
-
-              <div id="coordonnees-officielles" class="payment-methods-grid" style="margin-top: 0;">
-                
-                <!-- Carte Virement Bancaire -->
-                <div class="payment-card card-virement">
-                  <span class="payment-card-badge" data-i18n="card_virement_badge">Virement Bancaire</span>
-                  <div class="payment-card-header">
-                    <div class="payment-icon-box">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 class="payment-card-title" data-i18n="card_virement_title">Virement Bancaire Officiel</h3>
-                      <span class="payment-card-sub" data-i18n="card_virement_sub">Compte institutionnel au Sénégal</span>
-                    </div>
-                  </div>
-
-                  <table class="bank-info-table">
-                    <tbody>
-                      <tr>
-                        <td data-i18n="lbl_account_name">Intitulé du compte :</td>
-                        <td id="bankAccountName" data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
-                      </tr>
-                      <tr>
-                        <td data-i18n="lbl_account_hq">Siège / Domiciliation :</td>
-                        <td data-i18n="val_account_hq">Saly Station, Saly Portudal [Mbour], Sénégal</td>
-                      </tr>
-                      <tr>
-                        <td data-i18n="lbl_account_legal">Cadre juridique :</td>
-                        <td data-i18n="val_account_legal">Code des Obligations Civiles et Commerciales (Sénégal)</td>
-                      </tr>
-                      <tr>
-                        <td data-i18n="lbl_account_ref">Motif / Référence :</td>
-                        <td><span style="color: var(--color-primary); font-family: monospace;" data-i18n="val_account_ref">DON ENFANTS RUE - LOKHO NDEYE</span></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div class="copy-btn-group">
-                    <button type="button" class="btn-copy" data-copy-text="Association Caritative LOKHO NDEYE - Siège Saly Station, Mbour, Sénégal. Réf: DON-ENFANTS-RUE" data-copy-label="Coordonnées du compte">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                      <span data-i18n="btn_copy_coords">Copier les informations</span>
-                    </button>
-
-                    <button type="button" class="btn-copy" style="border-color: var(--color-primary); color: var(--color-primary);" data-open-modal="ribModal" data-i18n="btn_request_rib">
-                      Demander le RIB complet
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Carte Wave Sénégal -->
-                <div class="payment-card card-wave">
-                  <span class="payment-card-badge" data-i18n="card_wave_badge">Wave Sénégal</span>
-                  <div class="payment-card-header">
-                    <div class="payment-icon-box">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-6h2v6zm-2-8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 class="payment-card-title" data-i18n="card_wave_title">Faire un don avec Wave</h3>
-                      <span class="payment-card-sub" data-i18n="card_wave_sub">Mobile Money rapide & 0% frais</span>
-                    </div>
-                  </div>
-
-                  <div style="background: rgba(0, 180, 216, 0.08); padding: 14px; border-radius: var(--radius-sm); margin-bottom: 20px;">
-                    <div style="font-size: 0.85rem; color: var(--color-dark); line-height: 1.45;" data-i18n-html="wave_info_box">
-                      Envoyez directement votre don en ouvrant l'application <strong>Wave Sénégal</strong>.
-                      <br>
-                      <span style="font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;">Bénéficiaire officiel : Association Caritative LOKHO NDEYE</span>
-                    </div>
-                  </div>
-
-                  <table class="bank-info-table">
-                    <tbody>
-                      <tr>
-                        <td data-i18n="lbl_wave_app">Application :</td>
-                        <td style="color: var(--color-wave-dark); font-weight: 700;">Wave Sénégal</td>
-                      </tr>
-                      <tr>
-                        <td data-i18n="lbl_wave_recipient">Destinataire :</td>
-                        <td data-i18n="official_beneficiary_name">Association Caritative LOKHO NDEYE</td>
-                      </tr>
-                      <tr>
-                        <td data-i18n="lbl_wave_num">Numéro officiel :</td>
-                        <td><em data-i18n="lbl_wave_account">Compte officiel de l'Association</em></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div class="copy-btn-group">
-                    <button type="button" class="btn-copy btn-wave-action" data-copy-text="Association Caritative LOKHO NDEYE - Service de Don Wave officiel" data-copy-label="Informations Wave">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                      <span data-i18n="btn_copy_wave">Copier les identifiants Wave</span>
-                    </button>
-
-                    <a href="https://wave.com" target="_blank" rel="noopener noreferrer" class="btn-copy" style="text-decoration: none;" data-i18n="btn_open_wave">
-                      Ouvrir Wave
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Architecture prête pour les futurs moyens de paiement -->
-              <div class="upcoming-methods-box">
-                <div>
-                  <strong style="color: var(--color-dark); font-size: 0.9rem;" data-i18n="upcoming_title">Moyens de paiement additionnels (Architecture évolutive) :</strong>
-                  <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 2px 0 0;" data-i18n="upcoming_sub">
-                    Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :
-                  </p>
-                </div>
-                <div class="upcoming-badges">
-                  <span class="method-tag" data-i18n="upcoming_orange">⏳ Orange Money (Bientôt)</span>
-                  <span class="method-tag" data-i18n="upcoming_free">⏳ Free Money (Bientôt)</span>
-                  <span class="method-tag" data-i18n="upcoming_card">💳 Carte Bancaire Visa / Mastercard (En cours)</span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+        <div class="don-contact-box">
+          <p class="don-contact-text" data-i18n="don_contact_text">Pour faire un don ou proposer votre aide, contactez directement l'association. Notre secrétariat vous répondra et vous indiquera comment participer.</p>
+          <a href="#contact" class="btn btn-primary" data-i18n="don_contact_btn">Contacter l'association</a>
         </div>
       </div>
     </section>
@@ -5664,8 +5434,7 @@ html, body {
         <div class="footer-col">
           <h4 data-i18n="footer_ethics_title">Solidarité & Éthique</h4>
           <div class="footer-links">
-            <a href="#faire-un-don" data-i18n="footer_link_virement">Faire un don par virement</a>
-            <a href="#faire-un-don" data-i18n="footer_link_wave">Faire un don via Wave</a>
+            <a href="#faire-un-don" data-i18n="footer_link_don">Faire un don</a>
             <a href="#" role="button" data-open-modal="statutsModal" data-i18n="footer_link_statuts">Statuts constitutifs</a>
             <a href="#" role="button" data-open-modal="privacyModal" data-i18n="footer_link_privacy">Charte d'anonymat & déontologie</a>
             <a href="#contact" data-i18n="footer_link_contact">Nous contacter</a>
@@ -5763,94 +5532,6 @@ html, body {
     </div>
   </div>
 
-  <!-- Modale Demande de RIB officiel -->
-  <div class="modal-overlay" id="ribModal" role="dialog" aria-modal="true" aria-labelledby="ribModalTitle">
-    <div class="modal-container">
-      <div class="modal-header">
-        <h3 class="modal-title" id="ribModalTitle" data-i18n="modal_rib_title">Demande du RIB / IBAN officiel complet</h3>
-        <button class="modal-close-btn" data-close-modal="ribModal" aria-label="Fermer">✕</button>
-      </div>
-      <div class="modal-body">
-        <div style="background: var(--color-primary-soft); padding: 16px; border-radius: var(--radius-sm); margin-bottom: 16px;">
-          <p style="margin: 0; font-size: 0.9rem; color: var(--color-dark);" data-i18n="modal_rib_alert">
-            Afin de sécuriser les flux de virement bancaire et de prévenir toute tentative de fraude, le relevé d'identité bancaire complet (IBAN, Code Banque, Code Guichet, Clé RIB) est transmis sur demande officielle par le secrétariat administratif.
-          </p>
-        </div>
-        <p><strong data-i18n="sum_beneficiary_lbl">Compte bénéficiaire :</strong> <span data-i18n="modal_rib_recipient">Association Caritative LOKHO NDEYE</span></p>
-        <p><strong data-i18n="lbl_account_hq">Siège officiel :</strong> <span data-i18n-html="modal_rib_hq">Saly Station, Saly Portudal [Mbour] (Sénégal) — <em>Action sur tout le Sénégal</em></span></p>
-        <p data-i18n="modal_rib_instruction">Pour recevoir instantanément l'attestation de domiciliation bancaire officielle par email, veuillez envoyer un message à :</p>
-        <div style="padding: 12px; background: #FFFFFF; border: 1px solid var(--color-border); border-radius: 6px; font-weight: 700; color: var(--color-primary); text-align: center; margin: 14px 0;">
-          contact@lokhondeye.org
-        </div>
-        <p style="font-size: 0.85rem; color: var(--color-text-muted);" data-i18n="modal_rib_note">
-          Indiquez simplement en objet : « Demande RIB officiel pour don enfants de la rue ».
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline" data-close-modal="ribModal" data-i18n="btn_close">Fermer</button>
-        <a href="mailto:contact@lokhondeye.org?subject=Demande%20RIB%20officiel%20Association%20Lokho%20Ndeye" class="btn btn-primary" data-i18n="btn_send_email">
-          Envoyer un email
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modale Reçu / Engagement de don solidaire -->
-  <div class="modal-overlay" id="pledgeModal" role="dialog" aria-modal="true" aria-labelledby="pledgeModalTitle">
-    <div class="modal-container">
-      <div class="modal-header">
-        <h3 class="modal-title" id="pledgeModalTitle" data-i18n="modal_pledge_title">Engagement de Don pour les Enfants de la Rue</h3>
-        <button class="modal-close-btn" data-close-modal="pledgeModal" aria-label="Fermer">✕</button>
-      </div>
-      <div class="modal-body" id="printablePledgeArea">
-        <div style="text-align: center; padding-bottom: 16px; border-bottom: 2px dashed var(--color-border); margin-bottom: 20px;">
-          <img src="assets/logo.jpg" alt="Logo Lokho Ndeye" width="60" height="60" style="margin: 0 auto 10px; border-radius: 50%; border: 2px solid var(--color-secondary);">
-          <h4 style="font-size: 1.25rem; color: var(--color-primary); text-transform: uppercase; margin-bottom: 2px;" data-i18n="brand_title">ASSOCIATION CARITATIVE LOKHO NDEYE</h4>
-          <span style="font-size: 0.8rem; font-style: italic; color: var(--color-secondary-dark);" data-i18n="modal_pledge_motto">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</span>
-          <div style="font-size: 0.75rem; color: var(--color-text-light); margin-top: 4px;" data-i18n="modal_pledge_hq">Siège : Saly Station [Mbour] • Action Nationale sur tout le Sénégal</div>
-        </div>
-
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.9rem;">
-          <tbody>
-            <tr style="border-bottom: 1px solid var(--color-border);">
-              <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_ref_lbl">Référence d'engagement :</td>
-              <td style="padding: 8px 0; font-weight: 700; text-align: right; color: var(--color-dark);" id="receiptModalRef">LN-240926</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--color-border);">
-              <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_date_lbl">Date :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalDate">24 septembre 2026</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--color-border);">
-              <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_amount_lbl">Montant du soutien :</td>
-              <td style="padding: 8px 0; font-weight: 800; font-size: 1.15rem; color: var(--color-primary); text-align: right;" id="receiptModalAmount">Montant libre (selon vos capacités)</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--color-border);">
-              <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_freq_lbl">Fréquence :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right;" id="receiptModalFreq">Don occasionnel</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; color: var(--color-text-muted);" data-i18n="modal_pledge_alloc_lbl">Affectation sociale :</td>
-              <td style="padding: 8px 0; font-weight: 600; text-align: right; color: var(--color-success);" id="receiptModalAlloc" data-i18n="modal_pledge_alloc_val">100% Repas chauds pour les enfants de la rue</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div style="background: var(--color-secondary-soft); border: 1px solid rgba(212, 132, 39, 0.4); border-radius: 8px; padding: 14px; font-size: 0.85rem; line-height: 1.45;" data-i18n-html="modal_pledge_instructions">
-          <strong>Instructions de transmission :</strong>
-          <br>
-          Pour concrétiser cet engagement, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline" data-action="print">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          <span data-i18n="btn_print">Imprimer ce récapitulatif</span>
-        </button>
-        <button type="button" class="btn btn-primary" data-close-modal="pledgeModal" data-i18n="btn_close">Fermer</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Modale Logo Grand Format (Affichage Plein Écran HD) -->
   <div class="modal-overlay" id="logoGrandFormatModal" role="dialog" aria-modal="true" aria-labelledby="logoGrandFormatTitle">
     <div class="modal-container" style="max-width: 680px; text-align: center; background: #FFFFFF; padding: 28px;">
@@ -5898,7 +5579,6 @@ const translations = {
 
     // Marque & En-tête
     brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
-    official_beneficiary_name: "Association Caritative LOKHO NDEYE",
     brand_aria: "Retour à l'accueil de l'Association Caritative LOKHO NDEYE",
     hero_section_aria: "Un repas chaud pour les enfants de la rue au Sénégal",
     brand_tagline: "« La Main tendue d'une mère »",
@@ -5983,61 +5663,14 @@ const translations = {
     // Section Faire un don (Montant libre solidaire)
     don_tag: "Espace Donateurs Solidaires",
     don_title: "Tendez la main : Sauvez un enfant de la rue",
-    don_sub: "Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés aux repas chauds des enfants de la rue au Sénégal.",
-    tab_pledge: "Promesse & Formulaire de don",
-    tab_methods: "Coordonnées de virement & Wave",
-    freq_label: "1. Fréquence de votre soutien solidaire :",
-    freq_occasionnel: "Don occasionnel",
-    freq_regulier: "Don régulier (mensuel)",
-    amount_label: "2. Montant de votre don (Montant libre selon vos capacités) :",
-    currency_auto_detected: "Devise adaptée à votre pays de résidence :",
-    custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
-    preview_default: "<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée aux repas chauds des enfants de la rue au Sénégal.",
-    volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).",
+    don_sub: "100% de vos dons sont exclusivement consacrés aux repas chauds des enfants de la rue au Sénégal.",
+    don_contact_text: "Pour faire un don ou proposer votre aide, contactez directement l'association. Notre secrétariat vous répondra et vous indiquera comment participer.",
+    don_contact_btn: "Contacter l'association",
 
-    sum_title: "Récapitulatif de votre don",
-    sum_beneficiary_lbl: "Bénéficiaire officiel :",
-    sum_freq_lbl: "Type de don :",
-    sum_amount_lbl: "Montant indiqué :",
-    sum_amount_free: "Montant libre selon vos capacités",
-    sum_alloc_lbl: "Affectation :",
-    sum_alloc_val: "100% Repas chauds pour les Enfants de la Rue",
-    btn_pledge: "Générer mon engagement de don",
-    btn_see_coords: "Voir les coordonnées officielles ci-dessous",
-    btn_back_to_form: "← Remplir une promesse de don / Obtenir un reçu",
-    coords_banner_text: "Coordonnées officielles vérifiées de l'Association Caritative LOKHO NDEYE",
-    don_security_note: "🔒 Aucune donnée bancaire sensible n'est enregistrée sur ce site. Vos contributions se font directement via les canaux officiels sécurisés de l'association.",
 
     // Cartes de paiement
-    card_virement_badge: "Virement Bancaire",
-    card_virement_title: "Virement Bancaire Officiel",
-    card_virement_sub: "Compte institutionnel au Sénégal",
-    lbl_account_name: "Intitulé du compte :",
-    lbl_account_hq: "Siège / Domiciliation :",
-    val_account_hq: "Saly Station, Saly Portudal [Mbour], Sénégal",
-    lbl_account_legal: "Cadre juridique :",
-    val_account_legal: "Code des Obligations Civiles et Commerciales (Sénégal)",
-    lbl_account_ref: "Motif / Référence :",
-    val_account_ref: "DON ENFANTS RUE - LOKHO NDEYE",
-    btn_copy_coords: "Copier les informations",
-    btn_request_rib: "Demander le RIB complet",
 
-    card_wave_badge: "Wave Sénégal",
-    card_wave_title: "Faire un don avec Wave",
-    card_wave_sub: "Mobile Money rapide & 0% frais",
-    wave_info_box: "Envoyez directement votre don en ouvrant l'application <strong>Wave Sénégal</strong>.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Bénéficiaire officiel : Association Caritative LOKHO NDEYE</span>",
-    lbl_wave_app: "Application :",
-    lbl_wave_recipient: "Destinataire :",
-    lbl_wave_num: "Numéro officiel :",
-    lbl_wave_account: "Compte officiel de l'Association",
-    btn_copy_wave: "Copier les identifiants Wave",
-    btn_open_wave: "Ouvrir Wave",
 
-    upcoming_title: "Moyens de paiement additionnels (Architecture évolutive) :",
-    upcoming_sub: "Notre plateforme technique est conçue pour accueillir de nouvelles passerelles sécurisées :",
-    upcoming_orange: "● Orange Money (Bientôt)",
-    upcoming_free: "● Free Money (Bientôt)",
-    upcoming_card: "● Carte Bancaire Visa / Mastercard (En cours)",
 
     // Contact
     contact_tag: "Secrétariat Administratif",
@@ -6081,8 +5714,7 @@ const translations = {
     footer_desc: "Association caritative à but non lucratif dédiée exclusivement aux repas chauds des enfants de la rue au Sénégal. Régie par le Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarité & Éthique",
-    footer_link_virement: "Faire un don par virement",
-    footer_link_wave: "Faire un don via Wave",
+    footer_link_don: "Faire un don",
     footer_link_statuts: "Statuts constitutifs",
     footer_link_privacy: "Charte d'anonymat & déontologie",
     footer_link_contact: "Nous contacter",
@@ -6121,25 +5753,7 @@ const translations = {
     modal_privacy_p3_text: "Les informations transmises lors de vos dons ou prises de contact sont strictement confidentielles. Aucune donnée bancaire sensible n'est enregistrée sur notre plateforme.",
     btn_understood: "J'ai compris",
 
-    modal_rib_title: "Demande du RIB / IBAN officiel complet",
-    modal_rib_alert: "Afin de sécuriser les flux de virement bancaire et de prévenir toute tentative de fraude, le relevé d'identité bancaire complet (IBAN, Code Banque, Code Guichet, Clé RIB) est transmis sur demande officielle par le secrétariat administratif.",
-    modal_rib_recipient: "Association Caritative LOKHO NDEYE",
-    modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Sénégal) — <em>Action sur tout le Sénégal</em>",
-    modal_rib_instruction: "Pour recevoir instantanément l'attestation de domiciliation bancaire officielle par email, veuillez envoyer un message à :",
-    modal_rib_note: "Indiquez simplement en objet : « Demande RIB officiel pour don enfants de la rue ».",
-    btn_send_email: "Envoyer un email",
 
-    modal_pledge_title: "Engagement de Don pour les Enfants de la Rue",
-    modal_pledge_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
-    modal_pledge_hq: "Siège : Saly Station [Mbour] • Action Nationale sur tout le Sénégal",
-    modal_pledge_ref_lbl: "Référence d'engagement :",
-    modal_pledge_date_lbl: "Date :",
-    modal_pledge_amount_lbl: "Montant du soutien :",
-    modal_pledge_freq_lbl: "Fréquence :",
-    modal_pledge_alloc_lbl: "Affectation sociale :",
-    modal_pledge_alloc_val: "100% Repas chauds pour les enfants de la rue",
-    modal_pledge_instructions: "<strong>Instructions de transmission :</strong><br>Pour concrétiser cet engagement de don, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.",
-    btn_print: "Imprimer ce récapitulatif",
 
     modal_logo_title: "Emblème Officiel de l'Association — Grand Format",
     modal_logo_motto: "« Partager • Nourrir • Soutenir • Construire un avenir meilleur »",
@@ -6153,7 +5767,6 @@ const translations = {
     toast_sound_off: "Ambiance sonore coupée",
     copy_label_bank: "Coordonnées du compte",
     copy_label_wave: "Informations Wave",
-    receipt_free_amount: "Montant libre (selon vos capacités)"
   },
 
   en: {
@@ -6169,7 +5782,6 @@ const translations = {
 
     // Brand & Header
     brand_title: "CHARITABLE ASSOCIATION LOKHO NDEYE",
-    official_beneficiary_name: "Lokho Ndéye Charitable Association",
     brand_aria: "Back to home - Lokho Ndéye Charitable Association",
     hero_section_aria: "A hot meal for street children across Senegal",
     brand_tagline: "“A Mother's Outstretched Hand”",
@@ -6254,61 +5866,14 @@ const translations = {
     // Section Faire un don
     don_tag: "Street Children Emergency Area",
     don_title: "Reach Out Your Hand: Save a Street Child",
-    don_sub: "Choose your contribution. 100% of your donations are exclusively dedicated to hot meals for street children in Senegal.",
-    tab_pledge: "Pledge & Donation Form",
-    tab_methods: "Bank Wire & Wave Details",
-    freq_label: "1. Frequency of your support:",
-    freq_occasionnel: "Occasional gift",
-    freq_regulier: "Regular gift (monthly)",
-    amount_label: "2. Donation amount (Open amount according to your means):",
-    currency_auto_detected: "Currency tailored to your country of residence:",
-    custom_amount_placeholder: "Enter custom amount (in FCFA)",
-    preview_default: "<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to hot meals for street children in Senegal.",
-    volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping street children across Senegal. Zero salaries paid to leadership (Art. IX).",
+    don_sub: "100% of your donations are exclusively dedicated to hot meals for street children in Senegal.",
+    don_contact_text: "To donate or offer your help, contact the association directly. Our secretariat will reply and explain how you can take part.",
+    don_contact_btn: "Contact the association",
 
-    sum_title: "Your Donation Summary",
-    sum_beneficiary_lbl: "Official Beneficiary:",
-    sum_freq_lbl: "Donation Type:",
-    sum_amount_lbl: "Selected Amount:",
-    sum_amount_free: "Open amount according to your means",
-    sum_alloc_lbl: "Allocation:",
-    sum_alloc_val: "100% Hot Meals for Street Children",
-    btn_pledge: "Generate my donation pledge",
-    btn_see_coords: "See official payment details below",
-    btn_back_to_form: "← Return to pledge form / Get receipt",
-    coords_banner_text: "Verified official account details of Lokho Ndéye Charitable Association",
-    don_security_note: "🔒 No sensitive banking data is stored on this site. Your contributions are made directly through the association's secure official channels.",
 
     // Payment Cards
-    card_virement_badge: "Bank Wire",
-    card_virement_title: "Official Bank Wire",
-    card_virement_sub: "Institutional account in Senegal",
-    lbl_account_name: "Account Name:",
-    lbl_account_hq: "Headquarters / Domiciliation:",
-    val_account_hq: "Saly Station, Saly Portudal [Mbour], Senegal",
-    lbl_account_legal: "Legal Framework:",
-    val_account_legal: "Code of Civil and Commercial Obligations (Senegal)",
-    lbl_account_ref: "Reference / Purpose:",
-    val_account_ref: "DON ENFANTS RUE - LOKHO NDEYE",
-    btn_copy_coords: "Copy details",
-    btn_request_rib: "Request full IBAN / RIB",
 
-    card_wave_badge: "Wave Senegal",
-    card_wave_title: "Donate with Wave",
-    card_wave_sub: "Fast Mobile Money & 0% fees",
-    wave_info_box: "Send your donation directly by opening the <strong>Wave Senegal</strong> app.<br><span style=\"font-size: 0.8rem; color: var(--color-wave-dark); font-weight: 700;\">Official Beneficiary: Lokho Ndéye Charitable Association</span>",
-    lbl_wave_app: "Application:",
-    lbl_wave_recipient: "Recipient:",
-    lbl_wave_num: "Official Number:",
-    lbl_wave_account: "Official Association Account",
-    btn_copy_wave: "Copy Wave details",
-    btn_open_wave: "Open Wave",
 
-    upcoming_title: "Additional Payment Methods (Scalable Platform):",
-    upcoming_sub: "Our platform is built to accommodate future secure payment gateways:",
-    upcoming_orange: "● Orange Money (Coming soon)",
-    upcoming_free: "● Free Money (Coming soon)",
-    upcoming_card: "● Credit Card Visa / Mastercard (In progress)",
 
     // Contact
     contact_tag: "Administrative Secretariat",
@@ -6352,8 +5917,7 @@ const translations = {
     footer_desc: "Charitable nonprofit association dedicated exclusively to hot meals for street children in Senegal. Registered under the Code of Civil and Commercial Obligations of the Republic of Senegal. Headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarity & Ethics",
-    footer_link_virement: "Donate via bank transfer",
-    footer_link_wave: "Donate via Wave",
+    footer_link_don: "Make a donation",
     footer_link_statuts: "Constitutive Bylaws",
     footer_link_privacy: "Ethics & Anonymity Charter",
     footer_link_contact: "Contact us",
@@ -6392,25 +5956,7 @@ const translations = {
     modal_privacy_p3_text: "Information provided during donations or inquiries is kept strictly confidential. No sensitive banking details are recorded on our platform.",
     btn_understood: "Understood",
 
-    modal_rib_title: "Request for Official Bank Account Details (IBAN / RIB)",
-    modal_rib_alert: "To ensure the highest security for bank wire transfers and prevent fraud, complete bank domiciliation details (IBAN, Bank Code, Branch Code, Account Number) are issued upon official request by our administrative secretariat.",
-    modal_rib_recipient: "Association Caritative LOKHO NDEYE",
-    modal_rib_hq: "Saly Station, Saly Portudal [Mbour] (Senegal) — <em>Operating across all Senegal</em>",
-    modal_rib_instruction: "To immediately receive the official bank domiciliation certificate by email, please send a message to:",
-    modal_rib_note: "Simply mention as subject: “Request for official bank details for street children donation”.",
-    btn_send_email: "Send Email",
 
-    modal_pledge_title: "Charitable Donation Pledge for Street Children",
-    modal_pledge_motto: "“Share • Nourish • Support • Build a better future”",
-    modal_pledge_hq: "Headquarters: Saly Station [Mbour] • Nationwide Action across Senegal",
-    modal_pledge_ref_lbl: "Pledge Reference:",
-    modal_pledge_date_lbl: "Date:",
-    modal_pledge_amount_lbl: "Support Amount:",
-    modal_pledge_freq_lbl: "Frequency:",
-    modal_pledge_alloc_lbl: "Social Allocation:",
-    modal_pledge_alloc_val: "100% Hot meals for street children in Senegal",
-    modal_pledge_instructions: "<strong>Payment Instructions:</strong><br>To complete this pledge, please initiate the corresponding transfer via <strong>Wave</strong> or <strong>Bank Wire</strong> mentioning your official reference.",
-    btn_print: "Print this summary",
 
     modal_logo_title: "Official Association Emblem — Full Resolution",
     modal_logo_motto: "“Share • Nourish • Support • Build a better future”",
@@ -6424,7 +5970,6 @@ const translations = {
     toast_sound_off: "Acoustic soundscape muted",
     copy_label_bank: "Account details",
     copy_label_wave: "Wave details",
-    receipt_free_amount: "Open amount (according to your means)"
   }
 };
 
@@ -6519,14 +6064,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.setAttribute('aria-label', dict[key]);
       }
     });
-
-    // Synchronisation du formulaire de don, de la devise et des calculs
-    if (typeof updateCurrencyLabelsOnLangChange === 'function') {
-      updateCurrencyLabelsOnLangChange(lang);
-    }
-    if (typeof updateDonationSummary === 'function') {
-      updateDonationSummary();
-    }
   }
   window.applyLanguage = applyLanguage;
 
@@ -7144,544 +6681,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 7. FORMULAIRE DE PROMESSE DE DON SOLIDAIRE & DEVISE ADAPTÉE AU PAYS DU DONATEUR
-  // ==========================================================================
-  const customAmountInput = document.getElementById('customAmount');
-  const amountButtons = document.querySelectorAll('.amount-btn');
-  const freqButtons = document.querySelectorAll('.freq-btn');
-  const summaryAmount = document.getElementById('summaryAmount');
-  const summaryFrequency = document.getElementById('summaryFrequency');
-  const impactText = document.getElementById('impactPreviewText');
-
-  let currentAmount = 0;
-  let currentFrequency = 'occasionnel';
-
-  // Configuration des devises avec parités réelles et conversion vers le FCFA
-  const CURRENCIES = {
-    XOF: {
-      code: 'XOF',
-      name: 'FCFA',
-      symbol: 'FCFA',
-      flag: '🇸🇳',
-      countryNameFr: 'Sénégal / UEMOA (FCFA)',
-      countryNameEn: 'Senegal / WAEMU (FCFA)',
-      rateToXof: 1,
-      minAmount: 500,
-      step: 500,
-      placeholderFr: 'Indiquez le montant de votre choix (en FCFA)',
-      placeholderEn: 'Enter custom amount (in FCFA)'
-    },
-    EUR: {
-      code: 'EUR',
-      name: 'Euro',
-      symbol: '€',
-      flag: '🇪🇺',
-      countryNameFr: 'France / Zone Euro (€)',
-      countryNameEn: 'France / Eurozone (€)',
-      rateToXof: 655.957,
-      minAmount: 5,
-      step: 5,
-      placeholderFr: 'Indiquez le montant de votre choix (en €)',
-      placeholderEn: 'Enter custom amount (in €)'
-    },
-    USD: {
-      code: 'USD',
-      name: 'Dollar US',
-      symbol: '$',
-      flag: '🇺🇸',
-      countryNameFr: 'États-Unis / International ($)',
-      countryNameEn: 'United States / International ($)',
-      rateToXof: 605,
-      minAmount: 5,
-      step: 5,
-      placeholderFr: 'Indiquez le montant de votre choix (en $)',
-      placeholderEn: 'Enter custom amount (in $)'
-    },
-    CAD: {
-      code: 'CAD',
-      name: 'Dollar Canadien',
-      symbol: '$ CA',
-      flag: '🇨🇦',
-      countryNameFr: 'Canada ($ CA)',
-      countryNameEn: 'Canada ($ CA)',
-      rateToXof: 445,
-      minAmount: 5,
-      step: 5,
-      placeholderFr: 'Indiquez le montant de votre choix (en $ CA)',
-      placeholderEn: 'Enter custom amount (in $ CA)'
-    },
-    GBP: {
-      code: 'GBP',
-      name: 'Livre Sterling',
-      symbol: '£',
-      flag: '🇬🇧',
-      countryNameFr: 'Royaume-Uni (£)',
-      countryNameEn: 'United Kingdom (£)',
-      rateToXof: 780,
-      minAmount: 5,
-      step: 5,
-      placeholderFr: 'Indiquez le montant de votre choix (en £)',
-      placeholderEn: 'Enter custom amount (in £)'
-    },
-    CHF: {
-      code: 'CHF',
-      name: 'Franc Suisse',
-      symbol: 'CHF',
-      flag: '🇨🇭',
-      countryNameFr: 'Suisse (CHF)',
-      countryNameEn: 'Switzerland (CHF)',
-      rateToXof: 690,
-      minAmount: 5,
-      step: 5,
-      placeholderFr: 'Indiquez le montant de votre choix (en CHF)',
-      placeholderEn: 'Enter custom amount (in CHF)'
-    }
-  };
-  window.CURRENCIES = CURRENCIES;
-
-  let currentCurrency = 'XOF';
-  let userManuallySelectedCurrency = false;
-
-  const frequencyDisplayNames = {
-    fr: {
-      'occasionnel': 'Don occasionnel',
-      'ponctuel': 'Don occasionnel',
-      'unique': 'Don occasionnel',
-      'regulier': 'Don régulier (mensuel)',
-      'mensuel': 'Don régulier (mensuel)'
-    },
-    en: {
-      'occasionnel': 'Occasional gift',
-      'ponctuel': 'Occasional gift',
-      'unique': 'Occasional gift',
-      'regulier': 'Regular gift (monthly)',
-      'mensuel': 'Regular gift (monthly)'
-    }
-  };
-
-  function formatMoneyValue(val, locale) {
-    const isInt = Number.isInteger(val);
-    return val.toLocaleString(locale, {
-      minimumFractionDigits: isInt ? 0 : 2,
-      maximumFractionDigits: isInt ? 0 : 2
-    });
-  }
-  window.formatMoneyValue = formatMoneyValue;
-
-  function updateCurrencyLabelsOnLangChange(lang) {
-    const curr = CURRENCIES[currentCurrency] || CURRENCIES.XOF;
-    const isEn = (lang === 'en');
-    const nameEl = document.getElementById('detectedCountryName');
-    if (nameEl) {
-      nameEl.textContent = isEn ? curr.countryNameEn : curr.countryNameFr;
-    }
-    if (customAmountInput) {
-      customAmountInput.setAttribute('placeholder', isEn ? curr.placeholderEn : curr.placeholderFr);
-    }
-  }
-  window.updateCurrencyLabelsOnLangChange = updateCurrencyLabelsOnLangChange;
-
-  function setDonationCurrency(currCode, customLabel = null, isManual = true, customFlag = null) {
-    if (!CURRENCIES[currCode]) currCode = 'XOF';
-    currentCurrency = currCode;
-    const curr = CURRENCIES[currCode];
-    const lang = window.currentLanguage || 'fr';
-    const isEn = (lang === 'en');
-
-    if (isManual) {
-      userManuallySelectedCurrency = true;
-      try {
-        localStorage.setItem('lokho_donor_currency', currCode);
-        if (customLabel) localStorage.setItem('lokho_donor_country_label', customLabel);
-      } catch (e) {}
-    }
-
-    // Mise à jour visuelle des boutons pilules de devises
-    document.querySelectorAll('.currency-pill-btn').forEach(btn => {
-      const isSelected = (btn.getAttribute('data-currency') === currCode);
-      btn.classList.toggle('active', isSelected);
-      btn.setAttribute('aria-checked', isSelected ? 'true' : 'false');
-    });
-
-    // Mise à jour de l'icône dans le champ de saisie
-    const iconEl = document.getElementById('customAmountIcon');
-    if (iconEl) {
-      iconEl.textContent = curr.symbol;
-    }
-
-    // Mise à jour du champ personnalisé (placeholder, min, step)
-    if (customAmountInput) {
-      customAmountInput.setAttribute('placeholder', isEn ? curr.placeholderEn : curr.placeholderFr);
-      customAmountInput.setAttribute('min', curr.minAmount);
-      customAmountInput.setAttribute('step', curr.step);
-    }
-
-    // Mise à jour du badge de pays détecté
-    const flagEl = document.getElementById('detectedCountryFlag');
-    const nameEl = document.getElementById('detectedCountryName');
-    if (flagEl) {
-      flagEl.textContent = customFlag || curr.flag;
-    }
-    if (nameEl) {
-      nameEl.textContent = customLabel || (isEn ? curr.countryNameEn : curr.countryNameFr);
-    }
-
-    updateDonationSummary();
-  }
-  window.setDonationCurrency = setDonationCurrency;
-
-  function detectDonorCountryAndCurrency() {
-    // 1. Préférence enregistrée dans localStorage si existante
-    try {
-      const saved = localStorage.getItem('lokho_donor_currency');
-      if (saved && CURRENCIES[saved]) {
-        const rawSavedLabel = localStorage.getItem('lokho_donor_country_label');
-        const savedLabel = rawSavedLabel ? String(rawSavedLabel).replace(/[^\p{L}\p{N}\s\-()',.]/gu, '').slice(0, 50) : null;
-        setDonationCurrency(saved, savedLabel, false);
-        return;
-      }
-    } catch (e) {}
-
-    // 2. Détection heuristique instantanée 0ms par timezone et langues du navigateur
-    let initialCode = 'XOF';
-    let initialLabelFr = 'Sénégal / UEMOA (FCFA)';
-    let initialLabelEn = 'Senegal / WAEMU (FCFA)';
-    let initialFlag = '🇸🇳';
-
-    try {
-      const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
-      const navLangs = (navigator.languages || [navigator.language || '']).map(l => (l || '').toLowerCase());
-      const has = (term) => tz.includes(term) || navLangs.some(l => l.includes(term));
-
-      if (has('toronto') || has('montreal') || has('vancouver') || has('edmonton') || has('-ca')) {
-        initialCode = 'CAD';
-        initialLabelFr = 'Canada ($ CA)';
-        initialLabelEn = 'Canada ($ CA)';
-        initialFlag = '🇨🇦';
-      } else if (has('london') || has('-gb')) {
-        initialCode = 'GBP';
-        initialLabelFr = 'Royaume-Uni (£)';
-        initialLabelEn = 'United Kingdom (£)';
-        initialFlag = '🇬🇧';
-      } else if (has('zurich') || has('-ch')) {
-        initialCode = 'CHF';
-        initialLabelFr = 'Suisse (CHF)';
-        initialLabelEn = 'Switzerland (CHF)';
-        initialFlag = '🇨🇭';
-      } else if (
-        has('paris') || has('brussels') || has('berlin') || has('rome') ||
-        has('madrid') || has('amsterdam') || has('vienna') || has('lisbon') ||
-        has('dublin') || has('-fr') || has('-be') || has('-de') || has('-es') || has('-it')
-      ) {
-        initialCode = 'EUR';
-        initialLabelFr = 'France / Zone Euro (€)';
-        initialLabelEn = 'France / Eurozone (€)';
-        initialFlag = '🇪🇺';
-      } else if (
-        has('new_york') || has('chicago') || has('los_angeles') ||
-        has('denver') || has('phoenix') || has('-us')
-      ) {
-        initialCode = 'USD';
-        initialLabelFr = 'États-Unis / International ($)';
-        initialLabelEn = 'United States / International ($)';
-        initialFlag = '🇺🇸';
-      } else if (
-        has('dakar') || has('abidjan') || has('bamako') || has('ouagadougou') ||
-        has('lome') || has('cotonou') || has('niamey') || has('-sn') || has('-ci')
-      ) {
-        initialCode = 'XOF';
-        initialLabelFr = 'Sénégal / UEMOA (FCFA)';
-        initialLabelEn = 'Senegal / WAEMU (FCFA)';
-        initialFlag = '🇸🇳';
-      }
-    } catch (err) {
-      console.warn('Erreur détection heuristique fuseau horaire:', err);
-    }
-
-    const currentLang = window.currentLanguage || 'fr';
-    setDonationCurrency(
-      initialCode,
-      currentLang === 'en' ? initialLabelEn : initialLabelFr,
-      false,
-      initialFlag
-    );
-
-    // 3. Affinement asynchrone non-bloquant par géolocalisation IP (GeoJS gratuit HTTPS)
-    fetch('https://get.geojs.io/v1/ip/country.json', { cache: 'no-store' })
-      .then(res => {
-        if (!res.ok) throw new Error('GeoJS non accessible');
-        return res.json();
-      })
-      .then(data => {
-        if (userManuallySelectedCurrency) return; // Respect du choix explicite de l'utilisateur
-        const cc = (String(data.country || '').replace(/[^A-Za-z]/g, '').slice(0, 2)).toUpperCase();
-        const rawName = data.name || data.country || '';
-        const countryName = String(rawName).replace(/[^\p{L}\p{N}\s\-()',.]/gu, '').slice(0, 50);
-        let targetCurr = 'USD';
-        let flag = '🌍';
-
-        const westAfrica = ['SN', 'CI', 'ML', 'BF', 'BJ', 'TG', 'NE', 'GW', 'CM', 'GA', 'CG', 'TD', 'CF', 'GQ'];
-        const eurozone = ['FR', 'BE', 'DE', 'ES', 'IT', 'NL', 'PT', 'AT', 'IE', 'FI', 'GR', 'LU', 'MC', 'AD', 'SM', 'VA', 'ME', 'XK', 'SK', 'SI', 'EE', 'LV', 'LT', 'CY', 'MT', 'HR'];
-
-        if (westAfrica.includes(cc)) {
-          targetCurr = 'XOF';
-          flag = cc === 'SN' ? '🇸🇳' : '🌍';
-        } else if (eurozone.includes(cc)) {
-          targetCurr = 'EUR';
-          flag = cc === 'FR' ? '🇫🇷' : '🇪🇺';
-        } else if (cc === 'US') {
-          targetCurr = 'USD';
-          flag = '🇺🇸';
-        } else if (cc === 'CA') {
-          targetCurr = 'CAD';
-          flag = '🇨🇦';
-        } else if (cc === 'GB') {
-          targetCurr = 'GBP';
-          flag = '🇬🇧';
-        } else if (cc === 'CH') {
-          targetCurr = 'CHF';
-          flag = '🇨🇭';
-        }
-
-        const sym = CURRENCIES[targetCurr] ? CURRENCIES[targetCurr].symbol : '';
-        const displayLabel = countryName ? `${countryName} (${sym})` : null;
-        setDonationCurrency(targetCurr, displayLabel, false, flag);
-      })
-      .catch(() => {
-        // En cas de blocage réseau ou adblocker, l'heuristique timezone reste active
-      });
-  }
-
-  function updateDonationSummary() {
-    const lang = window.currentLanguage || 'fr';
-    const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
-    const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
-    const isEn = (lang === 'en');
-    const locale = isEn ? 'en-US' : 'fr-FR';
-    const curr = (typeof CURRENCIES !== 'undefined' && CURRENCIES[currentCurrency]) ? CURRENCIES[currentCurrency] : { code: 'XOF', symbol: 'FCFA', rateToXof: 1 };
-
-    // Calcul de l'équivalent local au Sénégal en FCFA
-    const amountInXof = Math.round(currentAmount * curr.rateToXof);
-
-    if (summaryAmount) {
-      if (currentAmount > 0) {
-        const formattedCurr = `${formatMoneyValue(currentAmount, locale)} ${curr.symbol}`;
-        if (curr.code === 'XOF') {
-          summaryAmount.textContent = `${formatMoneyValue(currentAmount, locale)} FCFA`;
-        } else {
-          summaryAmount.innerHTML = `<strong>${formattedCurr}</strong> <span style="font-size: 0.85em; opacity: 0.85; font-weight: normal;">(~${formatMoneyValue(amountInXof, locale)} FCFA)</span>`;
-        }
-      } else {
-        summaryAmount.textContent = dict.sum_amount_free || (isEn ? 'Open amount according to your means' : 'Montant libre selon vos capacités');
-      }
-    }
-    if (summaryFrequency) {
-      summaryFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
-    }
-
-    if (impactText) {
-      if (currentAmount > 0) {
-        if (curr.code === 'XOF') {
-          impactText.innerHTML = isEn
-            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> goes 100% directly to hot meals for street children in Senegal.`
-            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> sera intégralement utilisé pour offrir des repas chauds aux enfants de la rue au Sénégal.`;
-        } else {
-          impactText.innerHTML = isEn
-            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (approx. <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) goes 100% directly to hot meals for street children in Senegal.`
-            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (environ <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) sera intégralement utilisé pour offrir des repas chauds aux enfants de la rue au Sénégal.`;
-        }
-      } else {
-        impactText.innerHTML = isEn
-          ? `<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to hot meals for street children in Senegal.`
-          : `<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée aux repas chauds des enfants de la rue au Sénégal.`;
-      }
-    }
-  }
-
-  // Clics sur les pilules de devises
-  document.querySelectorAll('.currency-pill-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const code = btn.getAttribute('data-currency');
-      if (code && CURRENCIES[code]) {
-        setDonationCurrency(code, null, true);
-      }
-    });
-  });
-
-  // Sélection rapide du montant par bouton de palier (si présent)
-  amountButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      amountButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const val = parseFloat(btn.getAttribute('data-amount'));
-      if (!isNaN(val) && val > 0) {
-        currentAmount = val;
-        if (customAmountInput) customAmountInput.value = val;
-      }
-      updateDonationSummary();
-    });
-  });
-
-  // Saisie libre du montant par le donateur (sécurisée contre les injections et saisies invalides)
-  if (customAmountInput) {
-    customAmountInput.addEventListener('keydown', (e) => {
-      // Interdire les signes négatifs, positifs et la notation exponentielle
-      if (['-', '+', 'e', 'E'].includes(e.key)) {
-        e.preventDefault();
-      }
-    });
-
-    customAmountInput.addEventListener('input', (e) => {
-      const rawVal = e.target.value.replace(/[^0-9.]/g, '');
-      let val = parseFloat(rawVal);
-      amountButtons.forEach(b => b.classList.remove('active'));
-
-      if (!isNaN(val) && val > 0) {
-        // Plafond de sécurité à 100 millions pour éviter les débordements numériques
-        if (val > 100000000) {
-          val = 100000000;
-          customAmountInput.value = val;
-        }
-        currentAmount = val;
-        amountButtons.forEach(b => {
-          if (parseFloat(b.getAttribute('data-amount')) === val) {
-            b.classList.add('active');
-          }
-        });
-      } else {
-        currentAmount = 0;
-      }
-      updateDonationSummary();
-    });
-  }
-
-  // Fréquence (Occasionnel ou Régulier)
-  freqButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      freqButtons.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-      currentFrequency = btn.getAttribute('data-frequency') || 'occasionnel';
-      updateDonationSummary();
-    });
-  });
-
-  // Détection initiale de la devise selon le pays du donateur
-  detectDonorCountryAndCurrency();
-
-  // ==========================================================================
-  // 7bis. GESTIONNAIRE D'ONGLETS DE L'ESPACE DE DON (Formulaire vs Coordonnées officielles)
-  // ==========================================================================
-  const tabInteractiveDon = document.getElementById('tabInteractiveDon');
-  const tabOfficialMethods = document.getElementById('tabOfficialMethods');
-  const panelInteractiveDon = document.getElementById('panelInteractiveDon');
-  const panelOfficialMethods = document.getElementById('panelOfficialMethods');
-  const btnSeeCoords = document.getElementById('btnSeeCoords');
-  const btnBackToPledgeForm = document.getElementById('btnBackToPledgeForm');
-
-  function switchDonationTab(target) {
-    if (target === 'methods' || target === 'coordonnees') {
-      if (tabInteractiveDon) {
-        tabInteractiveDon.classList.remove('active');
-        tabInteractiveDon.setAttribute('aria-selected', 'false');
-      }
-      if (tabOfficialMethods) {
-        tabOfficialMethods.classList.add('active');
-        tabOfficialMethods.setAttribute('aria-selected', 'true');
-      }
-      if (panelInteractiveDon) {
-        panelInteractiveDon.classList.remove('active');
-        panelInteractiveDon.style.display = 'none';
-      }
-      if (panelOfficialMethods) {
-        panelOfficialMethods.classList.add('active');
-        panelOfficialMethods.style.display = 'block';
-      }
-    } else {
-      if (tabOfficialMethods) {
-        tabOfficialMethods.classList.remove('active');
-        tabOfficialMethods.setAttribute('aria-selected', 'false');
-      }
-      if (tabInteractiveDon) {
-        tabInteractiveDon.classList.add('active');
-        tabInteractiveDon.setAttribute('aria-selected', 'true');
-      }
-      if (panelOfficialMethods) {
-        panelOfficialMethods.classList.remove('active');
-        panelOfficialMethods.style.display = 'none';
-      }
-      if (panelInteractiveDon) {
-        panelInteractiveDon.classList.add('active');
-        panelInteractiveDon.style.display = 'block';
-      }
-    }
-  }
-  window.switchDonationTab = switchDonationTab;
-
-  if (tabInteractiveDon) {
-    tabInteractiveDon.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchDonationTab('interactive');
-    });
-  }
-
-  if (tabOfficialMethods) {
-    tabOfficialMethods.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchDonationTab('methods');
-    });
-  }
-
-  if (btnSeeCoords) {
-    btnSeeCoords.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchDonationTab('methods');
-      const coordsSec = document.getElementById('coordonnees-officielles') || panelOfficialMethods;
-      if (coordsSec) {
-        coordsSec.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  }
-
-  if (btnBackToPledgeForm) {
-    btnBackToPledgeForm.addEventListener('click', (e) => {
-      e.preventDefault();
-      switchDonationTab('interactive');
-      const tabsHeader = document.querySelector('.donation-tabs-header');
-      if (tabsHeader) {
-        tabsHeader.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  }
-
-  // ==========================================================================
-  // 8. EFFET 3D TILT SUR LES CARTES (Cartes de Paiement)
-  // ==========================================================================
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const tiltCards = document.querySelectorAll('.payment-card');
-
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const cardX = e.clientX - rect.left;
-        const cardY = e.clientY - rect.top;
-
-        const rotateX = ((cardY / rect.height) - 0.5) * -10;
-        const rotateY = ((cardX / rect.width) - 0.5) * 10;
-
-        card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
-      });
-    });
-  }
-
-  // ==========================================================================
   // 9. COPIE FACILE DANS LE PRESSE-PAPIERS AVEC NOTIFICATION TOAST
   // ==========================================================================
   const toast = document.getElementById('toastNotice');
@@ -7746,9 +6745,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 10. GESTION DES MODALES ACCESSIBLES & SÉCURISÉES (Statuts, RIB, Reçu Solidaire)
+  // 10. GESTION DES MODALES ACCESSIBLES & SÉCURISÉES (Statuts, Charte, Logo)
   // ==========================================================================
-  const ALLOWED_MODALS = new Set(['statutsModal', 'privacyModal', 'ribModal', 'pledgeModal', 'logoGrandFormatModal']);
+  const ALLOWED_MODALS = new Set(['statutsModal', 'privacyModal', 'logoGrandFormatModal']);
 
   window.openModal = function(modalId) {
     if (!ALLOWED_MODALS.has(modalId)) return;
@@ -7830,54 +6829,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
   });
-
-  // ==========================================================================
-  // 11. REÇU / ENGAGEMENT SOLIDAIRE EN LIGNE
-  // ==========================================================================
-  const btnGeneratePledge = document.getElementById('btnGeneratePledge');
-  if (btnGeneratePledge) {
-    btnGeneratePledge.addEventListener('click', () => {
-      const receiptAmount = document.getElementById('receiptModalAmount');
-      const receiptFrequency = document.getElementById('receiptModalFreq');
-      const receiptRef = document.getElementById('receiptModalRef');
-      const receiptDate = document.getElementById('receiptModalDate');
-
-      const lang = window.currentLanguage || 'fr';
-      const dict = (window.i18nTranslations && window.i18nTranslations[lang]) || {};
-      const isEn = (lang === 'en');
-      const refNumber = 'LN-' + Math.floor(100000 + Math.random() * 900000);
-      const today = new Date().toLocaleDateString(isEn ? 'en-US' : 'fr-FR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-
-      if (receiptAmount) {
-        const curr = (typeof CURRENCIES !== 'undefined' && CURRENCIES[currentCurrency]) ? CURRENCIES[currentCurrency] : { code: 'XOF', symbol: 'FCFA', rateToXof: 1 };
-        const locale = isEn ? 'en-US' : 'fr-FR';
-        if (currentAmount > 0) {
-          const formattedVal = (typeof formatMoneyValue === 'function') ? formatMoneyValue(currentAmount, locale) : currentAmount.toLocaleString(locale);
-          if (curr.code === 'XOF') {
-            receiptAmount.textContent = `${formattedVal} FCFA`;
-          } else {
-            const amountInXof = Math.round(currentAmount * curr.rateToXof);
-            const formattedXof = (typeof formatMoneyValue === 'function') ? formatMoneyValue(amountInXof, locale) : amountInXof.toLocaleString(locale);
-            receiptAmount.textContent = `${formattedVal} ${curr.symbol} (~${formattedXof} FCFA)`;
-          }
-        } else {
-          receiptAmount.textContent = dict.receipt_free_amount || (isEn ? 'Open amount (according to your means)' : 'Montant libre (selon vos capacités)');
-        }
-      }
-      if (receiptFrequency) {
-        const freqDict = frequencyDisplayNames[lang] || frequencyDisplayNames.fr;
-        receiptFrequency.textContent = freqDict[currentFrequency] || (isEn ? 'Occasional gift' : 'Don occasionnel');
-      }
-      if (receiptRef) receiptRef.textContent = refNumber;
-      if (receiptDate) receiptDate.textContent = today;
-
-      openModal('pledgeModal');
-    });
-  }
 
   // ==========================================================================
   // 12. FORMULAIRE DE CONTACT INSTITUTIONNEL SÉCURISÉ & ANTI-SPAM
