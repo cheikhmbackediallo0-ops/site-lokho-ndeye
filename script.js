@@ -1047,17 +1047,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentAmount > 0) {
         if (curr.code === 'XOF') {
           impactText.innerHTML = isEn
-            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> goes 100% directly to feeding, clothing, and protecting street children in Senegal.`
-            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> sera intégralement utilisé pour nourrir, vêtir et protéger les enfants de la rue au Sénégal.`;
+            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> goes 100% directly to hot meals for street children in Senegal.`
+            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} FCFA</strong> sera intégralement utilisé pour offrir des repas chauds aux enfants de la rue au Sénégal.`;
         } else {
           impactText.innerHTML = isEn
-            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (approx. <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) goes 100% directly to feeding, clothing, and protecting street children in Senegal.`
-            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (environ <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) sera intégralement utilisé pour nourrir, vêtir et protéger les enfants de la rue au Sénégal.`;
+            ? `<strong>Your solidarity gift:</strong> Your donation of <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (approx. <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) goes 100% directly to hot meals for street children in Senegal.`
+            : `<strong>Votre soutien solidaire :</strong> Votre don de <strong>${formatMoneyValue(currentAmount, locale)} ${curr.symbol}</strong> (environ <strong>${formatMoneyValue(amountInXof, locale)} FCFA</strong>) sera intégralement utilisé pour offrir des repas chauds aux enfants de la rue au Sénégal.`;
         }
       } else {
         impactText.innerHTML = isEn
-          ? `<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to feeding, clothing, and protecting street children in Senegal.`
-          : `<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée à nourrir, vêtir et protéger les enfants de la rue au Sénégal.`;
+          ? `<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to hot meals for street children in Senegal.`
+          : `<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée aux repas chauds des enfants de la rue au Sénégal.`;
       }
     }
   }

@@ -7,8 +7,8 @@
 const translations = {
   fr: {
     // Titre & Méta
-    page_title: "Association Caritative LOKHO NDEYE | Sauver & Protéger les Enfants de la Rue au Sénégal",
-    meta_description: "Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), dédiée exclusivement aux enfants de la rue au Sénégal. Repas chauds quotidiens, sandales neuves et vêtements propres. Siège : Saly [Mbour].",
+    page_title: "Association Caritative LOKHO NDEYE | Un Repas Chaud pour les Enfants de la Rue au Sénégal",
+    meta_description: "Site officiel de l'Association Caritative LOKHO NDEYE (La Main tendue d'une mère), dédiée exclusivement aux enfants de la rue au Sénégal. Un repas chaud servi avec amour. Siège : Saly [Mbour].",
 
     // Barre supérieure
     topbar_hq: "Siège Social : Saly [Mbour] — Action sur tout le Sénégal",
@@ -20,7 +20,7 @@ const translations = {
     brand_title: "ASSOCIATION CARITATIVE LOKHO NDEYE",
     official_beneficiary_name: "Association Caritative LOKHO NDEYE",
     brand_aria: "Retour à l'accueil de l'Association Caritative LOKHO NDEYE",
-    hero_section_aria: "Sauvetage et protection des enfants de la rue au Sénégal",
+    hero_section_aria: "Un repas chaud pour les enfants de la rue au Sénégal",
     brand_tagline: "« La Main tendue d'une mère »",
     brand_subtext: "Secours aux enfants de la rue sur tout le Sénégal • Siège à Saly [Mbour] • Association Déclarée",
     header_trust_title: "Siège à Saly [Mbour]",
@@ -39,11 +39,11 @@ const translations = {
     hero_act1_tag: "URGENCE VITALE",
     hero_act1_badge: "Enfants de la Rue au Sénégal",
     hero_act1_title: "Pieds nus sur la terre brûlante, le ventre vide. <span class=\"hero-title-highlight\">Sauvons les enfants de la rue.</span>",
-    hero_act1_desc: "Chaque jour au Sénégal, des milliers d'enfants errent pieds nus, vêtus de haillons déchirés et délabrés, un pot de tomate vide à la main pour mendier. L'Association Caritative LOKHO NDEYE tend la main protectrice d'une mère : nous leur offrons chaque jour un repas chaud, des chaussures fermes et des vêtements propres.",
+    hero_act1_desc: "Chaque jour au Sénégal, des milliers d'enfants errent pieds nus, le ventre vide, un pot de tomate vide à la main pour mendier. L'Association Caritative LOKHO NDEYE tend la main d'une mère : nous leur offrons un bol chaud, un repas chaud servi avec amour.",
     hero_tag_senegal: "Tout le Sénégal",
     hero_tag_childhood: "Secours Enfants de la Rue",
     hero_tag_hq: "Siège à Saly [Mbour]",
-    hero_btn_donate_hope: "Offrir un repas chaud ce soir",
+    hero_btn_donate_hope: "Offrir un repas chaud",
     hero_btn_explore_mission: "Découvrir notre combat",
 
     // Hero Section - Badges & légendes
@@ -51,36 +51,33 @@ const translations = {
     // Ruban Kinétique
     marquee_share: "Partager l'amour",
     marquee_nourish: "Nourrir un enfant affamé",
-    marquee_support: "Protéger les petits pieds nus",
-    marquee_protect: "Remplacer les vêtements déchirés",
+    marquee_support: "Un bol chaud pour chaque enfant",
     marquee_hq: "L'amour d'une mère pour chaque enfant",
-    marquee_build: "Redonner le sourire aux enfants sans abri",
+    marquee_build: "Redonner le sourire aux enfants de la rue",
 
     // Section Notre Mission
     mission_tag: "Notre Mission Fondatrice",
     mission_title: "NOTRE MISSION",
     mission_spirit_title: "L'esprit de « Lokho Ndéye » : Une mère pour les enfants oubliés de la rue",
-    mission_spirit_p1: "En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em>. Pour un enfant qui dort seul sur le trottoir froid ou sur un morceau de carton poussiéreux, sans personne pour essuyer ses larmes, cette main est un miracle vital. Notre mission absolue est d'arracher ces enfants à la faim, à la maladie et aux dangers extrêmes de la rue.",
-    mission_spirit_p2: "<strong>Notre engagement exclusif :</strong> Secourir les enfants de la rue abandonnés sans défense sur l'ensemble du territoire sénégalais, avec une bienveillance inconditionnelle.",
+    mission_spirit_p1: "En wolof, <strong>« Lokho Ndéye »</strong> signifie <em>« La main tendue d'une mère »</em>. Pour un enfant seul dans la rue, le ventre vide, sans personne pour essuyer ses larmes, cette main compte plus que tout. Notre mission est simple : offrir à ces enfants un repas chaud, avec la tendresse d'une mère.",
+    mission_spirit_p2: "<strong>Notre engagement exclusif :</strong> Offrir un repas chaud aux enfants de la rue sur l'ensemble du territoire sénégalais, avec une bienveillance inconditionnelle.",
     pillar_1_title: "Partager l'Amour",
     pillar_1_desc: "Rompre la terrible solitude de l'enfant des rues par une écoute affectueuse, respectueuse et un soutien fraternel constant.",
     pillar_2_title: "Nourrir Chaque Jour",
     pillar_2_desc: "Distribuer des repas chauds, fortifiés et copieux pour qu'aucun enfant ne s'endorme les larmes aux yeux et le ventre vide.",
-    pillar_3_title: "Vêtir & Chausser",
-    pillar_3_desc: "Fournir des sandales neuves aux pieds nus et remplacer les haillons délabrés par des habits propres.",
     emblem_zoom: "Agrandir",
     legal_box_title: "Cadre éthique & légal",
     legal_box_text: "<em>« L'Association est ouverte à tous, dans le respect des convictions individuelles, dans l'indépendance à l'égard des partis politiques. »</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III des Statuts officiels</strong>",
 
     // Section Spotlight Émotionnelle
     spotlight_badge: "Leur cri silencieux",
-    spotlight_title: "« Regardez ses yeux : il n'a que 7 ans et son seul lit est la poussière de la rue. »",
+    spotlight_title: "« Regardez ses yeux : il n'a que 7 ans et il n'a rien mangé depuis hier. »",
     spotlight_quote: "« J'ai marché des heures pieds nus sur le goudron brûlant. Tout ce que je demandais, c'était un peu de pain... »",
-    spotlight_text: "Demain matin, quand le soleil se lèvera sur Dakar, Saly ou Thiès, ces enfants marcheront à nouveau pieds nus sur les gravats et les épines, leurs vêtements en lambeaux flottant au vent. Vos dons ne sont pas une simple aumône : c'est la différence entre une nuit de faim glaciale sur le béton et un bol de riz chaud servi avec amour. Ne détournez pas le regard.",
+    spotlight_text: "Demain matin, quand le soleil se lèvera sur Dakar, Saly ou Thiès, ces enfants marcheront à nouveau pieds nus dans la poussière, le ventre vide. Vos dons ne sont pas une simple aumône : c'est la différence entre une journée de faim et un bol de riz chaud servi avec amour. Ne détournez pas le regard.",
     spotlight_stat_1_val: "100% Direct",
     spotlight_stat_1_lbl: "Des dons consacrés aux enfants de la rue",
     spotlight_stat_2_val: "Action Terrain",
-    spotlight_stat_2_lbl: "Nourriture, vêtements et protection au quotidien",
+    spotlight_stat_2_lbl: "Un repas chaud servi aux enfants de la rue",
     spotlight_cta_btn: "Sauver un enfant maintenant",
 
     // Section Domaines d'Intervention (100% Enfants de la Rue)
@@ -92,21 +89,21 @@ const translations = {
     // Section Pourquoi nous soutenir
     why_tag: "L'Urgence du Cœur",
     why_title: "Pourquoi votre soutien sauve littéralement des vies",
-    why_sub: "Ces enfants de la rue n'ont personne d'autre au monde vers qui se tourner. Votre don se transforme directement en secours vital, sans intermédiaire.",
-    why_item1_title: "100% direct aux enfants : repas, sandales et pansements",
-    why_item1_desc: "Votre contribution ne se perd pas dans des frais de structure : chaque franc collecté achète directement du riz, du lait, des paires de sandales, des pansements antiseptiques et des vêtements chauds.",
+    why_sub: "Ces enfants de la rue n'ont personne d'autre au monde vers qui se tourner. Votre don se transforme directement en repas chaud, sans intermédiaire.",
+    why_item1_title: "100% direct aux enfants : un repas chaud",
+    why_item1_desc: "Votre contribution ne se perd pas dans des frais de structure : chaque franc collecté achète directement le riz, le lait et les denrées qui remplissent leur bol chaud.",
     why_item2_title: "Une équipe bénévole présente chaque jour sur le terrain",
     why_item2_desc: "Nos bénévoles arpentent la poussière des rues, s'assoient aux côtés des enfants et partagent leurs repas dans un dévouement total et désintéressé.",
     why_item3_title: "L'amour d'une mère pour chaque enfant abandonné",
     why_item3_desc: "Nous ne donnons pas seulement du pain : nous posons une main douce sur leur épaule, nous essuyons leurs larmes et nous leur redonnons la fierté d'être un enfant aimé.",
-    why_box_title: "Ne les laissez pas seuls ce soir",
-    why_box_desc: "À l'instant où vous lisez ces lignes, un enfant marche pieds nus dans la nuit, grelottant de froid. Votre don lui offre un repas chaud et protège ses pieds nus. Ouvrez-lui les bras.",
+    why_box_title: "Ne les laissez pas le ventre vide",
+    why_box_desc: "À l'instant où vous lisez ces lignes, un enfant de la rue a faim. Votre don lui offre un bol chaud, un repas chaud servi avec amour. Ouvrez-lui les bras.",
     why_box_btn: "Faire un don maintenant pour un enfant",
 
     // Section Faire un don (Montant libre solidaire)
     don_tag: "Espace Donateurs Solidaires",
     don_title: "Tendez la main : Sauvez un enfant de la rue",
-    don_sub: "Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés à nourrir, vêtir et protéger les enfants de la rue au Sénégal.",
+    don_sub: "Choisissez votre mode de contribution solidaire. 100% de vos dons sont exclusivement consacrés aux repas chauds des enfants de la rue au Sénégal.",
     tab_pledge: "Promesse & Formulaire de don",
     tab_methods: "Coordonnées de virement & Wave",
     freq_label: "1. Fréquence de votre soutien solidaire :",
@@ -115,7 +112,7 @@ const translations = {
     amount_label: "2. Montant de votre don (Montant libre selon vos capacités) :",
     currency_auto_detected: "Devise adaptée à votre pays de résidence :",
     custom_amount_placeholder: "Indiquez le montant de votre choix (en FCFA)",
-    preview_default: "<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée à nourrir, vêtir et protéger les enfants de la rue au Sénégal.",
+    preview_default: "<strong>Chaque don est précieux :</strong> Il n'y a pas de montant imposé ni de petit don. Votre contribution, selon votre cœur et vos capacités, est intégralement dédiée aux repas chauds des enfants de la rue au Sénégal.",
     volunteer_box: "<strong>Transparence & Bénévolat 100% :</strong> L'ensemble de vos dons est affecté directement au soulagement des enfants de la rue à travers le Sénégal. Zéro salaire versé aux dirigeants (Art. IX).",
 
     sum_title: "Récapitulatif de votre don",
@@ -124,7 +121,7 @@ const translations = {
     sum_amount_lbl: "Montant indiqué :",
     sum_amount_free: "Montant libre selon vos capacités",
     sum_alloc_lbl: "Affectation :",
-    sum_alloc_val: "100% Repas, Vêtements & Protection des Enfants de la Rue",
+    sum_alloc_val: "100% Repas chauds pour les Enfants de la Rue",
     btn_pledge: "Générer mon engagement de don",
     btn_see_coords: "Voir les coordonnées officielles ci-dessous",
     btn_back_to_form: "← Remplir une promesse de don / Obtenir un reçu",
@@ -165,7 +162,7 @@ const translations = {
     // Contact
     contact_tag: "Secrétariat Administratif",
     contact_title: "Contactez l'Association Caritative LOKHO NDEYE",
-    contact_sub: "Pour toute question sur nos actions auprès des enfants de la rue, proposition de partenariat humanitaire ou don en nature (chaussures, vêtements, riz), écrivez-nous.",
+    contact_sub: "Pour toute question sur nos actions auprès des enfants de la rue, proposition de partenariat humanitaire ou don en nature (riz, lait, denrées alimentaires), écrivez-nous.",
     contact_hq_title: "Siège Social Officiel",
     contact_hq_address: "Saly Station, Commune de Saly Portudal<br>Département de Mbour, Région de Thiès<br><strong>République du Sénégal</strong>",
     contact_hq_reach: "Rayonnement d'action : Ensemble du Sénégal",
@@ -201,7 +198,7 @@ const translations = {
 
     // Pied de page
     footer_tagline: "La Main tendue d'une mère pour les enfants de la rue",
-    footer_desc: "Association caritative à but non lucratif dédiée exclusivement au sauvetage, à la nutrition et à la protection des enfants de la rue au Sénégal. Régie par le Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
+    footer_desc: "Association caritative à but non lucratif dédiée exclusivement aux repas chauds des enfants de la rue au Sénégal. Régie par le Code des Obligations Civiles et Commerciales de la République du Sénégal. Siège social à Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">« Partager • Nourrir • Soutenir • Construire un avenir meilleur »</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarité & Éthique",
     footer_link_virement: "Faire un don par virement",
@@ -210,7 +207,7 @@ const translations = {
     footer_link_privacy: "Charte d'anonymat & déontologie",
     footer_link_contact: "Nous contacter",
     footer_legal_title: "Statut Juridique",
-    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">République du Sénégal</strong>Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br><strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Mission exclusive :</strong> Protection des enfants de la rue.<br><strong>Durée :</strong> Illimitée.",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">République du Sénégal</strong>Enregistrée en vertu du Code des Obligations Civiles et Commerciales.<br><strong>Siège officiel :</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Mission exclusive :</strong> Repas chauds pour les enfants de la rue.<br><strong>Durée :</strong> Illimitée.",
     footer_copyright: "© 2026 Association Caritative LOKHO NDEYE (« La Main tendue d'une mère »). Tous droits réservés.",
     footer_legal_notices: "Mentions Légales",
     footer_privacy_policy: "Politique de Confidentialité",
@@ -260,7 +257,7 @@ const translations = {
     modal_pledge_amount_lbl: "Montant du soutien :",
     modal_pledge_freq_lbl: "Fréquence :",
     modal_pledge_alloc_lbl: "Affectation sociale :",
-    modal_pledge_alloc_val: "100% Repas chauds, sandales & vêtements pour les enfants de la rue",
+    modal_pledge_alloc_val: "100% Repas chauds pour les enfants de la rue",
     modal_pledge_instructions: "<strong>Instructions de transmission :</strong><br>Pour concrétiser cet engagement de don, veuillez effectuer le transfert correspondant via <strong>Wave</strong> ou <strong>Virement bancaire</strong> en rappelant votre référence officielle.",
     btn_print: "Imprimer ce récapitulatif",
 
@@ -281,8 +278,8 @@ const translations = {
 
   en: {
     // Page Title & Meta
-    page_title: "Lokho Ndéye Charitable Association | Rescuing & Protecting Street Children in Senegal",
-    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), dedicated exclusively to street children in Senegal. Daily hot meals, sturdy sandals, and clean clothes. HQ: Saly [Mbour].",
+    page_title: "Lokho Ndéye Charitable Association | A Hot Meal for Street Children in Senegal",
+    meta_description: "Official website of the Lokho Ndéye Charitable Association (A Mother's Outstretched Hand), dedicated exclusively to street children in Senegal. A hot meal served with love. HQ: Saly [Mbour].",
 
     // Top Bar
     topbar_hq: "Headquarters: Saly [Mbour] — Operating throughout Senegal",
@@ -294,7 +291,7 @@ const translations = {
     brand_title: "CHARITABLE ASSOCIATION LOKHO NDEYE",
     official_beneficiary_name: "Lokho Ndéye Charitable Association",
     brand_aria: "Back to home - Lokho Ndéye Charitable Association",
-    hero_section_aria: "Rescuing and protecting street children across Senegal",
+    hero_section_aria: "A hot meal for street children across Senegal",
     brand_tagline: "“A Mother's Outstretched Hand”",
     brand_subtext: "Relief for street children across Senegal • Headquarters in Saly [Mbour] • Registered Charity",
     header_trust_title: "Headquarters in Saly [Mbour]",
@@ -313,11 +310,11 @@ const translations = {
     hero_act1_tag: "VITAL EMERGENCY",
     hero_act1_badge: "Street Children in Senegal",
     hero_act1_title: "Barefoot on the scorching dust, empty bellies. <span class=\"hero-title-highlight\">Let's rescue street children.</span>",
-    hero_act1_desc: "Every day across Senegal, thousands of children roam barefoot in tattered, worn-out rags, holding small empty tins to beg for food. The Lokho Ndéye Charitable Association reaches out with a mother's protective embrace: providing daily hot meals, sturdy shoes, and clean clothes.",
+    hero_act1_desc: "Every day across Senegal, thousands of children roam barefoot on an empty stomach, holding small empty tins to beg for food. The Lokho Ndéye Charitable Association reaches out with a mother's hand: we give them a warm bowl, a hot meal served with love.",
     hero_tag_senegal: "All of Senegal",
     hero_tag_childhood: "Street Children Rescue",
     hero_tag_hq: "HQ in Saly [Mbour]",
-    hero_btn_donate_hope: "Provide a Hot Meal Tonight",
+    hero_btn_donate_hope: "Provide a Hot Meal",
     hero_btn_explore_mission: "Discover Our Fight",
 
     // Hero Foreground Stage & Badges
@@ -325,36 +322,33 @@ const translations = {
     // Kinetic Marquee
     marquee_share: "Share Love",
     marquee_nourish: "Feed a Hungry Child",
-    marquee_support: "Protect Bare Feet",
-    marquee_protect: "Replace Tattered Clothes",
+    marquee_support: "A Warm Bowl for Every Child",
     marquee_hq: "A Mother's Love for Every Child",
-    marquee_build: "Restore Hope to Homeless Children",
+    marquee_build: "Bring Back Smiles to Street Children",
 
     // Section Our Mission
     mission_tag: "Our Founding Mission",
     mission_title: "OUR MISSION",
     mission_spirit_title: "The Spirit of “Lokho Ndéye”: A Mother for Forgotten Street Children",
-    mission_spirit_p1: "In Wolof, <strong>“Lokho Ndéye”</strong> means <em>“A mother's outstretched hand”</em>. For a child sleeping alone on cold concrete or dusty cardboard, with no one to wipe his tears, this hand is a lifesaving miracle. Our absolute purpose is to rescue these children from hunger, sickness, and the severe perils of the street.",
-    mission_spirit_p2: "<strong>Our exclusive dedication:</strong> Protecting defenseless street children throughout Senegal with unconditional love and kindness.",
+    mission_spirit_p1: "In Wolof, <strong>“Lokho Ndéye”</strong> means <em>“A mother's outstretched hand”</em>. For a child alone in the street on an empty stomach, with no one to wipe his tears, this hand means everything. Our mission is simple: to give these children a hot meal, with a mother's tenderness.",
+    mission_spirit_p2: "<strong>Our exclusive dedication:</strong> Providing a hot meal to street children throughout Senegal with unconditional love and kindness.",
     pillar_1_title: "Share Love & Presence",
-    pillar_1_desc: "Break the heartbreaking loneliness of homeless children through affectionate listening, dignity, and constant fraternal presence.",
+    pillar_1_desc: "Break the heartbreaking loneliness of street children through affectionate listening, dignity, and constant fraternal presence.",
     pillar_2_title: "Nourish Every Day",
     pillar_2_desc: "Cook and serve daily warm, vitamin-rich, hearty meals so no child cries himself to sleep with an empty stomach.",
-    pillar_3_title: "Clothe & Provide Shoes",
-    pillar_3_desc: "Provide brand-new sturdy sandals to protect bare feet, and replace tattered rags with clean clothing.",
     emblem_zoom: "Enlarge",
     legal_box_title: "Ethical & Legal Framework",
     legal_box_text: "<em>“The Association is open to all, respecting individual convictions, and remains strictly independent of political parties.”</em><br><strong style=\"color: var(--color-primary); font-size: 0.75rem;\">— Article III of Official Bylaws</strong>",
 
     // Spotlight Section
     spotlight_badge: "Their Silent Cry",
-    spotlight_title: "“Look into his eyes: he is only 7 years old, and his only bed is the street dust.”",
+    spotlight_title: "“Look into his eyes: he is only 7 years old, and he hasn't eaten since yesterday.”",
     spotlight_quote: "“I walked for hours barefoot on scorching asphalt. All I asked for was a piece of bread...”",
-    spotlight_text: "Tomorrow morning, as the sun rises over Dakar, Saly, or Thiès, these children will once again walk barefoot over broken glass and thorns, their ragged clothes flapping in the wind. Your donation is not mere spare change: it is the exact difference between a freezing night on concrete and a warm bowl of rice served with unconditional love. Please don't look away.",
+    spotlight_text: "Tomorrow morning, as the sun rises over Dakar, Saly, or Thiès, these children will once again walk barefoot through the dust on an empty stomach. Your donation is not mere spare change: it is the difference between a day of hunger and a warm bowl of rice served with love. Please don't look away.",
     spotlight_stat_1_val: "100% Direct",
     spotlight_stat_1_lbl: "Of donations dedicated to street children",
     spotlight_stat_2_val: "Field Action",
-    spotlight_stat_2_lbl: "Daily food, clothing, and protection",
+    spotlight_stat_2_lbl: "A hot meal served to street children",
     spotlight_cta_btn: "Rescue a Child Now",
 
     // Fields of Action
@@ -366,21 +360,21 @@ const translations = {
     // Why Support Us
     why_tag: "From the Heart",
     why_title: "Why Your Support Literally Saves Lives",
-    why_sub: "These homeless children have no one else in the world to turn to. Your gift transforms directly into vital relief without middlemen.",
-    why_item1_title: "100% direct to the children: food, shoes, and medicine",
-    why_item1_desc: "Your gift is never wasted in overhead: every single franc buys rice, milk, pairs of durable sandals, antiseptic bandages, and warm clothes.",
+    why_sub: "These street children have no one else in the world to turn to. Your gift turns directly into a hot meal, without middlemen.",
+    why_item1_title: "100% direct to the children: a hot meal",
+    why_item1_desc: "Your gift is never wasted in overhead: every single franc buys the rice, milk, and food that fill their warm bowl.",
     why_item2_title: "Dedicated volunteers in the streets every single day",
     why_item2_desc: "Our volunteers walk the dusty alleys, sit beside the children, and share their meals with pure, selfless devotion.",
     why_item3_title: "A mother's love for every abandoned child",
     why_item3_desc: "We don't just hand out food: we put a gentle hand on their shoulder, listen to their sorrow, and restore their pride as loved human beings.",
-    why_box_title: "Don't leave them alone tonight",
-    why_box_desc: "As you read these words, a child is walking barefoot into the night, shivering from cold. Your gift gives them a warm meal and protects their bare feet. Reach out your hand.",
+    why_box_title: "Don't leave them hungry",
+    why_box_desc: "As you read these words, a street child is hungry. Your gift gives them a warm bowl, a hot meal served with love. Reach out your hand.",
     why_box_btn: "Donate now for a street child",
 
     // Section Faire un don
     don_tag: "Street Children Emergency Area",
     don_title: "Reach Out Your Hand: Save a Street Child",
-    don_sub: "Choose your contribution. 100% of your donations are exclusively dedicated to feeding, clothing, and protecting street children in Senegal.",
+    don_sub: "Choose your contribution. 100% of your donations are exclusively dedicated to hot meals for street children in Senegal.",
     tab_pledge: "Pledge & Donation Form",
     tab_methods: "Bank Wire & Wave Details",
     freq_label: "1. Frequency of your support:",
@@ -389,7 +383,7 @@ const translations = {
     amount_label: "2. Donation amount (Open amount according to your means):",
     currency_auto_detected: "Currency tailored to your country of residence:",
     custom_amount_placeholder: "Enter custom amount (in FCFA)",
-    preview_default: "<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to feeding, clothing, and protecting street children in Senegal.",
+    preview_default: "<strong>Every donation is precious:</strong> There is no set amount or small gift. Your contribution, according to your heart and means, is entirely dedicated to hot meals for street children in Senegal.",
     volunteer_box: "<strong>Transparency & 100% Volunteer:</strong> All donations are exclusively allocated to helping street children across Senegal. Zero salaries paid to leadership (Art. IX).",
 
     sum_title: "Your Donation Summary",
@@ -398,7 +392,7 @@ const translations = {
     sum_amount_lbl: "Selected Amount:",
     sum_amount_free: "Open amount according to your means",
     sum_alloc_lbl: "Allocation:",
-    sum_alloc_val: "100% Meals, Clothing & Protection for Street Children",
+    sum_alloc_val: "100% Hot Meals for Street Children",
     btn_pledge: "Generate my donation pledge",
     btn_see_coords: "See official payment details below",
     btn_back_to_form: "← Return to pledge form / Get receipt",
@@ -439,7 +433,7 @@ const translations = {
     // Contact
     contact_tag: "Administrative Secretariat",
     contact_title: "Contact the Lokho Ndéye Charitable Association",
-    contact_sub: "For questions about our operations for street children, humanitarian partnerships, or in-kind donations (shoes, clothing, rice), contact our team.",
+    contact_sub: "For questions about our work with street children, humanitarian partnerships, or in-kind donations (rice, milk, food supplies), contact our team.",
     contact_hq_title: "Official Headquarters",
     contact_hq_address: "Saly Station, Commune of Saly Portudal<br>Mbour Department, Thiès Region<br><strong>Republic of Senegal</strong>",
     contact_hq_reach: "Operational scope: Entire Republic of Senegal",
@@ -475,7 +469,7 @@ const translations = {
 
     // Footer
     footer_tagline: "A Mother's Outstretched Hand for Street Children",
-    footer_desc: "Charitable nonprofit association dedicated exclusively to rescuing, feeding, and protecting street children in Senegal. Registered under the Code of Civil and Commercial Obligations of the Republic of Senegal. Headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
+    footer_desc: "Charitable nonprofit association dedicated exclusively to hot meals for street children in Senegal. Registered under the Code of Civil and Commercial Obligations of the Republic of Senegal. Headquarters in Saly [Mbour].<br><br><em style=\"color: var(--color-secondary-light);\">“Share • Nourish • Support • Build a better future”</em>",
     footer_nav_title: "Navigation",
     footer_ethics_title: "Solidarity & Ethics",
     footer_link_virement: "Donate via bank transfer",
@@ -484,7 +478,7 @@ const translations = {
     footer_link_privacy: "Ethics & Anonymity Charter",
     footer_link_contact: "Contact us",
     footer_legal_title: "Legal Status",
-    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Exclusive Mission:</strong> Protection of street children.<br><strong>Duration:</strong> Unlimited.",
+    footer_legal_text: "<strong style=\"color: #FFFFFF; display: block; margin-bottom: 6px;\">Republic of Senegal</strong>Registered under the Code of Civil and Commercial Obligations.<br><strong>Official HQ:</strong> Saly Station, Saly Portudal [Mbour].<br><strong>Exclusive Mission:</strong> Hot meals for street children.<br><strong>Duration:</strong> Unlimited.",
     footer_copyright: "© 2026 Lokho Ndéye Charitable Association (“A Mother's Outstretched Hand”). All rights reserved.",
     footer_legal_notices: "Legal Notices",
     footer_privacy_policy: "Privacy Policy",
@@ -534,7 +528,7 @@ const translations = {
     modal_pledge_amount_lbl: "Support Amount:",
     modal_pledge_freq_lbl: "Frequency:",
     modal_pledge_alloc_lbl: "Social Allocation:",
-    modal_pledge_alloc_val: "100% Warm meals, shoes & clothing for street children in Senegal",
+    modal_pledge_alloc_val: "100% Hot meals for street children in Senegal",
     modal_pledge_instructions: "<strong>Payment Instructions:</strong><br>To complete this pledge, please initiate the corresponding transfer via <strong>Wave</strong> or <strong>Bank Wire</strong> mentioning your official reference.",
     btn_print: "Print this summary",
 
